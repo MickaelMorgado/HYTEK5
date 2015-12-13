@@ -60,7 +60,7 @@
 	}
 
 	function onPlayerReady(event) {
-		$("#youtubeThumbnail").attr("src","http://img.youtube.com/vi/"+player.getPlaylist()+"/0.jpg");
+		//$("#youtubeThumbnail").attr("src","http://img.youtube.com/vi/"+player.getPlaylist()+"/0.jpg");
 		$(".player .yt-time").html("time:"+player.getDuration()+"");
 	}
 
