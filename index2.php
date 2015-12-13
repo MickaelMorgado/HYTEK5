@@ -5,16 +5,14 @@
 	<title>HYTEK4</title>
     <meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no"/>
+	<link rel="icon" href="hyteklogo.jpg" type="image/jpg">
 	<link rel="stylesheet" href="stylesheets/font-awesome.min.css">
 	<script type="text/javascript" src="javascripts/jquery-2.1.3.min.js"></script>
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-	<!--script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script-->
 	<link href="stylesheets/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="stylesheets/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="stylesheets/styles2.css"/>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.min.js"></script>
 	<script type="text/javascript" src="javascripts/slick.min.js"></script>
-	<link rel="icon" href="hyteklogo.jpg" type="image/jpg">
 </head>
 
 <?php include('apps/custom-head.php'); ?>
@@ -146,16 +144,6 @@
 	<div class='context-menu-input'></div>
 </div>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-	  $('.single-item').slick({
-	      dots: true,
-	      draggable: false,
-	  });
-	});
-</script>
-
-
 
 			</div>
 		</div>
@@ -165,6 +153,7 @@
 
 </body>
 </html>
+<script src="javascripts/main.js"></script>
 <script>
 	
 	//YOUTUBE
@@ -244,7 +233,7 @@
 		function StartRestartContextmenu() {
 	
 			ContextMenu.css({DN});
-			console.log(":");
+			//console.log(":");
 
 			// RIGHT CLICK TO CONTEXT MENU APPEARS
 			ContextElements.on("contextmenu",function(e){

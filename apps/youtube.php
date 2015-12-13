@@ -50,11 +50,10 @@
 			playerVars: {
 				listType: 'playlist',
 				list: <?php echo "'$ytb'" ; ?>,
-				showinfo: 1,
 			},
 			events: {
 				'onReady': onPlayerReady,
-				'onStateChange': onPlayerStateChange
+				'onStateChange': onPlayerStateChange,
 			}
 		});
 	}
@@ -84,9 +83,6 @@
 			$("#player-play").css({"display":"inline-block"});
 			$(".player").removeClass("active");
 		}
-		//if (event.data == YT.PlayerState.BUFFERING){
-		//	$("#player-pause").css({"opacity":"0.5"});
-		//}
 	}
 
 	$("#player-pause").click(function(){
