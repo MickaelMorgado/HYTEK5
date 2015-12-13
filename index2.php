@@ -21,8 +21,6 @@
 
 <body>
   
-
-
 <div class="container full-height">
 	<div class="row full-height">
 		<div class="col-xs-12 col-sm-12 col-md-12 full-height">
@@ -127,58 +125,17 @@
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12">
 								<h3>settings:</h3>
+							
+
+
+
+
+
 							</div>
 						</div>
 
-						<div class="row">
-							<div class="col-xs-12 col-sm-3 col-md-3">
-								<div class="db mg">
-									<i class="fa fa-picture-o"></i>
-									<span>fundo :</span>
-								</div>
-								<input type="text" class="dib" id="bgurl" name="bgurl" placeholder="place url of image" />
-								<input type="submit" class="dib" onclick="changebg()" value="change">
-							</div>
-							<div class="col-xs-12 col-sm-3 col-md-3">
-								<div class="db mg">
-									<i class="fa fa-youtube-play"></i>
-									<span>mudar youtube :</span>
-								</div>
-								<input type="text" class="dib" id="yturl" name="yturl" placeholder="place url of src" />
-								<input type="submit" class="dib" onclick="changeyt()" value="change">
-							</div>
-							<div class="col-xs-12 col-sm-3 col-md-3">
-							  	<div class="db mg">
-							  		<i class="fa fa-spotify"></i>
-							  		<span>mudar spotify :</span>
-							  	</div>
-								<input type="text" class="dib" id="spurl" name="spurl" placeholder="place url of src" />
-								<input type="submit" class="dib" onclick="changesp()" value="change">
-							</div>		
-							<div class="col-xs-12 col-sm-3 col-md-3">
-							  	<div class="db mg">
-							  		<i class="fa fa-cloud-upload"></i>
-							  		<span>upload files :</span>
-							  	</div>
-								<form enctype="multipart/form-data" action="apps/upload.php" method="POST">
-									<input name="uploaded" class="dib" type="file" placeholder="Please choose a file (max: 0.7 mb)"/>
-									<input type="submit" class="dib" onclick="upload()" value="upload">
-								</form> 
-							</div>
-						</div>
+						<?php include('settings.php'); ?>
 
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12">
-								<label for="select-tabs-order" class="db">tabs order : </label>
-								<select name="select-tabs-order" id="select-tabs-order">
-									<option value="New/Old" selected="selected">New/Old</option>
-									<option value="Old/New">Old/New</option>
-									<option value="A-Z">A-Z</option>
-									<option value="Clicked">Clicked</option>
-								</select>
-							</div>
-						</div>
-			
 
 					<?php } ?>
 
@@ -199,6 +156,7 @@
 	$(document).ready(function(){
 	  $('.single-item').slick({
 	      dots: true,
+	      draggable: false,
 	  });
 	});
 </script>

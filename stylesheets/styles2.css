@@ -186,12 +186,12 @@ label {
 
 /* line 218, ../sass/styles2.scss */
 .slick-prev {
-  left: -250px;
+  left: 0px;
 }
 
 /* line 219, ../sass/styles2.scss */
 .slick-next {
-  right: -250px;
+  right: 0px;
 }
 
 /* line 220, ../sass/styles2.scss */
@@ -207,7 +207,7 @@ label {
 /*========================== dots ==================================*/
 /* line 229, ../sass/styles2.scss */
 .slick-dots {
-  bottom: -150px;
+  bottom: 0px;
 }
 
 /* line 233, ../sass/styles2.scss */

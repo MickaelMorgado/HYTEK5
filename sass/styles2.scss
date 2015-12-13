@@ -215,8 +215,8 @@ label { font-weight: lighter; }
 
 .slick-slide {position: relative;}
 
-.slick-prev {left: -250px;}
-.slick-next {right: -250px;}
+.slick-prev {left: 0px;}
+.slick-next {right: 0px;}
 .slick-prev::before, .slick-next::before { color: #222; }
 
 .slick-slide img {  display: inline-block; }
@@ -227,7 +227,7 @@ $slick-dot-color: #222;
 $slick-dot-color-active: $slick-dot-color;
 
 .slick-dots {
-  bottom: -150px;
+  bottom: 0px;
 }
 
 .slick-dots li ,
