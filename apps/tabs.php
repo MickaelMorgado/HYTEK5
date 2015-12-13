@@ -1,7 +1,7 @@
 <?php 
 error_reporting(0);
 session_start();
-@include('../../dbConnection.php');
+@include('../dbConnection.php');
 	if(isset($_SESSION['id_session'])){
 		if ($_POST['keywords']!='') {
 			//echo "<h1>session: $_SESSION[id_session] key:$_POST[keywords]</h1>";

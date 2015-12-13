@@ -1,6 +1,6 @@
 <?php
 session_set_cookie_params(604800,"/");
-include('../dbConnection.php');
+include('dbConnection.php');
 $name = $_POST['username'];
 $pass = hash('SHA512', $_POST["password"]);
 //echo "$pass";

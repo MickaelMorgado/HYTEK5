@@ -1,5 +1,5 @@
 <?php 
-	require_once('../../dbConnection.php');
+	require_once('../dbConnection.php');
 	$id = $_POST['id'];
 	$title = $_POST['title'];
 	$url = str_replace(array("http://", "https://"), "", $_POST['url']);

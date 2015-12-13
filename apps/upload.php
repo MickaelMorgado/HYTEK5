@@ -1,7 +1,7 @@
 <!--http://php.about.com/od/advancedphp/ss/php_file_upload_3.htm#step-heading-->
 <?php 
 
-	require_once("../../dbConnection.php");
+	require_once("../dbConnection.php");
 
  $target = "../../HYTEK3/downloads/"; 
  $target = $target . basename( $_FILES['uploaded']['name']) ; 
