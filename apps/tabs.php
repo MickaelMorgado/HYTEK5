@@ -12,7 +12,8 @@ if(isset($ID_SESSION)){		// CHECK FOR INITIALIZED SESSION
 	} else {
 			
 		$tabs_order = mysqli_query($link, "SELECT tabs_order FROM settings WHERE id_settings = '$ID_SESSION'");
-		$tabs_order = mysqli_fetch_assoc($tabs_order)['tabs_order'];
+		$tabs_order = mysqli_fetch_assoc($tabs_order);
+		$tabs_order = $tabs_order['tabs_order'];
 		//echo $ID_SESSION;echo $tabs_order;
 		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = '$ID_SESSION' ORDER BY $tabs_order");
 	
