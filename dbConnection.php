@@ -28,7 +28,8 @@
 		mysql_query("set names 'utf8'");   
 		$db_select_result = mysqli_query($link, "SELECT ".$select." FROM ".$from." ".$where);
 		//echo "SELECT ".$select." FROM ".$from." ".$where;
-		$bg = mysqli_fetch_assoc($db_select_result)[$select];
+		$bg = mysqli_fetch_assoc($db_select_result);
+		$bg = $bg[$select];
 		include($code_file);
 
 	}
