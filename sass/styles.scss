@@ -1,0 +1,646 @@
+@import "compass/css3";
+@import "bootstrap-variables";
+@import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/*========================================
+  variables
+========================================*/
+//global
+$font-size:                 14px;
+$font-family:               'Open Sans', sans-serif;
+$white:                     #fff;
+$grey:                      #999;
+$black:                     #000;
+$black-transparent:         rgba(0,0,0,0.9);
+$primary-color:             lightgreen;
+$rgb1: 20; $rgb2: 20; $rgb3: 25;
+$theme-color:               rgb($rgb1,$rgb2,$rgb3);
+$theme-color-transparent:   rgba($rgb1,$rgb2,$rgb3,.8);
+
+//aside
+$aside-width:                     220px;
+$aside-side:                      right;
+$aside-side-offset:               $aside-width;
+$aside-side-offset:               15px;
+$aside-color:                     $grey;
+$aside-transition-speed:          .5s;
+$aside-bg-color:                  $theme-color;
+$aside-button-height:             45px;
+$aside-button-icons-side:         left;
+$aside-button-icon-size:          20%;
+$aside-button-transition-speed:   .1s;
+$aside-button-border-color:       lighten($aside-bg-color,10%);
+$aside-button-border-color-inset: darken($aside-bg-color,50%);
+$aside-button-hover-background:   darken($aside-bg-color,5%);
+$aside-input-margin:              0 0;
+$aside-shadow:                    0 0 15px 10px $black;
+
+//header
+$header-bg-color:       $theme-color;
+
+//button
+$button-width:              auto;
+$button-font-style:         uppercase;
+$button-border-radius:      0;
+$button-transition-speed:   .5s;
+
+//input
+$input-border-radius:   0;
+$input-padding:         0;
+$input-margin:          10px 0; 
+$input-text-align:      center;
+
+//main
+$main-average-size:     95%;
+$main-border-radius:    0;
+$main-background-color: darken(rgba($rgb1,$rgb2,$rgb3,0.6),10%);
+
+//tabs
+$tabs-width:            100%;
+$tabs-button-padding:   20px;
+$tabs-button-bg:        $theme-color-transparent;
+
+//block 
+$block-space:           0;
+
+//block-news
+$block-news-height:     300px;
+
+//breakpoints;
+$small-max:        640px;
+$medium-max:       1024px;
+$large-min:        1025px;
+
+/*========================================
+  mixins
+========================================*/
+@mixin aside-button-icons($aside-button-icons-side) {
+  @if $aside-button-icons-side == "right" { 
+    float: right; 
+  }
+  @if $aside-button-icons-side == "left" { 
+    float: left; 
+  }
+}
+
+@mixin aside-button-icon-size($aside-button-icon-size) {
+  &:first-child { width: $aside-button-icon-size; }
+  $rest: 100% - $aside-button-icon-size;
+  width: $rest;
+}
+
+@mixin side-reveal($aside-side){
+  @if $aside-side == "right" {
+    left: auto;
+    right: - ($aside-width - $aside-side-offset);
+    &:hover { right: 0; }
+  }
+  @if $aside-side == "left" {
+    left: - ($aside-width - $aside-side-offset);
+    &:hover { left: 0; }
+  }
+}
+
+html ,
+body {
+  position: relative;
+  height: 100%;  
+  margin: 0;
+  color: $theme-color;
+  overflow-x: hidden;
+  font-family: 'Open Sans', sans-serif;
+  font-size: $font-size;
+  background-color: darken($theme-color,5%);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+a:hover {
+  color: $primary-color;
+}
+
+$add: #00AAFF;
+$edit: $primary-color;
+$rm: #C22626;
+$imp: orange;
+
+/*========================================
+  header 
+========================================*/
+
+header {
+  @include box-shadow(0 0 15px 10px $black);
+  position: fixed;
+  height: 50px;
+  width: 100%;
+  margin: 0;
+  background-color: $header-bg-color;
+  z-index: 3;
+}
+
+header .aside-buttons {
+  width: 10%;
+  margin-left: -4px;
+  display: inline-block;
+  text-align: center;
+}
+
+/*========================================
+  aside (tool)
+========================================*/
+
+aside {
+  @include side-reveal($aside-side);
+  @include transition-duration($aside-transition-speed);
+  position: absolute;
+  width: $aside-width;
+  height: 100%;
+  display: block;
+  
+  background-color: $aside-bg-color;
+
+  box-shadow: $aside-shadow;
+  overflow: auto;
+  z-index: 10;
+}
+
+aside input {
+  margin: $aside-input-margin;
+}
+
+.aside-buttons {
+  position: relative;
+  height: $aside-button-height;
+  line-height: $aside-button-height;
+  display: block;
+  
+  color: $aside-color;
+  border-bottom: 1px solid $aside-button-border-color;
+  box-shadow: inset 0 -1px 0 0 $aside-button-border-color-inset;
+  vertical-align: top;
+    
+  &.button {
+    @include transition(background,$aside-button-transition-speed);
+  }
+    
+  &:hover {
+    background: $aside-button-hover-background;
+    cursor: pointer;
+  }
+
+}
+
+.aside-buttons i ,
+.aside-buttons span {
+  @include aside-button-icons($aside-button-icons-side);
+  @include aside-button-icon-size($aside-button-icon-size);
+  display: inline-block;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*========================================
+  padded
+========================================*/
+
+.padded {
+  padding: 0 20px;
+}
+
+/*========================================
+  button
+========================================*/
+
+.button {
+  @include transition(color,$button-transition-speed);
+  text-transform: $button-font-style;
+  &:hover { color: $primary-color; }
+}
+
+/*========================================
+  input
+========================================*/
+
+input{
+  height: 40px;
+  line-height: 40px;
+  border: none;
+  color: $white;
+  background-color: $theme-color;
+  display: block;
+  margin: $input-margin;
+  display: inline-block;
+  padding: $input-padding;
+  text-align: $input-text-align;
+  @include border-radius($input-border-radius);
+  @include box-shadow(inset 0 0 10px 0 $black-transparent);
+}
+
+input[type="submit"] { 
+  @include border-radius($button-border-radius);
+  @include box-shadow(inset 0 0 0 0 $black-transparent);
+  @include box-shadow(0 0 5px 0 $black-transparent);
+  width: $button-width; 
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+input[type="submit"]:hover { cursor: pointer; }
+
+.search-input ,
+.search-button {
+  width: 75%;
+  display: inline-block;
+  border: none;
+  margin: 0;
+  & > input[type="submit"] ,
+  & > input[type="text"] { width: 100%; } 
+}
+.search-button {
+  width: 25%;
+}
+
+/*============================================================
+  list
+============================================================*/
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+li a {
+  color: $white;
+  text-decoration: none;
+  display: block;
+}
+
+/*========================================
+  main
+========================================*/
+
+main {
+  @include border-radius($main-border-radius);
+  width: $main-average-size;
+  height: 100%;
+  padding-top: 70px auto 0 auto;
+  margin: 0 auto;
+  color: $white;
+  padding-top: 70px;
+  //background-color: $main-background-color;
+  //box-shadow: 0 0 15px 5px $black;
+  & > .container {  
+    position: relative;
+    height: 85vh; 
+    .row section ,
+    .full-height {
+      height: 100%;
+    }
+  }
+}
+
+/*========================================
+  main sections
+========================================*/
+
+.main-section {
+  display: inline-block;
+  width: 70%;
+  height: 100%;
+  vertical-align: top;
+  &:nth-child(2){
+    width: 30%;
+  }
+}
+
+/*========================================
+  tabs
+========================================*/
+
+.tabs {
+  //@include single-box-shadow(0, 0, 15px, 0, $black, inset);
+  width: $tabs-width;
+  height: 100%;
+  display: inline-block;
+}
+
+.tabs .aside-buttons {
+  padding-left: $tabs-button-padding;
+  padding-right: $tabs-button-padding;
+  background: $tabs-button-bg;
+
+  &:hover { background: $aside-button-hover-background; }
+
+  &.options {
+    box-sizing: border-box;
+    border: 1px solid $primary-color;
+    background-color: $aside-button-hover-background;
+  }
+
+  /*============================================================
+      multidimensional / map array       http://benfrain.com/using-lists-with-maps-in-sass-3-3/
+  ============================================================*/
+  $i: 0;
+  $sizes: (
+    (5%, left) ,
+    (15%, left) ,
+    (60%, left) ,
+    (5%, center) ,
+    (15%, right) ,
+  );
+
+  @each $size, $side in $sizes {
+    $i:$i+1;
+    span:nth-child(#{$i}) {
+      width: $size;
+      text-align: $side;
+    }
+  }
+
+}
+
+.block { 
+  height: 100%;
+  background-color: $theme-color-transparent;
+  overflow: auto;
+  margin: 0 $block-space;
+}
+/*========================================
+  mostimportant-link
+========================================*/
+
+.help-number {
+  @include border-radius(3px);
+  position: absolute;
+  bottom: 0;
+  right: 0;
+    
+  width: 12.5px;
+  height: 12.5px;
+  display: none;
+
+  color: $white;
+  font-size: .5em;
+  line-height: 12.5px;
+  background-color: $black-transparent;
+  border: 1px solid $white;
+
+  content: "";
+  z-index: 4;
+}
+  
+$i: 0;
+@for $i from 0 through 10{
+  $i: $i+1;
+  header .aside-buttons:nth-child(#{$i}) .help-number::before {
+    content: ''+$i;
+  }
+}
+  
+/*========================================
+  login-form
+========================================*/  
+.login-form {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.login-form .left ,
+.login-form .right {
+  display: inline-block;
+  vertical-align: top;
+  width: 80%;
+  height: 80px;
+}
+
+.login-form .right {
+  width: 20%;
+}
+
+.login-form input[type="text"] ,
+.login-form input[type="password"] ,
+.login-form input[type="submit"] {
+  @include border-radius(0);
+  margin: 0;
+  width: 80%;
+  padding: 0 10%;
+}
+.login-form input[type="submit"] {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+
+/*========================================
+  news block
+========================================*/
+
+.news-block {
+  display: inline-block;
+  width: 50%;
+  height: $block-news-height;
+  position: relative;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.news-block.first{ width: 70%; }
+.news-block.second{ width: 30%; }
+
+.news-block span {
+  position: relative;
+  height: 100%;
+  width: 95%;
+  margin: 0 .5%;
+  display: block;
+  border: 1px dashed grey;
+  overflow: hidden;
+}
+
+.news-block img {
+  left: 50%;
+  top: 50%;
+  @include translate(-50%,-50%);
+  position: absolute;
+}
+
+/*========================================
+  context menu
+========================================*/
+
+.aside-buttons + .context-menu {
+  display: none;
+}
+
+.context-menu {
+  @include box-shadow(0 0 15px 0 $black);
+  @include border-radius(5px);
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 250px;
+  min-height: 80px;
+  background-color: $theme-color;
+  z-index: 30;
+}
+
+.context-menu .fa { 
+  float: left;
+  border-right: 1px solid $black;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #111;
+  color: #fff;
+  position: relative;
+  cursor: pointer; 
+
+  &.add:hover,
+  &.add.active { color: $add; }
+  &.edit:hover,
+  &.edit.active { color: $edit; }
+  &.rm:hover,
+  &.rm.active { color: $rm; }
+  &.imp:hover,
+  &.imp.active { color: $imp; }
+} 
+
+.context-inputs { display: none; }
+.context-inputs.show { display: block; }
+
+.context-menu-input {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+  border-top: 1px solid $black;
+
+  input {
+    @include border-radius(0);
+    margin: 0;
+    padding: 0;
+    float: left;
+    text-align: center;
+  }
+  input:nth-child(1),
+  input:nth-child(2) { width: 40%; }
+  input:nth-child(3) { width: 20%; }
+}
+
+/*========================================
+  popup
+========================================*/
+
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $black-transparent;
+  display: block;
+  z-index: 50;
+  display: none;
+}
+  
+.popup-div {
+  position: absolute;
+  width: 1000px;
+  height: 500px;
+  background-color: $theme-color;
+  top: 50%;
+  left: 50%;
+  @include translate(-500px,-250px);
+}
+
+/*========================================
+  font-awesome overwrite
+========================================*/
+
+body .fa { 
+  line-height: inherit;
+  text-align: center;
+}
+
+/*========================================
+  folder list dropdown
+========================================*/
+
+.folder-list {
+  display: none;
+  background-color: $theme-color;
+  padding: 0;
+  list-style: none;
+}
+
+.active .folder-list {
+  display: block;
+}
+
+/*============================================================
+  dual inputs / double inputs 
+============================================================*/
+
+.double-divider {
+  & > * { 
+    display: inline-block;
+  }
+  input { width: 100%; }
+  & > *:first-child { 
+    width: 70%;
+  }
+  & > *:last-child { 
+    width: 30%;
+    margin-left: -4px;
+  }
+}
+
+/*============================================================
+  not-yet
+============================================================*/
+
+.not-yet {
+  opacity: .4;
+  &:hover { cursor: default; }
+  &:before {
+    content: "coming soon";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right:0;
+    line-height: 10px;
+    height: 10px;
+    background-color: #000;
+    color: #FFF;
+    opacity: 1;
+    font-size: 10px;
+    padding: 5px;
+    box-shadow: 0 0 5px $black;
+  }
+}
+
+/*============================================================
+  imports
+============================================================*/
+
+@import "youtube.scss";
+
+
+/*============================================================
+  media-queries
+============================================================*/
+
+@media (min-width: 0) and (max-width: 360px){
+  
+}
