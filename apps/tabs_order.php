@@ -1,6 +1,7 @@
 <?php 
 $tabs_order = mysqli_query($link, "SELECT tabs_order FROM settings WHERE id_settings = '$ID_SESSION'");
-$tabs_order = mysqli_fetch_assoc($tabs_order)['tabs_order']; 
+$tabs_order = mysqli_fetch_assoc($tabs_order); 
+$tabs_order = $tabs_order['tabs_order'];
 
 switch ($tabs_order) {
 
