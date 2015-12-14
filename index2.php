@@ -150,7 +150,6 @@
 	</div>
 </div>
 
-
+<script src="javascripts/main.js"></script>
 </body>
 </html>
-<script src="javascripts/main.js"></script>
