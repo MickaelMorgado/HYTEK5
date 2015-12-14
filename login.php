@@ -13,11 +13,11 @@ if(isset($_SESSION['id_session'])){
 	if ($_POST["page"]=="index2") {
 		header("location: index2.php");
 	}else{
-		header("location: index.php");
+		header("location: index2.php");
 	}
 }else{
 	//echo "no user found";
-	header("location: index.php");
+	header("location: index2.php");
 }
 ?>
 

@@ -2,7 +2,7 @@
 error_reporting(0);
 @include('../dbConnection.php');
 	
-if(isset($ID_SESSION)){		// CHECK FOR INITIALIZED SESSION
+if(isset($_SESSION['id_session'])){		// CHECK FOR INITIALIZED SESSION
 
 	if ($_POST['keywords']!='') {	// CHECK FOR SEARCH INPUT
 
@@ -11,11 +11,11 @@ if(isset($ID_SESSION)){		// CHECK FOR INITIALIZED SESSION
 	
 	} else {
 			
-		$tabs_order = mysqli_query($link, "SELECT tabs_order FROM settings WHERE id_settings = '$ID_SESSION'");
+		$tabs_order = mysqli_query($link, "SELECT tabs_order FROM settings WHERE id_settings = '$_SESSION[id_session]'");
 		$tabs_order = mysqli_fetch_assoc($tabs_order);
 		$tabs_order = $tabs_order['tabs_order'];
-		//echo $ID_SESSION;echo $tabs_order;
-		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = '$ID_SESSION' ORDER BY $tabs_order");
+		//echo $_SESSION['id_session'];echo $tabs_order;
+		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = '$_SESSION[id_session]' ORDER BY $tabs_order");
 	
 	}
 

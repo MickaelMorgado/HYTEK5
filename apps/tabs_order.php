@@ -21,8 +21,8 @@ switch ($tabs_order) {
 }
 ?>
 
-<option value="data DESC" <?php echo $data_DESC ; ?>>Old/New</option>
-<option value="data ASC" <?php echo $data_ASC ; ?>  >New/Old</option>
+<option value="data DESC" <?php echo $data_DESC ; ?>>New/Old</option>
+<option value="data ASC" <?php echo $data_ASC ; ?>  >Old/New</option>
 <!--option value="Old/New">Old/New</option>
 <option value="A-Z">A-Z</option>
 <option value="Clicked">Clicked</option-->

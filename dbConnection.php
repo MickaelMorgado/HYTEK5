@@ -18,8 +18,6 @@
 	*/
 
 	/* GLOBAL VARIABLES */
-	$ID_SESSION = $_SESSION['id_session'];
-
 
 	function db_select($select,$from,$where,$code_file) {
 

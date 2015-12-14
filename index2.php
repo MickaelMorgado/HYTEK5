@@ -155,7 +155,6 @@
 </html>
 <script src="javascripts/main.js"></script>
 <script>
-	
 	//YOUTUBE
 		youtubeObj 				= 	$('#youtube');
 		Ytdefault		 		= 	30;
