@@ -1,0 +1,88 @@
+@import "bootstrap";
+@import "bootstrap-variables";
+@import "compass/css3";
+
+/*============================================================
+    global
+============================================================*/
+$color1 : #4D4D4D;
+$color2 : #EEE;
+$yt : #EC3333;
+$gg :  #2e86c1 ;
+
+html,body {
+	height: 100%;
+	overflow: hidden;
+	font-family: 'Poiret One', cursive;
+}
+
+body {
+	color: $color1;
+	background-color: #fff;
+	font-size: 1.4em !important;
+}
+
+input {
+	border: none;
+	background: none;
+	color: $color1;
+	font-size: 1.5em;
+}
+
+.padded {
+	margin: 5% 5%;
+	width: 90%;
+	height: 80%;
+	overflow: auto;
+}
+
+#searchinput {
+	font-size: 80px;
+	width: 85%;
+}
+
+.tabs {
+	margin-top: 10%;
+}
+
+.tabs a,a {
+
+	@include single-transition(all, 0, ease-in-out);
+	
+	display: block;
+	padding: 10px 20px;
+
+	color: $color1;
+	font-size: 30px;
+
+	&:hover {
+		background-color: $color2;
+		box-shadow: inset 0 0 1px $color1;
+	}
+}
+
+button {
+	border: medium none;
+	background: transparent none repeat scroll 0% 0%;
+}
+
+.GYForm button {
+	float: right;
+}
+
+.GYForm button .fa {
+	@include single-transition(all, .25s, ease-in-out);
+
+	margin: 50px 20px;
+}
+
+.fa {
+	font-size: 40px !important;
+}
+
+.yt:hover > * {
+	color: $yt;
+}
+.gg:hover > * {
+	color: $gg;
+}

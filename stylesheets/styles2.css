@@ -1,45 +1,45 @@
 /*========================================
   variables
 ========================================*/
-/* line 82, ../sass/styles2.scss */
+/* line 85, ../sass/styles2.scss */
 html, body {
   margin: 0;
   padding: 0;
   height: 100%;
   color: #fff;
   background-size: cover;
-  background-image: url(http://www.fastfokus.com/wp-content/uploads/2014/03/fondwhite.png);
+  background-color: #252525;
 }
 
-/* line 91, ../sass/styles2.scss */
+/* line 95, ../sass/styles2.scss */
 .bottom {
   bottom: 0;
 }
 
-/* line 95, ../sass/styles2.scss */
+/* line 99, ../sass/styles2.scss */
 .box-body, .H4bar, .Hcontainer {
   position: absolute;
   display: block;
   width: 100%;
 }
 
-/* line 101, ../sass/styles2.scss */
+/* line 105, ../sass/styles2.scss */
 .full-height {
   height: 100%;
 }
 
-/* line 105, ../sass/styles2.scss */
+/* line 109, ../sass/styles2.scss */
 .db {
   display: block;
 }
 
-/* line 106, ../sass/styles2.scss */
+/* line 110, ../sass/styles2.scss */
 .dib, input[type="file"] {
   display: inline-block;
   margin-right: -4px;
 }
 
-/* line 107, ../sass/styles2.scss */
+/* line 111, ../sass/styles2.scss */
 .mg {
   margin: 10px auto;
 }
@@ -47,7 +47,7 @@ html, body {
 /*========================================
   input
 ========================================*/
-/* line 113, ../sass/styles2.scss */
+/* line 117, ../sass/styles2.scss */
 input, select {
   height: 40px;
   line-height: 40px;
@@ -67,7 +67,7 @@ input, select {
   box-shadow: inset 0 0 10px 0 rgba(0, 0, 0, 0.9);
 }
 
-/* line 128, ../sass/styles2.scss */
+/* line 132, ../sass/styles2.scss */
 input[type="submit"] {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -81,40 +81,40 @@ input[type="submit"] {
   padding: 0 20px;
 }
 
-/* line 138, ../sass/styles2.scss */
+/* line 142, ../sass/styles2.scss */
 input[type="submit"]:hover {
   cursor: pointer;
 }
 
-/* line 139, ../sass/styles2.scss */
+/* line 143, ../sass/styles2.scss */
 input[type="file"] {
   vertical-align: middle;
 }
 
-/* line 141, ../sass/styles2.scss */
+/* line 145, ../sass/styles2.scss */
 label {
   font-weight: lighter;
 }
 
-/* line 143, ../sass/styles2.scss */
+/* line 147, ../sass/styles2.scss */
 .H4bar {
   height: 50px;
   background-color: #111;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 151, ../sass/styles2.scss */
+/* line 155, ../sass/styles2.scss */
 .card {
   background-color: rgba(0, 0, 0, 0.8);
   margin-top: 350px;
 }
 
-/* line 156, ../sass/styles2.scss */
+/* line 160, ../sass/styles2.scss */
 .services {
   text-align: center;
 }
 
-/* line 161, ../sass/styles2.scss */
+/* line 165, ../sass/styles2.scss */
 .Hcontainer {
   -moz-transform: translateY(-250px);
   -ms-transform: translateY(-250px);
@@ -128,7 +128,7 @@ label {
   box-shadow: 0px 30px 25px -10px #111;
 }
 
-/* line 170, ../sass/styles2.scss */
+/* line 174, ../sass/styles2.scss */
 .menu {
   position: fixed;
   margin-top: 15px;
@@ -141,7 +141,7 @@ label {
   z-index: 10;
 }
 
-/* line 184, ../sass/styles2.scss */
+/* line 188, ../sass/styles2.scss */
 .menu li {
   margin-right: -4px;
   line-height: 40px;
@@ -153,7 +153,7 @@ label {
   text-overflow: ellipsis;
 }
 
-/* line 196, ../sass/styles2.scss */
+/* line 200, ../sass/styles2.scss */
 .menu li a {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -162,55 +162,55 @@ label {
   display: block;
   color: #555;
 }
-/* line 201, ../sass/styles2.scss */
+/* line 205, ../sass/styles2.scss */
 .menu li a:hover {
   color: #fff;
   text-decoration: none;
 }
 
-/* line 207, ../sass/styles2.scss */
+/* line 211, ../sass/styles2.scss */
 .list-inline > li {
   vertical-align: top;
 }
 
-/* line 211, ../sass/styles2.scss */
+/* line 215, ../sass/styles2.scss */
 .ico-link {
   margin-right: 10px;
   display: inline-block;
 }
 
-/* line 216, ../sass/styles2.scss */
+/* line 220, ../sass/styles2.scss */
 .slick-slide {
   position: relative;
 }
 
-/* line 218, ../sass/styles2.scss */
+/* line 222, ../sass/styles2.scss */
 .slick-prev {
   left: 0px;
 }
 
-/* line 219, ../sass/styles2.scss */
+/* line 223, ../sass/styles2.scss */
 .slick-next {
   right: 0px;
 }
 
-/* line 220, ../sass/styles2.scss */
+/* line 224, ../sass/styles2.scss */
 .slick-prev::before, .slick-next::before {
   color: #222;
 }
 
-/* line 222, ../sass/styles2.scss */
+/* line 226, ../sass/styles2.scss */
 .slick-slide img {
   display: inline-block;
 }
 
 /*========================== dots ==================================*/
-/* line 229, ../sass/styles2.scss */
+/* line 233, ../sass/styles2.scss */
 .slick-dots {
   bottom: 0px;
 }
 
-/* line 233, ../sass/styles2.scss */
+/* line 237, ../sass/styles2.scss */
 .slick-dots li,
 .slick-dots li button,
 .slick-dots li button:before {
@@ -218,12 +218,12 @@ label {
   height: 10px;
 }
 
-/* line 240, ../sass/styles2.scss */
+/* line 244, ../sass/styles2.scss */
 .slick-dots li {
   height: 30px;
 }
 
-/* line 242, ../sass/styles2.scss */
+/* line 246, ../sass/styles2.scss */
 .slick-dots li button:before {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -232,12 +232,12 @@ label {
   content: "";
 }
 
-/* line 248, ../sass/styles2.scss */
+/* line 252, ../sass/styles2.scss */
 .slick-dots li.slick-active button:before {
   background-color: #222;
 }
 
-/* line 254, ../sass/styles2.scss */
+/* line 258, ../sass/styles2.scss */
 .aside-buttons {
   position: relative;
   height: 30px;
@@ -248,13 +248,13 @@ label {
   box-shadow: inset 0 -1px 0 0 #000;
   vertical-align: top;
 }
-/* line 269, ../sass/styles2.scss */
+/* line 273, ../sass/styles2.scss */
 .aside-buttons:hover {
   background: #111;
   cursor: pointer;
 }
 
-/* line 276, ../sass/styles2.scss */
+/* line 280, ../sass/styles2.scss */
 .aside-buttons i,
 .aside-buttons span {
   display: inline-block;
@@ -265,7 +265,7 @@ label {
   vertical-align: middle;
 }
 
-/* line 288, ../sass/styles2.scss */
+/* line 292, ../sass/styles2.scss */
 .tabs .aside-buttons {
   padding-left: 20px;
   padding-right: 20px;
@@ -274,11 +274,11 @@ label {
       multidimensional / map array       http://benfrain.com/using-lists-with-maps-in-sass-3-3/
   ============================================================*/
 }
-/* line 293, ../sass/styles2.scss */
+/* line 297, ../sass/styles2.scss */
 .tabs .aside-buttons:hover {
   background: #111;
 }
-/* line 295, ../sass/styles2.scss */
+/* line 299, ../sass/styles2.scss */
 .tabs .aside-buttons.options {
   box-sizing: border-box;
   border-top: 1px solid lightgreen;
@@ -286,33 +286,33 @@ label {
   background-color: #111;
   color: lightgreen;
 }
-/* line 316, ../sass/styles2.scss */
+/* line 320, ../sass/styles2.scss */
 .tabs .aside-buttons span:nth-child(1) {
   width: 5%;
   text-align: left;
 }
-/* line 316, ../sass/styles2.scss */
+/* line 320, ../sass/styles2.scss */
 .tabs .aside-buttons span:nth-child(2) {
   width: 25%;
   text-align: left;
 }
-/* line 316, ../sass/styles2.scss */
+/* line 320, ../sass/styles2.scss */
 .tabs .aside-buttons span:nth-child(3) {
   width: 50%;
   text-align: left;
 }
-/* line 316, ../sass/styles2.scss */
+/* line 320, ../sass/styles2.scss */
 .tabs .aside-buttons span:nth-child(4) {
   width: 5%;
   text-align: center;
 }
-/* line 316, ../sass/styles2.scss */
+/* line 320, ../sass/styles2.scss */
 .tabs .aside-buttons span:nth-child(5) {
   width: 15%;
   text-align: right;
 }
 
-/* line 323, ../sass/styles2.scss */
+/* line 327, ../sass/styles2.scss */
 .tabs {
   height: 405px;
   overflow: auto;
@@ -321,12 +321,12 @@ label {
 /*========================================
   context menu
 ========================================*/
-/* line 332, ../sass/styles2.scss */
+/* line 336, ../sass/styles2.scss */
 .aside-buttons + .context-menu {
   display: none;
 }
 
-/* line 336, ../sass/styles2.scss */
+/* line 340, ../sass/styles2.scss */
 .context-menu {
   -moz-box-shadow: 0 0 15px 0 #000;
   -webkit-box-shadow: 0 0 15px 0 #000;
@@ -344,7 +344,7 @@ label {
   z-index: 30;
 }
 
-/* line 349, ../sass/styles2.scss */
+/* line 353, ../sass/styles2.scss */
 .context-menu .fa {
   float: left;
   border-right: 1px solid #000;
@@ -357,34 +357,34 @@ label {
   cursor: pointer;
   text-align: center;
 }
-/* line 361, ../sass/styles2.scss */
+/* line 365, ../sass/styles2.scss */
 .context-menu .fa.add:hover, .context-menu .fa.add.active {
   color: #00AAFF;
 }
-/* line 363, ../sass/styles2.scss */
+/* line 367, ../sass/styles2.scss */
 .context-menu .fa.edit:hover, .context-menu .fa.edit.active {
   color: lightgreen;
 }
-/* line 365, ../sass/styles2.scss */
+/* line 369, ../sass/styles2.scss */
 .context-menu .fa.rm:hover, .context-menu .fa.rm.active {
   color: #C22626;
 }
-/* line 367, ../sass/styles2.scss */
+/* line 371, ../sass/styles2.scss */
 .context-menu .fa.imp:hover, .context-menu .fa.imp.active {
   color: orange;
 }
 
-/* line 371, ../sass/styles2.scss */
+/* line 375, ../sass/styles2.scss */
 .context-inputs {
   display: none;
 }
 
-/* line 372, ../sass/styles2.scss */
+/* line 376, ../sass/styles2.scss */
 .context-inputs.show {
   display: block;
 }
 
-/* line 374, ../sass/styles2.scss */
+/* line 378, ../sass/styles2.scss */
 .context-menu-input {
   display: block;
   position: absolute;
@@ -393,7 +393,7 @@ label {
   margin-top: 40px;
   border-top: 1px solid #000;
 }
-/* line 382, ../sass/styles2.scss */
+/* line 386, ../sass/styles2.scss */
 .context-menu-input input {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -402,12 +402,12 @@ label {
   float: left;
   text-align: center;
 }
-/* line 388, ../sass/styles2.scss */
+/* line 392, ../sass/styles2.scss */
 .context-menu-input input:nth-child(1),
 .context-menu-input input:nth-child(2) {
   width: 40%;
 }
-/* line 390, ../sass/styles2.scss */
+/* line 394, ../sass/styles2.scss */
 .context-menu-input input:nth-child(3) {
   width: 20%;
 }
@@ -415,12 +415,12 @@ label {
 /*============================================================
     youtube
 ============================================================*/
-/* line 397, ../sass/styles2.scss */
+/* line 401, ../sass/styles2.scss */
 #youtube {
   transition: all .20s;
 }
 
-/* line 400, ../sass/styles2.scss */
+/* line 404, ../sass/styles2.scss */
 .sp {
   color: #fff;
   text-decoration: none;
@@ -428,7 +428,7 @@ label {
   display: block;
 }
 
-/* line 407, ../sass/styles2.scss */
+/* line 411, ../sass/styles2.scss */
 .player {
   position: relative;
   width: 250px;
@@ -436,7 +436,7 @@ label {
   display: inline-block;
   background-color: red;
 }
-/* line 416, ../sass/styles2.scss */
+/* line 420, ../sass/styles2.scss */
 .player.active {
   box-shadow: 0 0 8px -5px #fff;
   animation: playing-shadow 5s linear infinite;
@@ -474,7 +474,7 @@ label {
     box-shadow: 0 0 10px -2px #fff;
   }
 }
-/* line 428, ../sass/styles2.scss */
+/* line 432, ../sass/styles2.scss */
 .player .hidder {
   position: absolute;
   top: 0;
@@ -485,12 +485,12 @@ label {
   padding: 10px;
   background-color: #111;
 }
-/* line 439, ../sass/styles2.scss */
+/* line 443, ../sass/styles2.scss */
 .player .hidder img {
   max-width: 100%;
   max-height: 100%;
 }
-/* line 445, ../sass/styles2.scss */
+/* line 449, ../sass/styles2.scss */
 .player .yt-time {
   font-size: .7em;
   max-width: 70px;
@@ -498,13 +498,13 @@ label {
   display: inline-block;
 }
 
-/* line 453, ../sass/styles2.scss */
+/* line 457, ../sass/styles2.scss */
 .player-controls {
   padding: 10px 0;
   font-size: 1.2em;
   text-align: center;
 }
-/* line 458, ../sass/styles2.scss */
+/* line 462, ../sass/styles2.scss */
 .player-controls .fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -513,18 +513,18 @@ label {
   padding: 0 10px;
   opacity: .5;
 }
-/* line 464, ../sass/styles2.scss */
+/* line 468, ../sass/styles2.scss */
 .player-controls .fa:hover {
   opacity: 1;
   cursor: pointer;
 }
 
-/* line 471, ../sass/styles2.scss */
+/* line 475, ../sass/styles2.scss */
 .top-menu-offset {
   padding-top: 80px;
 }
 
-/* line 475, ../sass/styles2.scss */
+/* line 479, ../sass/styles2.scss */
 .btn-search {
   border: none;
   height: 40px;
@@ -535,16 +535,16 @@ label {
   transition: all 0.25s ease-in-out;
   opacity: 1;
 }
-/* line 484, ../sass/styles2.scss */
+/* line 488, ../sass/styles2.scss */
 .btn-search:hover {
   opacity: .5;
 }
-/* line 488, ../sass/styles2.scss */
+/* line 492, ../sass/styles2.scss */
 .btn-search.yt {
   background-color: #C72525;
   box-shadow: inset 0 0 0px 3px #dc4343;
 }
-/* line 493, ../sass/styles2.scss */
+/* line 497, ../sass/styles2.scss */
 .btn-search.gg {
   background-color: #5B5BE4;
   box-shadow: inset 0 0 0px 3px #8787eb;

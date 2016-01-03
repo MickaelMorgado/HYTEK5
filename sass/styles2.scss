@@ -15,6 +15,9 @@ $rgb1: 20; $rgb2: 20; $rgb3: 25;
 $theme-color:               rgb($rgb1,$rgb2,$rgb3);
 $theme-color-transparent:   rgba($rgb1,$rgb2,$rgb3,.8);
 
+//body
+$bgc:                       #252525;
+
 //aside
 $aside-width:                     220px;
 $aside-side:                      right;
@@ -85,7 +88,8 @@ html,body {
   height: 100%;
   color: #fff;
   background-size: cover;
-  background-image: url(http://www.fastfokus.com/wp-content/uploads/2014/03/fondwhite.png);
+  background-color: $bgc;
+  //background-image: url(http://www.fastfokus.com/wp-content/uploads/2014/03/fondwhite.png);
 }
 
 .bottom {

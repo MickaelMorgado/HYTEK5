@@ -11,24 +11,20 @@
 		} 
 		?>
 		
-		<div class="col-xs-12 col-sm-4 col-md-4">
 			<a href="
 			<?php echo $spt ?>
 			" target='_blank' class='sp'>Go to your 
 			<img src='http://www.google.com/s2/favicons?domain=play.spotify.com/'> 
 			playlist</a>
 
-		</div>
 
 
-		<div class="col-xs-12 col-sm-4 col-md-4 text-center"> 
 
 			<div class="player">
-				<div class="hidder"><img src="http://placehold.it/250/" id="youtubeThumbnail"></div>
+				<!--div class="hidder"><img src="http://placehold.it/250/" id="youtubeThumbnail"></div-->
 				<div id="player"></div>
 			</div>
 
-		</div>
 
 		<?php		
 

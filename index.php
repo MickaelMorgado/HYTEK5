@@ -1,82 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html manifest="index3.php">
+<?php include('dbConnection.php'); ?>
 <head>
-	<title>HYTEK workflow</title>
+	<title>Title</title>
     <meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no"/>
+	<link href="stylesheets/bootstrap.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="css.css"/>
+	<link rel="stylesheet" type="text/css" href="stylesheets/styles3.css"/>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
 
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<?php 
-//$link = mysqli_connect("localhost","root","","hytek_db");
-$link = mysqli_connect("mysql.hostinger.pt","u206790186_hytek","Mickael01","u206790186_spbd");
-
-/* 
-	function to easy select single result:
-	$select = columns you want;
-	$from   = tables you want;
-	$where  = where condition;
-	$code_file = php file to edit results (like making a link or list with values);
-*/
-function db_select($link,$select,$from,$where,$code_file) {
-	$db_select_result = mysqli_query($link, "SELECT ".$select." FROM ".$from." ".$where);
-	//echo "SELECT ".$select." FROM ".$from." ".$where;
-	$sr = mysqli_fetch_assoc($db_select_result);
-	$sr = $sr[$select];
-	return $sr;
-	//include($code_file);
-}
 
 
-
-/* 
-	function to easy select array of $rows:
-	$select = columns you want;
-	$from   = tables you want;
-	$where  = where condition;
-	$code_file = php file to edit results (like making a link or list with values);
-*/
-function db_fetch($link,$select,$from,$where,$code_file) {
-	$db_select_result = mysqli_query($link, "SELECT ".$select." FROM ".$from." ".$where);
-	//echo "SELECT ".$select." FROM ".$from." ".$where;
-	while ($row = mysqli_fetch_assoc($db_select_result)) {
-		include($code_file);
-		/*	
-			put this in included file;
-			echo $row['any_table_you_want'];
-		*/
-	}
-
-}
-?>
-
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-
-			<h3>calling my php functions</h3>
-
-			<p><u>simple select:</u></p>
-			<?php echo db_select($link,'title','mytabs',NULL,NULL); ?>
-
-			<p><u>edit:</u></p>
-			<form action="phpfunctions/update_example.php">
-				<input type="text" name="name1" value="<?php echo db_select($link,'title','mytabs',NULL,NULL); ?>" />
-				<input type="submit" />
+<div class="container-fluid padded">
+			<form id="searchform" action="" method="GET">
+				<div class="GYForm">
+					<button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
+					<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button>
+					<input id="searchinput" type="text" name="" placeholder="search">
+				</div>
 			</form>
 
-			<p><u>fetch select:</u></p>
-			<?php db_fetch($link,'*','mytabs',NULL,'phpfunctions/fetch_example.php'); ?>
-
+	<?php if(isset($_SESSION['id_session'])){ ?>
+	
+	
+		<div class="tabs">
+			<div id="tabs-results">
+				<?php 
+					db_fetch($link,'*','mytabs',"id_tabs = '2' ORDER BY data DESC",'apps/tabs.php'); 
+				?>
+			</div>
 		</div>
-	</div>
+
+		<!--h1>most important tabs :</h1>
+		<ul class="list-unstyled">
+			<?php include('apps/mostimportanttabs.php'); ?>
+		</ul-->
+
+		<?php include('apps/youtube.php'); ?>
+		<!--?php include('apps/files.php'); ?-->
+
+		<!--?php include('settings.php'); ?-->
+
+	<?php }else{ ?>
+
+		<form action="login.php" method="post" id="login-form" class="login-form">
+			<input type="hidden" name="page" value="index.php" /><!-- page redirect after login -->
+			<input type="text" placeholder="username" name="username" id="login-username">
+			<input type="password" placeholder="password" name="password" id="login-password">
+			<input type="submit" class="btn fa fa-sign-in" value="" id="submit-login">
+		</form>
+		<a href="../login-signup-modal.php" class="aside-buttons button">
+		  <i class="fa fa-server"></i>
+		  <span>signup</span>
+		</a>
+
+	<?php } ?>
+
 </div>
+
+
+<div class='context-menu'>
+	<i class='fa add fa-plus' data-cm-action='add'></i>
+	<i class='fa edit fa-pencil' data-cm-action='edit'></i>
+	<i class='fa rm fa-times' data-cm-action='rm'></i>
+	<i class='fa imp fa-exclamation' data-cm-action='imp'></i>
+	<div class='context-menu-input'></div>
+</div>
+
+
+<script src="javascripts/main.js"></script>
 
 </body>
 </html> 
