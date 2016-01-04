@@ -1,4 +1,4 @@
-<a href="http://<?php echo $row['url'] ?>"><span>
+<a href="http://<?php echo $row['url'] ?>" data-tabs-title='<?php echo $row['title'] ?>' data-tabs-url='<?php echo $row['url'] ?>' data-tabs-id='<?php echo $row['id_tab'] ?>'><span>
 	<?php 
 		if ($row['title'] == '') {	// IF EMPTY TITLE GET ONE BASED FROM THE LINK
 			$url 	= str_replace(array("http://", "https://", "www."), "", $row['url']);//$link = "http://$url.com";

@@ -9,6 +9,11 @@ $color1 : #4D4D4D;
 $color2 : #EEE;
 $yt : #EC3333;
 $gg :  #2e86c1 ;
+$primary-color: $color1;
+$add: #00AAFF;
+$edit: $primary-color;
+$rm: #C22626;
+$imp: orange;
 
 html,body {
 	height: 100%;
@@ -85,4 +90,71 @@ button {
 }
 .gg:hover > * {
 	color: $gg;
+}
+
+
+
+/*========================================
+  context menu
+========================================*/
+
+.aside-buttons + .context-menu {
+  display: none;
+}
+
+.context-menu {
+  @include box-shadow(0 0 15px 0 #000);
+  //@include border-radius(5px);
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 500px;
+  min-height: 80px;
+  background-color: #fff;
+  z-index: 30;
+}
+
+.context-menu .fa { 
+  float: left;
+  border-right: 1px solid $color1;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  //background-color: #111;
+  color: $color1;
+  position: relative;
+  cursor: pointer; 
+  text-align: center;
+
+  &.add:hover,
+  &.add.active { color: $add; }
+  &.edit:hover,
+  &.edit.active { color: $edit; }
+  &.rm:hover,
+  &.rm.active { color: $rm; }
+  &.imp:hover,
+  &.imp.active { color: $imp; }
+} 
+
+.context-inputs { display: none; }
+.context-inputs.show { display: block; }
+
+.context-menu-input {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+  border-top: 1px solid $color1;
+
+  input {
+    @include border-radius(0);
+    padding: 0 10px;
+    float: left;
+    text-align: center;
+  }
+  input:nth-child(1),
+  input:nth-child(2) { width: 40%; }
+  input:nth-child(3) { width: 20%; }
 }

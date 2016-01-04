@@ -8794,21 +8794,21 @@ button.close {
 /*============================================================
     global
 ============================================================*/
-/* line 13, ../sass/styles3.scss */
+/* line 18, ../sass/styles3.scss */
 html, body {
   height: 100%;
   overflow: hidden;
   font-family: 'Poiret One', cursive;
 }
 
-/* line 19, ../sass/styles3.scss */
+/* line 24, ../sass/styles3.scss */
 body {
   color: #4D4D4D;
   background-color: #fff;
   font-size: 1.4em !important;
 }
 
-/* line 25, ../sass/styles3.scss */
+/* line 30, ../sass/styles3.scss */
 input {
   border: none;
   background: none;
@@ -8816,7 +8816,7 @@ input {
   font-size: 1.5em;
 }
 
-/* line 32, ../sass/styles3.scss */
+/* line 37, ../sass/styles3.scss */
 .padded {
   margin: 5% 5%;
   width: 90%;
@@ -8824,18 +8824,18 @@ input {
   overflow: auto;
 }
 
-/* line 39, ../sass/styles3.scss */
+/* line 44, ../sass/styles3.scss */
 #searchinput {
   font-size: 80px;
   width: 85%;
 }
 
-/* line 44, ../sass/styles3.scss */
+/* line 49, ../sass/styles3.scss */
 .tabs {
   margin-top: 10%;
 }
 
-/* line 48, ../sass/styles3.scss */
+/* line 53, ../sass/styles3.scss */
 .tabs a, a {
   -moz-transition: all ease-in-out;
   -o-transition: all ease-in-out;
@@ -8846,24 +8846,24 @@ input {
   color: #4D4D4D;
   font-size: 30px;
 }
-/* line 58, ../sass/styles3.scss */
+/* line 63, ../sass/styles3.scss */
 .tabs a:hover, a:hover {
   background-color: #EEE;
   box-shadow: inset 0 0 1px #4D4D4D;
 }
 
-/* line 64, ../sass/styles3.scss */
+/* line 69, ../sass/styles3.scss */
 button {
   border: medium none;
   background: transparent none repeat scroll 0% 0%;
 }
 
-/* line 69, ../sass/styles3.scss */
+/* line 74, ../sass/styles3.scss */
 .GYForm button {
   float: right;
 }
 
-/* line 73, ../sass/styles3.scss */
+/* line 78, ../sass/styles3.scss */
 .GYForm button .fa {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -8872,17 +8872,107 @@ button {
   margin: 50px 20px;
 }
 
-/* line 79, ../sass/styles3.scss */
+/* line 84, ../sass/styles3.scss */
 .fa {
   font-size: 40px !important;
 }
 
-/* line 83, ../sass/styles3.scss */
+/* line 88, ../sass/styles3.scss */
 .yt:hover > * {
   color: #EC3333;
 }
 
-/* line 86, ../sass/styles3.scss */
+/* line 91, ../sass/styles3.scss */
 .gg:hover > * {
   color: #2e86c1;
+}
+
+/*========================================
+  context menu
+========================================*/
+/* line 101, ../sass/styles3.scss */
+.aside-buttons + .context-menu {
+  display: none;
+}
+
+/* line 105, ../sass/styles3.scss */
+.context-menu {
+  -moz-box-shadow: 0 0 15px 0 #000;
+  -webkit-box-shadow: 0 0 15px 0 #000;
+  box-shadow: 0 0 15px 0 #000;
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 500px;
+  min-height: 80px;
+  background-color: #fff;
+  z-index: 30;
+}
+
+/* line 118, ../sass/styles3.scss */
+.context-menu .fa {
+  float: left;
+  border-right: 1px solid #4D4D4D;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  color: #4D4D4D;
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+}
+/* line 130, ../sass/styles3.scss */
+.context-menu .fa.add:hover, .context-menu .fa.add.active {
+  color: #00AAFF;
+}
+/* line 132, ../sass/styles3.scss */
+.context-menu .fa.edit:hover, .context-menu .fa.edit.active {
+  color: #4D4D4D;
+}
+/* line 134, ../sass/styles3.scss */
+.context-menu .fa.rm:hover, .context-menu .fa.rm.active {
+  color: #C22626;
+}
+/* line 136, ../sass/styles3.scss */
+.context-menu .fa.imp:hover, .context-menu .fa.imp.active {
+  color: orange;
+}
+
+/* line 140, ../sass/styles3.scss */
+.context-inputs {
+  display: none;
+}
+
+/* line 141, ../sass/styles3.scss */
+.context-inputs.show {
+  display: block;
+}
+
+/* line 143, ../sass/styles3.scss */
+.context-menu-input {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  margin-top: 40px;
+  border-top: 1px solid #4D4D4D;
+}
+/* line 151, ../sass/styles3.scss */
+.context-menu-input input {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  padding: 0 10px;
+  float: left;
+  text-align: center;
+}
+/* line 157, ../sass/styles3.scss */
+.context-menu-input input:nth-child(1),
+.context-menu-input input:nth-child(2) {
+  width: 40%;
+}
+/* line 159, ../sass/styles3.scss */
+.context-menu-input input:nth-child(3) {
+  width: 20%;
 }

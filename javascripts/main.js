@@ -67,8 +67,8 @@
 
 		// CONTEXT MENU
 		ContextMenu 		= $('.context-menu');
-		OutsideElem 		= $('.menu');
-		ContextElements 	= $('.tabs .aside-buttons');
+		OutsideElem 		= $('.padded');
+		ContextElements 	= $('.tabs a');
 
 		DN = "'display':'none'";
 
