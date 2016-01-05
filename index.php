@@ -21,8 +21,8 @@
 <div class="container-fluid padded">
 			<form id="searchform" action="" method="GET">
 				<div class="GYForm">
-					<button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
 					<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button>
+					<button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
 					<input id="searchinput" type="text" name="" placeholder="search">
 				</div>
 			</form>
