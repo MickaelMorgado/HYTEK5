@@ -8794,21 +8794,21 @@ button.close {
 /*============================================================
     global
 ============================================================*/
-/* line 18, ../sass/styles3.scss */
+/* line 32, ../sass/styles3.scss */
 html, body {
   height: 100%;
   overflow: hidden;
   font-family: 'Poiret One', cursive;
 }
 
-/* line 24, ../sass/styles3.scss */
+/* line 38, ../sass/styles3.scss */
 body {
   color: #4D4D4D;
   background-color: #fff;
-  font-size: 1.4em !important;
+  font-size: 1.4em;
 }
 
-/* line 30, ../sass/styles3.scss */
+/* line 44, ../sass/styles3.scss */
 input {
   border: none;
   background: none;
@@ -8816,26 +8816,93 @@ input {
   font-size: 1.5em;
 }
 
-/* line 37, ../sass/styles3.scss */
+/* line 51, ../sass/styles3.scss */
+a, a:focus {
+  outline: none;
+}
+
+/* line 55, ../sass/styles3.scss */
+*::-moz-selection {
+  background: #e6e6e6;
+}
+
+/* line 59, ../sass/styles3.scss */
+*::selection {
+  background: #e6e6e6;
+}
+
+/* line 64, ../sass/styles3.scss */
 .padded {
   margin: 5% 5%;
   width: 90%;
-  height: 80%;
-  overflow: auto;
 }
 
-/* line 44, ../sass/styles3.scss */
+/* line 69, ../sass/styles3.scss */
 #searchinput {
-  font-size: 80px;
+  font-size: 60px;
   width: 85%;
+  display: inline-block;
 }
 
-/* line 49, ../sass/styles3.scss */
+/* line 75, ../sass/styles3.scss */
 .tabs {
-  margin-top: 10%;
+  position: relative;
+  height: 50vh;
+  overflow: hidden;
+}
+/* line 80, ../sass/styles3.scss */
+.tabs #tabs-results {
+  height: 100%;
+  padding: 40px 0;
+  overflow-y: scroll;
+}
+/* line 85, ../sass/styles3.scss */
+.tabs:before, .tabs:after {
+  top: 0;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  content: "";
+  pointer-events: none;
+}
+/* line 95, ../sass/styles3.scss */
+.tabs:before {
+  background: -moz-linear-gradient bottom, white 0%, rgba(255, 255, 255, 0) 100%;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, left bottom, color-stop(0%, white), color-stop(100%, rgba(255, 255, 255, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(bottom, white 0%, rgba(255, 255, 255, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient bottom, white 0%, rgba(255, 255, 255, 0) 100%;
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient bottom, white 0%, rgba(255, 255, 255, 0) 100%;
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 );
+  /* IE6-9 */
+}
+/* line 96, ../sass/styles3.scss */
+.tabs:after {
+  background: -moz-linear-gradient top, white 0%, rgba(255, 255, 255, 0) 100%;
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, rgba(255, 255, 255, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, white 0%, rgba(255, 255, 255, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient top, white 0%, rgba(255, 255, 255, 0) 100%;
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient top, white 0%, rgba(255, 255, 255, 0) 100%;
+  /* IE10+ */
+  background: linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 );
+  /* IE6-9 */
+  top: auto;
+  bottom: 0;
 }
 
-/* line 53, ../sass/styles3.scss */
+/* line 105, ../sass/styles3.scss */
 .tabs a, a {
   -moz-transition: all ease-in-out;
   -o-transition: all ease-in-out;
@@ -8846,24 +8913,35 @@ input {
   color: #4D4D4D;
   font-size: 30px;
 }
-/* line 63, ../sass/styles3.scss */
+/* line 115, ../sass/styles3.scss */
 .tabs a:hover, a:hover {
   background-color: #EEE;
   box-shadow: inset 0 0 1px #4D4D4D;
 }
 
-/* line 69, ../sass/styles3.scss */
+/* line 121, ../sass/styles3.scss */
 button {
   border: medium none;
   background: transparent none repeat scroll 0% 0%;
 }
 
-/* line 74, ../sass/styles3.scss */
-.GYForm button {
-  float: right;
+/* line 126, ../sass/styles3.scss */
+.toggles-search-buttons {
+  width: 15%;
+  display: inline-block;
 }
 
-/* line 78, ../sass/styles3.scss */
+/* line 131, ../sass/styles3.scss */
+.GYForm button {
+  display: inline-block;
+  width: 50%;
+}
+/* line 134, ../sass/styles3.scss */
+.GYForm button:last-child {
+  margin-left: -5px;
+}
+
+/* line 139, ../sass/styles3.scss */
 .GYForm button .fa {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -8872,34 +8950,54 @@ button {
   margin: 50px 20px;
 }
 
-/* line 84, ../sass/styles3.scss */
-.fa {
-  font-size: 40px !important;
+/* line 145, ../sass/styles3.scss */
+button .fa {
+  font-size: 40px;
 }
 
-/* line 88, ../sass/styles3.scss */
+/* line 149, ../sass/styles3.scss */
 .yt:hover > * {
   color: #EC3333;
 }
 
-/* line 91, ../sass/styles3.scss */
+/* line 152, ../sass/styles3.scss */
 .gg:hover > * {
   color: #2e86c1;
+}
+
+/* line 156, ../sass/styles3.scss */
+.player-controls {
+  margin: 50px 0;
+  font-size: 20px;
+}
+/* line 161, ../sass/styles3.scss */
+.player-controls .fa {
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  padding: 0 5px;
+  opacity: .5;
+}
+/* line 167, ../sass/styles3.scss */
+.player-controls .fa:hover {
+  opacity: 1;
+  cursor: pointer;
 }
 
 /*========================================
   context menu
 ========================================*/
-/* line 101, ../sass/styles3.scss */
+/* line 178, ../sass/styles3.scss */
 .aside-buttons + .context-menu {
   display: none;
 }
 
-/* line 105, ../sass/styles3.scss */
+/* line 182, ../sass/styles3.scss */
 .context-menu {
-  -moz-box-shadow: 0 0 15px 0 #000;
-  -webkit-box-shadow: 0 0 15px 0 #000;
-  box-shadow: 0 0 15px 0 #000;
+  -moz-box-shadow: 0 0 15px 0 #e6e6e6;
+  -webkit-box-shadow: 0 0 15px 0 #e6e6e6;
+  box-shadow: 0 0 15px 0 #e6e6e6;
   position: fixed;
   display: none;
   top: 0;
@@ -8910,7 +9008,7 @@ button {
   z-index: 30;
 }
 
-/* line 118, ../sass/styles3.scss */
+/* line 195, ../sass/styles3.scss */
 .context-menu .fa {
   float: left;
   border-right: 1px solid #4D4D4D;
@@ -8922,34 +9020,34 @@ button {
   cursor: pointer;
   text-align: center;
 }
-/* line 130, ../sass/styles3.scss */
+/* line 207, ../sass/styles3.scss */
 .context-menu .fa.add:hover, .context-menu .fa.add.active {
   color: #00AAFF;
 }
-/* line 132, ../sass/styles3.scss */
+/* line 209, ../sass/styles3.scss */
 .context-menu .fa.edit:hover, .context-menu .fa.edit.active {
   color: #4D4D4D;
 }
-/* line 134, ../sass/styles3.scss */
+/* line 211, ../sass/styles3.scss */
 .context-menu .fa.rm:hover, .context-menu .fa.rm.active {
   color: #C22626;
 }
-/* line 136, ../sass/styles3.scss */
+/* line 213, ../sass/styles3.scss */
 .context-menu .fa.imp:hover, .context-menu .fa.imp.active {
   color: orange;
 }
 
-/* line 140, ../sass/styles3.scss */
+/* line 217, ../sass/styles3.scss */
 .context-inputs {
   display: none;
 }
 
-/* line 141, ../sass/styles3.scss */
+/* line 218, ../sass/styles3.scss */
 .context-inputs.show {
   display: block;
 }
 
-/* line 143, ../sass/styles3.scss */
+/* line 220, ../sass/styles3.scss */
 .context-menu-input {
   display: block;
   position: absolute;
@@ -8958,7 +9056,7 @@ button {
   margin-top: 40px;
   border-top: 1px solid #4D4D4D;
 }
-/* line 151, ../sass/styles3.scss */
+/* line 228, ../sass/styles3.scss */
 .context-menu-input input {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8966,13 +9064,57 @@ button {
   padding: 0 10px;
   float: left;
   text-align: center;
+  border-left: 1px solid #4D4D4D;
 }
-/* line 157, ../sass/styles3.scss */
+/* line 234, ../sass/styles3.scss */
+.context-menu-input input:last-child {
+  border-left: 0 solid #4D4D4D;
+}
+/* line 238, ../sass/styles3.scss */
 .context-menu-input input:nth-child(1),
 .context-menu-input input:nth-child(2) {
   width: 40%;
 }
-/* line 159, ../sass/styles3.scss */
+/* line 240, ../sass/styles3.scss */
 .context-menu-input input:nth-child(3) {
   width: 20%;
+}
+
+/*============================================================
+    sidebar
+============================================================*/
+/* line 248, ../sass/styles3.scss */
+.sidebar {
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -moz-box-shadow: 0 0 10px 0 #4D4D4D;
+  -webkit-box-shadow: 0 0 10px 0 #4D4D4D;
+  box-shadow: 0 0 10px 0 #4D4D4D;
+  position: fixed;
+  top: 0;
+  right: -290px;
+  display: block;
+  padding: 20px;
+  width: 300px;
+  height: 100%;
+  background-color: #e6e6e6;
+}
+/* line 262, ../sass/styles3.scss */
+.sidebar:before {
+  position: absolute;
+  top: 0;
+  left: -90px;
+  width: 90px;
+  height: 100%;
+  display: block;
+  content: '';
+}
+/* line 274, ../sass/styles3.scss */
+.sidebar:hover {
+  -moz-box-shadow: 0 0 20px 3px #4D4D4D;
+  -webkit-box-shadow: 0 0 20px 3px #4D4D4D;
+  box-shadow: 0 0 20px 3px #4D4D4D;
+  right: 0;
 }
