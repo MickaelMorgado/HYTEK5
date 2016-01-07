@@ -1,7 +1,11 @@
 <?php 
 	session_start();
-	//$link = mysqli_connect("localhost","root","","hytek_db"); 
+	error_reporting(0);
+
 	$link = mysqli_connect("mysql.hostinger.pt","u206790186_hytek","Mickael01","u206790186_spbd");
+	if (!$link) {
+		$link = mysqli_connect("localhost","root","","hytek_db"); 
+	}
 
 	$link->query('set character_set_client=utf8');
 	$link->query('set character_set_connection=utf8');
@@ -69,6 +73,22 @@
 		echo $update_query ; 
 		$db_update_result = mysqli_query($link, $update_query);
 	}
+
+	/* 
+		function to easy remove:
+		$select = columns you want;
+		$from   = tables you want;
+		$where  = where condition;
+		$code_file = php file to edit results (like making a link or list with values);
+	*/
+	function db_remove($link,$remove,$set,$where) {
+		$remove_query = "DELETE FROM $remove SET $set WHERE $where";
+		echo $remove_query ; 
+		//$db_remove_result = mysqli_query($link, $remove_query);
+	}
+
+
+
 
 	function getbg() {
 		db_select("bg","settings","WHERE id_settings = '$_SESSION[id_session]'","apps/getbg.php");
