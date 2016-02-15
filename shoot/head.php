@@ -24,7 +24,9 @@
 </head><!-- DB Connection -->
 <?php
 
-	$link = mysqli_connect("localhost","root","","hytek_db");
-	//$link = mysqli_connect("mysql.hostinger.pt","u206790186_shoot","Mickael01","u206790186_shoot");
-
+	error_reporting(0);
+	$link = mysqli_connect("mysql.hostinger.pt","u206790186_hytek","Mickael01","u206790186_spbd");
+	if (!$link) {
+		$link = mysqli_connect("localhost","root","","hytek_db"); 
+	}
 ?>
