@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="pt"> 
+<head>
+	<link rel="stylesheet" href="../css/game.css">
+	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.15.0/TweenMax.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+</head>
+<body onload="ambience.play()" oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
+	
+	<!-- scss dependencies -->
+	<div id="preloader">
+	  <div id="status">Loading ...</div>
+	</div>
+	
+	<script>
+	$(window).load(function(){
+		$("#status").fadeOut();
+		$("#preloader").delay(1000).fadeOut("slow");
+	});
+	</script>
+
+	<div class="container" onclick="shoot()">
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<div id="score" class="score"> Your score: 0</div>
+		<div id="timerText"></div>
+
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+		<span id="span" class="run-animation"></span>
+
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+		<span id="span" class="run-animationinv"></span>
+
+		<a href="../index.php" class="menubutton">MENU</a>
+		<a class="fullscreenbutton" onclick="toggleFullScreen()">FullScreen (F)</a>
+		<span id="feed"></span>
+		<div class="ammo">
+			<img src="../img/onlyoneminute/bullets.png" id="7" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="6" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="5" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="4" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="3" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="2" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="1" class="bullets">
+			<img src="../img/onlyoneminute/bullets.png" id="0" class="bullets">
+		</div>
+
+		<span class="reload">reload<span class="reload_small">(press R)</span></span>
+		<span class="gameOver">Game Over<span class="gameOver_small">bitch</span></span>
+	</div>
+</body>	
+
+<script>
+	$(document).keypress(function(e){
+		if(e.which == 102){ toggleFullScreen(); }
+	});
+	function toggleFullScreen() {
+	  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+	   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+	    if (document.documentElement.requestFullScreen) {  
+	      document.documentElement.requestFullScreen();  
+	    } else if (document.documentElement.mozRequestFullScreen) {  
+	      document.documentElement.mozRequestFullScreen();  
+	    } else if (document.documentElement.webkitRequestFullScreen) {  
+	      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+	    }  
+	  } else {  
+	    if (document.cancelFullScreen) {  
+	      document.cancelFullScreen();  
+	    } else if (document.mozCancelFullScreen) {  
+	      document.mozCancelFullScreen();  
+	    } else if (document.webkitCancelFullScreen) {  
+	      document.webkitCancelFullScreen();  
+	    }  
+	  }  
+	}
+
+	var score = 0;
+	var blt = 8;
+	var var_fire = 8;
+	var ambience = new Audio();ambience.loop=true;
+	var countdown = new Audio();
+
+	var fire7 = new Audio();
+	var fire6 = new Audio();
+	var fire5 = new Audio();
+	var fire4 = new Audio();
+	var fire3 = new Audio();
+	var fire2 = new Audio();
+	var fire1 = new Audio();
+	var fire0 = new Audio();
+
+	fire7.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire6.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire5.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire4.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire3.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire2.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire1.src = '../audios/onlyoneminute/barret2.mp3';	
+	fire0.src = '../audios/onlyoneminute/barret2.mp3';	
+
+/*
+	fire7.src='gun2.mp3';	
+	fire6.src='gun2.mp3';	
+	fire5.src='gun2.mp3';	
+	fire4.src='gun2.mp3';	
+	fire3.src='gun2.mp3';	
+	fire2.src='gun2.mp3';	
+	fire1.src='gun2.mp3';	
+	fire0.src='gun2.mp3';	
+*/
+
+	var empty    = new Audio(); 
+	var reload   = new Audio(); 
+	var chicken  = new Audio(); 
+	var chicken2 = new Audio(); 
+	
+	reload.src='../audios/onlyoneminute/reload.mp3'; 
+	empty.src='../audios/onlyoneminute/emptyn.mp3'; 
+	chicken.src='../audios/onlyoneminute/chicken2.mp3'; 
+	chicken2.src='../audios/onlyoneminute/chicken3.mp3'; 
+	ambience.src='../audios/onlyoneminute/ambiance.mp3'; 
+	countdown.src='../audios/onlyoneminute/countdown.mp3';
+
+	$('body').on("click" ,function(){
+		$('.cursor-scope').addClass("shooted").delay(100).queue(function(){
+	    	$(this).removeClass("shooted").dequeue();
+		});
+	});
+	//CURSOR
+	$('body').mouseover(function(){
+		$(this).css({cursor: 'none',height: '100%'});
+	});
+	//$(document).on('mousemove', function(e){
+	//	$('.cursor-scope').css({left: e.pageX,top: e.pageY});
+	//});
+	//BLUR
+	var $box = $('.cursor-scope'),
+	  inter = 20,
+	  speed = 0;
+
+	function moveBox(e) {
+		handling = 0.3; //0.05 - default
+		blur_amount = 200; //750 - default
+	  	$box.each(function(index, val) {
+	   		TweenLite.to($(this), handling, { css: { left: e.pageX, top: e.pageY},delay:0+(index/blur_amount)});
+	  	});
+	}
+
+	$(window).on('mousemove', moveBox);
+	var mX = $(window).width()/2;
+	$(window).mousemove(function(e) {
+	   
+	    if (e.pageX < mX) {
+	        //console.log('Left: ' + mX);
+	        mX = e.pageX;
+	        //$('.cursor-scope').css({'transform':'rotate('+-5+'deg)'});
+	        
+	    } else {
+	        //console.log('Right: ' + mX);
+	        mX = e.pageX;
+	        //$('.cursor-scope').css({'transform':'rotate('+5+'deg)'});
+	    }
+
+	});
+
+	$box.each(function(index, val) {
+	    index = index + 1;
+	    TweenMax.set(
+	      $(this),{
+	        autoAlpha: 0.5 - (0.0333 * index), //scope opacity
+	        delay:0
+	      });
+	  });
+	  TweenMax.set(
+	    $('.text:nth-child(30)'), {
+	      autoAlpha: 1.5,
+	      delay: 0
+	    }
+	  );
+//BIRDS ANIMATION RESTARTED ON CLICK
+	var ra = $(".run-animation");
+	var rai = $(".run-animationinv");
+		
+		/* for feed */
+		var feed = [];
+		var b = 0;
+
+		/* random properties */
+		var max = 90;
+		var min = 8;
+		var maxsize = 200;
+
+	for(EI = 0; EI < ra.length; EI++){
+		function birds_random_start(ei) {
+			var startDelay = Math.floor((   Math.random()*10                  ) +30   );
+			var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
+			var randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
+			ra[EI].style.left = -startDelay*5+"px";
+			ra[EI].style.top = randPosY+"%";
+			ra[EI].style.width = randSize+"px";
+			ra[EI].style.height = (randSize-15)+"px";
+		}
+		var ei = ra[EI];
+		birds_random_start(ei);
+		ra[EI].addEventListener("click", function(e){			e.preventDefault;
+
+			var ths = $(this).width();
+			kill_to_score(ths);
+			chickensound();
+			var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
+			var randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
+			e.target.classList.remove("run-animation");
+			e.target.offsetWidth = e.target.offsetWidth;
+			e.target.classList.add("run-animation");
+			e.target.style.top = randPosY+"%";
+			e.target.style.width = randSize+"px";
+			e.target.style.height = (randSize-15)+"px";
+		}, false);
+	}
+
+	for(EI = 0; EI < rai.length; EI++){
+		function birds_random_start(ei) {
+			var startDelay = Math.floor((   Math.random()*10                  ) +30   );
+			var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
+			var randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
+			rai[EI].style.right = -startDelay*5+"px";
+			rai[EI].style.top = randPosY+"%";
+			rai[EI].style.width = randSize+"px";
+			rai[EI].style.height = (randSize-15)+"px";
+		}
+		var ei = rai[EI];
+		birds_random_start(ei);
+		rai[EI].addEventListener("click", function(e){			e.preventDefault;
+
+			var ths = $(this).width();
+			kill_to_score(ths);
+			chickensound();
+			var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
+			var randSize = Math.floor( (    Math.random()*maxsize             ) + 30  );
+			e.target.classList.remove("run-animationinv");
+			e.target.offsetWidth = e.target.offsetWidth;
+			e.target.classList.add("run-animationinv");
+			e.target.style.top = randPosY+"%";
+			e.target.style.width = randSize+"px";
+			e.target.style.height = (randSize-15)+"px";
+			
+		}, false);
+	}
+
+	function kill_to_score(ths) {
+		if(ths < 40){
+			score = score + 300;
+			bird = "AMAZING_SHOT";
+			$("#score").html(" Your score: "+score);	
+			$('#score').addClass("winscore300").delay(500).queue(function(){
+			    $(this).removeClass("winscore300").dequeue();
+			});
+		}else{
+			if(ths < 80){
+				score = score + 200;
+				bird = "Long_Shot";
+				$("#score").html(" Your score: "+score);	
+				$('#score').addClass("winscore200").delay(500).queue(function(){
+				    $(this).removeClass("winscore200").dequeue();
+				});
+			}else{
+				if(ths < 130){
+					score = score + 100;
+					bird = "Nice_shot";
+					$("#score").html(" Your score: "+score);	
+					$('#score').addClass("winscore100").delay(500).queue(function(){
+					    $(this).removeClass("winscore100").dequeue();
+					});
+				}else{
+					score = score + 50 ;
+					bird = "simple_shot";
+					$("#score").html(" Your score: "+score);	
+					$('#score').addClass("winscore50").delay(500).queue(function(){
+					    $(this).removeClass("winscore50").dequeue();
+					});	
+				}
+			}
+		}
+		feed.push(bird);
+		for (var i = 0; i < feed.length; i++) {
+			fi = feed[i];
+		}
+		//console.log("feed: "+feed);
+	    b = feed.length;
+	    //console.log(b+" --> "+fi);
+		$("#feed").append("<p data-feedid='"+b+"' class='feeded'>HYTEK --> "+fi+"</p>");
+		$(".feeded").delay(3000).fadeOut("slow");
+	};
+
+	function chickensound() {
+		var chicken_min = 1;
+		var chicken_max = 2;
+		var chicken_random = Math.floor(Math.random() * (chicken_max - chicken_min + 1)) + chicken_min;
+		if (chicken_random == 1) {
+			chicken.play();
+		}else{
+			chicken2.play();
+		};
+	}
+
+</script><!--@SHOOT-->
+<script>
+function shoot(){
+	if(blt>0){
+		blt=blt-1;		//console.log(blt);
+		switch(blt) {
+			case 7: fire7.play();break; 
+			case 6: fire6.play();break; 
+			case 5: fire5.play();break; 
+			case 4: fire4.play();break; 
+			case 3: fire3.play();break; 
+			case 2: fire2.play();break; 
+			case 1: fire1.play();break; 
+			case 0: fire0.play();break; 
+			default: break;
+		};			//fire.play();
+		$('#'+blt).animate({
+			width: 0,
+			'margin-top': '-300px',
+			'position':'absolute',
+			height: 0
+		});		//console.log(blt);
+	}		
+	if(blt==0){
+		empty.play();		//console.log("reload");
+		blt=0;
+		$('.run-animation').css('z-index','-100');
+		$('.run-animationinv').css('z-index','-100');
+		$('.reload').css({display: "block"});
+		$(document).keydown(function(e) {
+			if (e.keyCode == 82 && blt == 0) {
+				blt=8;
+				$('.run-animation').css('z-index','1');
+				$('.run-animationinv').css('z-index','1');
+				$('.reload').css({display: "none"});
+				$('.bullets').css({width: '25px','margin-top': '0','position':'relative',height: '100%'});
+				reload.play();			//console.log(blt);
+				return false;
+			}
+		});
+		/*$('.reload').on("click", function(){
+			blt=8;
+			reload.play();			//console.log(blt);
+			$('.run-animation').css('z-index','1');
+			$('.reload').css({display: "none"});
+			$('.bullets').css({width: '25px','margin-top': '0','position':'relative',height: '100%'});
+			return false;
+		});*/
+	}
+}
+</script>
+<script>//TIMER
+	var mins = 1;  //Set the number of minutes you need
+    var secs = mins * 60;
+    var currentSeconds = 0;
+    var currentMinutes = 0;
+    setTimeout('Decrement()',1000);
+    function Decrement() {
+        currentMinutes = Math.floor(secs / 60);
+        currentSeconds = secs % 60;
+        if(currentSeconds <= 9) currentSeconds = "0" + currentSeconds;
+        secs--;
+        if(secs == 9){
+	    	countdown.play();
+	    	setTimeout(function(){ 
+	    		var r = confirm("End of the Game!\nYour Score is:"+score+"\nRestart?"); 
+	    		if(r){
+	    			document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&GM=only one minute&phase=restart";
+	    		}else{
+	    			//<?php mysqli_query( $link, "UPDATE users SET score = '$score' WHERE ID = $_SESSION[id_sess]" ); ?>
+	    			document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&GM=only one minute";
+	    		}
+	    	}, 10000)
+        }
+        document.getElementById("timerText").innerHTML = currentMinutes + ":" + currentSeconds; //Set the element id you need the time put into.
+        if(secs !== -1) setTimeout('Decrement()',1000);
+    }
+</script>
+<!--script>
+	//GAMEOVER
+	console.log(score);
+	if(score>0){
+		$('.gameOver').css({display: "none"});
+	}else{
+		$('.gameOver').css({display: "block"});
+	}
+</script-->

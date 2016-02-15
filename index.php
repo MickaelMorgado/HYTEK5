@@ -19,6 +19,31 @@
 </head>
 <body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
+<script>
+
+    function nop(){
+
+        if ($.cookie('ck') != "active") {
+            console.log("nop");
+        }else{
+        	yes()
+        }
+
+    }
+    
+    function yes(){
+
+        var date = new Date();  // Current date
+
+        // Minutes * 60 * 1000
+        date.setTime(date.getTime() + (1440 * 60 * 1000)); 
+
+        $.cookie('ck', 'active', { expires: date, path: '/' });
+        console.log("yes");
+    };
+
+</script>
 
 <div class="container-fluid padded">
 	<form id="searchform" action="" method="GET">
@@ -83,7 +108,9 @@
 			</script>
 
 		</div>
-
+		<script>
+			yes()
+		</script>
 	<?php }else{ ?>
 
 		<form action="login.php" method="post" id="login-form" class="login-form">
@@ -96,7 +123,9 @@
 		  <i class="fa fa-server"></i>
 		  <span>signup</span>
 		</a>
-
+		<script>
+			nop()
+		</script>
 	<?php } ?>
 
 </div>
@@ -111,7 +140,7 @@
 </div>
 
 
-<script src="javascripts/main.js"></script>
 
+<script src="javascripts/main.js"></script>
 </body>
 </html> 

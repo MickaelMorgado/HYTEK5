@@ -1,0 +1,184 @@
+.block{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #444;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 10px #000;
+}
+.block a{ transition: all .25s ease-in-out;}
+.block a:hover{ font-style: italic;}
+.block:hover:before{
+	display: block;
+	height: 0px;
+	width: 300%;
+	left: -100%;
+	box-shadow: 0 0 10px 100px #fff;
+	background: #fff;
+	content: "";
+	position: relative;
+	opacity: .1;
+	overflow: hidden;
+	transform: rotate(-45deg);
+	animation: hoverglass 5s infinite ease-out;
+}
+.block.friends{
+	position: absolute;
+	height: 100%;
+	right: 0;
+	background: rgba(0,0,0,0.95);
+	width: auto;
+}
+.block.games,
+.block.options,
+.block.news,
+.block.leaderboard,
+.block.friends,
+.block.hs
+{
+  vertical-align: top;
+  transition: all .2s ease-in-out;
+}
+.block.games h1,
+.block.options h1,
+.block.news h1,
+.block.leaderboard h1,
+.block.friends h1,
+.block.hs h1
+{
+	background-color: #444;
+	text-transform: uppercase;
+	color: #111;
+	padding: 20px; 
+	transition: all .2s ease-in-out;
+	font-size: 2em;
+	height: 15%;
+	color: rgba(0,0,0,0);
+	text-shadow: 1px 4px 4px #444, 0 0 0 #000, 1px 4px 4px #444;
+}
+.block.hs h1 {
+	height: 40%;
+}
+.block.games img,
+.block.options img,
+.block.news img,
+.block.leaderboard img,
+.block.friends img,
+.block.hs img
+{
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  transition: all .5s;
+  
+  -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+  filter: grayscale(100%);
+  filter: gray; /* IE6-9 */
+}
+.block.games:hover img,
+.block.options:hover img,
+.block.news:hover img,
+.block.leaderboard:hover img,
+.block.friends:hover img,
+.block.hs:hover img{
+	-webkit-filter: grayscale(0%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+	filter: grayscale(0%);
+	filter: none; /* IE6-9 */
+}
+b{ color: gray;}
+
+/*GAMES*/
+.block:hover h1 {
+	color: #fff;
+	text-shadow: none;
+}
+
+.block.games:hover 	 		{	border: 2px solid orange;	}
+.block.leaderboard:hover 	{	border: 2px solid #a00;		}
+.block.options:hover 		{	border: 2px solid #059;		}
+.block.news:hover 			{	border: 2px solid #5a5;		}
+.block.games:hover h1 		{	background-color: orange; 	}
+.block.leaderboard:hover h1 {	background-color: #a00;		}
+.block.options:hover h1 	{	background-color: #059;		}
+.block.news:hover h1 		{	background-color: #5a5;		}
+
+.block.games a:hover{
+	color: orange;
+	padding-left: 40px;
+	-webkit-box-shadow:inset 0 0 20px 5px orange, 0 0 10px orange;
+	box-shadow:inset 0 0 20px 5px orange, 0 0 10px orange;
+}
+/*OPTIONS*/
+.block.options a:hover{
+	padding-left: 40px;
+	//-webkit-box-shadow:inset 0 0 20px 5px #059, 0 0 10px #059;
+	//box-shadow:inset 0 0 20px 5px #059, 0 0 10px #059;
+	border: 1px dashed #063569;
+	box-sizing: border-box;
+}
+/*NEWS*/
+.block.news:hover b{ color: #5a5;}
+/*leaderboard*/
+
+.block.leaderboard:hover .yourscore {
+    height: 0;
+    background-color: #a00;
+}
+.yourscore{
+	display: block;
+	position: absolute;
+	//background-color: #a00;
+	background-color: #111;
+	color: #FFF;
+	bottom: 0;
+	width: 100%;
+	height: 35%;
+	transition: all .5s;
+}
+.yourscore > div {
+	padding: 20px;
+}
+.yourscore .name{
+	width: 100%;
+	opacity: .5;
+	text-decoration: underline;
+}
+.yourscore .ys_left{
+	float: left;
+	width: 50%;
+}
+.yourscore .ys_right{
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+/*HS*/
+.block.hs{
+	width: 100%;
+	height: 100%;
+	overflow-Y: scroll;
+}
+/*friends*/
+.block.friends:hover{
+  border: 2px solid #f0f;
+}
+.block.friends:hover h1{
+	color: #FFF;
+	background-color: #f0f;
+}
+.block {
+	font-size: 0.8em;
+}
+
+
+@-webkit-keyframes hoverglass{
+  0    { top: -50%;     }
+  30%   { top: 200%;   }
+  100%   { top: 200%;   }
+}
+@-moz-keyframes hoverglass{
+  0%    { top: -50%;    }
+  30%   { top: 200%;   }
+  100%   { top: 200%;   }
+}

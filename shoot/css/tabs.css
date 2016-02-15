@@ -1,0 +1,56 @@
+.tabs {
+  margin: 20px;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+.tabs .active-tab {
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: none;
+  position: relative;
+  color: white;
+}
+.tabs li {
+  display: inline-block;
+  cursor: pointer;
+  color: #b63838;
+  padding: 5px 10px;
+}
+.tabs-content {
+  margin: 20px;
+  padding: 0;
+  list-style: none;
+}
+.tabs-content li {
+  display: none;
+}
+.tabs-content input[type="text"],
+.tabs-content input[type="password"]{
+  width: 100%;
+  line-height: 30px;
+  padding: 0 10px;
+  margin: 5px 0;
+  background: rgba(156, 118, 118, 0.34);
+  border: 2px solid #b63838;
+  color: #fff;
+  text-shadow: 3px 3px 2px black;
+  font-weight: bold;
+}
+.tabs-content input[type="submit"]{
+  width: 100%;
+  float: right;
+  line-height: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: 2px solid #555;
+  color: #555;
+  transition: all .25s;
+}
+.tabs-content input[type="submit"]:hover{
+  cursor: pointer;
+  color: #b63838;
+  border: 2px solid #b63838;
+}

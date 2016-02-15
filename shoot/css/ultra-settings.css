@@ -1,0 +1,92 @@
+/*ULTRA GRAFICS*/
+.run-animation,
+.run-animationinv {
+	-webkit-filter: blur(.5px) grayscale(.4);
+	filter: blur(.5px) grayscale(.4);
+}
+.smoke{
+  background-image: url('../img/smoke.png');
+  background-size: 100%;
+  opacity: .5;
+  display: block;
+  position: absolute;
+  width: 200%;
+  height: 150%;
+  top: 0;
+  left: 0;
+  animation: smoke 50s infinite ease-out;
+}
+.light {
+  position: absolute;
+  display: block;
+  width: 200px;
+  height: 100%;
+  top: 20px;
+  left: 40%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  //background-image: url('http://wiki.starbase118.net/wiki/images/4/43/Lensflare3.png');
+  //animation: sun .2s linear alternate infinite;
+}
+.bullets + .effect {
+  display: block;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: auto;
+  bottom: -130px;
+  left: -175px;
+  background-image: url('../img/onlyoneminute/bullet-explosion.png');
+  background-size: 100% 100%;
+  opacity: 0;
+  transform: rotate(90deg);
+  transition: all 0.1s;
+}
+.bullets.shooted + .effect {
+  animation: bullet-effect 1s;
+}
+.drop {
+  background:-webkit-gradient(linear,0% 0%,0% 100%, from(rgba(0,0,0,0) ), to(rgba(255,255,255,0.2))  );
+  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(255,255,255,.2) 100%);
+  width:1px;
+  height:50px;
+  position: absolute;
+  bottom:200px;
+  -webkit-animation: fall .63s linear infinite;
+  -moz-animation: fall .63s linear infinite;
+}
+
+/*ANIMATION*/
+@-webkit-keyframes bullet-effect {
+  from{opacity:1;}
+  to{opacity:0;}
+}
+@keyframes bullet-effect {
+  from{opacity:1;}
+  to{opacity:0;}
+}
+@-webkit-keyframes smoke{
+  0    { top: 0; left: 0}
+  50%   { top: -50%; left: -50%}
+  100%   { top: 0; left: -100%}
+}
+@-moz-keyframes smoke{
+  0%    { top: 0; left: 0}
+  50%   { top: -50%; left: -50%}
+  100%   { top: 0; left: -100%}
+}
+@-webkit-keyframes sun {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+@keyframes sun {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+@-webkit-keyframes fall {
+  to {margin-top:900px;}
+}
+@-moz-keyframes fall {
+  to {margin-top:900px;}
+}
+/* - ULTRA GRAFICS*/

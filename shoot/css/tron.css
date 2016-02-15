@@ -1,0 +1,56 @@
+html, body{
+	width: 100%;
+	height: 100%;
+//	overflow: hidden;
+}
+body{
+  padding    : 0;
+  margin     : 0;
+  background : #000;
+}
+.perspect {
+  perspective: 530px;
+  width: 450px;
+  //margin: auto;
+}
+
+
+iframe {
+	width: 100%;
+	height: 100%;
+}
+
+.video-container{
+  position   : fixed;
+  z-index    : -101;
+  width      : 100%;
+  height     : 100%;
+}
+
+.fret {
+	display: block;
+	width: 70%;
+	margin: 0px 15%;
+}
+
+span.black ,
+span.white {
+	display: inline-block;
+	background: #FFF;
+	width: 25%;
+	height: 350px;
+	border: 3px solid black;
+}
+span.black {
+	background: #000;
+}
+
+.yey {
+	transform: rotateX(45deg);
+	width: 450px;
+	background: #FFF;
+	background: -webkit-linear-gradient(transparent, #FFF); 
+	background: -o-linear-gradient(transparent, #FFF); 
+	background: -moz-linear-gradient(transparent, #FFF); 
+	background: linear-gradient(transparent, #FFF); 
+}
