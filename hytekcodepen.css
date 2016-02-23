@@ -1,1 +1,23 @@
 @import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css");
+ .hytek-title {
+    position: fixed;
+    display: block;
+		width: 100%;
+		top: 0;
+		margin: 0;
+    background-color: #256;
+		box-shadow: 0 0 5px black, 0 -2px 1px -3px #000 inset;
+	  border-bottom: 4px solid #245;
+		text-transform: uppercase;
+		padding: 25px;
+  }
+.container.hytek {
+	margin-top: 150px;
+	box-shadow: 2px 2px 5px black;
+	background-color: #ddd;
+	color: #000;
+}
+body {
+  background-color: #1c1c1c; 
+  color: #fff;
+}
