@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/game.css">
 	<?php 
 	if (isset($_SESSION['id_sess'])!='') {
-		$result = mysqli_query( $link, "SELECT * FROM shooters WHERE ID = $_SESSION[id_sess]" );
+		$result = mysqli_query( $link, "SELECT * FROM shooters WHERE id_session = $_SESSION[id_sess]" );
 		while($row = mysqli_fetch_assoc($result)) {
 			$settings = $row['settings'];
 			$music = $row['music'];
