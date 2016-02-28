@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="../css/game.css">
 	<?php 
 	if (isset($_SESSION['id_sess'])!='') {
-		$result = mysqli_query( $link, "SELECT * FROM shooters WHERE id_session = $_SESSION[id_sess]" );
+		$result = mysqli_query( $link, "SELECT * FROM shooters WHERE ID = $_SESSION[id_sess]" );
 		while($row = mysqli_fetch_assoc($result)) {
 			$settings = $row['settings'];
 			$music = $row['music'];
@@ -63,7 +63,7 @@
 
 	<?php 
 	for ($i=0; $i < 8; $i++) { 
-		?><audio class="fire<?php echo $i; ?>" ><source src="../audios/onlyoneminute/barret2.mp3" type="audio/mpeg"></audio> <?php
+		?><audio class="fire <?php echo $i; ?>" ><source src="../audios/onlyoneminute/barret.mp3" type="audio/mpeg"></audio> <?php
 	} 
 	?>
 
@@ -208,7 +208,7 @@
 
 	var weapon = {			//dictionary
 	    1: "src",			//css classe or img
-	    2: "sound",			//sound
+	    2: "../audios/onlyoneminute/barret.mp3",			//sound
 	    3: 33.333334,		//damage
 	    4: 8,				//ammo
 	};
@@ -414,44 +414,79 @@
 		}, false);
 	}
 
+
+
+/*
+for (var i = 1; i <= $('.run-animation').length; i++) {
+	var oi = $('.run-animation').eq(i);
+	console.log(":"+oi+i);
+	oi = oi+i;
+	$('.run-animation').click(console.log(":"+oi));
+};
+
+
+for (var b = 1; b <= $('.run-animationinv').length; b++) {
+	var ob = $('.run-animationinv').eq(b);
+	console.log(":"+ob+b);
+	oi = oi+i;
+	$('.run-animationinv').click(console.log(":"+oi));
+};
+*/
+
+
+
+
+
 //KILL TO SCORE
+
 	var showOneTime = false;
 	
 	function kill_to_score(ths) {
+
 		if(ths < 30){
+			
 			score = score + 300;
 			bird = "AMAZING_SHOT";
 			$("#score").html(" Your score: "+score);	
 			$('#score').addClass("winscore300").delay(500).queue(function(){
 			    $(this).removeClass("winscore300").dequeue();
 			});
+
 		}else{
+			
 			if(ths < 50){
+			
 				score = score + 200;
 				bird = "Long_Shot";
 				$("#score").html(" Your score: "+score);	
 				$('#score').addClass("winscore200").delay(500).queue(function(){
 				    $(this).removeClass("winscore200").dequeue();
 				});
+			
 			}else{
+			
 				if(ths < 80){
+					
 					score = score + 100;
 					bird = "Nice_shot";
 					$("#score").html(" Your score: "+score);	
 					$('#score').addClass("winscore100").delay(500).queue(function(){
 					    $(this).removeClass("winscore100").dequeue();
 					});
+			
 				}else{
+			
 					score = score + 50 ;
 					bird = "simple_shot";
 					$("#score").html(" Your score: "+score);	
 					$('#score').addClass("winscore50").delay(500).queue(function(){
 					    $(this).removeClass("winscore50").dequeue();
 					});	
+
 				}
 			}
 		}
-	// NOTIFY
+// NOTIFY
 		//console.log(score+"->"+$('#best-score').val());
 		if (score >= $('#best-score').val() && showOneTime == false) {
 			$('.achivement').addClass("show");
@@ -460,6 +495,7 @@
 		};
 
 //FEED
+
 		feed.push(bird);
 		for (var i = 0; i < feed.length; i++) {
 			fi = feed[i];
@@ -472,22 +508,24 @@
 	};
 
 //CHICKEN SOUNDS
+
 	function chickensound() {
-		var chicken_min = 1;
-		var chicken_max = 3;
+
+		var chicken_min = 1,
+			chicken_max = 3;
+
 		var chicken_random = Math.floor(Math.random() * (chicken_max - chicken_min + 1)) + chicken_min;
+
 		switch (chicken_random) {
-			case 1: 
-					chicken.play();
-					break;
-			case 2: 
-					chicken2.play();
-					break;
-			case 3: 
-					chicken3.play();
-					break;
-			default: chicken.play();break;					
+
+			case 1:  chicken.play();	break;
+			case 2:  chicken2.play();	break;
+			case 3:  chicken3.play();	break;
+
+			default: chicken.play();	break;		
+
 		}
+
 	}
 
 //CURSOR
@@ -505,39 +543,36 @@
 		});
 	}
 
+//FIRE SHOT(sound)
+
+	function fireshot() {
+
+		var fire = new Audio();
+		fire.src = weapon[2];
+		fire.play(); 
+
+	}
+
 //SHOOT
 
-	$(document).click(function () {			
-		shoot();
-	});
-	/*
-	NEED TO CHANGE KILL TO SCORE INPUT METHOD (big job)
-	$(document).contextmenu(function () {	
-		shoot();
-	});*/
+	$(document).click(function() { shoot(); });
+
+	/*	NEED TO CHANGE KILL TO SCORE INPUT METHOD (big job)	$(document).contextmenu(function () {	shoot(); });*/
 
 
-	function shoot(){
+	function shoot() {
+
 		animcursor();
-		if(blt>0){
-			blt=blt-1;		//console.log(blt);
-			/*switch(blt) {
-				case 7: $('fire7').trigger("play");break; 
-				case 6: $('fire6').trigger("play");break; 
-				case 5: $('fire5').trigger("play");break; 
-				case 4: $('fire4').trigger("play");break; 
-				case 3: $('fire3').trigger("play");break; 
-				case 2: $('fire2').trigger("play");break; 
-				case 1: $('fire1').trigger("play");break; 
-				case 0: $('fire0').trigger("play");break; 
-				default: break;
-			};			//fire.play(); */
-			$('.fire'+blt.toString()).trigger('play');
+		
+		if ( blt > 0 ) {
+			blt = blt - 1;
 			$('#'+blt).addClass("shooted");
+			fireshot();
 		}		
-		if(blt==0){
-			empty.play();		//console.log("reload");
-			blt=0;
+
+		if ( blt == 0 ) {
+			empty.play();
+			blt = 0;
 			$('.run-animation,.run-animationinv').css('z-index','-100');
 			$('.reload').css({display: "block"});
 
@@ -556,37 +591,45 @@
 	}
 
 //RELOAD WEAPON
-$(document).keydown(function(e) {
-	if (e.keyCode == 82) {
-		blt=weapon[4];
-		$('.run-animation').css('z-index','1');
-		$('.run-animationinv').css('z-index','1');
-		$('.reload').css({display: "none"});
-		$('.bullets').removeClass("shooted");
-		reload.play();			//console.log(blt);
-		//return false;
-	}
-});
 
-//RAIN
-var re = document.getElementById('rain-effect').value;
-if (re == 1) {
-	var nbDrop = 200;//858; 			// number of drops created.
+	$(document).keydown(function(e) {
+		
+		if (e.keyCode == 82) {
+			
+			blt = weapon[4] ;
 
-	function randRange( minNum, maxNum) {
-	  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
-	}
+			$('.run-animation').css('z-index','1');
+			$('.run-animationinv').css('z-index','1');
+			$('.reload').css({display: "none"});
+			$('.bullets').removeClass("shooted");
 
-	function createRain() {
-		for( i=1;i<nbDrop;i++) {
-			var dropLeft = randRange(0,1600);
-			var dropTop = randRange(-1000,1400);
-			$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
-			$('#drop'+i).css('left',dropLeft);
-			$('#drop'+i).css('top',dropTop);
+			reload.play();
+
 		}
-	}
 
-	createRain();
-};
+	});
+
+//RAIN FUNCTION
+
+	var re = document.getElementById('rain-effect').value;
+	if ( re == 1 ) {
+		var nbDrop = 200;//858; 			// number of drops created.
+
+		function randRange( minNum, maxNum) {
+		  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
+		}
+
+		function createRain() {
+			for( i=1;i<nbDrop;i++) {
+				var dropLeft = randRange(0,1600);
+				var dropTop = randRange(-1000,1400);
+				$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
+				$('#drop'+i).css('left',dropLeft);
+				$('#drop'+i).css('top',dropTop);
+			}
+		}
+
+		createRain();
+	};
+
 </script>

@@ -23,6 +23,7 @@
 				<h1>Games</h1>
 				<img src="img/thumbnail1.png" alt="">
 				<a href="#" id="oom" class="link">only one minute</a></li>
+				<a href="#" class="link">waves</a></li>
 			</div>
 		</div>
 		<div class="small-12 medium-3 large-3 columns">

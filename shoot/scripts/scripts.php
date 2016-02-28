@@ -29,10 +29,6 @@
 	});
 </script>
 <script>//MENU SOUNDS/////////////////////////////////////////////////////////////////////////////////
-	var menu = new Audio();
-	menu.src = 'audios/robot.mp3';
-	menu.play();
-
 	var mouseover1 = new Audio();
 	var mouseover2 = new Audio();
 	var mouseover3 = new Audio();

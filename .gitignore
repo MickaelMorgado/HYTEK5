@@ -20,10 +20,10 @@ $RECYCLE.BIN/
 # =========================
 # Operating System Files
 # =========================
+shoot/head.php
 
 # OSX
 # =========================
-
 .DS_Store
 .AppleDouble
 .LSOverride
