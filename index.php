@@ -60,7 +60,16 @@
 		<div class="tabs">
 			<div id="tabs-results">
 				<?php 
-					db_fetch($link,'*','mytabs',"id_tabs = '2' ORDER BY data DESC",'apps/tabs.php'); 
+					$order = $_GET['order'];
+					switch ($order) {
+						case '1':	$order = "title";				break;
+						case '2':	$order = "data";				break;
+						case '3':	$order = "url";					break;
+						case '1d':	$order = "title DESC";			break;
+						case '2d':	$order = "data DESC";			break;
+						case '3d':	$order = "url DESC";			break;
+					}
+					db_fetch($link,'*','mytabs',"id_tabs = '2' ORDER BY ".$order,'apps/tabs.php'); 
 				?>
 			</div>
 		</div>
