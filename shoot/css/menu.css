@@ -6,6 +6,25 @@ body{
   font-size: 100%;
   font-family: verdana, sans-serif;
 }
+.modal-content {
+  background-color: #050505;
+}
+.loginmodal .modal-content {
+  background-color: RGBA(30, 0, 0, 0.5);
+}
+.tabs-content {
+  position: relative;
+  min-height: 175px;
+}
+.tab-pane { 
+  position: absolute; 
+  left: 0;
+}
+.tab-pane form { 
+  height: 0;
+  overflow: hidden;
+}
+.tab-pane.active form { height: auto; }
 h1, h2, h3, h4, h5, h6 {
   font-family: verdana, sans-serif;
   font-size: 35px;
@@ -123,9 +142,7 @@ select option {
   padding: 10px;
   border: none; 
 }
-.row{
-  max-width: 90%;
-}
+
 .row.first{
   height: 70%;
   padding-top: 100px;
@@ -178,6 +195,7 @@ select option {
   top: 0;
   left: 0;
   animation: smoke 100s infinite ease-in-out;
+  z-index: -1;
 }
 .menu_container {
   padding: 70px;

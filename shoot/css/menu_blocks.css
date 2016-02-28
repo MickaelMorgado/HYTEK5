@@ -168,7 +168,8 @@ b{ color: gray;}
 	background-color: #f0f;
 }
 .block {
-	font-size: 0.8em;
+	font-size: 1.2em;
+	height: 500px;
 }
 
 

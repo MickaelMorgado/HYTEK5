@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="pt"> 
+<head>
 <?php 
 	include('../head.php'); 
 	session_start();
 ?>
-<head>
+	<script src="../js/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" href="../css/game.css">
 	<?php 
 	if (isset($_SESSION['id_sess'])!='') {
@@ -20,21 +21,21 @@
 		switch ($settings) {
 			case 0:
 				echo "<link rel='stylesheet' href='../css/low-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});;</script><?php
+				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});</script><?php
 				break;
 			case 1:
 				echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});;</script><?php
+				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
 				break;
 			case 2:
 				echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
 				echo "<link rel='stylesheet' href='../css/ultra-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});;</script><?php
+				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});</script><?php
 				break;
 			
 			default:
 				echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});;</script><?php
+				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
 				break;
 		}
 	}else{
@@ -44,9 +45,9 @@
 		$weapons = 1;
 		$birds = 1;
 		echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+		$score = "not logged";
 	}
 	?>
-	<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="../js/TweenMax.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
 </head>
@@ -87,24 +88,6 @@
 		<div id="score" class="score">Your score: 0</div>
 		<div id="timerText"></div>
 		<div class="achivement">level up !</div>
-
-		<!--span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-		<span id="span" health="10" class="run-animation"></span>
-
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span>
-		<span id="span" health="10" class="run-animationinv"></span-->
 
 		<a class="menubutton" onclick="preloader()">MENU</a>
 		<a class="fullscreenbutton" onclick="toggleFullScreen()">FullScreen (F)</a>
@@ -204,19 +187,21 @@
 	  }
 	}
 
-//GAME src
+//GAME src SETTINGS OR VARIABLES ============================================================================================================================
 
 	var weapon = {			//dictionary
-	    1: "src",			//css classe or img
+	    1: 0.2,				//handling
 	    2: "../audios/onlyoneminute/barret.mp3",			//sound
-	    3: 33.333334,		//damage
+	    3: 2,				//qty shot to kill (damage)
 	    4: 8,				//ammo
 	};
 
 	var chickenElm = {
 		1: 100, 			//max health
-		2: 5, 				//how many chickenElm side by side
+		2: 10, 				//how many chickenElm
 	};
+
+	var WeaponDamage = 100/weapon[3];
 
 	var score = 0;
 	var blt = weapon[4];
@@ -224,17 +209,6 @@
 	var countdown = new Audio();
 	$('.loading-statut').append("<br/>ambiance-volume: "+document.getElementById('ambiance-vol').value);
 	$('.loading-statut').append("<br/>weapons-volume: "+document.getElementById('weapons-vol').value);
-
-	/*
-		fire7.src='gun2.mp3';	
-		fire6.src='gun2.mp3';	
-		fire5.src='gun2.mp3';	
-		fire4.src='gun2.mp3';	
-		fire3.src='gun2.mp3';	
-		fire2.src='gun2.mp3';	
-		fire1.src='gun2.mp3';	
-		fire0.src='gun2.mp3';	
-	*/
 
 	var empty    = new Audio(); 
 	var reload   = new Audio(); 
@@ -257,12 +231,20 @@
 	for (var a = blt-1; a >= 0; a--) {
 		$(".ammo").append("<span id='"+a+"' class='bullets'></span><span class='effect'></span>");
 	};
-	for (var b = 1; b <= chickenElm[2]; b++) {
-		$('.container').append("<span id='span' health='100' class='run-animation'><div class='hp-hud'><span class='hp-bar'></span></div></span>");
-	};
+
+	var a = false ;
 	for (var c = 1; c <= chickenElm[2]; c++) {
-		$('.container').append("<span id='span' health='100' class='run-animationinv'><div class='hp-hud'><span class='hp-bar'></span></div></span>");
+		
+		//FLIP FLOP CLASS
+		function toggle(){
+			if ( a == true ) 		{	a = false;	$class = "run-animationinv"; 	}
+			else if ( a == false ) 	{ 	a = true;	$class = "run-animation";		}
+		}
+		toggle();
+		$('.container').append("<span identification='"+c+"' health='100' class='chicken "+$class+"'><div class='hp-hud'><span class='hp-bar'></span></div></span>");
+		
 	};
+
 
 //DOCUMENT READY
 	$(document).ready(function(){
@@ -288,7 +270,7 @@
 	$('.loading-statut').append("<br/>settings: "+document.getElementById('settings').value);
 
 	function moveBox(e) {
-		handling = 0.1; //0.05 - default
+		handling = weapon[1]; //0.05 - default
 		if (sets==0) {
 			blur_amount = 0; //750 - default
 		}else{
@@ -352,8 +334,7 @@
 	}
 
 //BIRDS ANIMATION RESTARTED ON CLICK
-	var ra  = $(".run-animation"),
-		rai = $(".run-animationinv");
+	var ra  = $(".chicken");
 		
 		/* for feed */
 		var feed = [],
@@ -365,75 +346,65 @@
 			maxsize = 100;
 
 	for(EI = 0; EI < ra.length; EI++){
+
 		function birds_random_start(ei) {
 			var startDelay = Math.floor((   Math.random()*10                  ) +30   ),
 			    randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       ),
 			    randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
 			ra[EI].style.left = -startDelay*5+"px";ra[EI].style.top = randPosY+"%";ra[EI].style.width = randSize+"px";ra[EI].style.height = randSize+"px";
+			if (randSize < 30) { 				ra[EI].style['-webkit-animation-duration'] = "30s";ra[EI].style['animation-duration'] = "30s";			 }else{
+				if (randSize < 50) { 			ra[EI].style['-webkit-animation-duration'] = "20s";ra[EI].style['animation-duration'] = "20s";			 }else{
+					if (randSize < 80) { 		ra[EI].style['-webkit-animation-duration'] = "15s";ra[EI].style['animation-duration'] = "15s";			 }else{
+						if (randSize >= 80) {	ra[EI].style['-webkit-animation-duration'] = "7s";ra[EI].style['animation-duration'] = "7s";			 };
+					};
+				};
+			};
 		}
+
 		var ei = ra[EI];
 		birds_random_start(ei);
-		ra[EI].addEventListener("click", function(e,health){			e.preventDefault;
-			$(this).attr("health",$(this).attr("health")-weapon[3]);							//dicrease HP
+		
+		ra[EI].addEventListener("click", function(e,health,identification) {			e.preventDefault;
+			
+			$(this).attr("health",$(this).attr("health")-WeaponDamage);							//dicrease HP
 			$(this).children().children().css("width",$(this).attr("health")+"%");				//update HP bar
+			
 			if ($(this).attr("health") <= 0) {
 				var ths = $(this).width();
+				
 				kill_to_score(ths);
+				
 				$(this).attr("health",chickenElm[1]);
+				
 				var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
 				var randSize = Math.floor( (    Math.random()*maxsize             ) +20   );
-				e.target.classList.add("die");e.target.style.zIndex = -100;
-				setTimeout(function(){e.target.classList.remove("die");e.target.classList.remove("run-animation");e.target.offsetWidth = e.target.offsetWidth;e.target.classList.add("run-animation");e.target.style.top = randPosY+"%";e.target.style.width = randSize+"px";e.target.style.height = randSize+"px";e.target.style.zIndex = -1;},50); 
+				e.target.classList.add("die");
+				e.target.style.zIndex = -100;
+				
+				setTimeout(function(){
+					e.target.classList.remove("die");
+					if (e.target.classList == "chicken run-animation") {
+						e.target.classList.remove("run-animation");
+						e.target.offsetWidth = e.target.offsetWidth;
+						e.target.classList.add("run-animation");
+					}else{
+						e.target.classList.remove("run-animationinv");
+						e.target.offsetWidth = e.target.offsetWidth;
+						e.target.classList.add("run-animationinv");
+					};
+					e.target.style.top = randPosY+"%";e.target.style.width = randSize+"px";e.target.style.height = randSize+"px";e.target.style.zIndex = -1;
+					if (randSize < 30) { 				e.target.style['-webkit-animation-duration'] = "30s";e.target.style['animation-duration'] = "30s";			 }else{
+						if (randSize < 50) { 			e.target.style['-webkit-animation-duration'] = "20s";e.target.style['animation-duration'] = "20s";			 }else{
+							if (randSize < 80) { 		e.target.style['-webkit-animation-duration'] = "15s";e.target.style['animation-duration'] = "15s";			 }else{
+								if (randSize >= 80) {	e.target.style['-webkit-animation-duration'] = "7s";e.target.style['animation-duration'] = "7s";			 };
+							};
+						};
+					};
+				},50); 
 			};
 			chickensound();
 		}, false);
 	}
-
-	for(EI = 0; EI < rai.length; EI++){
-		function birds_random_start(ei) {
-			var startDelay = Math.floor((   Math.random()*10                  ) +30   ),
-			    randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       ),
-			    randSize = Math.floor( (    Math.random()*maxsize             ) +20   );
-			rai[EI].style.right = -startDelay*5+"px";rai[EI].style.top = randPosY+"%";rai[EI].style.width = randSize+"px";rai[EI].style.height = randSize+"px";
-		}
-		var ei = rai[EI];
-		birds_random_start(ei);
-		rai[EI].addEventListener("click", function(e,health){			e.preventDefault;
-			$(this).attr("health",$(this).attr("health")-weapon[3]);							//dicrease HP
-			$(this).children().children().css("width",$(this).attr("health")+"%");				//update HP bar
-			if ($(this).attr("health") <= 0) {
-				var ths = $(this).width();
-				kill_to_score(ths);
-				$(this).attr("health",chickenElm[1]);
-				var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )      );
-				var randSize = Math.floor( (    Math.random()*maxsize             ) +20  );
-				e.target.classList.add("die");e.target.style.zIndex = -100;
-				setTimeout(function(){e.target.classList.remove("die");e.target.classList.remove("run-animationinv");e.target.offsetWidth = e.target.offsetWidth;e.target.classList.add("run-animationinv");e.target.style.top = randPosY+"%";e.target.style.width = randSize+"px";e.target.style.height = randSize+"px";e.target.style.zIndex = -1;},50); 
-			};
-			chickensound();
-		}, false);
-	}
-
-
-
-/*
-for (var i = 1; i <= $('.run-animation').length; i++) {
-	var oi = $('.run-animation').eq(i);
-	console.log(":"+oi+i);
-	oi = oi+i;
-	$('.run-animation').click(console.log(":"+oi));
-};
-
-
-for (var b = 1; b <= $('.run-animationinv').length; b++) {
-	var ob = $('.run-animationinv').eq(b);
-	console.log(":"+ob+b);
-	oi = oi+i;
-	$('.run-animationinv').click(console.log(":"+oi));
-};
-*/
-
-
 
 
 

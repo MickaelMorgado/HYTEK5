@@ -41,7 +41,7 @@
 }
 .tabs-content input[type="submit"]{
   width: 100%;
-  float: right;
+  //float: right;
   line-height: 10px;
   font-weight: bold;
   text-transform: uppercase;
