@@ -20,7 +20,7 @@
 
 	<div class="row first">
 		
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="block games">
 				<h1>Games</h1>
 				<img src="img/thumbnail1.png" alt="">
@@ -28,7 +28,7 @@
 				<a href="#" class="link">waves</a></li>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="block leaderboard">
 			<?php 
 				if(isset($_SESSION['id_sess']) != ''){ include('apps/your_score.php')
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
 			<div class="block options">
 				<h1>Options</h1>
 				<img src="img/gtx.jpg" alt="">
@@ -150,7 +150,23 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-2">
+			<div class="block armory">
+				<h1>Armory</h1>
+				<img src="http://images.freeimages.com/images/previews/4ed/revolver-1176758.jpg" alt="">
+				<div class="scrollable">
+					<a class="link" data-toggle="modal" data-target=".armorypopup">Large Modal</a>
+					<div class="modal fade armorypopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<h1>Armory</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div class="col-md-2">
 			<div class="block news">
 				<h1>News</h1>
 				<img src="img/news.jpg" alt="">
@@ -158,6 +174,19 @@
 					<p>Proximos <b>Updates</b>:</p>
 					<ul class="list">
 						<li>Beat leaderboard score by clicking on user.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<div class="block hs">
+				<h1>Help/Support</h1>
+				<img src="img/flag.png" alt="">
+				<div class="scrollable">
+					<p>If you encontred any problem in game see the list below:</p>
+					<ul class="list">
+						<li>Close unecessary tabs;</li>
+						<li>Videos players like (youtube, vimeo, etc.) can affect game performances close them or use different browser;</li>
 					</ul>
 				</div>
 			</div>
@@ -262,23 +291,6 @@
 		</div>
 	</div>
 	
-
-
-
-    <div class="row second">
-    	<div class="col-xs-12">
-    		<div class="block hs">
-    			<h1>
-    				Help and Support
-    			</h1>
-    			<p>If you encontred any problem in game see the list below:</p>
-    			<ul class="list">
-    			<li>Close unecessary tabs;</li>
-    			<li>Videos players like (youtube, vimeo, etc.) can affect game performances close them or use different browser;</li>
-    			</ul>
-    		</div>
-    	</div>
-    </div>
 
 	<?php
 		include('scripts/scripts.php'); 

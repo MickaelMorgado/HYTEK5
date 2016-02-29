@@ -23,18 +23,13 @@
 	transform: rotate(-45deg);
 	animation: hoverglass 5s infinite ease-out;
 }
-.block.friends{
-	position: absolute;
-	height: 100%;
-	right: 0;
-	background: rgba(0,0,0,0.95);
-	width: auto;
-}
+
 .block.games,
 .block.options,
 .block.news,
 .block.leaderboard,
 .block.friends,
+.block.armory,
 .block.hs
 {
   vertical-align: top;
@@ -45,6 +40,7 @@
 .block.news h1,
 .block.leaderboard h1,
 .block.friends h1,
+.block.armory h1,
 .block.hs h1
 {
 	background-color: #444;
@@ -57,14 +53,13 @@
 	color: rgba(0,0,0,0);
 	text-shadow: 1px 4px 4px #444, 0 0 0 #000, 1px 4px 4px #444;
 }
-.block.hs h1 {
-	height: 40%;
-}
+
 .block.games img,
 .block.options img,
 .block.news img,
 .block.leaderboard img,
 .block.friends img,
+.block.armory img,
 .block.hs img
 {
   width: 100%;
@@ -81,6 +76,7 @@
 .block.news:hover img,
 .block.leaderboard:hover img,
 .block.friends:hover img,
+.block.armory:hover img,
 .block.hs:hover img{
 	-webkit-filter: grayscale(0%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
 	filter: grayscale(0%);
@@ -97,10 +93,12 @@ b{ color: gray;}
 .block.games:hover 	 		{	border: 2px solid orange;	}
 .block.leaderboard:hover 	{	border: 2px solid #a00;		}
 .block.options:hover 		{	border: 2px solid #059;		}
+.block.armory:hover 		{	border: 2px solid purple;	}
 .block.news:hover 			{	border: 2px solid #5a5;		}
 .block.games:hover h1 		{	background-color: orange; 	}
 .block.leaderboard:hover h1 {	background-color: #a00;		}
 .block.options:hover h1 	{	background-color: #059;		}
+.block.armory:hover h1 		{	background-color: purple;	}
 .block.news:hover h1 		{	background-color: #5a5;		}
 
 .block.games a:hover{
@@ -108,6 +106,12 @@ b{ color: gray;}
 	padding-left: 40px;
 	-webkit-box-shadow:inset 0 0 20px 5px orange, 0 0 10px orange;
 	box-shadow:inset 0 0 20px 5px orange, 0 0 10px orange;
+}
+.block.armory a:hover{
+	color: purple;
+	padding-left: 40px;
+	-webkit-box-shadow:inset 0 0 20px 5px purple, 0 0 10px purple;
+	box-shadow:inset 0 0 20px 5px purple, 0 0 10px purple;
 }
 /*OPTIONS*/
 .block.options a:hover{
@@ -153,20 +157,7 @@ b{ color: gray;}
 	text-align: right;
 	width: 50%;
 }
-/*HS*/
-.block.hs{
-	width: 100%;
-	height: 100%;
-	overflow-Y: scroll;
-}
-/*friends*/
-.block.friends:hover{
-  border: 2px solid #f0f;
-}
-.block.friends:hover h1{
-	color: #FFF;
-	background-color: #f0f;
-}
+
 .block {
 	font-size: 1.2em;
 	height: 500px;
