@@ -17,7 +17,7 @@ body{
   min-height: 175px;
 }
 .tab-pane { 
-  position: absolute; 
+  position: relative; 
   left: 0;
 }
 .tab-pane form { 
@@ -25,6 +25,17 @@ body{
   overflow: hidden;
 }
 .tab-pane.active form { height: auto; }
+
+.block.armory img.ShopThumbnail { 
+  display: inline-block; 
+  width: 60px; 
+}
+.armorypopup .modal-lg {
+  width: 90%;
+}
+
+table a ,
+.panel a {  padding: 0; }
 h1, h2, h3, h4, h5, h6 {
   font-family: verdana, sans-serif;
   font-size: 35px;

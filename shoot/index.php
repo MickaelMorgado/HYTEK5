@@ -141,7 +141,6 @@
 						}else {
 							echo "<a href='#popup'>Settings (need login)</a>";
 						}
-
 					?>
 					<a href="#" id="HS">Help / Support</a>
 					
@@ -159,7 +158,182 @@
 					<div class="modal fade armorypopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
-								<h1>Armory</h1>
+								
+								<?php 
+									if(isset($_SESSION['id_sess']) != '') { ?>
+										<h1>Armory 300c</h1>
+										<div class="row">
+											<div class="col-xs-12">
+												<div class="row">
+													<div class="col-sm-12">
+														<ul class="nav nav-tabs ">
+															<li class="active"><a href="#tab_default_1" data-toggle="tab">Weapon 1</a></li>
+															<li><a href="#tab_default_2" data-toggle="tab">Weapon 2</a></li>
+														</ul>
+													</div>
+													<div class="col-sm-12">
+														<div class="tab-content">
+															<!-- WEAPON 1 -->
+															<div class="tab-pane active" id="tab_default_1">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6 col-md-6">
+																		<p>Current ammo: 235</p>
+																		<p>Magazin: 8</p>
+																		<p>Damage: 50%</p>
+																		<p>Handle: 0.5</p>
+																	</div>
+																	<div class="col-xs-12 col-sm-6 col-md-6">
+																		<ul class="nav nav-tabs ">
+																			<li class="active"><a href="#ShopTabAmmo" data-toggle="tab">Ammo</a></li>
+																			<li><a href="#ShopTabMagazin" data-toggle="tab">Magazines</a></li>
+																			<li><a href="#ShopTabBullets" data-toggle="tab">Bullets</a></li>
+																			<li><a href="#ShopTabHandle" data-toggle="tab">Handle</a></li>
+																		</ul>
+																		<!-- SHOP -->
+																		<div class="tab-content">
+																			<div class="tab-pane active" id="ShopTabAmmo">
+																				<input type="range">
+																				<p><a class="btn btn-success" href="#" target="_blank">buy ammo</a></p>
+																			</div>
+																			<div class="tab-pane" id="ShopTabMagazin">
+																				<ul>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																				</ul>
+																			</div>
+																			<div class="tab-pane" id="ShopTabBullets">
+																				<ul>
+																					<li>
+																						<img src="img/shop/bul/bul1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																				</ul>
+																				<p><a class="btn btn-success" href="#" target="_blank">buy bullets</a></p>
+																			</div>
+																			<div class="tab-pane" id="ShopTabHandle">
+																				<ul>
+																					<li>
+																						<img src="img/shop/hdl/hdl1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																				</ul>
+																				<p><a class="btn btn-success" href="#" target="_blank">buy handle</a></p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<!-- WEAPON 2 -->
+															<div class="tab-pane" id="tab_default_2">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6 col-md-6">
+																		<p>Current ammo: 150</p>
+																		<p>Magazin: 5</p>
+																		<p>Damage: 25%</p>
+																		<p>Handle: 0.2</p>
+																	</div>
+																	<div class="col-xs-12 col-sm-6 col-md-6">
+																		<ul class="nav nav-tabs ">
+																			<li class="active"><a href="#ShopTabAmmo" data-toggle="tab">Ammo</a></li>
+																			<li><a href="#ShopTabMagazin" data-toggle="tab">Magazines</a></li>
+																			<li><a href="#ShopTabBullets" data-toggle="tab">Bullets</a></li>
+																			<li><a href="#ShopTabHandle" data-toggle="tab">Handle</a></li>
+																		</ul>
+																		<!-- SHOP -->
+																		<div class="tab-content">
+																			<div class="tab-pane active" id="ShopTabAmmo">
+																				<input type="range">
+																				<p><a class="btn btn-success" href="#" target="_blank">buy ammo</a></p>
+																			</div>
+																			<div class="tab-pane" id="ShopTabMagazin">
+																				<ul>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																					<li>
+																						<img src="img/shop/mag/mag1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																				</ul>
+																			</div>
+																			<div class="tab-pane" id="ShopTabBullets">
+																				<ul>
+																					<li>
+																						<img src="img/shop/bul/bul1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																				</ul>
+																				<p><a class="btn btn-success" href="#" target="_blank">buy bullets</a></p>
+																			</div>
+																			<div class="tab-pane" id="ShopTabHandle">
+																				<ul>
+																					<li>
+																						<img src="img/shop/hdl/hdl1.png" class="ShopThumbnail" alt="">
+																						<span>text</span>
+																						<a class="btn btn-success" href="#" target="_blank">buy mag</a>
+																					</li>
+																				</ul>
+																				<p><a class="btn btn-success" href="#" target="_blank">buy handle</a></p>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									<?php
+									}else {
+										echo "<a href='#popup'>Shop (need login)</a>";
+									}
+								?>
 							</div>
 						</div>
 					</div>
