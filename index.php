@@ -68,7 +68,7 @@
 						case '1d':	$order = "title DESC";			break;
 						case '2d':	$order = "data DESC";			break;
 						case '3d':	$order = "url DESC";			break;
-						default:        $order = "data DESC";			break;
+						default:        $order = "data";			break;
 					}
 					db_fetch($link,'*','mytabs',"id_tabs = '2' ORDER BY ".$order,'apps/tabs.php'); 
 				?>
