@@ -161,7 +161,8 @@
 								
 								<?php 
 									if(isset($_SESSION['id_sess']) != '') { ?>
-										<h1>Armory 300c</h1>
+
+										<h1>Armory <?php echo get($link,"coins",$join,$me); ?>c</h1>
 										<div class="row">
 											<div class="col-xs-12">
 												<div class="row">
@@ -177,7 +178,7 @@
 															<div class="tab-pane active" id="tab_default_1">
 																<div class="row">
 																	<div class="col-xs-12 col-sm-6 col-md-6">
-																		<p>Current ammo: 235</p>
+																		<p>Current ammo: <?php echo get($link,"score",$join,$me); ?></p>
 																		<p>Magazin: 8</p>
 																		<p>Damage: 50%</p>
 																		<p>Handle: 0.5</p>
@@ -381,7 +382,7 @@
 								<h1>Settings</h1>
 								<?php 
 									if(isset($_SESSION['id_sess']) != ''){
-										$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE ID = $_SESSION[id_sess]" );
+										/*$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE ID = $_SESSION[id_sess]" );
 										while($row = mysqli_fetch_assoc($result)) {
 											$Name = $row['name'];
 											$settings = $row['settings'];
@@ -395,13 +396,14 @@
 											$ambiance = $ambiance*10;
 											$weapons = $weapons*10;
 											$birds = $birds*10;
-										}
+										}*/
 										?>
-										<span class="name"><label for="settings">Player:</label><?php echo "$Name"; ?></span>
+										<span class="name"><label for="settings">Player:</label><?php echo get($link,"name",$join,$me); ?></span>
 										<form action="settings-up.php" method="GET">
 											<br>
 											<label for="settings">Presets:</label>
 											<?php
+												$settings = get($link,"settings",$join,$me);
 												switch ($settings) {
 													case 0: echo "
 			                                			
@@ -434,18 +436,18 @@
 											?>
 											<br>
 			                                <br><label for="music">Music:</label> 
-			                                <input type="range" name="music" min="0" max="10" value="<?php echo $music; ?>">
+			                                <input type="range" min="0" max="10" value="<?php echo get($link,"music",$join,$me)*10; ?>" name="music">
 			                                <br><label for="ambiance">Ambiance:</label> 
-			                                <input type="range" name="ambiance" min="0" max="10" value="<?php echo $ambiance; ?>">
+			                                <input type="range" min="0" max="10" value="<?php echo get($link,"ambiance",$join,$me)*10; ?>" name="ambiance">
 			                                <br><label for="weapons">Weapons:</label> 
-			                                <input type="range" name="weapons" min="0" max="10" value="<?php echo $weapons; ?>">
+			                                <input type="range" min="0" max="10" value="<?php echo get($link,"weapons",$join,$me)*10; ?>" name="weapons">
 			                                <br><label for="birds">Birds:</label> 
-			                                <input type="range" name="birds" min="0" max="10" value="<?php echo $birds; ?>">
+			                                <input type="range" min="0" max="10" value="<?php echo get($link,"birds",$join,$me)*10; ?>" name="birds">
 			                                <br><br>	
 			                                <input type="submit" value="apply settings">
 										</form>
 										<form action="reset-score.php" method="GET">
-											<label>BEST SCORE:</label><?php echo $bscore ?>
+											<label>BEST SCORE:</label><?php echo get($link,"score",$join,$me); ?>
 			                                <input type="submit" value="reset score">
 										</form>
 										<?php
