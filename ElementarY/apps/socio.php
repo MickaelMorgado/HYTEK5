@@ -6,4 +6,5 @@
 	<li><a target="_blank" href="http://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
 	<li><a target="_blank" href="skype:profile_name?userinfo"><i class="fa fa-skype"></i></a></li>
 	<li><a target="_blank" href="http://www.sharethis.com/get-sharing-tools/"><i class="fa fa-share-alt"></i></a></li>
+	<li><a target="_blank" href="http://www.gmail.com"><i class="fa fa-envelope"></i></a></li>
 </ul>

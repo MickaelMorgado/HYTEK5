@@ -1,9 +1,8 @@
 <div id="UI-result"></div>
 
 <div id="tabs">
-	<input type="text" placeholder="Search" class="search">
 	<div class="dropdown pull-right">
-		<a href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">+<span class="caret"></span></a>
+		<button href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn-search">+<span class="caret"></span></button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenuAdd">
 			<form action="apps/links/add-link.php" method="post">
 				<li>
@@ -14,6 +13,12 @@
 			</form>
 		</ul>
 	</div>
+	<form id="searchform" action="" method="GET">
+		<input type="text" placeholder="Search" class="search" id="searchinput">
+		<div class="toggles-search-buttons">
+			<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
+		</div>
+	</form>
 	<ul class="list-unstyled scrollable list" id="enableRefresh">
 		<?php 
 			include('links/get-links.php'); 
@@ -42,6 +47,27 @@
        		}, 2000);
         }  
     }); */
+
+
+/* Google & Youtube search buttons :
+====================================
+*/
+	form = document.getElementById("searchform");
+	
+	function google() {
+		$('#searchinput').attr("name","q");
+		form.action="https://www.google.pt/search";
+		form.submit();
+	}
+	
+	function youtube() {
+		$('#searchinput').attr("name","search_query");
+		form.action="http://www.youtube.com/results";
+		form.submit();
+	} 
+
+
+
 
 
 </script>

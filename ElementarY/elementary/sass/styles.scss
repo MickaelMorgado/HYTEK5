@@ -1,3 +1,4 @@
+/* cd C:\wamp\www\HYTEK5\Elementary\elementary\ */
 @import "compass/css3";
 
 // custom styles ?
@@ -8,7 +9,7 @@ $custom-styles 			: false;
 
 // colors
 
-$primary				: #200000;
+$primary				: #001720;
 $dark 					: #000;
 $light 					: #fff;
 
@@ -183,6 +184,18 @@ $yt-hoverToExpend : false;
 	&.fa-trash-o {
 		color: lighten($primary,32); //red;
 	}
+}
+
+.toggles-search-buttons { 
+	float: right;
+}
+
+.search {
+	width: 120px;
+}
+
+#searchform {
+	margin-bottom: 10px;
 }
 
 #UI-result > div {
