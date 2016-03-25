@@ -19,6 +19,15 @@
 			<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
 		</div>
 	</form>
+	<select name="order" id="link-order-select">
+		<option value="" selected hidden>--</option>
+		<option value="`title`ASC">title ASC</option>
+		<option value="`title`DESC">title DESC</option>
+		<option value="`data`ASC">Date ASC</option>
+		<option value="`data`DESC">Date DESC</option>
+		<option value="`url`ASC">Url ASC</option>
+		<option value="`url`DESC">Url DESC</option>
+	</select>
 	<ul class="list-unstyled scrollable list" id="enableRefresh">
 		<?php 
 			include('links/get-links.php'); 
@@ -66,8 +75,13 @@
 		form.submit();
 	} 
 
-
-
+/*
+*/
+	$("#link-order-select").change(function(){
+		var val = $(this).val();
+		$('#enableRefresh').load("apps/links/get-links.php?order="+val);
+		console.log(val);
+	});
 
 
 </script>

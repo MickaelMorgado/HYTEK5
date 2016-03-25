@@ -1,6 +1,5 @@
 <?php 
 	include('head.php'); 
-	session_start();
 
 	$music = $_GET['music'];
 	$ambiance = $_GET['ambiance'];
@@ -29,7 +28,7 @@
 			break;
 	}
 
-	mysqli_query($link,"UPDATE shooters INNER JOIN users ON shooters.id_session=users.id_session SET settings = '$set' , music = '$music' , ambiance = '$ambiance' , weapons = '$weapons' , birds = '$birds' WHERE ID = $_SESSION[id_sess];");
+	mysqli_query($link,"UPDATE SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER SET PRESETS = '$set' , AUD_MUSICS = '$music' , AUD_AMBIANCES = '$ambiance' , AUD_WEAPONS = '$weapons' , AUD_BIRDS = '$birds' WHERE PLAYERS.ID_PLAYER = $_SESSION[ID_PLAYER];");
 
 	header("location: index.php");
 

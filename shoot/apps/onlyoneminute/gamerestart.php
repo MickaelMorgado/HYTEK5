@@ -1,17 +1,17 @@
-<?php session_start();
+<?php
 	include('../../head.php');
 
 	if ($_SESSION['id_sess']!='') {
 		$score = $_GET['score'];
 		$gm = $_GET['GM'];
-		$best_score = mysqli_query( $link, "SELECT score FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE shooters.id_session = $_SESSION[id_sess]" );
+		$best_score = mysqli_query( $link, "SELECT BEST_SCORE FROM SCORES INNER JOIN PLAYERS ON SCORES.ID_PLAYER=PLAYERS.ID_PLAYER WHERE SCORES.ID_PLAYER = $_SESSION[ID_PLAYER]" );
 		while($row = mysqli_fetch_assoc($best_score)){
 			//echo "best_score is : ".$best_score['score'];
-			if($score > $row['score']){
-				echo "You level up ! from $row[score] to $score";
-				mysqli_query( $link, "UPDATE shooters INNER JOIN users ON shooters.id_session=users.id_session SET last_score = $score, score = $score, gamemode = '$gm' WHERE shooters.id_session = $_SESSION[id_sess]" );
+			if($score > $row['BEST_SCORE']){
+				echo "You level up ! from $row[BEST_SCORE] to $score";
+				mysqli_query( $link, "UPDATE SCORES INNER JOIN PLAYERS ON SCORES.ID_PLAYER=PLAYERS.ID_PLAYER SET LAST_SCORE = $score, BEST_SCORE = $score, GAME_MODE = '$gm' WHERE SCORES.ID_PLAYER = $_SESSION[ID_PLAYER]" );
 			}else{
-				mysqli_query( $link, "UPDATE shooters INNER JOIN users ON shooters.id_session=users.id_session SET last_score = $score, gamemode = '$gm' WHERE shooters.id_session = $_SESSION[id_sess]" );
+				mysqli_query( $link, "UPDATE SCORES INNER JOIN PLAYERS ON SCORES.ID_PLAYER=PLAYERS.ID_PLAYER SET LAST_SCORE = $score, GAME_MODE = '$gm' WHERE SCORES.ID_PLAYER = $_SESSION[ID_PLAYER]" );
 				if($_GET['phase']=='restart'){header('location: ../../games/game.php');}else{header('location: ../../index.php');}
 			}
 			echo "<a href='../../index.php'>Menu</a> or <a href='../../games/game.php'>Restart</a>";

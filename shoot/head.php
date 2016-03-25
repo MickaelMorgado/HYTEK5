@@ -22,12 +22,12 @@
 <?php
 
 	session_start();
-	error_reporting(0);
+	//error_reporting(0);
 
-	$link = mysqli_connect("mysql.hostinger.pt","u206790186_hytek","Mickael01","u206790186_spbd");
-	if (!$link) {
-		$link = mysqli_connect("localhost","root","","hytek_db"); 
-	}
+	//$link = mysqli_connect("mysql.hostinger.pt","u206790186_hytek","Mickael01","u206790186_spbd");
+	//if (!$link) {
+		$link = mysqli_connect("localhost","root","","shooters"); 
+	//}
 
 
 	/* 
@@ -62,9 +62,6 @@
 		}
 
 	}
-
-	$me = "ID = ".$_SESSION['id_sess'];
-	$join = "`shooters` INNER JOIN `users` ON shooters.id_session=users.id_session";
 
 	/* <?php echo get($link,"selectCol","table","whereCond."); ?> */
 	function get($link,$col,$table,$who){

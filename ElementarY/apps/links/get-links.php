@@ -1,6 +1,12 @@
 <?php 
-	include("../../dbConnection.php");
-	$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = 2 ORDER BY `view` DESC");
+	if (isset($_GET['order'])) {
+		include("../../dbConnection.php");
+		$order = $_GET['order'];
+		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = 2 ORDER BY ".$order);
+	}else{
+		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = 2 ORDER BY `data` DESC");
+	}
+	//echo "order:".$order;
 	while ($row = mysqli_fetch_assoc($result)) {
 
 	$r0 = $row['id_tab'];

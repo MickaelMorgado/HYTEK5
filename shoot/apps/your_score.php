@@ -1,11 +1,11 @@
 <?php
-	$Name = "no user ".$_SESSION['id_sess'];
-	$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE users.id_session = $_SESSION[id_sess]" );
+	$Name = "no user ".$_SESSION['ID_PLAYER'];
+	$result = mysqli_query( $link, "SELECT * FROM SCORES INNER JOIN PLAYERS ON SCORES.ID_PLAYER=PLAYERS.ID_PLAYER WHERE PLAYERS.ID_PLAYER = $_SESSION[ID_PLAYER]" );
 	while($row = mysqli_fetch_assoc($result)) {
-		$Name = $row['name'];
-		if($row['last_score']==''){$last_Score = "No Score";}else{$last_Score = $row['last_score'];}
-		if($row['score']==''){$Score = "No Score";}else{$Score = $row['score'];}
-		if($row['gamemode']==''){$GameMode = "No GM Played";}else{$GameMode = $row['gamemode'];}
-		if($row['timeplayed']==''){$TimePlayed = "No Time Played";}else{$TimePlayed = $row['timeplayed'];}
+		$Name = $row['PLAYER_NAME'];
+		if($row['LAST_SCORE']==''){$last_Score = "No Score";}else{$last_Score = $row['LAST_SCORE'];}
+		if($row['BEST_SCORE']==''){$Score = "No Score";}else{$Score = $row['BEST_SCORE'];}
+		if($row['GAME_MODE']==''){$GameMode = "No GM Played";}else{$GameMode = $row['GAME_MODE'];}
+		if($row['TIME_PLAYED']==''){$TimePlayed = "No Time Played";}else{$TimePlayed = $row['TIME_PLAYED'];}
 	}
 ?>

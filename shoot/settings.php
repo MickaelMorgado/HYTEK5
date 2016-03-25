@@ -9,7 +9,7 @@
 	<?php include('preloader.html'); ?>
 
 	<?php 
-	if(isset($_SESSION['id_sess']) != '') {
+	if(isset($_SESSION['ID_PLAYER']) != '') {
 	?>
 	<div class="smoke"></div>
 
@@ -26,8 +26,8 @@
 				<div class="left-block scrollable">
 					<h1>Settings</h1>
 					<?php 
-						if(isset($_SESSION['id_sess']) != ''){
-							$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE ID = $_SESSION[id_sess]" );
+						if(isset($_SESSION['ID_PLAYER']) != ''){
+							$result = mysqli_query( $link, "SELECT * FROM SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER WHERE ID = $_SESSION[ID_PLAYER]" );
 							while($row = mysqli_fetch_assoc($result)) {
 								$Name = $row['name'];
 								$settings = $row['settings'];

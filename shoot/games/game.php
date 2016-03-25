@@ -3,20 +3,20 @@
 <head>
 <?php 
 	include('../head.php'); 
-	session_start();
+	//session_start();
 ?>
 	<script src="../js/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" href="../css/game.css">
 	<?php 
-	if (isset($_SESSION['id_sess'])!='') {
-		$result = mysqli_query( $link, "SELECT * FROM shooters WHERE ID = $_SESSION[id_sess]" );
+	if (isset($_SESSION['ID_PLAYER'])!='') {
+		$result = mysqli_query( $link, "SELECT * FROM SETTINGS INNER JOIN SCORES ON SETTINGS.ID_PLAYER=SCORES.ID_PLAYER WHERE SETTINGS.ID_PLAYER = $_SESSION[ID_PLAYER]" );
 		while($row = mysqli_fetch_assoc($result)) {
-			$settings = $row['settings'];
-			$music = $row['music'];
-			$ambiance = $row['ambiance'];
-			$weapons = $row['weapons'];
-			$birds = $row['birds'];
-			$score = $row['score'];
+			$settings = $row['PRESETS'];
+			$music = $row['AUD_MUSICS'];
+			$ambiance = $row['AUD_AMBIANCES'];
+			$weapons = $row['AUD_WEAPONS'];
+			$birds = $row['AUD_BIRDS'];
+			$score = $row['BEST_SCORE'];
 		}
 		switch ($settings) {
 			case 0:
@@ -83,7 +83,7 @@
 		<span class="cursor-scope"></span>
 		<span class="cursor-scope"></span>
 		
-		<div class="best-score">Last score: <span><?php echo $score ; ?></span></div>
+		<div class="best-score">Best score: <span><?php echo $score ; ?></span></div>
 		<input type="hidden" id="best-score" value="<?php echo $score ; ?>">
 		<div id="score" class="score">Your score: 0</div>
 		<div id="timerText"></div>
@@ -190,10 +190,11 @@
 //GAME src SETTINGS OR VARIABLES ============================================================================================================================
 
 	var weapon = {			//dictionary
-	    1: 0.2,				//handling
-	    2: "../audios/onlyoneminute/barret.mp3",			//sound
-	    3: 2,				//qty shot to kill (damage)
+	    1: 0.1,				//handling
+	    2: "../audios/onlyoneminute/FL2.mp3",			//sound
+	    3: 1,				//qty shot to kill (damage)
 	    4: 8,				//ammo
+	    5: "../img/onlyoneminute/cursor5.png",
 	};
 
 	var chickenElm = {
@@ -204,6 +205,7 @@
 	var WeaponDamage = 100/weapon[3];
 
 	var score = 0;
+	var showFirstTime = 1;
 	var blt = weapon[4];
 	var ambience = new Audio();ambience.loop=true;ambience.volume=document.getElementById('ambiance-vol').value;
 	var countdown = new Audio();
@@ -257,7 +259,7 @@
 	  return list[Math.floor((Math.random()*list.length))];
 	} 
 
-	$('body').css("background-image","url("+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape2.jpg","../img/onlyoneminute/landscape3.jpg"])+")");
+	$('body').css("background-image","url("+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape2.jpg","../img/onlyoneminute/landscape3.jpg","../img/onlyoneminute/landscape4.jpg"])+")");
 	//console.log("oi: "+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape1.jpg"]));
 
 //CURSOR - BLUR
@@ -274,7 +276,7 @@
 		if (sets==0) {
 			blur_amount = 0; //750 - default
 		}else{
-			blur_amount = 250; //750 - default
+			blur_amount = 350; //750 - default
 		}
 	  	$box.each(function(index, val) {
 	   		TweenLite.to($(this), handling, { css: { left: e.pageX, top: e.pageY},delay:0+(index/blur_amount)});
@@ -334,6 +336,12 @@
 	}
 
 //BIRDS ANIMATION RESTARTED ON CLICK
+/*
+	function anim(e) {
+		console.log("lol"+e);
+		e.animate({top:'20px',right:'20px'},2000);
+	}
+*/
 	var ra  = $(".chicken");
 		
 		/* for feed */
@@ -503,6 +511,7 @@
 
 	$('body').mouseover(function(){
 		$(this).css({cursor: 'none',height: '100%'});
+		$('.cursor-scope').css("background-image","url("+weapon[5]+"");
 	});
 	//$(document).on('mousemove', function(e){
 	//	$('.cursor-scope').css({left: e.pageX,top: e.pageY});
@@ -544,8 +553,11 @@
 		if ( blt == 0 ) {
 			empty.play();
 			blt = 0;
-			$('.run-animation,.run-animationinv').css('z-index','-100');
-			$('.reload').css({display: "block"});
+			$('.run-animation,.run-animationinv').css('pointer-events','none');
+			if (showFirstTime==1) {
+				$('.reload').css({display: "block"});
+				showFirstTime=0;
+			};
 
 //RELOAD ON CLICK 
 	//(need check screen mobile or tablet)
@@ -569,8 +581,8 @@
 			
 			blt = weapon[4] ;
 
-			$('.run-animation').css('z-index','1');
-			$('.run-animationinv').css('z-index','1');
+			$('.run-animation').css('pointer-events','initial');
+			$('.run-animationinv').css('pointer-events','initial');
 			$('.reload').css({display: "none"});
 			$('.bullets').removeClass("shooted");
 
@@ -592,7 +604,7 @@
 
 		function createRain() {
 			for( i=1;i<nbDrop;i++) {
-				var dropLeft = randRange(0,1600);
+				var dropLeft = randRange(0,1920);
 				var dropTop = randRange(-1000,1400);
 				$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
 				$('#drop'+i).css('left',dropLeft);

@@ -187,13 +187,14 @@ html,body{
 .cursor-scope {
   display: block;
   position: absolute;
-  margin-top: -200px;
-  margin-left: -200px;
-  width: 400px;
-  height: 400px;
-  z-index: -1;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
   text-align: center;
   transition: transform .1s ease-in-out;
+	pointer-events: none;
 
   //border: 3px solid rgba(255,255,255,.7);
   //border-radius: 100%;

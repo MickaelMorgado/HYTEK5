@@ -20,11 +20,12 @@ $light 					: #fff;
 $mask  					: "../../dependencies/img/noise.png"; 	
 $mask-opacity 			: .8;
 
-$element-color			: #090A0E;
+$element-bg-color		: #090A0E;
+$element-color			: $light;
 $element-padding		: 20px;
 $element-mask 			: "../../dependencies/img/noise-diagonal.png";
 
-
+$input-color 			: $dark;
 
 
 // FIX OF SAFARI COLOR TO TRANSPARENT
@@ -78,7 +79,9 @@ body {
 	margin: 20px 0;
 	padding: $element-padding;
 
-	background-color: $element-color;
+	color: $element-color;
+
+	background-color: $element-bg-color;
 	background-image: url($element-mask);
 
 	overflow: hidden;
@@ -101,6 +104,10 @@ body {
 
 		pointer-events: none;
 	}
+}
+
+input,button,select{
+	color: $input-color;
 }
 
 .scrollable {
@@ -192,6 +199,11 @@ $yt-hoverToExpend : false;
 
 .search {
 	width: 120px;
+}
+
+#link-order-select {
+  	width: 100%;
+	margin-bottom: 10px;
 }
 
 #searchform {

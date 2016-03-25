@@ -1,0 +1,1 @@
+<a href="../shoot/"><img src="../shoot/img/thumbnail1.png" alt="shooters" width="100%" /></a>
