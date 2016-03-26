@@ -8,15 +8,15 @@
 	<script src="../js/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" href="../css/game.css">
 	<?php 
-	if (isset($_SESSION['ID_PLAYER'])!='') {
-		$result = mysqli_query( $link, "SELECT * FROM SETTINGS INNER JOIN SCORES ON SETTINGS.ID_PLAYER=SCORES.ID_PLAYER WHERE SETTINGS.ID_PLAYER = $_SESSION[ID_PLAYER]" );
+	if (isset($_SESSION['id_player'])!='') {
+		$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN scores ON settings.id_player=scores.id_player WHERE settings.id_player = $_SESSION[id_player]" );
 		while($row = mysqli_fetch_assoc($result)) {
-			$settings = $row['PRESETS'];
-			$music = $row['AUD_MUSICS'];
-			$ambiance = $row['AUD_AMBIANCES'];
-			$weapons = $row['AUD_WEAPONS'];
-			$birds = $row['AUD_BIRDS'];
-			$score = $row['BEST_SCORE'];
+			$settings = $row['presets'];
+			$music = $row['aud_musics'];
+			$ambiance = $row['aud_ambiances'];
+			$weapons = $row['aud_weapons'];
+			$birds = $row['aud_birds'];
+			$score = $row['best_score'];
 		}
 		switch ($settings) {
 			case 0:
@@ -191,7 +191,7 @@
 
 	var weapon = {			//dictionary
 	    1: 0.1,				//handling
-	    2: "../audios/onlyoneminute/FL2.mp3",			//sound
+	    2: "../audios/onlyoneminute/gun.mp3",			//sound
 	    3: 1,				//qty shot to kill (damage)
 	    4: 8,				//ammo
 	    5: "../img/onlyoneminute/cursor5.png",

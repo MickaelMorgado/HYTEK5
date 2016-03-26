@@ -27,28 +27,28 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `players` (
-  `ID_PLAYER` int(11) NOT NULL AUTO_INCREMENT,
-  `PLAYER_NAME` varchar(30) NOT NULL,
-  `PASS` varchar(200) NOT NULL,
-  `TIME_PLAYED` int(11) NOT NULL,
-  `COINS` int(11) NOT NULL,
+  `id_player` int(11) NOT NULL AUTO_INCREMENT,
+  `player_name ` varchar(30) NOT NULL,
+  `pass ` varchar(200) NOT NULL,
+  `time_played ` int(11) NOT NULL,
+  `coins ` int(11) NOT NULL,
   `SETTINGS` int(11) NOT NULL,
   `SCORES` int(11) NOT NULL,
   `WEAPONS` int(11) NOT NULL,
-  PRIMARY KEY (`ID_PLAYER`),
-  UNIQUE KEY `ID` (`ID_PLAYER`),
-  UNIQUE KEY `PLAYER_NAME` (`PLAYER_NAME`),
-  UNIQUE KEY `PLAYER_NAME_2` (`PLAYER_NAME`),
-  UNIQUE KEY `PLAYER_NAME_3` (`PLAYER_NAME`),
-  UNIQUE KEY `PLAYER_NAME_4` (`PLAYER_NAME`),
-  UNIQUE KEY `PLAYER_NAME_5` (`PLAYER_NAME`)
+  PRIMARY KEY (`id_player`),
+  UNIQUE KEY `ID` (`id_player`),
+  UNIQUE KEY `player_name ` (`player_name `),
+  UNIQUE KEY `player_name _2` (`player_name `),
+  UNIQUE KEY `player_name _3` (`player_name `),
+  UNIQUE KEY `player_name _4` (`player_name `),
+  UNIQUE KEY `player_name _5` (`player_name `)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
 
 --
 -- Extraindo dados da tabela `players`
 --
 
-INSERT INTO `players` (`ID_PLAYER`, `PLAYER_NAME`, `PASS`, `TIME_PLAYED`, `COINS`, `SETTINGS`, `SCORES`, `WEAPONS`) VALUES
+INSERT INTO `players` (`id_player`, `player_name `, `pass `, `time_played `, `coins `, `SETTINGS`, `SCORES`, `WEAPONS`) VALUES
 (11, 'BOBY', 'f54f5fc8a4673693d9e642ee5cb460591ee496ff83ecbc3028e437b5750a73c02d0a935919434bb0c507f84ee328c9d5ba3c9d3db2f9cfbf3ab8344a265483a6', 0, 0, 0, 0, 0),
 (13, 'BABA', 'c6267d09f0cd20b6aa691e91965e1f1f1e0e1204e8ce59b4e828cdaa059f31e1a0a4cdde7c70f9b12fd2d66a718bd6402675df4a0c851e7543febd3ba8fe79b9', 0, 0, 0, 0, 0),
 (14, 'AS', '2f6bb74272ea9ed4176db79759068f530a4e4ef05d307e37533231863c063c538ce4bde28f17e029b86b3d7e7f79f98b1caec4ccf52637e9c6f04e68cfb1328f', 0, 0, 0, 0, 0),
@@ -62,10 +62,10 @@ INSERT INTO `players` (`ID_PLAYER`, `PLAYER_NAME`, `PASS`, `TIME_PLAYED`, `COINS
 
 CREATE TABLE IF NOT EXISTS `scores` (
   `ID_SCORES` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_PLAYER` int(11) NOT NULL,
+  `id_player` int(11) NOT NULL,
   `BEST_SCORE` int(11) NOT NULL DEFAULT '0',
-  `LAST_SCORE` int(11) NOT NULL DEFAULT '0',
-  `GAME_MODE` varchar(20) NOT NULL DEFAULT 'LOW',
+  `last_score ` int(11) NOT NULL DEFAULT '0',
+  `game_mode ` varchar(20) NOT NULL DEFAULT 'LOW',
   UNIQUE KEY `ID_SCORES` (`ID_SCORES`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `scores` (
 -- Extraindo dados da tabela `scores`
 --
 
-INSERT INTO `scores` (`ID_SCORES`, `ID_PLAYER`, `BEST_SCORE`, `LAST_SCORE`, `GAME_MODE`) VALUES
+INSERT INTO `scores` (`ID_SCORES`, `id_player`, `BEST_SCORE`, `last_score `, `game_mode `) VALUES
 (3, 11, 1, 0, 'LOW'),
 (4, 11, 0, 0, 'LOW'),
 (5, 13, 2, 0, 'LOW'),
@@ -91,13 +91,13 @@ INSERT INTO `scores` (`ID_SCORES`, `ID_PLAYER`, `BEST_SCORE`, `LAST_SCORE`, `GAM
 
 CREATE TABLE IF NOT EXISTS `settings` (
   `ID_SETTINGS` int(11) NOT NULL AUTO_INCREMENT,
-  `ID_PLAYER` int(11) NOT NULL,
-  `PRESETS` int(11) NOT NULL DEFAULT '1',
+  `id_player` int(11) NOT NULL,
+  `presets` int(11) NOT NULL DEFAULT '1',
   `AUD_EFFECTS` float NOT NULL DEFAULT '1',
-  `AUD_MUSICS` float NOT NULL DEFAULT '1',
-  `AUD_AMBIANCES` float NOT NULL DEFAULT '1',
-  `AUD_WEAPONS` float NOT NULL DEFAULT '1',
-  `AUD_BIRDS` float NOT NULL DEFAULT '1',
+  `aud_musics ` float NOT NULL DEFAULT '1',
+  `aud_ambiances ` float NOT NULL DEFAULT '1',
+  `aud_weapons ` float NOT NULL DEFAULT '1',
+  `aud_birds ` float NOT NULL DEFAULT '1',
   PRIMARY KEY (`ID_SETTINGS`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- Extraindo dados da tabela `settings`
 --
 
-INSERT INTO `settings` (`ID_SETTINGS`, `ID_PLAYER`, `PRESETS`, `AUD_EFFECTS`, `AUD_MUSICS`, `AUD_AMBIANCES`, `AUD_WEAPONS`, `AUD_BIRDS`) VALUES
+INSERT INTO `settings` (`ID_SETTINGS`, `id_player`, `presets`, `AUD_EFFECTS`, `aud_musics `, `aud_ambiances `, `aud_weapons `, `aud_birds `) VALUES
 (1, 0, 0, 0, 0, 0, 0, 0),
 (2, 14, 0, 0, 0, 0, 0, 0),
 (3, 18, 2, 1, 0.3, 0.3, 1, 0.3);

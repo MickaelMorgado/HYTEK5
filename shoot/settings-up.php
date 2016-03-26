@@ -28,7 +28,7 @@
 			break;
 	}
 
-	mysqli_query($link,"UPDATE SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER SET PRESETS = '$set' , AUD_MUSICS = '$music' , AUD_AMBIANCES = '$ambiance' , AUD_WEAPONS = '$weapons' , AUD_BIRDS = '$birds' WHERE PLAYERS.ID_PLAYER = $_SESSION[ID_PLAYER];");
+	mysqli_query($link,"UPDATE settings INNER JOIN players ON settings.id_player=players.id_player SET presets = '$set' , aud_musics  = '$music' , aud_ambiances  = '$ambiance' , aud_weapons  = '$weapons' , aud_birds  = '$birds' WHERE players.id_player = $_SESSION[id_player];");
 
 	header("location: index.php");
 

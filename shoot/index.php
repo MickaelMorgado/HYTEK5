@@ -30,7 +30,7 @@
 		<div class="col-md-2">
 			<div class="block leaderboard">
 			<?php 
-				if(isset($_SESSION['ID_PLAYER']) != ''){ include('apps/your_score.php')
+				if(isset($_SESSION['id_player']) != ''){ include('apps/your_score.php')
 					?>
 					<div class="yourscore">
 						<div>
@@ -135,7 +135,7 @@
 						</div>
 					</div>
 					<?php 
-						if(isset($_SESSION['ID_PLAYER']) != '') {
+						if(isset($_SESSION['id_player']) != '') {
 							echo "<a type='button' data-toggle='modal' data-target='.boby'>Settings</a>";
 						}else {
 							echo "<a href='#popup'>Settings (need login)</a>";
@@ -151,7 +151,7 @@
 		<div class="col-md-2">
 			<div class="block armory">
 				<h1>Armory</h1>
-				<img src="http://images.freeimages.com/images/previews/4ed/revolver-1176758.jpg" alt="">
+				<img src="img/gun.jpg" alt="">
 				<div class="scrollable">
 					<a class="link" data-toggle="modal" data-target=".armorypopup">Large Modal</a>
 					<div class="modal fade armorypopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -159,7 +159,7 @@
 							<div class="modal-content">
 								
 								<?php 
-									if(isset($_SESSION['ID_PLAYER']) != '') { ?>
+									if(isset($_SESSION['id_player']) != '') { ?>
 
 										<h1>Armory <?php echo get($link,"coins",$join,$me); ?>c</h1>
 										<div class="row">
@@ -380,29 +380,29 @@
 							<div class="left-block scrollable">
 								<h1>Settings</h1>
 								<?php 
-									if(isset($_SESSION['ID_PLAYER']) != ''){
-										/*$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE ID = $_SESSION[id_sess]" );
+									if(isset($_SESSION['id_player']) != ''){
+										$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN players ON settings.id_player=players.id_player INNER JOIN scores ON scores.id_player=players.id_player WHERE players.id_player=$_SESSION[id_player]" );
 										while($row = mysqli_fetch_assoc($result)) {
-											$Name = $row['name'];
-											$settings = $row['settings'];
-											$music = $row['music'];
-											$ambiance = $row['ambiance'];
-											$weapons = $row['weapons'];
-											$birds = $row['birds'];
-											$bscore = $row['score'];
+											$Name = $row['player_name'];
+											$settings = $row['presets'];
+											$music = $row['aud_musics'];
+											$ambiance = $row['aud_ambiances'];
+											$weapons = $row['aud_weapons'];
+											$birds = $row['aud_birds'];
+											$bscore = $row['best_score'];
 
 											$music = $music*10;
 											$ambiance = $ambiance*10;
 											$weapons = $weapons*10;
 											$birds = $birds*10;
-										}*/
+										}
 										?>
-										<span class="name"><label for="settings">Player:</label><?php echo get($link,"PLAYER_NAME","SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]"); ?></span>
+										<span class="name"><label for="settings">Player:</label><?php echo $Name; ?></span>
 										<form action="settings-up.php" method="GET">
 											<br>
 											<label for="settings">Presets:</label>
 											<?php
-												$settings = get($link,"PRESETS","SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]");
+												$settings = $settings;
 												switch ($settings) {
 													case 0: echo "
 			                                			
@@ -435,18 +435,18 @@
 											?>
 											<br>
 			                                <br><label for="music">Music:</label> 
-			                                <input type="range" min="0" max="10" value="<?php echo get($link,"AUD_MUSICS","SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]")*10; ?>" name="music">
+			                                <input type="range" min="0" max="10" value="<?php echo $music * 10 ; ?>" name="music">
 			                                <br><label for="ambiance">Ambiance:</label> 
-			                                <input type="range" min="0" max="10" value="<?php echo get($link,"AUD_AMBIANCES","SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]")*10; ?>" name="ambiance">
+			                                <input type="range" min="0" max="10" value="<?php echo $ambiance * 10 ; ?>" name="ambiance">
 			                                <br><label for="weapons">Weapons:</label> 
-			                                <input type="range" min="0" max="10" value="<?php echo get($link,"AUD_WEAPONS","SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]")*10; ?>" name="weapons">
+			                                <input type="range" min="0" max="10" value="<?php echo $weapons * 10 ; ?>" name="weapons">
 			                                <br><label for="birds">Birds:</label> 
-			                                <input type="range" min="0" max="10" value="<?php echo get($link,"AUD_BIRDS","SETTINGS INNER JOIN PLAYERS ON SETTINGS.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]")*10; ?>" name="birds">
+			                                <input type="range" min="0" max="10" value="<?php echo $birds * 10 ; ?>" name="birds">
 			                                <br><br>	
 			                                <input type="submit" value="apply settings">
 										</form>
 										<form action="reset-score.php" method="GET">
-											<label>BEST SCORE:</label><?php echo get($link,"BEST_SCORE","SCORES INNER JOIN PLAYERS ON SCORES.ID_PLAYER=PLAYERS.ID_PLAYER","PLAYERS.ID_PLAYER=$_SESSION[ID_PLAYER]"); ?>
+											<label>BEST SCORE:</label><?php echo get($link,"BEST_SCORE","SCORES INNER JOIN players  ON scores.id_player=players.id_player","players.id_player=$_SESSION[id_player]"); ?>
 			                                <input type="submit" value="reset score">
 										</form>
 										<?php

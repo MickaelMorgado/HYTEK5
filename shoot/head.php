@@ -75,5 +75,5 @@
 		}
 	}
 
-
+	include("apps/notify.php");
 ?>
