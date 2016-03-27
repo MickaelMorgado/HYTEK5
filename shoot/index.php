@@ -53,6 +53,10 @@
 								<span class="ys_left">Time Played:</span>
 								<span class="ys_right"><?php echo "$TimePlayed"; ?></span>
 							</div>
+							<div class="ys_list">
+								<span class="ys_left">Coins:</span>
+								<span class="ys_right"><?php echo "$coins €"; ?></span>
+							</div>
 						</div>
 					</div>
 					<?php
@@ -73,6 +77,10 @@
 							</div>
 							<div class="ys_list">
 								<span class="ys_left">Time Played:</span>
+								<span class="ys_right">None</span>
+							</div>
+							<div class="ys_list">
+								<span class="ys_left">Coins:</span>
 								<span class="ys_right">None</span>
 							</div>
 						</div>
@@ -153,15 +161,20 @@
 				<h1>Armory</h1>
 				<img src="img/gun.jpg" alt="">
 				<div class="scrollable">
-					<a class="link" data-toggle="modal" data-target=".armorypopup">Large Modal</a>
+					<a class="link" data-toggle="modal" data-target=".armorypopup">Weapons Shop</a>
 					<div class="modal fade armorypopup" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
 								
 								<?php 
-									if(isset($_SESSION['id_player']) != '') { ?>
-
-										<h1>Armory <?php echo get($link,"coins",$join,$me); ?>c</h1>
+									if(isset($_SESSION['id_player']) != '') { 
+										$result = mysqli_query($link, "SELECT * FROM players WHERE id_player = $_SESSION[id_player]");
+										while ($row=mysqli_fetch_assoc($result)){
+											$coins = $row['coins'];
+										};
+										?>
+										
+										<h1>Armory <?php echo $coins; ?> €</h1>
 										<div class="row">
 											<div class="col-xs-12">
 												<div class="row">

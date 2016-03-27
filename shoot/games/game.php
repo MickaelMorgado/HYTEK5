@@ -165,10 +165,10 @@
 			var r = confirm("End of the Game!\nYour Score is:"+score+"\nRestart?"); 
 			if(r){
 				$("#status,#preloader").fadeIn();
-				document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&GM=only one minute&phase=restart";
+				document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&coins="+score+"&GM=only one minute&phase=restart";
 			}else{
 				$("#status,#preloader").fadeIn();
-				document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&GM=only one minute";
+				document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&coins="+score+"&GM=only one minute";
 			}
 		}
 	}

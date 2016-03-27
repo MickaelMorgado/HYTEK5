@@ -7,5 +7,6 @@
 		if($row['best_score']==''){$Score = "No Score";}else{$Score = $row['best_score'];}
 		if($row['game_mode']==''){$GameMode = "No GM Played";}else{$GameMode = $row['game_mode'];}
 		if($row['time_played']==''){$TimePlayed = "No Time Played";}else{$TimePlayed = $row['time_played'];}
+		if($row['coins']==''){$coins = "No Coins";}else{$coins = $row['coins'];}
 	}
 ?>
