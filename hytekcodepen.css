@@ -16,6 +16,8 @@
 	box-shadow: 2px 2px 5px black;
 	background-color: #ddd;
 	color: #000;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 body {
   background-color: #1c1c1c; 
