@@ -1,21 +1,30 @@
-<div id="loginform">
-	<button onclick="logout()">logout</button>
-</div>	
-<script>
+<?php 
+	if (isset($_SESSION["name"])) {
+		?>
+		<form id="logout" action="apps/logout.php" method="POST">
+			<input type="submit" value="logout">
+		</form>	
+		<?php
+	}else{
+		?>
+			<form id='loginform' action='apps/login.php' method='POST'>
+				<input type='text' name='CKName' id='login-name' placeholder='name'>
+				<input type='password' name='CKPass' id='login-pass' placeholder='pass'>
+				<input type="submit" value="login">
+			</form>
+			<script>
+				//console.log("put js cookies in input: "+$.cookie("name")+" - "+$.cookie("pass"));
+				$('#login-name').val($.cookie("name"));
+				$('#login-pass').val($.cookie("pass"));
 
-function login() {
-	ln = $('#login-name').val();
-	pass = $('#login-pass').val();
-	var obj = {name:ln,pass:pass}
-	$.cookie("session", $.param(obj), { expires: 7 });
-}
-function logout() {
-	$.removeCookie('session');
-}
+				/* if input not empty auto-submit form */
+				if ($.cookie("name")!="") {
+					//alert("auto-submit");
+					$('#loginform').submit();
+				};
+			</script>
+		<?php
+	}
+?>
 
-if ($.cookie('session') == null) {
-	$('#loginform').prepend("<input type='text' id='login-name'><input type='password' id='login-pass'><button onclick='login()'>login</button>");
-}else{
-	$('#loginform').prepend("logged as "+$.cookie("session") );
-};
-</script>
+

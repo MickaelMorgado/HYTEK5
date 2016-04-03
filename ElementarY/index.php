@@ -18,10 +18,11 @@
 	<?php include('dbConnection.php') ?>
 	<!--?php include('dependencies/phpfunctions.php') ?-->
 
+
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-3">
-				<div class="element">
+				<div class="element"><?php echo $_SESSION["name"]; ?>
 																			<?php include('apps/link-list.php'); ?>
 					<div class="glass"></div>
 				</div>
