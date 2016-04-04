@@ -1,8 +1,7 @@
 <?php
 	if (isset($_SESSION['id_session'])) { 	// IF SESSION
 		
-		$result = mysqli_query($link, "SELECT * FROM playlists WHERE id_session = $_SESSION[id_session]"); ?>
-		<?php		
+		$result = mysqli_query($link, "SELECT * FROM playlists WHERE id_session = $_SESSION[id_session]");		
 		while( $row = mysqli_fetch_assoc($result) ){
 			$optionalAttr = "&color=white&controls=2&iv_load_policy=3&showinfo=1&enablejsapi";
 			//$ytb = "".$row['youtubeplaylistlink'].$optionalAttr;
@@ -27,7 +26,6 @@
 
 
 		<?php		
-
 	}
 ?>
 <script>

@@ -2,9 +2,9 @@
 	if (isset($_GET['order'])) {
 		include("../../dbConnection.php");
 		$order = $_GET['order'];
-		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = 2 ORDER BY ".$order);
+		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = $_SESSION[id_session] ORDER BY ".$order);
 	}else{
-		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = 2 ORDER BY `data` DESC");
+		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = $_SESSION[id_session] ORDER BY `data` DESC");
 	}
 	//echo "order:".$order;
 	while ($row = mysqli_fetch_assoc($result)) {
@@ -16,13 +16,12 @@
 	<li>
 
 		<form class="htmlForm" action="apps/links/rm-link.php" method="post"> 
-			<input type="hidden"   value="<?php echo $r0; ?>" class="link-id"    name="link-id">
+			<input type="hidden"   value="<?php echo $r0; ?>" class="link-id" name="link-id">
 			<input type="submit" value="" class="submit fa fa-trash-o" /> 
 		</form>
 		<div class="dropdown">
 			<a href="#" class="submit fa" type="button" id="dropdownMenu<?php echo $r0 ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">E<span class="caret"></span></a>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu<?php echo $r0 ?>">
-				<!--form class="htmlForm editForm" action="apps/links/edit-link.php" method="post"-->
 				<form action="apps/links/edit-link.php" method="post" class="htmlForm editForm" data-form="form<?php echo $r0; ?>"> 
 					<input type="hidden"   value="<?php echo $r0; ?>" class="link-id"    name="link-id">
 					<li><input type="text" value="<?php echo $r1; ?>" class="link-title" name="link-title"></li>

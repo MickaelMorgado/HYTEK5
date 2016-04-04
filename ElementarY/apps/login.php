@@ -2,7 +2,8 @@
 	<script src="../dependencies/js/jquery-2.1.3.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
 </head>
-<?php session_start();
+<?php 
+	include("../dbConnection.php");
 $_SESSION["name"] = $_POST["CKName"];
 $_SESSION["pass"] = $_POST["CKPass"];
 echo "creating session : ".$_POST["CKName"]." - ".$_POST["CKPass"];
@@ -17,5 +18,12 @@ echo "creating session : ".$_POST["CKName"]." - ".$_POST["CKPass"];
 	$('body').append("cookies set: "+$.cookie("name")+" - "+$.cookie("pass"));
 </script>
 <?php 
-	header("location: ../index.php");
+	$hash = hash('SHA512', $_SESSION["pass"]);
+	$result = mysqli_query($link, "SELECT * FROM users WHERE BINARY name = '$_SESSION[name]' AND BINARY pass = '$hash'");
+	if ($result) {
+		while($row = mysqli_fetch_assoc($result)){
+			$_SESSION['id_session'] = $row['id_session'];
+			header("location: ../index.php");
+		}
+	}
 ?>

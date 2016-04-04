@@ -7,10 +7,21 @@
 	<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
 	<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
 	<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
+	<span id="player-vol" title="volume"><i class="fa fa-volume-down"></i></span>
 	<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
 	<!--span class="play-pause"></span>
 	<span class="yt-time"></span-->
 </div>
+<?php 
+include('../dbConnection.php');
+if (isset($_SESSION['id_session'])) { 	// IF SESSION
+	$result = mysqli_query($link, "SELECT * FROM playlists WHERE id_session = $_SESSION[id_session]");
+	while( $row = mysqli_fetch_assoc($result) ){
+		$ytb = "".$row['youtubeplaylistlink'];
+		$spt = "".$row['spotifyplaylistlink'];
+	} 
+}
+?>
 <script>
 	var tag = document.createElement('script');
 	tag.src = "https://www.youtube.com/iframe_api";
@@ -25,7 +36,7 @@
 			//videoId: 'uLJMQ9vbusE',
 			playerVars: {
 				listType: 'playlist',
-				list: 'PLOj6XJW_fcjxs6OHAKoYSKN8zGECJtu9_',
+				list: <?php echo "'$ytb'" ; ?>,
 			},
 			events: {
 				//'onReady': onPlayerReady,
@@ -60,6 +71,14 @@
 		player.nextVideo();
 		var min = player.getDuration()/60;
 		$(".player .yt-time").html("time:"+min+"");
+	});
+	
+	$("#player-vol").click(function(){			
+		if (player.isMuted()==true) {
+			player.unMute();	
+		}else{
+			player.mute();	
+		};
 	});
 
 	$("#player-pause").click(function(){		player.pauseVideo();	});

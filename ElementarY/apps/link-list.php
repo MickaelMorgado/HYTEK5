@@ -1,6 +1,15 @@
 <div id="UI-result"></div>
 
 <div id="tabs">
+	<select name="order" id="link-order-select">
+		<option value="" selected hidden>--</option>
+		<option value="`title`ASC">title ASC</option>
+		<option value="`title`DESC">title DESC</option>
+		<option value="`data`ASC">Date ASC</option>
+		<option value="`data`DESC">Date DESC</option>
+		<option value="`url`ASC">Url ASC</option>
+		<option value="`url`DESC">Url DESC</option>
+	</select>
 	<div class="dropdown pull-right">
 		<button href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn-search">+<span class="caret"></span></button>
 		<ul class="dropdown-menu" aria-labelledby="dropdownMenuAdd">
@@ -19,15 +28,6 @@
 			<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
 		</div>
 	</form>
-	<select name="order" id="link-order-select">
-		<option value="" selected hidden>--</option>
-		<option value="`title`ASC">title ASC</option>
-		<option value="`title`DESC">title DESC</option>
-		<option value="`data`ASC">Date ASC</option>
-		<option value="`data`DESC">Date DESC</option>
-		<option value="`url`ASC">Url ASC</option>
-		<option value="`url`DESC">Url DESC</option>
-	</select>
 	<ul class="list-unstyled scrollable list" id="enableRefresh">
 		<?php 
 			include('links/get-links.php'); 

@@ -18,21 +18,11 @@
 	<?php include('dbConnection.php') ?>
 	<!--?php include('dependencies/phpfunctions.php') ?-->
 
-
+	<?php 
+		//echo $_SESSION["id_session"]; 
+	?>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-3">
-				<div class="element"><?php echo $_SESSION["name"]; ?>
-																			<?php include('apps/link-list.php'); ?>
-					<div class="glass"></div>
-				</div>
-			</div>		
-			<div class="col-xs-12 col-sm-6 col-md-3">
-				<div class="element">
-																			<?php include('apps/youtubeminiplayer.php'); ?>
-					<div class="glass"></div>
-				</div>
-			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
 																			<?php include('apps/clock.php'); ?>
@@ -42,14 +32,26 @@
 																			<?php include('apps/socio.php'); ?>
 					<div class="glass"></div>
 				</div>
+			</div>		
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="element">
+																			<?php include('apps/link-list.php'); ?>
+					<div class="glass"></div>
+				</div>
 			</div>
-			<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="col-xs-12 col-sm-6 col-md-3">
+				<div class="element">
+																			<?php include('apps/youtubeminiplayer.php'); ?>
+					<div class="glass"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
 																			<?php include('apps/cookie-login.php'); ?>
 					<div class="glass"></div>
 				</div>	
 			</div>			
-			<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
 																			<?php include('apps/shooters.php'); ?>
 					<div class="glass"></div>

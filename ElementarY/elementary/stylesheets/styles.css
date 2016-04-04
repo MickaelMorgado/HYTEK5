@@ -20,7 +20,7 @@ body {
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 );
   /* IE6-9 */
-  padding: 40px 0;
+  padding: 20px 0;
   background-color: #000;
   background-attachment: fixed;
 }
@@ -47,7 +47,7 @@ body:after {
   -webkit-box-shadow: 2px 2px 5px 0 #000;
   box-shadow: 2px 2px 5px 0 #000;
   position: relative;
-  margin: 20px 0;
+  margin-bottom: 20px;
   padding: 20px;
   color: #fff;
   background-color: #090A0E;
@@ -65,6 +65,12 @@ body:after {
   left: 50%;
   width: 100%;
   height: 100%;
+  /*-------------*/
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 170px;
+  /*-------------*/
   display: block;
   background-color: #fff;
   opacity: .017;
@@ -73,12 +79,12 @@ body:after {
   pointer-events: none;
 }
 
-/* line 109, ../sass/styles.scss */
+/* line 117, ../sass/styles.scss */
 input, button, select {
   color: #000;
 }
 
-/* line 113, ../sass/styles.scss */
+/* line 121, ../sass/styles.scss */
 .scrollable {
   max-height: 240px;
   overflow-y: scroll;
@@ -87,14 +93,14 @@ input, button, select {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 123, ../sass/styles.scss */
+/* line 131, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 129, ../sass/styles.scss */
+/* line 137, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -109,12 +115,12 @@ input, button, select {
   overflow: hidden;
 }
 
-/* line 148, ../sass/styles.scss */
+/* line 156, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 152, ../sass/styles.scss */
+/* line 160, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -122,7 +128,7 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 156, ../sass/styles.scss */
+/* line 164, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
@@ -131,7 +137,7 @@ input, button, select {
 /*============================================================
     clock
 ============================================================*/
-/* line 166, ../sass/styles.scss */
+/* line 174, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -141,12 +147,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 175, ../sass/styles.scss */
+/* line 183, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 179, ../sass/styles.scss */
+/* line 187, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -157,37 +163,37 @@ input, button, select {
   background-color: transparent;
   opacity: .3;
 }
-/* line 189, ../sass/styles.scss */
+/* line 197, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 191, ../sass/styles.scss */
+/* line 199, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 196, ../sass/styles.scss */
+/* line 204, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 200, ../sass/styles.scss */
+/* line 208, ../sass/styles.scss */
 .search {
   width: 120px;
 }
 
-/* line 204, ../sass/styles.scss */
+/* line 212, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 209, ../sass/styles.scss */
+/* line 217, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 213, ../sass/styles.scss */
+/* line 221, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -198,7 +204,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 223, ../sass/styles.scss */
+/* line 231, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -207,4 +213,12 @@ input, button, select {
   padding: 5px;
   box-shadow: 2px 2px 5px black;
   border: none;
+}
+
+/*============================================================
+    bordered links
+============================================================*/
+/* line 242, ../sass/styles.scss */
+.border-link img {
+  border: 5px solid #003c53;
 }
