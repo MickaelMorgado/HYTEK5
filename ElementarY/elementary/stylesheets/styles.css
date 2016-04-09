@@ -1,10 +1,78 @@
 /* cd C:\wamp\www\HYTEK5\Elementary\elementary\ */
-/* line 47, ../sass/styles.scss */
+/*============================================================
+    button / inputs / textareas ...
+============================================================*/
+/* btn */
+/* primary button */
+/* inputs */
+/* colorizes placeholder */
+/* extend form-control styles */
+/* submit button as block */
+/* selection style */
+/* line 85, ../sass/styles.scss */
+.btn {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border: 0 solid #fff;
+  text-transform: uppercase;
+  -moz-box-shadow: 2px 2px 5px 0 #555;
+  -webkit-box-shadow: 2px 2px 5px 0 #555;
+  box-shadow: 2px 2px 5px 0 #555;
+}
+
+/* line 92, ../sass/styles.scss */
+.btn-primary {
+  background-color: #001720;
+  color: #fff;
+}
+
+/* line 97, ../sass/styles.scss */
+input, input[type="submit"], select, button, textarea {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  display: inline-block;
+  padding: 2px 8px;
+  margin-bottom: 0;
+  border: 1px solid #000;
+  color: #fff;
+  background-color: #262626;
+}
+/* line 112, ../sass/styles.scss */
+input:focus, input[type="submit"]:focus, select:focus, button:focus, textarea:focus {
+  border-color: #001720;
+  box-shadow: 0px 1px 1px #001720 inset, 0px 0px 8px #003c53;
+}
+
+/* line 119, ../sass/styles.scss */
+*::-moz-selection {
+  background: #001720;
+  color: #fff;
+}
+
+/* line 123, ../sass/styles.scss */
+*::selection {
+  background: #001720;
+  color: #fff;
+}
+
+/* line 129, ../sass/styles.scss */
+label, strong {
+  color: #001720;
+}
+
+/* line 133, ../sass/styles.scss */
+input[type="submit"] {
+  width: auto;
+}
+
+/* line 150, ../sass/styles.scss */
 html, body {
   height: 100%;
 }
 
-/* line 49, ../sass/styles.scss */
+/* line 152, ../sass/styles.scss */
 body {
   background: -moz-linear-gradient top, #000 0%, #001720 100%;
   /* FF3.6+ */
@@ -24,7 +92,7 @@ body {
   background-color: #000;
   background-attachment: fixed;
 }
-/* line 58, ../sass/styles.scss */
+/* line 161, ../sass/styles.scss */
 body:after {
   content: "";
   display: block;
@@ -38,7 +106,7 @@ body:after {
   z-index: -1;
 }
 
-/* line 73, ../sass/styles.scss */
+/* line 176, ../sass/styles.scss */
 .element {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -54,7 +122,7 @@ body:after {
   background-image: url("../../dependencies/img/noise-diagonal.png");
   overflow: hidden;
 }
-/* line 89, ../sass/styles.scss */
+/* line 192, ../sass/styles.scss */
 .element .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -79,12 +147,12 @@ body:after {
   pointer-events: none;
 }
 
-/* line 117, ../sass/styles.scss */
+/* line 220, ../sass/styles.scss */
 input, button, select {
-  color: #000;
+  color: #fff;
 }
 
-/* line 121, ../sass/styles.scss */
+/* line 224, ../sass/styles.scss */
 .scrollable {
   max-height: 240px;
   overflow-y: scroll;
@@ -93,14 +161,14 @@ input, button, select {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 131, ../sass/styles.scss */
+/* line 234, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 137, ../sass/styles.scss */
+/* line 240, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -115,12 +183,12 @@ input, button, select {
   overflow: hidden;
 }
 
-/* line 156, ../sass/styles.scss */
+/* line 259, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 160, ../sass/styles.scss */
+/* line 263, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -128,7 +196,7 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 164, ../sass/styles.scss */
+/* line 267, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
@@ -137,7 +205,7 @@ input, button, select {
 /*============================================================
     clock
 ============================================================*/
-/* line 174, ../sass/styles.scss */
+/* line 277, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -147,12 +215,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 183, ../sass/styles.scss */
+/* line 286, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 187, ../sass/styles.scss */
+/* line 290, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -163,37 +231,37 @@ input, button, select {
   background-color: transparent;
   opacity: .3;
 }
-/* line 197, ../sass/styles.scss */
+/* line 300, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 199, ../sass/styles.scss */
+/* line 302, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 204, ../sass/styles.scss */
+/* line 307, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 208, ../sass/styles.scss */
+/* line 311, ../sass/styles.scss */
 .search {
   width: 120px;
 }
 
-/* line 212, ../sass/styles.scss */
+/* line 315, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 217, ../sass/styles.scss */
+/* line 320, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 221, ../sass/styles.scss */
+/* line 324, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -204,7 +272,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 231, ../sass/styles.scss */
+/* line 334, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -218,7 +286,7 @@ input, button, select {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 242, ../sass/styles.scss */
+/* line 345, ../sass/styles.scss */
 .border-link img {
   border: 5px solid #003c53;
 }
