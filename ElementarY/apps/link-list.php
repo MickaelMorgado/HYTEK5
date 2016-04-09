@@ -9,6 +9,8 @@
 		<option value="`data`DESC">Date DESC</option>
 		<option value="`url`ASC">Url ASC</option>
 		<option value="`url`DESC">Url DESC</option>
+		<option value="`view`ASC">View ASC</option>
+		<option value="`view`DESC">View DESC</option>
 	</select>
 	<div class="dropdown pull-right">
 		<button href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn-search">+<span class="caret"></span></button>
@@ -75,13 +77,26 @@
 		form.submit();
 	} 
 
-/*
-*/
 	$("#link-order-select").change(function(){
 		var val = $(this).val();
 		$('#enableRefresh').load("apps/links/get-links.php?order="+val);
 		console.log(val);
 	});
 
+	function viewCount(a,b) { /* passing "id" of link and "href" */
+		$.ajax({
+			method: "POST",
+			url: "apps/links/link-view.php",
+			data: { linkid: a },
+			success: function(data) {
+				window.location=b;
+			}
+		});
+	}
+
+	$('.link-list').click(function(e){
+		e.preventDefault();
+		viewCount($(this).data("linkid"),$(this).attr("href"));
+	});
 
 </script>

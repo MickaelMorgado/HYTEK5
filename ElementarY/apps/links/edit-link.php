@@ -5,7 +5,7 @@
 	$title = $_POST['link-title'];
 	$url = $_POST['link-url'];
 	$url = str_replace(array("http://", "https://"), "", $url);
-	$sql = "UPDATE mytabs SET title = '$title', url = '$url' WHERE id_tab = $id AND id_tabs = 2";
+	$sql = "UPDATE mytabs SET title = '$title', url = '$url' WHERE id_tab = $id AND id_tabs = $_SESSION[id_session]";
 	mysqli_query($link, $sql); 
 	header("location: ../../");
 ?>

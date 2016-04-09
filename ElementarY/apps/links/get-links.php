@@ -31,7 +31,7 @@
 			</ul>
 		</div>
 
-		<a href="http://<?php echo $r2; ?>" class="link-list title">
+		<a href="http://<?php echo $r2; ?>" class="link-list title" data-linkid="<?php echo $r0; ?>">
 			<span class="url" style="display:none"><?php echo $r2 ?></span>
 			<?php 
 			if ($row['title'] == '') {	// IF EMPTY TITLE GET ONE BASED FROM THE LINK
