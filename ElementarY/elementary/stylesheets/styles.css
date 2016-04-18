@@ -121,6 +121,10 @@ body:after {
   background-color: #090A0E;
   background-image: url("../../dependencies/img/noise-diagonal.png");
   overflow: hidden;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 /* line 192, ../sass/styles.scss */
 .element .glass {
@@ -146,13 +150,19 @@ body:after {
   z-index: 100;
   pointer-events: none;
 }
-
 /* line 220, ../sass/styles.scss */
+.element:hover {
+  -moz-box-shadow: 0 0 10px -2px #003c53;
+  -webkit-box-shadow: 0 0 10px -2px #003c53;
+  box-shadow: 0 0 10px -2px #003c53;
+}
+
+/* line 225, ../sass/styles.scss */
 input, button, select {
   color: #fff;
 }
 
-/* line 224, ../sass/styles.scss */
+/* line 229, ../sass/styles.scss */
 .scrollable {
   max-height: 240px;
   overflow-y: scroll;
@@ -161,14 +171,14 @@ input, button, select {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 234, ../sass/styles.scss */
+/* line 239, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 240, ../sass/styles.scss */
+/* line 245, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -182,13 +192,40 @@ input, button, select {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
+/* line 257, ../sass/styles.scss */
+#player:hover {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  width: 200%;
+}
 
-/* line 259, ../sass/styles.scss */
+/* line 264, ../sass/styles.scss */
+.element.expand {
+  overflow: visible;
+  z-index: 1;
+}
+/* line 267, ../sass/styles.scss */
+.element.expand .player {
+  padding: 0;
+}
+/* line 270, ../sass/styles.scss */
+.element.expand #player {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  bottom: -225px;
+  right: 0;
+  width: 515px;
+  height: 225px;
+}
+
+/* line 279, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 263, ../sass/styles.scss */
+/* line 283, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -196,7 +233,7 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 267, ../sass/styles.scss */
+/* line 287, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
@@ -205,7 +242,7 @@ input, button, select {
 /*============================================================
     clock
 ============================================================*/
-/* line 277, ../sass/styles.scss */
+/* line 297, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -215,12 +252,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 286, ../sass/styles.scss */
+/* line 306, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 290, ../sass/styles.scss */
+/* line 310, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -231,37 +268,37 @@ input, button, select {
   background-color: transparent;
   opacity: .3;
 }
-/* line 300, ../sass/styles.scss */
+/* line 320, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 302, ../sass/styles.scss */
+/* line 322, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 307, ../sass/styles.scss */
+/* line 327, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 311, ../sass/styles.scss */
+/* line 331, ../sass/styles.scss */
 .search {
   width: 120px;
 }
 
-/* line 315, ../sass/styles.scss */
+/* line 335, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 320, ../sass/styles.scss */
+/* line 340, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 324, ../sass/styles.scss */
+/* line 344, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -272,7 +309,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 334, ../sass/styles.scss */
+/* line 354, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -286,7 +323,7 @@ input, button, select {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 345, ../sass/styles.scss */
+/* line 365, ../sass/styles.scss */
 .border-link img {
   border: 5px solid #003c53;
 }

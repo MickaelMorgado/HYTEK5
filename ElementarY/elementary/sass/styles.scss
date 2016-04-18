@@ -215,6 +215,11 @@ body {
 
 		pointer-events: none;
 	}
+	@include single-transition(all, .1s, ease-in-out);
+	
+	&:hover {
+		@include box-shadow(0 0 10px -2px lighten($primary,10));
+	}
 }
 
 input,button,select{
@@ -229,7 +234,7 @@ input,button,select{
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-$yt-hoverToExpend : false;
+$yt-hoverToExpend : true;
 
 .player {
 	text-align: center;
@@ -251,10 +256,25 @@ $yt-hoverToExpend : false;
 	@if ($yt-hoverToExpend == true) {
 		&:hover {
 			@include border-radius(0);
-			width: 300%;
+			width: 200%;
 		}
 	}
+
 }
+.element.expand {
+	overflow: visible;
+	z-index: 1;
+	.player {
+		padding: 0;
+	}
+	#player {
+		@include border-radius(0);
+		bottom: -225px;
+		right: 0;
+		width: 515px;
+		height: 225px;
+	}
+} 
 
 .player-controls {
 	font-size: 1.5em;

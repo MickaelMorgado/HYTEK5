@@ -9,13 +9,14 @@
 	<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
 	<span id="player-vol" title="volume"><i class="fa fa-volume-down"></i></span>
 	<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
+	<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
 	<!--span class="play-pause"></span>
 	<span class="yt-time"></span-->
 </div>
 <?php 
 include('../dbConnection.php');
 if (isset($_SESSION['id_session'])) { 	// IF SESSION
-	$result = mysqli_query($link, "SELECT * FROM playlists WHERE id_session = $_SESSION[id_session]");
+	$result = mysqli_query($link, "SELECT * FROM playlists WHERE ID_session = $_SESSION[id_session]");
 	while( $row = mysqli_fetch_assoc($result) ){
 		$ytb = "".$row['youtubeplaylistlink'];
 		$spt = "".$row['spotifyplaylistlink'];
@@ -36,7 +37,7 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 			//videoId: 'uLJMQ9vbusE',
 			playerVars: {
 				listType: 'playlist',
-				list: <?php echo "'$ytb'" ; ?>,
+				list: '<?php echo $ytb ?>',
 			},
 			events: {
 				//'onReady': onPlayerReady,
@@ -48,7 +49,6 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 	// SHUFFLE VIDEO PLAYER SERIA FIX ALEATORIO XD
 	var done = false;
 	$("#player-pause").css({"display":"none"});
-	
 	function onPlayerStateChange(event) {							// WHEN IT PLAY
 		if (event.data == YT.PlayerState.PLAYING && !done) {
 			// CODE HERE like open links to target blank // check player.getPlayerState()
@@ -66,11 +66,12 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 			$(".player").removeClass("active");
 		}
 	}
-
+	/*
+	*/
 	$("#player-next").click(function(){
 		player.nextVideo();
-		var min = player.getDuration()/60;
-		$(".player .yt-time").html("time:"+min+"");
+		//var min = player.getDuration()/60;
+		//$(".player .yt-time").html("time:"+min+"");
 	});
 	
 	$("#player-vol").click(function(){			
@@ -81,9 +82,15 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 		};
 	});
 
+	function expand() {
+		$("#player").parent().parent().toggleClass("expand");
+	}
+
 	$("#player-pause").click(function(){		player.pauseVideo();	});
 	$("#player-play").click(function(){			player.playVideo();		});
 	$("#player-previous").click(function(){		player.previousVideo();	});
+	//$("#player-next").click(function(){		player.nextVideo();	});
 	$("#player-playAt").click(function(){		player.playVideoAt(0);	});
+	$("#player-expand").click(function(){		expand();	});
 
 </script>

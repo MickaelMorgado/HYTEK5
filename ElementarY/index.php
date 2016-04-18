@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>ElementarY</title>
+	<link rel="icon" href="https://lh3.googleusercontent.com/-UhiNRhND2Ac/UvtXfOIZTbI/AAAAAAAAAdo/1ZTaCtlTsOYck5ADKhFgolv2JLjridn-A/s640-no/H%2Bart%2Bchannel%2B640x640.jpg" type="image/jpg">
     <meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no"/>
 	<link href="dependencies/css/bootstrap.min.css" rel="stylesheet" />
@@ -41,7 +42,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
-																			<?php include('apps/youtubeminiplayer.php'); ?>
+																			<!--?php include('apps/youtubeminiplayer.php'); ?-->
 					<div class="glass"></div>
 				</div>
 			</div>

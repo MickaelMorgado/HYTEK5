@@ -25,5 +25,7 @@ echo "creating session : ".$_POST["CKName"]." - ".$_POST["CKPass"];
 			$_SESSION['id_session'] = $row['id_session'];
 			header("location: ../index.php");
 		}
+	}else{
+		header("location: ../index.php?status=fail");
 	}
 ?>
