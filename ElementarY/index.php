@@ -42,7 +42,7 @@
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
-																			<!--?php include('apps/youtubeminiplayer.php'); ?-->
+																			<?php include('apps/youtubeminiplayer.php'); ?>
 					<div class="glass"></div>
 				</div>
 			</div>

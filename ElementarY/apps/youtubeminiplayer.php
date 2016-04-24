@@ -1,6 +1,6 @@
-<div class="player">
+<!--div class="player">
 	<!--div class="hidder"><img src="http://placehold.it/250/" id="youtubeThumbnail"></div-->
-	<div id="player"></div>
+	<!--div id="player"></div>
 </div>
 <div class="player-controls">
 	<span id="player-previous" title="previous"><i class="fa fa-fast-backward"></i></span>
@@ -12,7 +12,7 @@
 	<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
 	<!--span class="play-pause"></span>
 	<span class="yt-time"></span-->
-</div>
+<!--/div>
 <?php 
 include('../dbConnection.php');
 if (isset($_SESSION['id_session'])) { 	// IF SESSION
@@ -93,4 +93,6 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 	$("#player-playAt").click(function(){		player.playVideoAt(0);	});
 	$("#player-expand").click(function(){		expand();	});
 
-</script>
+</script-->
+
+<iframe src="https://open.spotify.com/embed/user/1188639242/playlist/2DlMA4R9yNAmF6L3W3LNyM" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>

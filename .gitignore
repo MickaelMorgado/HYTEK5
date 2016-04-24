@@ -21,6 +21,7 @@ $RECYCLE.BIN/
 # Operating System Files
 # =========================
 HYTEK4/shoot/head.php
+.sass-cache/*
 
 # OSX
 # =========================

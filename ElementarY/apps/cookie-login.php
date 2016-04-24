@@ -15,7 +15,7 @@
 		<script>
 			$('#login-name').val($.cookie("name"));
 			$('#login-pass').val($.cookie("pass"));
-			$('#autofocus').focus();
+			$('#login-name').focus();
 			if ($.cookie("name")!="") { 
 				//$('#loginform').submit();
 			};

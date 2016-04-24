@@ -37,43 +37,55 @@
 	</ul>
 </div>
 
+<?php 
+
+	if (isset($_SESSION['id_session'])) {
+		?>
+			<script>
+				var nextFocus = 0;
+
+				function goNextFocus(nf) {
+					$('#enableRefresh li:nth-child('+nf+') a').focus();
+				}
+
+				$('#searchinput').on('keyup', function(){ nextFocus = 0; }); /* reset next focus on writing in input */
+
+				//var a = false ;
+				//function toggle(){
+				//	if (a == true) { a = false;
+				//		$('a.link-list').prop('target','_blank');
+				//	}else if (a == false){ a = true;
+				//		$('a.link-list').prop('target','');
+				//	}
+				//}
+				$(document).on('keydown', function(e) {					/* on tab got to next link to focus him */
+				    if (e.keyCode === 9) {
+						if (e.shiftKey) {	shiftKeyDown = true; 	nextFocus= nextFocus - 1; } else {
+								 			shiftKeyDown = false; 	nextFocus= nextFocus + 1; }
+			       		goNextFocus(nextFocus);
+				        e.preventDefault();
+				    }
+				    if (e.which === 32) {									/* on shift hold and tab do same in reverse */
+				    	if (!$('#searchinput').is(":focus")) {				/* only tab witdh space if is not focused */
+							$('#searchinput').focus();
+				        	e.preventDefault();
+				    	}
+				    };
+				    //if (e.which === 17) {
+				    //	toggle();
+				    //};
+				});
+			</script>
+
+		<?php
+	}
+
+?>
+
 <!--script src="http://listjs.com/no-cdn/list.js"></script-->
 <script> 
 	
-	var nextFocus = 0;
-
-	function goNextFocus(nf) {
-		$('#enableRefresh li:nth-child('+nf+') a').focus();
-	}
-
-	$('#searchinput').on('keyup', function(){ nextFocus = 0; }); /* reset next focus on writing in input */
-
-	//var a = false ;
-	//function toggle(){
-	//	if (a == true) { a = false;
-	//		$('a.link-list').prop('target','_blank');
-	//	}else if (a == false){ a = true;
-	//		$('a.link-list').prop('target','');
-	//	}
-	//}
-	$(document).on('keydown', function(e) {					/* on tab got to next link to focus him */
-	    if (e.keyCode === 9) {
-			if (e.shiftKey) {	shiftKeyDown = true; 	nextFocus= nextFocus - 1; } else {
-					 			shiftKeyDown = false; 	nextFocus= nextFocus + 1; }
-       		goNextFocus(nextFocus);
-	        e.preventDefault();
-	    }
-	    if (e.which === 32) {									/* on shift hold and tab do same in reverse */
-	    	if (!$('#searchinput').is(":focus")) {				/* only tab witdh space if is not focused */
-				$('#searchinput').focus();
-	        	e.preventDefault();
-	    	}
-	    };
-	    //if (e.which === 17) {
-	    //	toggle();
-	    //};
-	});
-
+	
 	var options = { valueNames: [ 'title','url' ] };
 	var userList = new List('tabs', options);
 
