@@ -67,32 +67,46 @@ input[type="submit"] {
   width: auto;
 }
 
-/* line 150, ../sass/styles.scss */
+/* line 162, ../sass/styles.scss */
 html, body {
   height: 100%;
 }
 
-/* line 152, ../sass/styles.scss */
+/* line 164, ../sass/styles.scss */
 body {
-  background: -moz-linear-gradient top, #000 0%, #001720 100%;
+  -moz-transition: all, 5s, ease-in-out;
+  -o-transition: all, 5s, ease-in-out;
+  -webkit-transition: all, 5s, ease-in-out;
+  transition: all, 5s, ease-in-out;
+  padding: 20px 0;
+  background-color: #000;
+}
+/* line 173, ../sass/styles.scss */
+body:before {
+  background: -moz-linear-gradient bottom, rgba(0, 0, 0, 0.8) 0%, black 100%;
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #000), color-stop(100%, #001720));
+  background: -webkit-gradient(linear, left bottom, left bottom, color-stop(0%, rgba(0, 0, 0, 0.8)), color-stop(100%, black));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #000 0%, #001720 100%);
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 0%, black 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient top, #000 0%, #001720 100%;
+  background: -o-linear-gradient bottom, rgba(0, 0, 0, 0.8) 0%, black 100%;
   /* Opera 11.10+ */
-  background: -ms-linear-gradient top, #000 0%, #001720 100%;
+  background: -ms-linear-gradient bottom, rgba(0, 0, 0, 0.8) 0%, black 100%;
   /* IE10+ */
-  background: linear-gradient(to top, #000000 0%, #001720 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, #000000 100%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 );
   /* IE6-9 */
-  padding: 20px 0;
-  background-color: #000;
-  background-attachment: fixed;
+  content: "";
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
 }
-/* line 161, ../sass/styles.scss */
+/* line 185, ../sass/styles.scss */
 body:after {
   content: "";
   display: block;
@@ -101,12 +115,12 @@ body:after {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.8;
+  opacity: 0.9;
   background-image: url("../../dependencies/img/noise.png");
   z-index: -1;
 }
 
-/* line 176, ../sass/styles.scss */
+/* line 200, ../sass/styles.scss */
 .element {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -126,7 +140,7 @@ body:after {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 192, ../sass/styles.scss */
+/* line 216, ../sass/styles.scss */
 .element .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -150,19 +164,19 @@ body:after {
   z-index: 100;
   pointer-events: none;
 }
-/* line 220, ../sass/styles.scss */
+/* line 244, ../sass/styles.scss */
 .element:hover {
   -moz-box-shadow: 0 0 10px -2px #003c53;
   -webkit-box-shadow: 0 0 10px -2px #003c53;
   box-shadow: 0 0 10px -2px #003c53;
 }
 
-/* line 225, ../sass/styles.scss */
+/* line 249, ../sass/styles.scss */
 input, button, select {
   color: #fff;
 }
 
-/* line 229, ../sass/styles.scss */
+/* line 253, ../sass/styles.scss */
 .scrollable {
   max-height: 240px;
   overflow-y: scroll;
@@ -171,14 +185,14 @@ input, button, select {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 239, ../sass/styles.scss */
+/* line 263, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 245, ../sass/styles.scss */
+/* line 269, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -192,7 +206,7 @@ input, button, select {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 257, ../sass/styles.scss */
+/* line 281, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -200,16 +214,16 @@ input, button, select {
   width: 200%;
 }
 
-/* line 264, ../sass/styles.scss */
+/* line 288, ../sass/styles.scss */
 .element.expand {
   overflow: visible;
   z-index: 1;
 }
-/* line 267, ../sass/styles.scss */
+/* line 291, ../sass/styles.scss */
 .element.expand .player {
   padding: 0;
 }
-/* line 270, ../sass/styles.scss */
+/* line 294, ../sass/styles.scss */
 .element.expand #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -220,12 +234,12 @@ input, button, select {
   height: 225px;
 }
 
-/* line 279, ../sass/styles.scss */
+/* line 303, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 283, ../sass/styles.scss */
+/* line 307, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -233,7 +247,7 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 287, ../sass/styles.scss */
+/* line 311, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
@@ -242,7 +256,7 @@ input, button, select {
 /*============================================================
     clock
 ============================================================*/
-/* line 297, ../sass/styles.scss */
+/* line 321, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -252,12 +266,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 306, ../sass/styles.scss */
+/* line 330, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 310, ../sass/styles.scss */
+/* line 334, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -268,37 +282,37 @@ input, button, select {
   background-color: transparent;
   opacity: .3;
 }
-/* line 320, ../sass/styles.scss */
+/* line 344, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 322, ../sass/styles.scss */
+/* line 346, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 327, ../sass/styles.scss */
+/* line 351, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 331, ../sass/styles.scss */
+/* line 355, ../sass/styles.scss */
 .search {
   width: 120px;
 }
 
-/* line 335, ../sass/styles.scss */
+/* line 359, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 340, ../sass/styles.scss */
+/* line 364, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 344, ../sass/styles.scss */
+/* line 368, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -309,7 +323,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 354, ../sass/styles.scss */
+/* line 378, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -323,7 +337,7 @@ input, button, select {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 365, ../sass/styles.scss */
+/* line 389, ../sass/styles.scss */
 .border-link img {
   border: 5px solid #003c53;
 }

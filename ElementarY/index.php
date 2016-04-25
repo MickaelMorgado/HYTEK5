@@ -13,8 +13,9 @@
 	<script src="dependencies/js/list.min.js"></script>
 	<script src="dependencies/js/moment.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
+	<style></style>
 </head>
-<body>
+<body id="bganim">
 
 	<?php include('dbConnection.php') ?>
 	<!--?php include('dependencies/phpfunctions.php') ?-->
@@ -69,7 +70,22 @@
 		</div>
 	</div>
 	
+	<script>
 
+
+	$(document).ready(function(){
+		function bgr() {
+			var color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+			$('html head style').html("body{background:"+color+"}");
+			//console.log(color);
+		}
+		bgr();
+		setInterval(function(){
+			bgr();
+		},5000);
+	});
+
+	</script>
 
 
 </body>

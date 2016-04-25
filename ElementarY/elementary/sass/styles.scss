@@ -21,7 +21,7 @@ $gray 					: #555;
 // mask for making wall having some texture
 
 $mask  					: "../../dependencies/img/noise.png"; 	
-$mask-opacity 			: .8;
+$mask-opacity 			: .9;
 
 $element-bg-color		: #090A0E;
 $element-color			: $light;
@@ -144,6 +144,18 @@ $input-color 			: $dark;
 
 
 
+// FIX OF SAFARI COLOR TO TRANSPARENT
+	@mixin gradient($f,$l,$o:top,$start:0%,$end:100%) {
+		@if($f==transparent){$f:rgba(255,255,255,0)}
+		@if($l==transparent){$l:rgba(255,255,255,0)}
+		background: -moz-linear-gradient   ($o,  $f $start, $l $end); /* FF3.6+ */
+		background: -webkit-gradient(linear, left $o, left bottom, color-stop($start,$f), color-stop($end,$l)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient($o,  $f $start,$l $end); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient     ($o,  $f $start,$l $end); /* Opera 11.10+ */
+		background: -ms-linear-gradient    ($o,  $f $start,$l $end); /* IE10+ */
+		background: linear-gradient(     to $o,  $f $start,$l $end); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 ); /* IE6-9 */
+	}
 
 
 
@@ -151,12 +163,24 @@ html, body {	height: 100%;  }
 
 body {
 
-	@include gradient($dark,$primary,top);
+	@include transition(all, 5s, ease-in-out);
+	//@include gradient($dark,$primary,top);
 
 	padding: 20px 0;
 
 	background-color: $dark;
-	background-attachment: fixed;
+	//background-attachment: fixed;
+	&:before {
+		@include gradient(rgba(0,0,0,0.8),black,bottom);
+		content: "";
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: -2;
+	}	
 
 	&:after {
 	    content: "";
