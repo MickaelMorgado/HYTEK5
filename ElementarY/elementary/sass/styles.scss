@@ -163,7 +163,7 @@ html, body {	height: 100%;  }
 
 body {
 
-	@include transition(all, 5s, ease-in-out);
+	@include transition(all, 3s, ease-in-out);
 	//@include gradient($dark,$primary,top);
 
 	padding: 20px 0;
@@ -195,6 +195,10 @@ body {
 	    z-index: -1;
 	}
 	
+}
+
+.link-list,.clock {
+	@include transition(color, 5s);
 }
 
 .element {
@@ -387,5 +391,83 @@ $yt-hoverToExpend : true;
     bordered links
 ============================================================*/
 .border-link img {
-	border: 5px solid lighten($primary,10);
+	border: 2px solid lighten($primary,10);
+}
+
+/*============================================================
+    dock
+============================================================*/
+
+.dock {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	display: block;
+	ul {
+		position: relative;
+		display: inline-block;
+	}
+	.dock-aspect {
+		@extend .element;
+		$dock-color: $element-bg-color;
+		$dock-h: 50px;
+		$aft-bfr-w: 20px;
+		position: absolute;
+		margin-bottom: 0;
+		bottom: -10px;
+		left: 0;
+		display: block;
+		background-color: $dock-color;
+		background-image: url($element-mask);
+		height: $dock-h;
+		width: 100%;
+		z-index: -1;
+		transform: perspective( 150px ) rotateX( 50deg );
+		/*
+		&:after,&:before {
+			position: absolute;
+			top: 0;
+			left: -$aft-bfr-w;
+		    
+			width: $aft-bfr-w;
+			height: $dock-h;
+			display: block;
+
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 0 $dock-h $aft-bfr-w;
+			border-color: transparent transparent $dock-color transparent;
+		
+			content: '';
+			z-index: 2;
+		}
+		&:after{
+			left: auto;
+			right: -$aft-bfr-w;
+			border-width: $dock-h 0 0 $aft-bfr-w;
+			border-color: transparent transparent transparent $dock-color;
+		}
+		*/
+	}
+	.dock-icon {
+		$cubic : 50px;
+		$radius: 100%;
+		@include border-radius($radius);
+		width: $cubic;
+		height: $cubic;
+		overflow: hidden;
+		@include box-shadow(0 0 5px 0 $dark);
+		@include single-transition(all, .1s, ease-in-out);
+		margin-bottom: 10px;
+		
+		opacity: .5;
+		@include scale(1.0);
+		
+		&:hover {
+			opacity: 1;
+			@include scale(1.2);
+		}
+	}
 }

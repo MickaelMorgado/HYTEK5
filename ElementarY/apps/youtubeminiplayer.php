@@ -95,4 +95,4 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 
 </script-->
 
-<iframe src="https://open.spotify.com/embed/user/1188639242/playlist/2DlMA4R9yNAmF6L3W3LNyM" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe>
+<!--iframe src="https://open.spotify.com/embed/user/1188639242/playlist/2DlMA4R9yNAmF6L3W3LNyM" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe-->

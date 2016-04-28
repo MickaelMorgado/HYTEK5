@@ -74,10 +74,10 @@ html, body {
 
 /* line 164, ../sass/styles.scss */
 body {
-  -moz-transition: all, 5s, ease-in-out;
-  -o-transition: all, 5s, ease-in-out;
-  -webkit-transition: all, 5s, ease-in-out;
-  transition: all, 5s, ease-in-out;
+  -moz-transition: all, 3s, ease-in-out;
+  -o-transition: all, 3s, ease-in-out;
+  -webkit-transition: all, 3s, ease-in-out;
+  transition: all, 3s, ease-in-out;
   padding: 20px 0;
   background-color: #000;
 }
@@ -121,7 +121,15 @@ body:after {
 }
 
 /* line 200, ../sass/styles.scss */
-.element {
+.link-list, .clock {
+  -moz-transition: color, 5s;
+  -o-transition: color, 5s;
+  -webkit-transition: color, 5s;
+  transition: color, 5s;
+}
+
+/* line 204, ../sass/styles.scss */
+.element, .dock .dock-aspect {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
   border-radius: 1px;
@@ -140,8 +148,8 @@ body:after {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 216, ../sass/styles.scss */
-.element .glass {
+/* line 220, ../sass/styles.scss */
+.element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -webkit-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -164,19 +172,19 @@ body:after {
   z-index: 100;
   pointer-events: none;
 }
-/* line 244, ../sass/styles.scss */
-.element:hover {
+/* line 248, ../sass/styles.scss */
+.element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #003c53;
   -webkit-box-shadow: 0 0 10px -2px #003c53;
   box-shadow: 0 0 10px -2px #003c53;
 }
 
-/* line 249, ../sass/styles.scss */
+/* line 253, ../sass/styles.scss */
 input, button, select {
   color: #fff;
 }
 
-/* line 253, ../sass/styles.scss */
+/* line 257, ../sass/styles.scss */
 .scrollable {
   max-height: 240px;
   overflow-y: scroll;
@@ -185,14 +193,14 @@ input, button, select {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 263, ../sass/styles.scss */
+/* line 267, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 269, ../sass/styles.scss */
+/* line 273, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -206,7 +214,7 @@ input, button, select {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 281, ../sass/styles.scss */
+/* line 285, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -214,17 +222,17 @@ input, button, select {
   width: 200%;
 }
 
-/* line 288, ../sass/styles.scss */
-.element.expand {
+/* line 292, ../sass/styles.scss */
+.element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 291, ../sass/styles.scss */
-.element.expand .player {
+/* line 295, ../sass/styles.scss */
+.element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 294, ../sass/styles.scss */
-.element.expand #player {
+/* line 298, ../sass/styles.scss */
+.element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
@@ -234,12 +242,12 @@ input, button, select {
   height: 225px;
 }
 
-/* line 303, ../sass/styles.scss */
+/* line 307, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 307, ../sass/styles.scss */
+/* line 311, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -247,7 +255,7 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 311, ../sass/styles.scss */
+/* line 315, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
@@ -256,7 +264,7 @@ input, button, select {
 /*============================================================
     clock
 ============================================================*/
-/* line 321, ../sass/styles.scss */
+/* line 325, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -266,12 +274,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 330, ../sass/styles.scss */
+/* line 334, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 334, ../sass/styles.scss */
+/* line 338, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -282,37 +290,37 @@ input, button, select {
   background-color: transparent;
   opacity: .3;
 }
-/* line 344, ../sass/styles.scss */
+/* line 348, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 346, ../sass/styles.scss */
+/* line 350, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 351, ../sass/styles.scss */
+/* line 355, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 355, ../sass/styles.scss */
+/* line 359, ../sass/styles.scss */
 .search {
   width: 120px;
 }
 
-/* line 359, ../sass/styles.scss */
+/* line 363, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 364, ../sass/styles.scss */
+/* line 368, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 368, ../sass/styles.scss */
+/* line 372, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -323,7 +331,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 378, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -337,7 +345,94 @@ input, button, select {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 389, ../sass/styles.scss */
+/* line 393, ../sass/styles.scss */
 .border-link img {
-  border: 5px solid #003c53;
+  border: 2px solid #003c53;
+}
+
+/*============================================================
+    dock
+============================================================*/
+/* line 401, ../sass/styles.scss */
+.dock {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  display: block;
+}
+/* line 407, ../sass/styles.scss */
+.dock ul {
+  position: relative;
+  display: inline-block;
+}
+/* line 411, ../sass/styles.scss */
+.dock .dock-aspect {
+  position: absolute;
+  margin-bottom: 0;
+  bottom: -10px;
+  left: 0;
+  display: block;
+  background-color: #090A0E;
+  background-image: url("../../dependencies/img/noise-diagonal.png");
+  height: 50px;
+  width: 100%;
+  z-index: -1;
+  transform: perspective(150px) rotateX(50deg);
+  		/*
+  		&:after,&:before {
+  			position: absolute;
+  			top: 0;
+  			left: -$aft-bfr-w;
+  		    
+  			width: $aft-bfr-w;
+  			height: $dock-h;
+  			display: block;
+  
+  			width: 0;
+  			height: 0;
+  			border-style: solid;
+  			border-width: 0 0 $dock-h $aft-bfr-w;
+  			border-color: transparent transparent $dock-color transparent;
+  		
+  			content: '';
+  			z-index: 2;
+  		}
+  		&:after{
+  			left: auto;
+  			right: -$aft-bfr-w;
+  			border-width: $dock-h 0 0 $aft-bfr-w;
+  			border-color: transparent transparent transparent $dock-color;
+  		}
+  		*/
+}
+/* line 454, ../sass/styles.scss */
+.dock .dock-icon {
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  -moz-box-shadow: 0 0 5px 0 #000;
+  -webkit-box-shadow: 0 0 5px 0 #000;
+  box-shadow: 0 0 5px 0 #000;
+  -moz-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  margin-bottom: 10px;
+  opacity: .5;
+  -moz-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+/* line 468, ../sass/styles.scss */
+.dock .dock-icon:hover {
+  opacity: 1;
+  -moz-transform: scale(1.2, 1.2);
+  -ms-transform: scale(1.2, 1.2);
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
 }

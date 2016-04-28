@@ -1,1 +1,1 @@
-<a href="../shoot/" class="border-link"><img src="../shoot/img/thumbnail1.png" alt="shooters" width="100%" /></a>
+<a href="../shoot/" class="border-link"><img src="dependencies/img/shooters.png" alt="shooters" width="100%" /></a>

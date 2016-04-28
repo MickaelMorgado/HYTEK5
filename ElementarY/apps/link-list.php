@@ -65,12 +65,6 @@
 			       		goNextFocus(nextFocus);
 				        e.preventDefault();
 				    }
-				    if (e.which === 32) {									/* on shift hold and tab do same in reverse */
-				    	if (!$('#searchinput').is(":focus")) {				/* only tab witdh space if is not focused */
-							$('#searchinput').focus();
-				        	e.preventDefault();
-				    	}
-				    };
 				    //if (e.which === 17) {
 				    //	toggle();
 				    //};
