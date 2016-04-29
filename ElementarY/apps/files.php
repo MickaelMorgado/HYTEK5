@@ -18,6 +18,8 @@ if (isset($_SESSION['id_session'])) {
 				?><i class="fa fa-picture-o" aria-hidden="true"></i><?php
 			}elseif (preg_match('/\.rar$/', $filename)) {
 				?><i class="fa fa-compress" aria-hidden="true"></i><?php
+			}elseif (preg_match('/\.tar.gz$/', $filename)) {
+				?><i class="fa fa-compress" aria-hidden="true"></i><?php
 			}elseif (preg_match('/\.mp3$/', $filename)) {
 				?><i class="fa fa-file-audio-o" aria-hidden="true"></i><?php
 			}elseif (preg_match('/\.pdf$/', $filename)) {
