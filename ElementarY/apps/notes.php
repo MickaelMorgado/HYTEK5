@@ -1,6 +1,7 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 
+
   <!--Jquery Import-->
   <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
