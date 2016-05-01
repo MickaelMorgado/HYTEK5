@@ -31,9 +31,9 @@
 					<div class="glass"></div>
 				</div>
 				<div class="element">
-																			<?php include('apps/socio.php'); ?>
+																			<?php include('apps/notes.php'); ?>
 					<div class="glass"></div>
-				</div>
+				</div>	
 			</div>		
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
@@ -46,27 +46,24 @@
 																			<?php include('apps/files.php'); ?>
 					<div class="glass"></div>
 				</div>
+				<div class="element">
+																			<!--?php include('apps/socio.php'); ?-->
+																			<?php include('apps/youtubeminiplayer.php'); ?>
+					<div class="glass"></div>
+				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
 																			<?php include('apps/cookie-login.php'); ?>
 					<div class="glass"></div>
 				</div>	
-			</div>			
+			</div>		
 			<div class="col-xs-12 col-sm-6 col-md-3">
 				<div class="element">
 																			<?php include('apps/shooters.php'); ?>
 					<div class="glass"></div>
 				</div>	
 			</div>		
-			<!-- 
-			<div class="col-xs-12 col-sm-6 col-md-6">
-				<div class="element">
-																			<!--?php include('apps/youtubeminiplayer.php'); ?>
-					<div class="glass"></div>
-				</div>	
-			</div>
-			-->
 		</div>
 	</div>
 	<div class="container">
