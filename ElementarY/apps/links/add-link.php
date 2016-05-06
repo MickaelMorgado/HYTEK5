@@ -5,5 +5,5 @@
 
 	$sql = "INSERT INTO mytabs (id_tabs,title,url) VALUES (2,'$linkAddTitle','$linkAddUrl')";
 	mysqli_query($link, $sql);
-	header("location: ../../");
+	//header("location: ../../");
 ?>
