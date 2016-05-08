@@ -471,7 +471,33 @@
 								?>
 							</div>
 							<div class="right-block">
-								<img src="img/gtx.jpg">
+							<?php 
+								switch ($settings) {
+									case 0:
+										echo "<link rel='stylesheet' href='../css/low-settings.css'>";
+										?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});</script><?php
+										break;
+									case 1:
+										echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+										?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
+										break;
+									case 2:
+										echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+										echo "<link rel='stylesheet' href='../css/ultra-settings.css'>";
+										?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});</script>
+										<div class="smoke"></div>
+										<div class="light"></div><?php
+										break;
+									
+									default:
+										echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+										?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
+										break;
+								}
+							?>
+								<div class="preview-settings">
+									<img src="img/onlyoneminute/moohurun2.gif" style="position:absolute;left: 0px;width: 70px;height: initial;">
+								</div>
 							</div>
 						</div>
 					</div><!--ROW-->

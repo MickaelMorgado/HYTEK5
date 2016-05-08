@@ -189,6 +189,8 @@ select option {
   width: 50%;
   height: 100%;
   float: right;
+  position: relative;
+  overflow: hidden;
 }
 .settings img {
   width: 100%;
@@ -289,6 +291,18 @@ input[type="submit"] {
   color: #ccc;
   font-size: 13px;
   padding: 10px 30px;
+}
+.preview-settings {
+  background-image:url('../img/onlyoneminute/landscape1.jpg');
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  display: block;
+  height: 100%;
+}
+.settings .right-block .smoke {
+  z-index: 0;
+  opacity: .5;
 }
 /*ANIMATION*/
 @-webkit-keyframes smoke{

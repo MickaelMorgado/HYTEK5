@@ -18,6 +18,20 @@
 			$birds = $row['aud_birds'];
 			$score = $row['best_score'];
 		}
+		$result = mysqli_query($link,"SELECT * FROM weapons INNER JOIN players ON weapons.id_player=players.id_player WHERE weapons.id_player = $_SESSION[id_player]");
+		if ($result->num_rows > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$weapon_mag_capacity = $row['mag_capacity'];
+				$weapon_damage = $row['damage'];
+				$weapon_handle = $row['handle'];
+				$weapon_ammo = $row['ammo'];
+				$weapon_src = $row['src'];
+				$weapon_sound_fire = $row['sound_fire'];
+				$weapon_sound_reload = $row['sound_reload'];
+			} 	
+		}else{
+			echo "0 results";
+		}
 		switch ($settings) {
 			case 0:
 				echo "<link rel='stylesheet' href='../css/low-settings.css'>";
@@ -46,6 +60,13 @@
 		$birds = 1;
 		echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
 		$score = "not logged";
+		$weapon_mag_capacity = 8;
+		$weapon_damage = 1;
+		$weapon_handle = 0.1;
+		$weapon_ammo = 200;
+		$weapon_src = "cursor5.png";
+		$weapon_sound_fire = "gun.mp3";
+		$weapon_sound_reload = "reload.mp3";
 	}
 	?>
 	<script type="text/javascript" src="../js/TweenMax.min.js"></script>
@@ -61,6 +82,13 @@
 	<input type="hidden" value="<?php echo $weapons ?>" id="weapons-vol">
 	<input type="hidden" value="<?php echo $birds ?>" id="birds-vol">
 	<input type="hidden" value="1" id="rain-effect">
+	<input type="hidden" value="<?php echo $weapon_ammo ?>" id="weapon_ammo">
+	<input type="hidden" value="<?php echo $weapon_handle ?>" id="weapon_handle">
+	<input type="hidden" value="<?php echo $weapon_damage ?>" id="weapon_damage">
+	<input type="hidden" value="<?php echo $weapon_mag_capacity ?>" id="weapon_mag_capacity">
+	<input type="hidden" value="../img/onlyoneminute/<?php echo $weapon_src ?>" id="weapon_src">
+	<input type="hidden" value="../audios/onlyoneminute/<?php echo $weapon_sound_fire ?>" id="weapon_sound_fire">
+	<input type="hidden" value="../audios/onlyoneminute/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
 
 	<?php 
 	for ($i=0; $i < 8; $i++) { 
@@ -190,12 +218,14 @@
 //GAME src SETTINGS OR VARIABLES ============================================================================================================================
 
 	var weapon = {			//dictionary
-	    1: 0.1,				//handling
-	    2: "../audios/onlyoneminute/gun.mp3",			//sound
-	    3: 1,				//qty shot to kill (damage)
-	    4: 8,				//ammo
-	    5: "../img/onlyoneminute/cursor5.png",
+	    1: $('#weapon_handle').val(),				//handling
+	    2: $('#weapon_sound_fire').val(),			//sound
+	    3: $('#weapon_damage').val(),				//qty shot to kill (damage)
+	    4: $('#weapon_mag_capacity').val(),			//magazine capacity
+	    5: $('#weapon_src').val(),
+	    6: $('#weapon_sound_reload').val(),
 	};
+
 
 	var chickenElm = {
 		1: 100, 			//max health
@@ -259,7 +289,10 @@
 	  return list[Math.floor((Math.random()*list.length))];
 	} 
 
-	$('body').css("background-image","url("+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape2.jpg","../img/onlyoneminute/landscape3.jpg","../img/onlyoneminute/landscape4.jpg"])+")");
+	$('body').css("background-image","url("+random_background([	"../img/onlyoneminute/landscape1.jpg",
+																"../img/onlyoneminute/landscape2.jpg",
+																"../img/onlyoneminute/landscape3.jpg",
+																"../img/onlyoneminute/landscape4.jpg"])+")");
 	//console.log("oi: "+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape1.jpg"]));
 
 //CURSOR - BLUR
@@ -336,85 +369,83 @@
 	}
 
 //BIRDS ANIMATION RESTARTED ON CLICK
-/*
-	function anim(e) {
-		console.log("lol"+e);
-		e.animate({top:'20px',right:'20px'},2000);
-	}
-*/
-	var ra  = $(".chicken");
-		
-		/* for feed */
-		var feed = [],
-			b = 0,
-
-		/* random properties (spawn safe-zone) */
-			max = 90,        				//body max-height
-			min = 8,		 				//body min-height
-			maxsize = 100;
-
-	for(EI = 0; EI < ra.length; EI++){
-
-		function birds_random_start(ei) {
-			var startDelay = Math.floor((   Math.random()*10                  ) +30   ),
-			    randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       ),
-			    randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
-			ra[EI].style.left = -startDelay*5+"px";ra[EI].style.top = randPosY+"%";ra[EI].style.width = randSize+"px";ra[EI].style.height = randSize+"px";
-			if (randSize < 30) { 				ra[EI].style['-webkit-animation-duration'] = "30s";ra[EI].style['animation-duration'] = "30s";			 }else{
-				if (randSize < 50) { 			ra[EI].style['-webkit-animation-duration'] = "20s";ra[EI].style['animation-duration'] = "20s";			 }else{
-					if (randSize < 80) { 		ra[EI].style['-webkit-animation-duration'] = "15s";ra[EI].style['animation-duration'] = "15s";			 }else{
-						if (randSize >= 80) {	ra[EI].style['-webkit-animation-duration'] = "7s";ra[EI].style['animation-duration'] = "7s";			 };
-					};
-				};
-			};
+	/*
+		function anim(e) {
+			console.log("lol"+e);
+			e.animate({top:'20px',right:'20px'},2000);
 		}
+	*/
+		var ra  = $(".chicken");
+			
+			/* for feed */
+			var feed = [],
+				b = 0,
 
-		var ei = ra[EI];
-		birds_random_start(ei);
-		
-		ra[EI].addEventListener("click", function(e,health,identification) {			e.preventDefault;
-			
-			$(this).attr("health",$(this).attr("health")-WeaponDamage);							//dicrease HP
-			$(this).children().children().css("width",$(this).attr("health")+"%");				//update HP bar
-			
-			if ($(this).attr("health") <= 0) {
-				var ths = $(this).width();
-				
-				kill_to_score(ths);
-				
-				$(this).attr("health",chickenElm[1]);
-				
-				var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
-				var randSize = Math.floor( (    Math.random()*maxsize             ) +20   );
-				e.target.classList.add("die");
-				e.target.style.zIndex = -100;
-				
-				setTimeout(function(){
-					e.target.classList.remove("die");
-					if (e.target.classList == "chicken run-animation") {
-						e.target.classList.remove("run-animation");
-						e.target.offsetWidth = e.target.offsetWidth;
-						e.target.classList.add("run-animation");
-					}else{
-						e.target.classList.remove("run-animationinv");
-						e.target.offsetWidth = e.target.offsetWidth;
-						e.target.classList.add("run-animationinv");
-					};
-					e.target.style.top = randPosY+"%";e.target.style.width = randSize+"px";e.target.style.height = randSize+"px";e.target.style.zIndex = -1;
-					if (randSize < 30) { 				e.target.style['-webkit-animation-duration'] = "30s";e.target.style['animation-duration'] = "30s";			 }else{
-						if (randSize < 50) { 			e.target.style['-webkit-animation-duration'] = "20s";e.target.style['animation-duration'] = "20s";			 }else{
-							if (randSize < 80) { 		e.target.style['-webkit-animation-duration'] = "15s";e.target.style['animation-duration'] = "15s";			 }else{
-								if (randSize >= 80) {	e.target.style['-webkit-animation-duration'] = "7s";e.target.style['animation-duration'] = "7s";			 };
-							};
+			/* random properties (spawn safe-zone) */
+				max = 90,        				//body max-height
+				min = 8,		 				//body min-height
+				maxsize = 100;
+
+		for(EI = 0; EI < ra.length; EI++){
+
+			function birds_random_start(ei) {
+				var startDelay = Math.floor((   Math.random()*10                  ) +30   ),
+				    randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       ),
+				    randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
+				ra[EI].style.left = -startDelay*5+"px";ra[EI].style.top = randPosY+"%";ra[EI].style.width = randSize+"px";ra[EI].style.height = randSize+"px";
+				if (randSize < 30) { 				ra[EI].style['-webkit-animation-duration'] = "30s";ra[EI].style['animation-duration'] = "30s";			 }else{
+					if (randSize < 50) { 			ra[EI].style['-webkit-animation-duration'] = "20s";ra[EI].style['animation-duration'] = "20s";			 }else{
+						if (randSize < 80) { 		ra[EI].style['-webkit-animation-duration'] = "15s";ra[EI].style['animation-duration'] = "15s";			 }else{
+							if (randSize >= 80) {	ra[EI].style['-webkit-animation-duration'] = "7s";ra[EI].style['animation-duration'] = "7s";			 };
 						};
 					};
-				},50); 
-			};
-			chickensound();
-		}, false);
-	}
+				};
+			}
 
-
+			var ei = ra[EI];
+			birds_random_start(ei);
+			
+			ra[EI].addEventListener("click", function(e,health,identification) {			e.preventDefault;
+				
+				$(this).attr("health",$(this).attr("health")-WeaponDamage);							//dicrease HP
+				$(this).children().children().css("width",$(this).attr("health")+"%");				//update HP bar
+				
+				if ($(this).attr("health") <= 0) {
+					var ths = $(this).width();
+					
+					kill_to_score(ths);
+					
+					$(this).attr("health",chickenElm[1]);
+					
+					var randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       );
+					var randSize = Math.floor( (    Math.random()*maxsize             ) +20   );
+					e.target.classList.add("die");
+					e.target.style.zIndex = -100;
+					
+					setTimeout(function(){
+						e.target.classList.remove("die");
+						if (e.target.classList == "chicken run-animation") {
+							e.target.classList.remove("run-animation");
+							e.target.offsetWidth = e.target.offsetWidth;
+							e.target.classList.add("run-animation");
+						}else{
+							e.target.classList.remove("run-animationinv");
+							e.target.offsetWidth = e.target.offsetWidth;
+							e.target.classList.add("run-animationinv");
+						};
+						e.target.style.top = randPosY+"%";e.target.style.width = randSize+"px";e.target.style.height = randSize+"px";e.target.style.zIndex = -1;
+						if (randSize < 30) { 				e.target.style['-webkit-animation-duration'] = "30s";e.target.style['animation-duration'] = "30s";			 }else{
+							if (randSize < 50) { 			e.target.style['-webkit-animation-duration'] = "20s";e.target.style['animation-duration'] = "20s";			 }else{
+								if (randSize < 80) { 		e.target.style['-webkit-animation-duration'] = "15s";e.target.style['animation-duration'] = "15s";			 }else{
+									if (randSize >= 80) {	e.target.style['-webkit-animation-duration'] = "7s";e.target.style['animation-duration'] = "7s";			 };
+								};
+							};
+						};
+					},50); 
+				};
+				chickensound();
+			}, false);
+		}
 
 //KILL TO SCORE
 
@@ -465,6 +496,7 @@
 				}
 			}
 		}
+
 // NOTIFY
 		//console.log(score+"->"+$('#best-score').val());
 		if (score >= $('#best-score').val() && showOneTime == false) {
@@ -561,14 +593,16 @@
 
 //RELOAD ON CLICK 
 	//(need check screen mobile or tablet)
-			/*$('.reload').on("click", function(){
-				blt=8;
-				reload.play();			//console.log(blt);
-				$('.run-animation').css('z-index','1');
-				$('.reload').css({display: "none"});
-				$('.bullets').css({width: '25px','margin-top': '0','position':'relative',height: '100%'});
-				return false;
-			});*/
+			/*if ($(window).width()<=768) {
+				$('.reload').on("click", function(){
+					blt=8;
+					reload.play();			//console.log(blt);
+					$('.run-animation').css('z-index','1');
+					$('.reload').css({display: "none"});
+					$('.bullets').css({width: '25px','margin-top': '0','position':'relative',height: '100%'});
+					return false;
+				});
+			};*/
 
 		}
 	}
