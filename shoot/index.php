@@ -23,7 +23,7 @@
 			<div class="block games">
 				<h1>Games</h1>
 				<img src="img/thumbnail1.png" alt="">
-				<a href="#" id="oom" class="link">only one minute</a></li>
+				<a href="games/game.php" id="oom" class="link">only one minute</a></li>
 				<a href="#" class="link">waves</a></li>
 			</div>
 		</div>
