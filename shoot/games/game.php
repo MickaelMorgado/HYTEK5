@@ -30,7 +30,7 @@
 				$weapon_sound_reload = $row['sound_reload'];
 			} 	
 		}else{
-			echo "0 results";
+		//	echo "0 results";
 		}
 		switch ($settings) {
 			case 0:
