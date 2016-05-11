@@ -18,7 +18,7 @@
 			$birds = $row['aud_birds'];
 			$score = $row['best_score'];
 		}
-		$result = mysqli_query($link,"SELECT * FROM weapons INNER JOIN players ON weapons.id_player=players.id_player WHERE weapons.id_player = $_SESSION[id_player]");
+		/*$result = mysqli_query($link,"SELECT * FROM weapons INNER JOIN players ON weapons.id_player=players.id_player WHERE weapons.id_player = $_SESSION[id_player]");
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
 				$weapon_mag_capacity = $row['mag_capacity'];
@@ -31,7 +31,7 @@
 			} 	
 		}else{
 		//	echo "0 results";
-		}
+		}*/
 		switch ($settings) {
 			case 0:
 				echo "<link rel='stylesheet' href='../css/low-settings.css'>";
