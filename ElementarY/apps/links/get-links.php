@@ -12,6 +12,7 @@
 	$r0 = $row['id_tab'];
 	$r1 = $row['title'];
 	$r2 = $row['url'];
+
 ?>
 	<li>
 
@@ -30,7 +31,6 @@
 				</form>
 			</ul>
 		</div>
-
 		<a href="http://<?php echo $r2; ?>" class="link-list title" data-linkid="<?php echo $r0; ?>">
 			<span class="url" style="display:none"><?php echo $r2 ?></span>
 			<?php 

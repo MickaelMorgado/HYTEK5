@@ -1,0 +1,24 @@
+@import "compass/css3";
+$dark : #111;
+$white : #fff;
+$gray: gray;
+
+$border-radius-base: 2px;
+
+body {
+	background-color: $dark;
+	color: $white;
+}
+
+input, textarea , select {
+	@include border-radius($border-radius-base);
+	color: $white;
+	background-color: $dark;
+	border: 1px solid $gray;
+	padding: 3px 5px;
+}
+
+textarea {
+	width: 100%;
+	//min-height: 500px;
+}

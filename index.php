@@ -50,7 +50,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-3"><a href="ElementarY/" class="block" style="background-image:url('Elementary.png')"></a></div>
 		<div class="col-xs-12 col-sm-6 col-md-3"><a href="shoot/" class="block" style="background-image:url('shoot/img/thumbnail1.png')"></a></div>
-		<div class="col-xs-12 col-sm-6 col-md-3"><a href="" class="block" style="background-image:url('hyteklogo.jpg')"></a></div>
+		<div class="col-xs-12 col-sm-6 col-md-3"><a href="phpeditor/" class="block" style="background-image:url('phpeditor.bmp')"></a></div>
 		<div class="col-xs-12 col-sm-6 col-md-3"><a href="" class="block" style="background-image:url('hyteklogo.jpg')"></a></div>
 	</div>
 </div>

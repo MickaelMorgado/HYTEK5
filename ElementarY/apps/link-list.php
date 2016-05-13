@@ -25,7 +25,7 @@
 		</ul>
 	</div>
 	<form id="searchform" action="" method="GET">
-		<input type="text" placeholder="Search" class="search" id="searchinput" autofocus autocomplete="off">
+		<input type="text" placeholder="Search" class="search" id="searchinput" autocomplete="off">
 		<div class="toggles-search-buttons">
 			<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
 		</div>
@@ -42,6 +42,9 @@
 	if (isset($_SESSION['id_session'])) {
 		?>
 			<script>
+
+				$('#searchinput').focus();
+
 				var nextFocus = 0;
 
 				function goNextFocus(nf) {
@@ -71,6 +74,14 @@
 				});
 			</script>
 
+		<?php
+	}else{
+		?>
+			<script>
+			$(document).ready(function(){
+				$('#login-name').focus();
+			});
+			</script>
 		<?php
 	}
 

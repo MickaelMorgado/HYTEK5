@@ -1,0 +1,21 @@
+/* line 8, ../sass/styles.scss */
+body {
+  background-color: #111;
+  color: #fff;
+}
+
+/* line 13, ../sass/styles.scss */
+input, textarea, select {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #fff;
+  background-color: #111;
+  border: 1px solid gray;
+  padding: 3px 5px;
+}
+
+/* line 21, ../sass/styles.scss */
+textarea {
+  width: 100%;
+}
