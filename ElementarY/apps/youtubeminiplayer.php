@@ -1,3 +1,43 @@
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-12">
+<iframe id="YT" width="100%" height="250" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+			<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-cog" aria-hidden="true"></i></a>
+			<div id="sidebar-wrapper">
+			    <a id="menu-close" href="#" class="btn btn-default btn-lg toggle"><i class="fa fa-times" aria-hidden="true"></i></a>
+			    <div class="container-fluid">
+			    	<div class="row">
+			    		<div class="col-xs-6">
+			    			<h5>Youtube ID's (separate by comma ",");</h5>
+<textarea name="" id="tarea" >
+uQpta4O2E_M ,
+ife5G8gdz_w ,</textarea>
+			    		</div>
+			    		<div class="col-xs-6">
+							<h5>shortcuts:</h5>
+							shift + n (next video);<br>
+							shift + p (prev video);
+			    		</div>
+			    	</div>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(document).ready(function(){
+		function youtubeSetSrc() {
+			var yt = $("#YT");
+			yt.attr("src", "https://www.youtube.com/embed/?playlist="+$('#tarea').val());
+		}
+		
+		youtubeSetSrc();
+			
+		$('#tarea').on("change",function(){youtubeSetSrc();});
+	});
+
+</script>
 <!--div class="player">
 	<!--div class="hidder"><img src="http://placehold.it/250/" id="youtubeThumbnail"></div-->
 	<!--div id="player"></div>

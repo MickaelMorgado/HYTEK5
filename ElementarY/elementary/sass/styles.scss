@@ -7,6 +7,7 @@ $custom-styles 			: false;
 
 
 
+
 // colors
 
 $primary				: #001720;
@@ -15,7 +16,10 @@ $dark 					: #000;
 $light 					: #fff;
 $body-bg 				: $light;
 $gray 					: #555;
-
+$bgc 					: #2F4F74;
+$gradient 				: #682525;
+$links 					: #fff;
+$gold  					: #ffc600;
 
 
 // mask for making wall having some texture
@@ -23,10 +27,13 @@ $gray 					: #555;
 $mask  					: "../../dependencies/img/noise.png"; 	
 $mask-opacity 			: .9;
 
-$element-bg-color		: #090A0E;
+$element-bg-color		: #151515; //#090A0E;
 $element-color			: $light;
 $element-padding		: 20px;
 $element-mask 			: "../../dependencies/img/noise-diagonal.png";
+
+$glass-opacity 			: .05;
+$opacity-submit-fa 		: .1;
 
 $input-color 			: $dark;
 
@@ -63,7 +70,7 @@ $input-color 			: $dark;
 
 	/* inputs */
 	$input-radius         :   0;
-	$input-border         :   1px solid $dark;
+	$input-border         :   1px solid darken($gold,30);
 	$input-color          :   $primary-color;  
 	$input-bottom-margin  :   0;
 	$input-padding        :   2px 8px;
@@ -77,8 +84,8 @@ $input-color 			: $dark;
 	  $submit-as-block    :   false;        /* submit button as block */
 
 	/* selection style */
-	$selection-bg-c      :   $brand-primary;
-	$selection-color     :   $body-bg;
+	$selection-bg-c      :   $light;
+	$selection-color     :   $dark;
 	$colored-labels      :   true;
 	  $label-color        :   $brand-primary;
 
@@ -112,7 +119,7 @@ $input-color 			: $dark;
 	  &:focus {
 	    border-color: $brand-primary;
 	    box-shadow: 0px 1px 1px $brand-primary inset, 
-	                0px 0px 8px lighten($brand-primary,10);
+	                0px 0px 8px darken($gold,30);
 	  }
 	}
 
@@ -142,6 +149,11 @@ $input-color 			: $dark;
 	  }
 	}
 
+	input[type="file"] {width: 100%;}
+	select > option:hover {
+		background-color: darken($gold,30);
+		color: $dark;
+	}
 
 
 // FIX OF SAFARI COLOR TO TRANSPARENT
@@ -168,10 +180,10 @@ body {
 
 	padding: 20px 0;
 
-	background-color: $dark;
+	background-color: $bgc;
 	//background-attachment: fixed;
 	&:before {
-		@include gradient(rgba(0,0,0,0.8),black,bottom);
+		@include gradient(rgba(0,0,0,0.8),$gradient,bottom);
 		content: "";
 		display: block;
 		position: fixed;
@@ -196,6 +208,8 @@ body {
 	}
 	
 }
+
+a { color: $links; } 
 
 .link-list,.clock {
 	@include transition(color, 5s);
@@ -237,7 +251,7 @@ body {
 		display: block;
 		
 		background-color: $light;
-		opacity: .017;
+		opacity: $glass-opacity;
 		content: '';
 		z-index: 100;
 
@@ -246,7 +260,7 @@ body {
 	@include single-transition(all, .1s, ease-in-out);
 	
 	&:hover {
-		@include box-shadow(0 0 10px -2px lighten($primary,10));
+		@include box-shadow(0 0 10px -2px lighten($gold,10));
 	}
 }
 
@@ -343,7 +357,7 @@ $yt-hoverToExpend : true;
 	border: none;
 	background-color: transparent;
 	
-	opacity: .3;
+	opacity: $opacity-submit-fa;
 	
 	&:hover { opacity: 1; }
 
@@ -391,7 +405,7 @@ $yt-hoverToExpend : true;
     bordered links
 ============================================================*/
 .border-link img {
-	border: 2px solid lighten($primary,10);
+	border: 1px solid darken($gold,30);
 }
 
 /*============================================================
@@ -399,6 +413,8 @@ $yt-hoverToExpend : true;
 ============================================================*/
 
 .dock {
+	background-color: #1f1f1f;
+	box-shadow: 0 0 5px black;
 	position: fixed;
 	width: 100%;
 	bottom: 0;
@@ -407,6 +423,8 @@ $yt-hoverToExpend : true;
 	ul {
 		position: relative;
 		display: inline-block;
+		margin-bottom: 5px;
+		margin-top: 15px;
 	}
 	.dock-aspect {
 		@extend .element;
@@ -418,6 +436,7 @@ $yt-hoverToExpend : true;
 		bottom: -10px;
 		left: 0;
 		display: block;
+		display: none;
 		background-color: $dock-color;
 		background-image: url($element-mask);
 		height: $dock-h;
@@ -452,7 +471,7 @@ $yt-hoverToExpend : true;
 		*/
 	}
 	.dock-icon {
-		$cubic : 50px;
+		$cubic : 30px;
 		$radius: 100%;
 		@include border-radius($radius);
 		width: $cubic;
@@ -462,7 +481,7 @@ $yt-hoverToExpend : true;
 		@include single-transition(all, .1s, ease-in-out);
 		margin-bottom: 10px;
 		
-		opacity: .5;
+		opacity: .8;
 		@include scale(1.0);
 		
 		&:hover {
@@ -471,3 +490,49 @@ $yt-hoverToExpend : true;
 		}
 	}
 }
+
+
+  #sidebar-wrapper {
+    @include single-transition(all, .5s, ease-in-out);
+    margin-right: -100%;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background: $element-bg-color;
+    position: absolute;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    textarea {
+    	width: 100%;
+    	min-height: 200px;
+    }
+  }
+
+  .sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #menu-toggle {
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: 1;
+  }
+
+  #sidebar-wrapper.active {
+    @include single-transition(all, .5s, ease-in-out);
+    right: 100%;
+    width: 100%;
+  }
+
+  .toggle {
+  	position: absolute;
+	right: 0;
+	bottom: 0;
+  }
