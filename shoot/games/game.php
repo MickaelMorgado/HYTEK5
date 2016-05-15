@@ -6,7 +6,7 @@
 	//session_start();
 ?>
 	<script src="../js/jquery-2.1.3.min.js"></script>
-	<link rel="stylesheet" href="../css/game.css">
+	<link rel="stylesheet" href="../stylesheets/styles.css">
 	<?php 
 	if (isset($_SESSION['id_player'])!='') {
 		$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN scores ON settings.id_player=scores.id_player WHERE settings.id_player = $_SESSION[id_player]" );
@@ -18,7 +18,7 @@
 			$birds = $row['aud_birds'];
 			$score = $row['best_score'];
 		}
-		/*$result = mysqli_query($link,"SELECT * FROM weapons INNER JOIN players ON weapons.id_player=players.id_player WHERE weapons.id_player = $_SESSION[id_player]");
+		$result = mysqli_query($link,"SELECT * FROM weapons INNER JOIN players ON weapons.id_player=players.id_player WHERE weapons.id_player = $_SESSION[id_player]");
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
 				$weapon_mag_capacity = $row['mag_capacity'];
@@ -30,8 +30,14 @@
 				$weapon_sound_reload = $row['sound_reload'];
 			} 	
 		}else{
-		//	echo "0 results";
-		}*/
+			$weapon_mag_capacity = 8;
+			$weapon_damage = 1;
+			$weapon_handle = 0.1;
+			$weapon_ammo = 200;
+			$weapon_src = "cursor5.png";
+			$weapon_sound_fire = "gun.mp3";
+			$weapon_sound_reload = "reload.mp3";
+		}
 		switch ($settings) {
 			case 0:
 				echo "<link rel='stylesheet' href='../css/low-settings.css'>";
@@ -60,13 +66,6 @@
 		$birds = 1;
 		echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
 		$score = "not logged";
-		$weapon_mag_capacity = 8;
-		$weapon_damage = 1;
-		$weapon_handle = 0.1;
-		$weapon_ammo = 200;
-		$weapon_src = "cursor5.png";
-		$weapon_sound_fire = "gun.mp3";
-		$weapon_sound_reload = "reload.mp3";
 	}
 	?>
 	<script type="text/javascript" src="../js/TweenMax.min.js"></script>
