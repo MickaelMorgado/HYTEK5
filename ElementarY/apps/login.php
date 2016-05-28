@@ -1,30 +1,47 @@
 <head>
-	<script src="../dependencies/js/jquery-2.1.3.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
-</head>
 <?php 
-	include("../dbConnection.php");
-$_SESSION["name"] = $_POST["CKName"];
-$_SESSION["pass"] = $_POST["CKPass"];
-echo "creating session : ".$_POST["CKName"]." - ".$_POST["CKPass"];
+	$backfolder = 1; 
+	require_once '../dbConnection.php';
+	include('../dependencies/styles.php');
+	include('../dependencies/scripts.php'); 
 ?>
-<input type="text" id="login-name" value="<?php echo $_POST['CKName']; ?>">
-<input type="text" id="login-pass" value="<?php echo $_POST['CKPass']; ?>">
-<script>
-	ln = $('#login-name').val();
-	pass = $('#login-pass').val();
-	$.cookie("name", ln, { path: '/' , expires: 10 });
-	$.cookie("pass", pass, { path: '/' , expires: 10 });
-	$('body').append("cookies set: "+$.cookie("name")+" - "+$.cookie("pass"));
-</script>
-<?php 
-	$hash = hash('SHA512', $_SESSION["pass"]);
-	$result = mysqli_query($link, "SELECT * FROM users WHERE BINARY name = '$_SESSION[name]' AND BINARY pass = '$hash'");
-	if ($result) {
-		while($row = mysqli_fetch_assoc($result)){
-			$_SESSION['id_session'] = $row['id_session'];
-			header("location: ../index.php");
+</head>
+<?php
+	$keep_session =  $_POST['keepSession'];
+	$user_email = trim($_POST['user_email']);
+	$user_password = trim($_POST['password']);
+
+	$password = hash('SHA512', $user_password);
+
+	$result = mysqli_query($link, "SELECT * FROM users WHERE BINARY name = '$user_email' AND BINARY pass = '$password'");
+
+	echo $user_email." - ".$password;
+
+	while($row = mysqli_fetch_assoc($result)){
+		if($row['pass']==$password){
+	    	echo "ok"; // log in
+	    	$_SESSION['id_session'] = $row['id_session'];
+		}else{
+	    	echo "email or password does not exist."; // wrong details 
 		}
 	}
-	header("location: ../index.php?status=fail");
+?>
+<input type="hidden" value="<?php echo $user_email; ?>" id="hidden_name">
+<input type="hidden" value="<?php echo $user_password; ?>" id="hidden_pass">
+<a href="../" class="button">back</a>
+
+<?php 
+
+	if ($keep_session == true) {
+		echo "on";
+		?>
+			<script>$.cookie("name", $('#hidden_name').val(), {expires:10,path:'/'}); alert("name: "+$.cookie("name"));</script>
+			<script>$.cookie("pass", $('#hidden_pass').val(), {expires:10,path:'/'}); alert("pass: "+$.cookie("pass"));</script>
+		<?php
+	}else{
+		echo "off";
+	}
+
+	if ($debug != true) { header("location: ../"); }
+
 ?>

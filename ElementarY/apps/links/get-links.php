@@ -6,18 +6,16 @@
 	}else{
 		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = $_SESSION[id_session] ORDER BY `data` DESC");
 	}
-	//echo "order:".$order;
 	while ($row = mysqli_fetch_assoc($result)) {
-
-	$r0 = $row['id_tab'];
-	$r1 = $row['title'];
-	$r2 = $row['url'];
-
+		if(!mysqli_num_rows($result)){ echo 'No results'; }
+		else {
+			$r0 = $row['id_tab'];
+			$r1 = $row['title'];
+			$r2 = $row['url'];
 ?>
 	<li>
-
 		<form class="htmlForm" action="apps/links/rm-link.php" method="post"> 
-			<input type="hidden"   value="<?php echo $r0; ?>" class="link-id" name="link-id">
+			<input type="hidden" value="<?php echo $r0; ?>" class="link-id" name="link-id">
 			<input type="submit" value="" class="submit fa fa-trash-o" /> 
 		</form>
 		<div class="dropdown">
@@ -45,6 +43,8 @@
 			} 
 			?>
 		</a>
-
 	</li>
-<?php } ?>
+<?php 
+		}
+	} 
+?>

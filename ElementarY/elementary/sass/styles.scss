@@ -371,7 +371,7 @@ $yt-hoverToExpend : true;
 }
 
 .search {
-	width: 120px;
+	width: 100%;
 }
 
 #link-order-select {
@@ -505,7 +505,7 @@ $yt-hoverToExpend : true;
     z-index: 1000;
     textarea {
     	width: 100%;
-    	min-height: 200px;
+    	height: 190px;
     }
   }
 
@@ -536,3 +536,10 @@ $yt-hoverToExpend : true;
 	right: 0;
 	bottom: 0;
   }
+
+/*
+.cke_top {
+	position: fixed !important;
+	bottom: 100px !important;
+}
+*/

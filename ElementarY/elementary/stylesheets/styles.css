@@ -322,7 +322,7 @@ input, button, select {
 
 /* line 373, ../sass/styles.scss */
 .search {
-  width: 120px;
+  width: 100%;
 }
 
 /* line 377, ../sass/styles.scss */
@@ -477,7 +477,7 @@ input, button, select {
 /* line 506, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
-  min-height: 200px;
+  height: 190px;
 }
 
 /* line 512, ../sass/styles.scss */
@@ -514,3 +514,10 @@ input, button, select {
   right: 0;
   bottom: 0;
 }
+
+/*
+.cke_top {
+	position: fixed !important;
+	bottom: 100px !important;
+}
+*/

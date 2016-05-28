@@ -1,33 +1,49 @@
 <div id="UI-result"></div>
 
 <div id="tabs">
-	<select name="order" id="link-order-select">
-		<option value="" selected hidden>--</option>
-		<option value="`title`ASC">title ASC</option>
-		<option value="`title`DESC">title DESC</option>
-		<option value="`data`ASC">Date ASC</option>
-		<option value="`data`DESC">Date DESC</option>
-		<option value="`url`ASC">Url ASC</option>
-		<option value="`url`DESC">Url DESC</option>
-		<option value="`view`ASC">View ASC</option>
-		<option value="`view`DESC">View DESC</option>
-	</select>
-	<div class="dropdown pull-right">
-		<button href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn-search">+<span class="caret"></span></button>
-		<ul class="dropdown-menu" aria-labelledby="dropdownMenuAdd">
-			<form action="apps/links/add-link.php" method="post">
-				<li>
-					<input type="text" name="link-add-title" 	placeholder="title">
-					<input type="text" name="link-add-url" 		placeholder="url">
-				</li>
-				<input type="submit" value="add">
-			</form>
-		</ul>
+	<div class="container-full">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<select name="order" id="link-order-select">
+					<option value="" selected hidden>--</option>
+					<option value="`title`ASC">title ASC</option>
+					<option value="`title`DESC">title DESC</option>
+					<option value="`data`ASC">Date ASC</option>
+					<option value="`data`DESC">Date DESC</option>
+					<option value="`url`ASC">Url ASC</option>
+					<option value="`url`DESC">Url DESC</option>
+					<option value="`view`ASC">View ASC</option>
+					<option value="`view`DESC">View DESC</option>
+				</select>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<div class="dropdown pull-right">
+					<button href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn-search">+<span class="caret"></span></button>
+					<ul class="dropdown-menu" aria-labelledby="dropdownMenuAdd">
+						<form action="apps/links/add-link.php" method="post">
+							<li>
+								<input type="text" name="link-add-title" 	placeholder="title">
+								<input type="text" name="link-add-url" 		placeholder="url">
+							</li>
+							<input type="submit" value="add">
+						</form>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>
 	<form id="searchform" action="" method="GET">
-		<input type="text" placeholder="Search" class="search" id="searchinput" autocomplete="off">
-		<div class="toggles-search-buttons">
-			<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
+		<div class="container-full">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<input type="text" placeholder="Search" class="search" id="searchinput" autocomplete="off">
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="toggles-search-buttons">
+						<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
+					</div>
+				</div>
+			</div>
 		</div>
 	</form>
 	<ul class="list-unstyled scrollable list" id="enableRefresh">
@@ -41,7 +57,7 @@
 
 	if (isset($_SESSION['id_session'])) {
 		?>
-			<script>
+			<!--script>
 
 				$('#searchinput').focus();
 
@@ -72,7 +88,7 @@
 				    //	toggle();
 				    //};
 				});
-			</script>
+			</script-->
 
 		<?php
 	}else{

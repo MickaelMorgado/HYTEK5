@@ -1,105 +1,32 @@
-
 -- phpMyAdmin SQL Dump
--- version 3.5.2.2
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 17, 2016 at 01:44 PM
--- Server version: 10.0.20-MariaDB
--- PHP Version: 5.2.17
+-- Host: 127.0.0.1
+-- Generation Time: 28-Maio-2016 às 16:19
+-- Versão do servidor: 5.7.9
+-- PHP Version: 5.6.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u206790186_spbd`
+-- Database: `hytek_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `files`
+-- Estrutura da tabela `mostimportant`
 --
 
-CREATE TABLE IF NOT EXISTS `files` (
-  `id_files` int(11) NOT NULL AUTO_INCREMENT,
-  `id_session` int(11) NOT NULL,
-  `name_file` varchar(50) NOT NULL,
-  `path_file` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_files`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=37 ;
-
---
--- Dumping data for table `files`
---
-
-INSERT INTO `files` (`id_files`, `id_session`, `name_file`, `path_file`) VALUES
-(8, 1, 'shooters.png', 'downloads/shooters.png'),
-(10, 0, 'Eq32Studio.exe', 'downloads/Eq32Studio.exe'),
-(18, 2, 'Screenshot from 2015-09-29 10:04:37.png', 'downloads/Screenshot from 2015-09-29 10:04:37.png'),
-(17, 2, 'hyteksnippets_1.7.zip', 'downloads/hyteksnippets_1.7.zip'),
-(22, 2, 'settings_local.py', 'downloads/settings_local.py'),
-(21, 2, 'running_hytek4_project.zip', 'downloads/running_hytek4_project.zip'),
-(30, 2, 'projects.sh', 'downloads/projects.sh'),
-(29, 2, 'hyteksnippets_2.1.tar.gz', 'downloads/hyteksnippets_2.1.tar.gz'),
-(27, 2, 'hyteksnippets_2.0.tar.gz', 'downloads/hyteksnippets_2.0.tar.gz'),
-(31, 0, 'settings_local.py', 'downloads/settings_local.py'),
-(32, 2, 'boby.txt', 'downloads/boby.txt'),
-(33, 17, 'h3.png', '../../HYTEK3/downloads/h3.png'),
-(34, 2, 'com.freepie.android.imu.apk', '../../HYTEK3/downloads/com.freepie.android.imu.apk'),
-(35, 2, 'apontamentos.html', '../../HYTEK3/downloads/apontamentos.html'),
-(36, 2, 'apontamentos.html', '../../HYTEK3/downloads/apontamentos.html');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `friends`
---
-
-CREATE TABLE IF NOT EXISTS `friends` (
-  `id_msg` int(11) NOT NULL AUTO_INCREMENT,
-  `id_session` int(11) NOT NULL,
-  `id_him` int(11) DEFAULT NULL,
-  `content` varchar(500) NOT NULL,
-  `data` datetime NOT NULL,
-  PRIMARY KEY (`id_msg`),
-  UNIQUE KEY `id_msg` (`id_msg`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
-
---
--- Dumping data for table `friends`
---
-
-INSERT INTO `friends` (`id_msg`, `id_session`, `id_him`, `content`, `data`) VALUES
-(1, 2, 4, 'te st', '0000-00-00 00:00:00'),
-(2, 4, 2, 'c ets kev', '0000-00-00 00:00:00'),
-(3, 2, 7, '', '0000-00-00 00:00:00'),
-(4, 2, 4, 'test d envoie de msg pour kev num 4', '2014-10-07 21:36:43'),
-(5, 2, 4, 'eu sou o 2 por isso podes tentar mandar mensagem', '2014-10-08 08:21:54'),
-(6, 2, 7, '', '0000-00-00 00:00:00'),
-(7, 2, 7, 'oi eu sou o 2 por isso podes tantar mandar mensagem', '2014-10-08 08:22:50'),
-(8, 7, 2, '', '0000-00-00 00:00:00'),
-(9, 3, 2, '', '0000-00-00 00:00:00'),
-(10, 3, 2, 'test', '2014-10-09 12:10:22'),
-(11, 2, 3, '', '0000-00-00 00:00:00'),
-(12, 2, 3, 'yo pedro', '2014-10-09 12:11:07'),
-(13, 4, 2, 'http://uploaded.net/file/r5kx8wi2', '2014-10-10 22:01:07'),
-(14, 2, 3, 'magnet:?xt=urn:btih:bcd1156cbbfdc9ab1970126b7b3458b6ca2eef41&dn=Monaco+whats+yours+is+mine+LAN+fixed&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80&tr=udp%3A%2F%2Ftracker.istole.it%3A6969&tr=udp%3A%2F%2Fopen.demonii.com%3A1337', '2014-10-14 21:29:41'),
-(15, 2, 3, 'http://thepiratebay.se/search/monaco/0/7/400', '2014-10-14 21:33:15'),
-(16, 2, 0, 'dfkjbn', '2014-12-31 13:08:32');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mostimportant`
---
-
+DROP TABLE IF EXISTS `mostimportant`;
 CREATE TABLE IF NOT EXISTS `mostimportant` (
   `id_mostimportant` int(11) NOT NULL AUTO_INCREMENT,
   `id_most` int(11) NOT NULL DEFAULT '0',
@@ -108,10 +35,10 @@ CREATE TABLE IF NOT EXISTS `mostimportant` (
   UNIQUE KEY `id_mostaimportant` (`id_mostimportant`),
   KEY `id_tabs` (`id_mostimportant`),
   KEY `id_tabs_2` (`id_mostimportant`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=58 ;
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `mostimportant`
+-- Extraindo dados da tabela `mostimportant`
 --
 
 INSERT INTO `mostimportant` (`id_mostimportant`, `id_most`, `title`, `url`) VALUES
@@ -166,9 +93,10 @@ INSERT INTO `mostimportant` (`id_mostimportant`, `id_most`, `title`, `url`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mytabs`
+-- Estrutura da tabela `mytabs`
 --
 
+DROP TABLE IF EXISTS `mytabs`;
 CREATE TABLE IF NOT EXISTS `mytabs` (
   `id_tab` int(11) NOT NULL AUTO_INCREMENT,
   `id_tabs` int(11) NOT NULL DEFAULT '0',
@@ -178,10 +106,10 @@ CREATE TABLE IF NOT EXISTS `mytabs` (
   `view` int(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_tab`),
   KEY `id_tabs` (`id_tabs`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=407 ;
+) ENGINE=MyISAM AUTO_INCREMENT=407 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `mytabs`
+-- Extraindo dados da tabela `mytabs`
 --
 
 INSERT INTO `mytabs` (`id_tab`, `id_tabs`, `title`, `url`, `data`, `view`) VALUES
@@ -408,7 +336,6 @@ INSERT INTO `mytabs` (`id_tab`, `id_tabs`, `title`, `url`, `data`, `view`) VALUE
 (286, 2, 'elevator js', 'tholman.com/elevator.js/', '2015-10-06 13:43:32', 0),
 (292, 2, 'slick js', 'kenwheeler.github.io/slick/', '2015-10-09 09:41:32', 0),
 (405, 2, 'fffff', 'hvhvhv', '2016-02-16 14:05:26', 0),
-(406, 2, 'scss live edit', 'usetakana.com/', '2016-02-17 09:52:33', 0),
 (294, 2, 'online converter', 'www.online-convert.com/', '2015-10-11 20:45:47', 0),
 (295, 2, '192.168.1.35:8000/pt', '192.168.1.35:8000/pt/', '2015-10-12 08:48:38', 0),
 (296, 2, 'tf3dm.com', 'tf3dm.com', '2015-10-15 20:33:18', 0),
@@ -517,29 +444,26 @@ INSERT INTO `mytabs` (`id_tab`, `id_tabs`, `title`, `url`, `data`, `view`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `notas`
+-- Estrutura da tabela `notes`
 --
 
-CREATE TABLE IF NOT EXISTS `notas` (
+DROP TABLE IF EXISTS `notes`;
+CREATE TABLE IF NOT EXISTS `notes` (
   `id_note` int(11) NOT NULL AUTO_INCREMENT,
   `id_session` int(11) DEFAULT NULL,
   `content` text,
   PRIMARY KEY (`id_note`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=60 ;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `notas`
+-- Extraindo dados da tabela `notes`
 --
 
-INSERT INTO `notas` (`id_note`, `id_session`, `content`) VALUES
-(17, 2, '<p><strong>EASYBOOKING</strong>:</p><p>workon django1.5;</p><p>cd dengun/easybookings/;</p><p>sudo service docker restart;</p><p>sudo service mysql stop;</p><p>sudo docker-compose start;</p><p>compass watch easybookings/;</p>'),
+INSERT INTO `notes` (`id_note`, `id_session`, `content`) VALUES
+(17, 2, 'cvsdfgvfsdv'),
 (38, 13, '<p>bobyddd</p>'),
-(46, 2, '<p>embed youtube :</p><ul><li>http://www.vtubetools.com/</li></ul>'),
 (50, 4, '<p>Shooter do HYTEK : <a href="http://hytek.url.ph/shoot/">http://hytek.url.ph/shoot/</a></p>'),
-(45, 2, '<p>compass create my-new-project -r bootstrap-sass --using bootstrap</p>'),
-(57, 2, '<p>#!/bin/bash<br />clear</p><p># VARIABLES</p><p>folder=&quot;~/dengun&quot;</p><p>host=&quot;127.0.0.1:8000&quot;<br />ext_host=&quot;192.168.1.125:8000&quot;</p><p>rvm=&quot;rvm use 2.1.1@bootstrap&quot;<br />rvm2=&quot;rvm use 2.1.1&quot;<br />rvm3=&quot;rvm use 2.1.1@compass012&quot;</p><p>source &#39;/usr/local/bin/virtualenvwrapper.sh&#39;</p><p># END OF VARIABLES</p><p><br /># VIRTUAL ENVS<br />envs(){<br />&nbsp; lsvirtualenv -b<br />}</p><p># PYTHON<br />funcpython(){<br />&nbsp;<br />&nbsp; echo -e &quot;\n	1 - &quot; $host<br />&nbsp; echo -e &quot;	2 - &quot; $ext_host<br />&nbsp; echo -e &quot;	3 -&nbsp; custom ip&quot;<br />&nbsp; echo -e &quot;\nopc:&quot;<br />&nbsp; read vp<br />&nbsp; funcip() {<br />&nbsp;&nbsp;&nbsp; case $vp in<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1 )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lehost=$host<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lehost=$ext_host<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;	 ethernet&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hostname -I | awk &#39;{print $1}&#39;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # echo `ifconfig eth0 2&gt;/dev/null|awk &#39;/inet addr:/ {print $2}&#39;|sed &#39;s/addr://&#39;`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;\n	 wireless&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; hostname -I | cut -f2 -d&#39; &#39;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;\n192.168.1.XXX&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read cip<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lcip=&quot;192.168.1.$cip:8000&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lehost=$lcip<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; esac<br />&nbsp; }<br />&nbsp; funcip<br />&nbsp; #clear<br />&nbsp; echo -e &quot;running @ http://&quot;$lehost<br />}</p><p># DOCKER<br />docker(){<br />&nbsp; funccopyrvm<br />&nbsp; echo -e &quot;	e[34msudo service mysql stop&quot;<br />&nbsp; echo -e &quot;	e[34mcd $folder/$project&quot;<br />&nbsp; echo -e &quot;	e[34mdocker-compose starte[0m&quot;<br />&nbsp; echo -e &quot;\n	http://127.0.0.1:8000&quot;<br />&nbsp; echo -e &quot;\n&quot;<br />}</p><p># GOTOFOLDER<br />#funcgtf(){}</p><p># WORKON FOR PROJECT<br />workonProject(){<br />&nbsp; echo &quot;workon &quot;$workon<br />&nbsp; workon django1.5<br />}</p><p># OPEN FIFI<br />funcopenfifi(){<br />&nbsp; echo -e &quot;open fifi(firefox)? [y/n]&quot;<br />&nbsp; read open<br />&nbsp; if [ $open = &quot;y&quot; ]; then<br />&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;opening fifi&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp; firefox http://$lehost<br />&nbsp;&nbsp;&nbsp;&nbsp; true<br />&nbsp; else<br />&nbsp;&nbsp;&nbsp;&nbsp; false<br />&nbsp; fi<br />}</p><p># SHOW FOR COPY RVM<br />funccopyrvm(){<br />&nbsp; echo -e &quot;\n	e[31mcd $folder/$project/$project&quot;<br />&nbsp; echo -e &quot;	e[31mclear&quot;<br />&nbsp; echo -e &quot;	e[31m$lervm&quot;<br />&nbsp; echo -e &quot;	e[31mcompass watche[0m\n&quot;<br />}</p><p># GO TO FOLDER<br />funcgtf(){<br />&nbsp; case $gtf in<br />&nbsp;&nbsp;&nbsp; 1)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;jbtours&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gnome-terminal -x bash -c &quot;cd $folder/$project&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 2)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;etic&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gnome-terminal -x bash -c &quot;cd $folder/$project&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp; esac<br />}</p><p># GIT<br />funcgit(){<br />&nbsp; # case $gtf in<br />&nbsp; #&nbsp;&nbsp; jbtours)<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;jbtours&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp; #&nbsp;&nbsp; etic)<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;etic&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; ;;&nbsp;&nbsp; &nbsp;<br />&nbsp; #&nbsp;&nbsp; easybookings)<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;easybookings&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp; #&nbsp;&nbsp; bybeau)<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;bybeau&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp; # esac<br />&nbsp; clear<br />&nbsp; echo -e &quot;project name\n&quot;<br />&nbsp; for each in ${ARRAY[@]}<br />&nbsp; do<br />&nbsp;&nbsp;&nbsp; echo -e &quot; $each&quot;<br />&nbsp; done<br />&nbsp; echo -e &quot;\n	project name:\n&quot;<br />&nbsp; read gtf<br />&nbsp; echo -e &quot;\n	commit message:\n&quot;<br />&nbsp; read cm<br />&nbsp; echo -e &quot;\n	branch to push origin [mickael]:\n&quot;<br />&nbsp; read bp<br />&nbsp; cd &quot;dengun/$gtf&quot;<br />&nbsp; echo -e &quot;Current folder: $folder/$gtf\n&quot;<br />&nbsp; echo -e &quot;e[31m	cd $folder/$gtfe[0m\n&quot;<br />&nbsp; echo -e &quot;	git status\n&quot;<br />&nbsp; echo -e &quot;e[34m	git add .&quot;<br />&nbsp; echo -e &quot;	git commit -a -m &#39;$cm&#39;&quot;<br />&nbsp; echo -e &quot;	git push origin $bp\ne[0m&quot;<br />&nbsp; #git status<br />&nbsp; #echo &quot;want to add . ? [y/n]&quot;<br />&nbsp; #read add<br />&nbsp; # condition(){<br />&nbsp; #&nbsp;&nbsp; if [ $add = &#39;y&#39; ]; then<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;commit message: &quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; read commitmsg<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; git add .<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;executing: git add .&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; echo executing: git commit -m &quot;&#39;&quot;$commitmsg&quot;&#39;&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; git commit -m &quot;&#39;&quot;$commitmsg&quot;&#39;&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;want to push ? [y/n]&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; read push<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; if [ $push = &#39;y&#39; ]; then<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;where ? (example: origin [mickael])&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read pushWhere<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; git push origin $pushWhere<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;git push origin $pushWhere&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;Check that out: \n http://gitlab.dengun.org/project/$project/network/master \n http://gitlab.dengun.org/project/$project/activity&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; fi<br />&nbsp; #&nbsp;&nbsp; else<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; clear<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;Current folder: $folder/$project\n&quot;<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; git status<br />&nbsp; #&nbsp;&nbsp;&nbsp;&nbsp; echo &quot;copy/paste this: cd $folder/$project&quot;<br />&nbsp; #&nbsp;&nbsp; fi<br />&nbsp; # }<br />&nbsp; # condition</p><p>}</p><p># RUNSERVER<br />runserver(){<br />&nbsp; # cd &quot;dengun/easybookings/&quot;<br />&nbsp; # docker-compose stop<br />&nbsp; # cd<br />&nbsp; # sudo service mysql start<br />&nbsp; # cd &quot;$folder/$project&quot;<br />&nbsp; # python manage.py runserver $lehost</p><p>&nbsp; echo -e &quot;	e[34mcd $folder/easybookings/&quot;<br />&nbsp; echo -e &quot;	e[34mdocker-compose stop&quot;<br />&nbsp; echo -e &quot;	e[34msudo service mysql start&quot;<br />&nbsp; echo -e &quot;	e[34mworkon $workon&quot;<br />&nbsp; echo -e &quot;	e[34mcd $folder/$project&quot;<br />&nbsp; echo -e &quot;	e[34mpython manage.py runserver $lehoste[0m&quot;</p><p>&nbsp; echo -e &quot;\n&quot;<br />}</p><p>clear<br />echo -e &quot;Environements available:\n&quot;<br />envs<br />echo -e &quot;\n\nCurrent projects\n&quot;</p><p><br />#--------------------------------------------------------------<br />i=0<br />ARRAY=(</p><p>&nbsp; jbtours<br />&nbsp; etic<br />&nbsp; easybookings<br />&nbsp; fegan<br />&nbsp; valedoloboalgarve<br />&nbsp; bybeau<br />&nbsp; malhadinha<br />&nbsp; vilajoya<br />&nbsp; montedaquinta</p><p>)<br />#--------------------------------------------------------------<br />for each in ${ARRAY[@]}<br />do<br />&nbsp; i=$((i+1))<br />&nbsp; echo -e &quot;	$i - $each&quot;<br />done</p><p>echo -e &quot;\n\nOther stuffs\n&quot;<br />echo -e &quot;	a - go to folder&quot;<br />echo -e &quot;	b - open $folder folder&quot;<br />echo -e &quot;	c - open pictures folder&quot;<br />echo -e &quot;	d - open downloads folder&quot;<br />echo -e &quot;	e - git&quot;</p><p>echo -e &quot;\n\ne[31mDont forget WORKON enve[0m&quot;<br />echo -e &quot;\nopc:&quot;</p><p>read name<br />echo $name<br />case $name in<br />&nbsp;&nbsp;&nbsp; 1 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;jbtours&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lervm=$rvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funccopyrvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 2 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;etic&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lervm=$rvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funccopyrvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 3 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;easybookings&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lervm=$rvm2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; docker<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 4 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;fegan&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lervm=$rvm3<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django1.5&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funccopyrvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 5 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;valedoloboalgarve&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lervm=$rvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django1.8&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funccopyrvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 6 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;bybeau&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; lervm=$rvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funccopyrvm<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 7 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;malhadinha&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 8 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;vilajoya&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django1.4&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; 9 )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; project=&quot;montedaquinta&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workon=&quot;django1.5&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcpython<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; runserver<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; a )<br />&nbsp;&nbsp;&nbsp; clear<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;Go to folder\n&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;	1 - jbtours&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;	2 - etic&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;	3 - easybookings&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;\n	opc:\n&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read gtf<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcgtf<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; b )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nautilus dengun<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; c )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nautilus Pictures<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; d )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nautilus Downloads<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; e )<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; funcgit<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />&nbsp;&nbsp;&nbsp; w)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; envs<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; read workon<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; echo -e &quot;\n choose one: &quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; workonProject &quot;$workon&quot;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;;<br />esac</p>'),
 (52, 4, '<p>JUGA-KFL7-QQGL-5CC7</p><div style="display:none;" id="__hggasdgjhsagd_once">&nbsp;</div>'),
-(54, 2, '<p>pdfs:</p><ul><li>bybeau: file:///home/hytek/Pictures/bybeau/ByBeau-Web-Preview-v3.pdf</li></ul>'),
 (58, 0, ''),
 (59, 17, '<p>take out the trash</p>'),
 (56, 1, '<p>next update:</p><ul><li>when youtube play open all link in target blank</li></ul>');
@@ -547,43 +471,46 @@ INSERT INTO `notas` (`id_note`, `id_session`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `playlists`
+-- Estrutura da tabela `playlists`
 --
 
+DROP TABLE IF EXISTS `playlists`;
 CREATE TABLE IF NOT EXISTS `playlists` (
   `id_playlist` int(11) NOT NULL AUTO_INCREMENT,
   `ID_session` int(11) DEFAULT NULL,
   `youtubeplaylistlink` varchar(100) COLLATE utf8_swedish_ci DEFAULT '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI',
-  `spotifyplaylistlink` varchar(100) COLLATE utf8_swedish_ci DEFAULT 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7',
-  `spotifyplaylistlinkradio` varchar(100) COLLATE utf8_swedish_ci DEFAULT 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7',
   UNIQUE KEY `id_playlist_2` (`id_playlist`),
   KEY `id_playlist` (`id_playlist`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 
 --
--- Dumping data for table `playlists`
+-- Extraindo dados da tabela `playlists`
 --
 
-INSERT INTO `playlists` (`id_playlist`, `ID_session`, `youtubeplaylistlink`, `spotifyplaylistlink`, `spotifyplaylistlinkradio`) VALUES
-(1, 1, 'https://www.youtube.com/embed/videoseries?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(2, 2, 'PLOj6XJW_fcjxs6OHAKoYSKN8zGECJtu9_', 'https://play.spotify.com/collection/songs', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(3, 3, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(4, 4, '//www.youtube.com/embed/videoseries?list=PLi7nKa6JtPlk6vN4iJR38eOB_ySv02UwZ', 'https://play.spotify.com/collection/songs', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(5, 5, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(6, 6, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(7, 7, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(8, 8, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(9, 13, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(12, 15, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(11, 14, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7'),
-(13, 17, 'https://www.youtube.com/playlist?list=PL8WvZFiJpAr1jrn05h6O1c97-wCT984D6', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7', 'https://embed.spotify.com/?uri=spotify:track:6c1hFCCh7JtC84gKIYzPb7');
+INSERT INTO `playlists` (`id_playlist`, `ID_session`, `youtubeplaylistlink`) VALUES
+(1, 1, 'https://www.youtube.com/embed/videoseries?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(21, 2, 'mEsaLpw-DBU'),
+(3, 3, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(4, 4, '//www.youtube.com/embed/videoseries?list=PLi7nKa6JtPlk6vN4iJR38eOB_ySv02UwZ'),
+(5, 5, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(6, 6, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(7, 7, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(8, 8, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(9, 13, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(12, 15, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(11, 14, '//www.youtube.com/embed/7-7knsP2n5w?list=PLFgquLnL59alCl_2TQvOiD5Vgm1hCaGSI'),
+(13, 17, 'https://www.youtube.com/playlist?list=PL8WvZFiJpAr1jrn05h6O1c97-wCT984D6'),
+(19, 2, 'mg7ho8XdhpM'),
+(18, 2, 'SymavYd2JIc'),
+(20, 2, 'ZEDVkigaoSY');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
+-- Estrutura da tabela `settings`
 --
 
+DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id_settings` int(11) NOT NULL DEFAULT '0',
   `tabs_order` varchar(20) NOT NULL DEFAULT 'data DESC',
@@ -598,7 +525,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `settings`
+-- Extraindo dados da tabela `settings`
 --
 
 INSERT INTO `settings` (`id_settings`, `tabs_order`, `n_asc_desc`, `bg`, `hbg`, `tgb`, `columns`, `id_theme`) VALUES
@@ -613,9 +540,10 @@ INSERT INTO `settings` (`id_settings`, `tabs_order`, `n_asc_desc`, `bg`, `hbg`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shooters`
+-- Estrutura da tabela `shooters`
 --
 
+DROP TABLE IF EXISTS `shooters`;
 CREATE TABLE IF NOT EXISTS `shooters` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `id_session` int(11) NOT NULL,
@@ -631,10 +559,10 @@ CREATE TABLE IF NOT EXISTS `shooters` (
   `birds` float NOT NULL DEFAULT '1',
   UNIQUE KEY `ID_2` (`ID`),
   KEY `ID` (`ID`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `shooters`
+-- Extraindo dados da tabela `shooters`
 --
 
 INSERT INTO `shooters` (`ID`, `id_session`, `last_score`, `score`, `gamemode`, `timeplayed`, `settings`, `effects`, `music`, `ambiance`, `weapons`, `birds`) VALUES
@@ -648,56 +576,32 @@ INSERT INTO `shooters` (`ID`, `id_session`, `last_score`, `score`, `gamemode`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `themes`
+-- Estrutura da tabela `users`
 --
 
-CREATE TABLE IF NOT EXISTS `themes` (
-  `id_theme` int(11) NOT NULL AUTO_INCREMENT,
-  `css` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id_theme`),
-  UNIQUE KEY `id_theme` (`id_theme`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
-
---
--- Dumping data for table `themes`
---
-
-INSERT INTO `themes` (`id_theme`, `css`) VALUES
-(1, '1'),
-(2, '2'),
-(3, '3'),
-(4, '4'),
-(5, '5'),
-(6, '6');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id_session` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `id_session` int(150) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
   `pass` varchar(900) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `mail` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_session`),
   UNIQUE KEY `id_session` (`id_session`),
   UNIQUE KEY `id_session_2` (`id_session`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `users`
+-- Extraindo dados da tabela `users`
 --
 
 INSERT INTO `users` (`id_session`, `name`, `pass`, `mail`) VALUES
-(1, 'admin', '6200fc24c488ddb86e659136b067328a8f0edc7a399b23e6262e2409268f9686be76573eac2dd2d30b60c44554ea42b116bd5bede398ec76942a0d169c310a1e', 'admin'),
-(2, 'Mickael', '6200fc24c488ddb86e659136b067328a8f0edc7a399b23e6262e2409268f9686be76573eac2dd2d30b60c44554ea42b116bd5bede398ec76942a0d169c310a1e', NULL),
-(7, 'Kevin', '5480f5d69e5314e376dd1a504e6e6e5b47ffb26b52783ee65bf1edf158508e46fffaeb5d833f32fd17b013bf8b2a37caae0ead210578dc729100585c4fc7d3bd', 'kevindmorgado@outlook.pt'),
-(15, 'Bomany', 'c332c50f47f486d5dab9541eb4448c5ec6ecd1e085d7827c0e770d1c9c729eee8bb8cccea8301a1daf2d6a703675007d86e4bb3e2b03031af3b00b44608f2e32', NULL),
-(16, 'Painatalma', '04d6109748fdd5ffda8197f42bdf752df189af1863723ba872566eae97049ad0fd49415f08ceecf35a09ded57bf995ba5775a3f6a07c61e542a911745a716502', NULL),
-(17, 'jacobsway', 'ebd56190fb5dc89254563f35213a21ebb8044eab5f5a669285a60dac4991aace449a98179586384e688859fcef28478669d023857008e1ef1de9e3c4e6b2b517', NULL);
+(1, 'admin@', '6200fc24c488ddb86e659136b067328a8f0edc7a399b23e6262e2409268f9686be76573eac2dd2d30b60c44554ea42b116bd5bede398ec76942a0d169c310a1e', 'admin'),
+(2, 'mickael.morgado31@gmail.com', '8954c25366dd5eec69f06fd21b0b689b993d2ed75000fc86ffab1001889e460ec37640b44a85cf21adeaa7147000da911269c3390e3428bf5c44e073b972c8f8', NULL),
+(7, 'Kevin@g', '5480f5d69e5314e376dd1a504e6e6e5b47ffb26b52783ee65bf1edf158508e46fffaeb5d833f32fd17b013bf8b2a37caae0ead210578dc729100585c4fc7d3bd', 'kevindmorgado@outlook.pt'),
+(15, 'Bomany@', 'c332c50f47f486d5dab9541eb4448c5ec6ecd1e085d7827c0e770d1c9c729eee8bb8cccea8301a1daf2d6a703675007d86e4bb3e2b03031af3b00b44608f2e32', NULL),
+(16, 'Painatalm@', '04d6109748fdd5ffda8197f42bdf752df189af1863723ba872566eae97049ad0fd49415f08ceecf35a09ded57bf995ba5775a3f6a07c61e542a911745a716502', NULL),
+(17, 'jacobsway@', 'ebd56190fb5dc89254563f35213a21ebb8044eab5f5a669285a60dac4991aace449a98179586384e688859fcef28478669d023857008e1ef1de9e3c4e6b2b517', NULL);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

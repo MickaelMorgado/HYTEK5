@@ -1,27 +1,84 @@
 <?php 
-	if (isset($_SESSION["name"])) {
-		?>
-		<form id="logout" action="apps/logout.php" method="POST">
-			<input type="submit" value="logout">
-		</form>	
-		<?php
-	}else{
-		?>
-		<form id='loginform' action='apps/login.php' method='POST'>
-			<input type='text' name='CKName' id='login-name' placeholder='name'>
-			<input type='password' name='CKPass' id='login-pass' placeholder='pass'>
-			<input type="submit" value="login" id="autofocus">
+session_start();
+if($debug==true){ echo "session: ".$_SESSION['id_session']; }
+if(!isset($_SESSION['id_session'])){?>
+
+	<div class="signin-form">
+		<form action="apps/login.php" method="POST" class="form-signin" id="login-form">
+			<div id="error"><!-- error will be shown here ! --></div>
+
+			<div class="form-group">
+				<input type="email" placeholder="Email address" name="user_email" id="user_email" />
+				<span id="check-e"></span>
+			</div>
+
+			<div class="form-group">
+				<input type="password" placeholder="Password" name="password" id="password" />
+			</div>
+			<div class="form-group">
+				remeber me: <input type="checkbox" name="keepSession" checked="checked">
+			</div>
+
+			<div class="form-group">
+				<button type="submit" name="btn-login" id="btn-login">Sign In</button> 
+			</div>        
 		</form>
-		<script>
-			$('#login-name').val($.cookie("name"));
-			$('#login-pass').val($.cookie("pass"));
-			$('#login-name').focus();
-			if ($.cookie("name")!="") { 
-				//$('#loginform').submit();
-			};
-		</script>
-		<?php
-	}
+	</div>
+
+
+	<!--script>
+		$('document').ready(function(){ 
+			/* validation ===================================================================*/
+		  	$("#login-form").validate({
+		  		rules:{
+		   			password: {
+		   				required: true,
+			   		},
+			   		user_email: {
+			            required: true,
+			            email: true
+		            },
+		    	},
+		       	messages:{
+		            password:{ required: "please enter your password" },
+		            user_email: "please enter your email address",
+		       	},
+		    	submitHandler: submitForm 
+	        });  
+		    /* end of validation ===================================================================*/
+		    
+		    /* login submit ========================================================================*/
+		    function submitForm(){  
+		   		var data = $("#login-form").serialize();
+		    
+		   		$.ajax({
+					type : 'POST',
+					url  : 'apps/login.php',
+					data : data,
+					beforeSend: function(){ 
+		    			$("#error").fadeOut();
+		    			$("#btn-login").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+		   			},
+		   			success: function(response){      
+		     			if(response=="ok"){
+		        			$("#btn-login").html('<img src="btn-ajax-loader.gif" /> &nbsp; Signing In ...');
+		      				//setTimeout(' window.location.href = "home.php"; ',4000);
+		     			}else{
+		        			$("#error").fadeIn(1000, function(){      
+		    					$("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+' !</div>');
+		           				$("#btn-login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+		         			});
+		     			}
+		     		}
+		   		});
+		    	return false;
+		  	}
+		    /* end of login submit ========================================================================*/
+		});
+	</script-->
+
+<?php
+}else{?>
+	<a href="apps/logout.php" class="btn">Logout</a><?php
+}
 ?>
-
-

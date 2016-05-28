@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+	$error_reporting = 0;
+	include('dbConnection.php');
+?>
 <html>
 <head>
 	<title>ElementarY</title>
@@ -6,35 +10,17 @@
 	<link rel="icon" href="https://lh3.googleusercontent.com/-UhiNRhND2Ac/UvtXfOIZTbI/AAAAAAAAAdo/1ZTaCtlTsOYck5ADKhFgolv2JLjridn-A/s640-no/H%2Bart%2Bchannel%2B640x640.jpg" type="image/jpg">
     <meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no"/>
-	<link href="dependencies/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="elementary/stylesheets/styles.css"/>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<script src="dependencies/js/jquery-2.1.3.min.js"></script>
-	<script src="dependencies/js/bootstrap.min.js"></script>
-	<script src="dependencies/js/list.min.js"></script>
-	<script src="dependencies/js/moment.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
 
+	<?php include('dependencies/styles.php') ?>
+	<?php include('dependencies/scripts.php') ?>
 
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	  <!-- meteo -->
-	  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script> 
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
 	<style></style>
 </head>
-
-<body id="bganim">
-
-	<?php include('dbConnection.php') ?>
+<body>
 	<!--?php include('dependencies/phpfunctions.php') ?-->
-
-	<?php 
-		//echo $_SESSION["id_session"]; 
-	?>
 	<div class="container-fluid">
-		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-2">
+		<div class="row masonry-container">
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element">
 																			<?php include('apps/clock.php'); ?>
 					<div class="glass"></div>
@@ -44,37 +30,37 @@
 					<div class="glass"></div>
 				</div>	
 			</div>		
-			<div class="col-xs-12 col-sm-6 col-md-2">
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element">
 																			<?php include('apps/link-list.php'); ?>
 					<div class="glass"></div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-2">
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element">
 																			<?php include('apps/files.php'); ?>
 					<div class="glass"></div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-4">
+			<div class="col-xs-12 col-sm-6 col-md-4 item">
 				<div class="element">
-																			<!--?php include('apps/socio.php'); ?-->
 																			<?php include('apps/youtubeminiplayer.php'); ?>
 					<div class="glass"></div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-6 col-md-2">
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element">
 																			<?php include('apps/cookie-login.php'); ?>
 					<div class="glass"></div>
 				</div>	
 			</div>		
-			<div class="col-xs-12 col-sm-6 col-md-2">
-				<div class="element">
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element" style="height:150px;">
 																			<?php include('apps/meteo.php'); ?>
 					<div class="glass"></div>
 				</div>	
-			</div>		<div class="col-xs-12 col-sm-6 col-md-2">
+			</div>		
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element">
 																			<?php include('apps/shooters.php'); ?>
 					<div class="glass"></div>
@@ -100,22 +86,23 @@
 	</div>
 	
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
+	<script><?php include('dependencies/js/main.js'); ?></script>
 	<script>
 
-/*
-	$(document).ready(function(){
-		bgr();
-		function bgr() {
-			var color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-			$('html head style').html("body{background:"+color+"}.clock,.link-list{color:"+color+"}");
-			//console.log(color);
-		}
-		setInterval(function(){
+	/* animate bg color
+		$(document).ready(function(){
 			bgr();
-		},5000);
-	});
+			function bgr() {
+				var color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+				$('html head style').html("body{background:"+color+"}.clock,.link-list{color:"+color+"}");
+				//console.log(color);
+			}
+			setInterval(function(){
+				bgr();
+			},5000);
+		});
 
-*/
+	*/
 
 	if ($('.url').size()>0) {
 		var options = { valueNames: [ 'title','url' ] };
@@ -163,12 +150,18 @@
 
 	/* Dragable windows :
 	=====================
-	*/
 		$(function() {
 			$( ".element" ).draggable();
 		});
+	*/
 
+	$(document).ready(function(){
+		$('.masonry-container').masonry({
+		columnWidth: '.item',
+		itemSelector: '.item'
+	});
 
+	});
 		$("#menu-close").click(function(e) {
 		  e.preventDefault();
 		  $("#sidebar-wrapper").toggleClass("active");
@@ -178,13 +171,12 @@
 		  $("#sidebar-wrapper").toggleClass("active");
 		});
 
+		<?php if (!isset($_SESSION['name'])) : ?>
+
+			$loginInput = $('#user_email');
+			$loginInput.focus();
+		
+		<?php endif ?>
 	</script>
-
-
 </body>
 </html> 
-<head>
-	  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-</head>

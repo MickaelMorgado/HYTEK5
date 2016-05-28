@@ -9,15 +9,35 @@
 			    <div class="container-fluid">
 			    	<div class="row">
 			    		<div class="col-xs-6">
-			    			<h5>Youtube ID's (separate by comma ",");</h5>
-<textarea name="" id="tarea" >
-uQpta4O2E_M ,
-ife5G8gdz_w ,</textarea>
+			    			<h5>add Youtube ID's videos</h5>
+							<?php if (isset($_SESSION['id_session'])): ?>
+								<form action="apps/youtube/add-link.php" method="POST">
+									<input type="text" name="tarea" palceholder="id video">
+									<input type="submit" value="+">
+								</form>
+								<h5>playlist:</h5>
+								<div id="YTlist" class="scrollable">
+									<?php include('apps/youtube/get-links.php'); ?>
+								</div>
+							<?php endif ?>
 			    		</div>
 			    		<div class="col-xs-6">
 							<h5>shortcuts:</h5>
 							shift + n (next video);<br>
 							shift + p (prev video);
+							<br>
+							<br>
+							<div class="player-controls">
+								<span id="player-previous" title="previous"><i class="fa fa-fast-backward"></i></span>
+								<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
+								<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
+								<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
+								<span id="player-vol" title="volume"><i class="fa fa-volume-down"></i></span>
+								<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
+								<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
+								<!--span class="play-pause"></span>
+								<span class="yt-time"></span-->
+							</div>
 			    		</div>
 			    	</div>
 			    </div>
@@ -25,11 +45,15 @@ ife5G8gdz_w ,</textarea>
 		</div>
 	</div>
 </div>
+
+
 <script>
+var yt = $("#YT");
+
 	$(document).ready(function(){
+		
 		function youtubeSetSrc() {
-			var yt = $("#YT");
-			yt.attr("src", "https://www.youtube.com/embed/?playlist="+$('#tarea').val());
+			yt.attr("src", "https://www.youtube.com/embed/?playlist="+$('#fullarray').val());
 		}
 		
 		youtubeSetSrc();
@@ -38,22 +62,8 @@ ife5G8gdz_w ,</textarea>
 	});
 
 </script>
-<!--div class="player">
-	<!--div class="hidder"><img src="http://placehold.it/250/" id="youtubeThumbnail"></div-->
-	<!--div id="player"></div>
-</div>
-<div class="player-controls">
-	<span id="player-previous" title="previous"><i class="fa fa-fast-backward"></i></span>
-	<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
-	<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
-	<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
-	<span id="player-vol" title="volume"><i class="fa fa-volume-down"></i></span>
-	<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
-	<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
-	<!--span class="play-pause"></span>
-	<span class="yt-time"></span-->
-<!--/div>
-<?php 
+
+<!--?php 
 include('../dbConnection.php');
 if (isset($_SESSION['id_session'])) { 	// IF SESSION
 	$result = mysqli_query($link, "SELECT * FROM playlists WHERE ID_session = $_SESSION[id_session]");
@@ -62,30 +72,19 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 		$spt = "".$row['spotifyplaylistlink'];
 	} 
 }
-?>
+?-->
+
+<!-- youtube dependencies -->
 <script>
 	var tag = document.createElement('script');
 	tag.src = "https://www.youtube.com/iframe_api";
 	var firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+</script>
 
-	var player;
-	function onYouTubeIframeAPIReady() {
-		player = new YT.Player('player', {
-			height:  '100%',
-			width:   '100%',
-			//videoId: 'uLJMQ9vbusE',
-			playerVars: {
-				listType: 'playlist',
-				list: '<?php echo $ytb ?>',
-			},
-			events: {
-				//'onReady': onPlayerReady,
-				'onStateChange': onPlayerStateChange,
-			}
-		});
-	}
 
+<!-- youtube functions -->
+<script>
 	// SHUFFLE VIDEO PLAYER SERIA FIX ALEATORIO XD
 	var done = false;
 	$("#player-pause").css({"display":"none"});
@@ -107,12 +106,12 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 		}
 	}
 	/*
-	*/
 	$("#player-next").click(function(){
 		player.nextVideo();
 		//var min = player.getDuration()/60;
 		//$(".player .yt-time").html("time:"+min+"");
 	});
+	*/
 	
 	$("#player-vol").click(function(){			
 		if (player.isMuted()==true) {
@@ -129,10 +128,21 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 	$("#player-pause").click(function(){		player.pauseVideo();	});
 	$("#player-play").click(function(){			player.playVideo();		});
 	$("#player-previous").click(function(){		player.previousVideo();	});
-	//$("#player-next").click(function(){		player.nextVideo();	});
+	//$("#player-next").click(function(){			player.nextVideo();		});
 	$("#player-playAt").click(function(){		player.playVideoAt(0);	});
-	$("#player-expand").click(function(){		expand();	});
+	$("#player-expand").click(function(){		expand();				});
+	
 
-</script-->
 
-<!--iframe src="https://open.spotify.com/embed/user/1188639242/playlist/2DlMA4R9yNAmF6L3W3LNyM" width="100%" height="380" frameborder="0" allowtransparency="true"></iframe-->
+	$("#player-next").click(function(){			
+		$this = yt.attr("src");
+		var params={};
+		$this.search
+		  .replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
+		    params[key] = value;
+			alert(params[key]);
+		  }
+		);
+	});
+
+</script>

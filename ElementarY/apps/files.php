@@ -14,18 +14,12 @@ if (isset($_SESSION['id_session'])) {
 	    //$files[] = $filename;
 		if ($filename != "." && $filename != "..") {
 			?><a href="<?php echo "apps/uploads/".$filename; ?>"><?php
-			if (preg_match('/\.jpg$/', $filename)) {
-				?><i class="fa fa-picture-o" aria-hidden="true"></i><?php
-			}elseif (preg_match('/\.rar$/', $filename)) {
-				?><i class="fa fa-compress" aria-hidden="true"></i><?php
-			}elseif (preg_match('/\.tar.gz$/', $filename)) {
-				?><i class="fa fa-compress" aria-hidden="true"></i><?php
-			}elseif (preg_match('/\.mp3$/', $filename)) {
-				?><i class="fa fa-file-audio-o" aria-hidden="true"></i><?php
-			}elseif (preg_match('/\.pdf$/', $filename)) {
-				?><i class="fa fa-file-pdf-o" aria-hidden="true"></i><?php
-			}else{
-				?><i class="fa fa-file-text-o" aria-hidden="true"></i><?php
+			if (preg_match('/\.jpg$/', $filename)) {					?><i aria-hidden="true" class="fa fa-picture-o" ></i><?php
+			}elseif (preg_match('/\.rar$/', $filename)) {				?><i aria-hidden="true" class="fa fa-compress" ></i><?php
+			}elseif (preg_match('/\.tar.gz$/', $filename)) {			?><i aria-hidden="true" class="fa fa-compress" ></i><?php
+			}elseif (preg_match('/\.mp3$/', $filename)) {				?><i aria-hidden="true" class="fa fa-file-audio-o" ></i><?php
+			}elseif (preg_match('/\.pdf$/', $filename)) {				?><i aria-hidden="true" class="fa fa-file-pdf-o" ></i><?php
+			}else{														?><i aria-hidden="true" class="fa fa-file-text-o" ></i><?php
 			}
 		    echo " ".$filename."<br/>"; ?>
 		    </a><a style="float:right;margin-top:-20px;color:red" href="apps/removefile.php?filename=<?php echo $filename; ?>">x</a>
