@@ -48,33 +48,6 @@
 	</div>
 </div>
 
-
-<script>
-var yt = $("#YT");
-
-	$(document).ready(function(){
-		
-		function youtubeSetSrc() {
-			yt.attr("src", "https://www.youtube.com/embed/?playlist="+$('#fullarray').val());
-		}
-		
-		youtubeSetSrc();
-			
-		$('#tarea').on("change",function(){youtubeSetSrc();});
-	});
-
-</script>
-
-<!--?php 
-include('../dbConnection.php');
-if (isset($_SESSION['id_session'])) { 	// IF SESSION
-	$result = mysqli_query($link, "SELECT * FROM playlists WHERE ID_session = $_SESSION[id_session]");
-	while( $row = mysqli_fetch_assoc($result) ){
-		$ytb = "".$row['youtubeplaylistlink'];
-		$spt = "".$row['spotifyplaylistlink'];
-	} 
-}
-?-->
 <!-- youtube dependencies -->
 <script src="http://www.youtube.com/player_api"></script>
 <script>
@@ -90,12 +63,25 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 			}
 		});
 	}
+	var done = false;
+	$("#player-pause").css({"display":"none"});
+	
 	// when video ends
 	function onPlayerStateChange(event) { 
-		if(event.data === 0) { 
-			alert("alert");  
-			nextVideo(); 
-		}
+		if (event.data === 0) { nextVideo(); }
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+        	// CODE HERE like open links to target blank // check player.getPlayerState()
+        	$("#player-play").css({"display":"none"});
+        	$("#player-pause").css({"display":"inline-block"});
+        	$("a").attr("target","_blank");
+        	$("link[rel='icon']").attr("href","dependencies/img/audioplaying.png");
+        	$(".player").addClass("active");
+        }else{
+        	$("link[rel='icon']").attr("href","hyteklogo.jpg");
+        	$("#player-pause").css({"display":"none"});
+        	$("#player-play").css({"display":"inline-block"});
+        	$(".player").removeClass("active");
+        }
 	}
 	function nextVideo(){
 		a = a+1; 
@@ -107,38 +93,6 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 		player.loadVideoById(""+$('#YTlist').find('[data-order='+a.toString()+']').text());
 	}
 
-/* youtube functions */
-
-	// SHUFFLE VIDEO PLAYER SERIA FIX ALEATORIO XD
-	/*
-	*/
-	var done = false;
-	$("#player-pause").css({"display":"none"});
-	function onPlayerStateChange(event) {							// WHEN IT PLAY
-		if (event.data == YT.PlayerState.PLAYING && !done) {
-			// CODE HERE like open links to target blank // check player.getPlayerState()
-			$("#player-play").css({"display":"none"});
-			$("#player-pause").css({"display":"inline-block"});
-			$("a").attr("target","_blank");
-			$("link[rel='icon']").attr("href","dependencies/img/audioplaying.png");
-			$(".player").addClass("active");
-			//$(".soundtracks").append(player.getPlaylist());
-			//done = true;
-		}else{
-			$("link[rel='icon']").attr("href","hyteklogo.jpg");
-			$("#player-pause").css({"display":"none"});
-			$("#player-play").css({"display":"inline-block"});
-			$(".player").removeClass("active");
-		}
-	}
-	/*
-	$("#player-next").click(function(){
-		player.nextVideo();
-		//var min = player.getDuration()/60;
-		//$(".player .yt-time").html("time:"+min+"");
-	});
-	*/
-	
 	$("#player-vol").click(function(){			
 		if (player.isMuted()==true) {			player.unMute();	}
 		else{									player.mute();		};
