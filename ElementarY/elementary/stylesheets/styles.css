@@ -135,8 +135,12 @@ body:after {
 a {
   color: #fff;
 }
-
 /* line 214, ../sass/styles.scss */
+a:hover {
+  cursor: pointer;
+}
+
+/* line 217, ../sass/styles.scss */
 .link-list, .clock {
   -moz-transition: color, 5s;
   -o-transition: color, 5s;
@@ -144,7 +148,7 @@ a {
   transition: color, 5s;
 }
 
-/* line 218, ../sass/styles.scss */
+/* line 221, ../sass/styles.scss */
 .element, .dock .dock-aspect {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -164,7 +168,7 @@ a {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 234, ../sass/styles.scss */
+/* line 237, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -188,35 +192,39 @@ a {
   z-index: 100;
   pointer-events: none;
 }
-/* line 262, ../sass/styles.scss */
+/* line 265, ../sass/styles.scss */
 .element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #ffd133;
   -webkit-box-shadow: 0 0 10px -2px #ffd133;
   box-shadow: 0 0 10px -2px #ffd133;
 }
 
-/* line 267, ../sass/styles.scss */
+/* line 270, ../sass/styles.scss */
 input, button, select {
   color: #fff;
 }
 
-/* line 271, ../sass/styles.scss */
+/* line 274, ../sass/styles.scss */
 .scrollable {
-  max-height: 240px;
   overflow-y: scroll;
+  max-height: 240px;
+}
+/* line 277, ../sass/styles.scss */
+.scrollable.youtube {
+  max-height: 150px;
 }
 
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 281, ../sass/styles.scss */
+/* line 285, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 287, ../sass/styles.scss */
+/* line 291, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -230,7 +238,7 @@ input, button, select {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 299, ../sass/styles.scss */
+/* line 303, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -238,16 +246,16 @@ input, button, select {
   width: 200%;
 }
 
-/* line 306, ../sass/styles.scss */
+/* line 310, ../sass/styles.scss */
 .element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 309, ../sass/styles.scss */
+/* line 313, ../sass/styles.scss */
 .element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 312, ../sass/styles.scss */
+/* line 316, ../sass/styles.scss */
 .element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -258,12 +266,12 @@ input, button, select {
   height: 225px;
 }
 
-/* line 321, ../sass/styles.scss */
+/* line 325, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 325, ../sass/styles.scss */
+/* line 329, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -271,16 +279,27 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 329, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
 }
 
+/* line 340, ../sass/styles.scss */
+.youtube-list-rm-button {
+  margin-right: 10px;
+}
+
+/* line 341, ../sass/styles.scss */
+.youtube-list-thumbnail {
+  width: 50px;
+  margin-right: 10px;
+}
+
 /*============================================================
     clock
 ============================================================*/
-/* line 339, ../sass/styles.scss */
+/* line 349, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -290,12 +309,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 348, ../sass/styles.scss */
+/* line 358, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 352, ../sass/styles.scss */
+/* line 362, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -306,37 +325,37 @@ input, button, select {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 362, ../sass/styles.scss */
+/* line 372, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 364, ../sass/styles.scss */
+/* line 374, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 369, ../sass/styles.scss */
+/* line 379, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 373, ../sass/styles.scss */
+/* line 383, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 377, ../sass/styles.scss */
+/* line 387, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 382, ../sass/styles.scss */
+/* line 392, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 386, ../sass/styles.scss */
+/* line 396, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -347,7 +366,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 396, ../sass/styles.scss */
+/* line 406, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -361,7 +380,7 @@ input, button, select {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 407, ../sass/styles.scss */
+/* line 417, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -369,9 +388,9 @@ input, button, select {
 /*============================================================
     dock
 ============================================================*/
-/* line 415, ../sass/styles.scss */
+/* line 425, ../sass/styles.scss */
 .dock {
-  background-color: #1f1f1f;
+  background-color: #111;
   box-shadow: 0 0 5px black;
   position: fixed;
   width: 100%;
@@ -379,14 +398,14 @@ input, button, select {
   left: 0;
   display: block;
 }
-/* line 423, ../sass/styles.scss */
+/* line 433, ../sass/styles.scss */
 .dock ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 429, ../sass/styles.scss */
+/* line 439, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -427,7 +446,7 @@ input, button, select {
   		}
   		*/
 }
-/* line 473, ../sass/styles.scss */
+/* line 483, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -449,7 +468,7 @@ input, button, select {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 487, ../sass/styles.scss */
+/* line 497, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -458,7 +477,7 @@ input, button, select {
   transform: scale(1.2, 1.2);
 }
 
-/* line 495, ../sass/styles.scss */
+/* line 505, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -471,16 +490,16 @@ input, button, select {
   background: #151515;
   position: absolute;
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
   z-index: 1000;
 }
-/* line 506, ../sass/styles.scss */
+/* line 516, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 512, ../sass/styles.scss */
+/* line 522, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -490,7 +509,7 @@ input, button, select {
   padding: 0;
 }
 
-/* line 521, ../sass/styles.scss */
+/* line 531, ../sass/styles.scss */
 #menu-toggle {
   bottom: 0;
   right: 0;
@@ -498,7 +517,7 @@ input, button, select {
   z-index: 1;
 }
 
-/* line 528, ../sass/styles.scss */
+/* line 538, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -508,7 +527,7 @@ input, button, select {
   width: 100%;
 }
 
-/* line 534, ../sass/styles.scss */
+/* line 544, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;

@@ -2,7 +2,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-12">
-<iframe id="YT" width="100%" height="250" src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+			
+			<div id="boby"></div>	
+
 			<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			<div id="sidebar-wrapper">
 			    <a id="menu-close" href="#" class="btn btn-default btn-lg toggle"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -16,7 +18,7 @@
 									<input type="submit" value="+">
 								</form>
 								<h5>playlist:</h5>
-								<div id="YTlist" class="scrollable">
+								<div id="YTlist" class="scrollable youtube">
 									<?php include('apps/youtube/get-links.php'); ?>
 								</div>
 							<?php endif ?>
@@ -28,7 +30,7 @@
 							<br>
 							<br>
 							<div class="player-controls">
-								<span id="player-previous" title="previous"><i class="fa fa-fast-backward"></i></span>
+								<span id="player-prev" title="previous"><i class="fa fa-fast-backward"></i></span>
 								<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
 								<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
 								<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
@@ -73,19 +75,43 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 	} 
 }
 ?-->
-
 <!-- youtube dependencies -->
+<script src="http://www.youtube.com/player_api"></script>
 <script>
-	var tag = document.createElement('script');
-	tag.src = "https://www.youtube.com/iframe_api";
-	var firstScriptTag = document.getElementsByTagName('script')[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-</script>
+	var player;
+	var a = 0;
+	function onYouTubePlayerAPIReady() {
+		player = new YT.Player('boby', {
+			height: '250',
+			width: '100%',
+			videoId: $('#YTlist').find("a")[0].text,
+			events: {
+				'onStateChange': onPlayerStateChange
+			}
+		});
+	}
+	// when video ends
+	function onPlayerStateChange(event) { 
+		if(event.data === 0) { 
+			alert("alert");  
+			nextVideo(); 
+		}
+	}
+	function nextVideo(){
+		a = a+1; 
+		player.loadVideoById(""+$('#YTlist').find('[data-order='+a.toString()+']').text());
+	}
+	function prevVideo(){
+		a = a-1; 
+		console.log(":");
+		player.loadVideoById(""+$('#YTlist').find('[data-order='+a.toString()+']').text());
+	}
 
+/* youtube functions */
 
-<!-- youtube functions -->
-<script>
 	// SHUFFLE VIDEO PLAYER SERIA FIX ALEATORIO XD
+	/*
+	*/
 	var done = false;
 	$("#player-pause").css({"display":"none"});
 	function onPlayerStateChange(event) {							// WHEN IT PLAY
@@ -94,7 +120,7 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 			$("#player-play").css({"display":"none"});
 			$("#player-pause").css({"display":"inline-block"});
 			$("a").attr("target","_blank");
-			$("link[rel='icon']").attr("href","26	.gif");
+			$("link[rel='icon']").attr("href","dependencies/img/audioplaying.png");
 			$(".player").addClass("active");
 			//$(".soundtracks").append(player.getPlaylist());
 			//done = true;
@@ -114,35 +140,19 @@ if (isset($_SESSION['id_session'])) { 	// IF SESSION
 	*/
 	
 	$("#player-vol").click(function(){			
-		if (player.isMuted()==true) {
-			player.unMute();	
-		}else{
-			player.mute();	
-		};
+		if (player.isMuted()==true) {			player.unMute();	}
+		else{									player.mute();		};
 	});
 
-	function expand() {
-		$("#player").parent().parent().toggleClass("expand");
-	}
+	function expand() {							$("#player").parent().parent().toggleClass("expand");	}
+
+	$("#player-expand").click(function(){		expand();				});
 
 	$("#player-pause").click(function(){		player.pauseVideo();	});
 	$("#player-play").click(function(){			player.playVideo();		});
-	$("#player-previous").click(function(){		player.previousVideo();	});
-	//$("#player-next").click(function(){			player.nextVideo();		});
-	$("#player-playAt").click(function(){		player.playVideoAt(0);	});
-	$("#player-expand").click(function(){		expand();				});
-	
 
-
-	$("#player-next").click(function(){			
-		$this = yt.attr("src");
-		var params={};
-		$this.search
-		  .replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str,key,value) {
-		    params[key] = value;
-			alert(params[key]);
-		  }
-		);
-	});
+	$("#player-playAt").click(function(){		onYouTubePlayerAPIReady();	});
+	$("#player-prev").click(function(){			prevVideo();	});
+	$("#player-next").click(function(){			nextVideo();	});
 
 </script>

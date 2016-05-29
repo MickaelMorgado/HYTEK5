@@ -209,7 +209,10 @@ body {
 	
 }
 
-a { color: $links; } 
+a { 
+	color: $links; 
+	&:hover { cursor: pointer; }
+} 
 
 .link-list,.clock {
 	@include transition(color, 5s);
@@ -269,8 +272,9 @@ input,button,select{
 }
 
 .scrollable {
-	max-height: 240px;
 	overflow-y: scroll;
+	max-height: 240px;
+	&.youtube { max-height: 150px; }
 }
 
 /*============================================================
@@ -331,6 +335,12 @@ $yt-hoverToExpend : true;
 			cursor: pointer; 
 		}
 	}
+}
+
+.youtube-list-rm-button {	margin-right: 10px; }
+.youtube-list-thumbnail {	
+	width: 50px; 
+	margin-right: 10px;
 }
 
 /*============================================================
@@ -413,7 +423,7 @@ $yt-hoverToExpend : true;
 ============================================================*/
 
 .dock {
-	background-color: #1f1f1f;
+	background-color: #111;
 	box-shadow: 0 0 5px black;
 	position: fixed;
 	width: 100%;
@@ -501,7 +511,7 @@ $yt-hoverToExpend : true;
     background: $element-bg-color;
     position: absolute;
     height: 100%;
-    overflow-y: auto;
+    overflow: hidden;
     z-index: 1000;
     textarea {
     	width: 100%;

@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 item">
-				<div class="element">
+				<div class="element"  style="height:300px;">
 																			<?php include('apps/youtubeminiplayer.php'); ?>
 					<div class="glass"></div>
 				</div>

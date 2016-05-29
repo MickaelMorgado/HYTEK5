@@ -9,11 +9,11 @@
 	if ($result->num_rows > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			?>
-			<a onclick='youtubeChangeSrc("<?php echo $row['youtubeplaylistlink']; ?>","<?php echo $i; ?>")'><img width="50px" src="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a><br/>
 			<form action="apps/youtube/rm-link.php" method="POST" class="pull-right">
 				<input type="hidden" name="rm-id" value="<?php echo $row['id_playlist'];?>">
-				<input type="submit" value="x">
+				<input type="submit" value="x" class="youtube-list-rm-button">
 			</form>
+			<a onclick='player.loadVideoById("<?php echo $row['youtubeplaylistlink']; ?>");' data-order="<?php echo $i; ?>"><img class="youtube-list-thumbnail" src="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a><br/>
 			<?php
 			if ($i>=1) {
 				$separate = ",";

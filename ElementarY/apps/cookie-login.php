@@ -24,7 +24,8 @@ if(!isset($_SESSION['id_session'])){?>
 			</div>        
 		</form>
 	</div>
-
+	or	
+	<a href="signup.php">Sign up</a>
 
 	<!--script>
 		$('document').ready(function(){ 
