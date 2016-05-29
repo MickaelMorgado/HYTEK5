@@ -77,7 +77,7 @@
         	$("link[rel='icon']").attr("href","dependencies/img/audioplaying.png");
         	$(".player").addClass("active");
         }else{
-        	$("link[rel='icon']").attr("href","hyteklogo.jpg");
+        	$("link[rel='icon']").attr("href","../hyteklogo.jpg");
         	$("#player-pause").css({"display":"none"});
         	$("#player-play").css({"display":"inline-block"});
         	$(".player").removeClass("active");
