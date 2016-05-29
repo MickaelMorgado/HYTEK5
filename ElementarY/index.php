@@ -10,6 +10,7 @@
 	<link rel="icon" href="https://lh3.googleusercontent.com/-UhiNRhND2Ac/UvtXfOIZTbI/AAAAAAAAAdo/1ZTaCtlTsOYck5ADKhFgolv2JLjridn-A/s640-no/H%2Bart%2Bchannel%2B640x640.jpg" type="image/jpg">
     <meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no"/>
+	<meta name="viewport" content="width=device-width" />
 
 	<?php include('dependencies/styles.php') ?>
 	<?php include('dependencies/scripts.php') ?>
