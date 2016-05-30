@@ -22,8 +22,8 @@
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuAdd">
 						<form action="apps/links/add-link.php" method="post">
 							<li>
-								<input type="text" name="link-add-title" 	placeholder="title">
-								<input type="text" name="link-add-url" 		placeholder="url">
+								<input type="text" name="link-add-title" placeholder="title (opcional)">
+								<input type="text" name="link-add-url" 	 placeholder="url">
 							</li>
 							<input type="submit" value="add">
 						</form>
