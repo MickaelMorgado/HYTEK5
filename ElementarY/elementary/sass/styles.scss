@@ -181,9 +181,12 @@ body {
 	padding: 20px 0;
 
 	background-color: $bgc;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	//background-attachment: fixed;
 	&:before {
-		@include gradient(rgba(0,0,0,0.8),$gradient,bottom);
+		@include gradient(rgba(0,0,0,0.5),$gradient,bottom);
 		content: "";
 		display: block;
 		position: fixed;
@@ -553,3 +556,17 @@ $yt-hoverToExpend : true;
 	bottom: 100px !important;
 }
 */
+
+/*============================================================
+    Modal
+============================================================*/
+
+.modal-content {
+	@include border-radius(0);
+	background-color: $dark;
+	border: 5px solid $bgc;
+}
+
+.modal-backdrop {
+	z-index: 500;
+}

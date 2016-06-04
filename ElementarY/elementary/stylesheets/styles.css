@@ -91,20 +91,23 @@ body {
   transition: all, 3s, ease-in-out;
   padding: 20px 0;
   background-color: #2F4F74;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-/* line 185, ../sass/styles.scss */
+/* line 188, ../sass/styles.scss */
 body:before {
-  background: -moz-linear-gradient bottom, rgba(0, 0, 0, 0.8) 0%, #682525 100%;
+  background: -moz-linear-gradient bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%;
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left bottom, left bottom, color-stop(0%, rgba(0, 0, 0, 0.8)), color-stop(100%, #682525));
+  background: -webkit-gradient(linear, left bottom, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(100%, #682525));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.8) 0%, #682525 100%);
+  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient bottom, rgba(0, 0, 0, 0.8) 0%, #682525 100%;
+  background: -o-linear-gradient bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%;
   /* Opera 11.10+ */
-  background: -ms-linear-gradient bottom, rgba(0, 0, 0, 0.8) 0%, #682525 100%;
+  background: -ms-linear-gradient bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%;
   /* IE10+ */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, #682525 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%);
   /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 );
   /* IE6-9 */
@@ -117,7 +120,7 @@ body:before {
   left: 0;
   z-index: -2;
 }
-/* line 197, ../sass/styles.scss */
+/* line 200, ../sass/styles.scss */
 body:after {
   content: "";
   display: block;
@@ -131,16 +134,16 @@ body:after {
   z-index: -1;
 }
 
-/* line 212, ../sass/styles.scss */
+/* line 215, ../sass/styles.scss */
 a {
   color: #fff;
 }
-/* line 214, ../sass/styles.scss */
+/* line 217, ../sass/styles.scss */
 a:hover {
   cursor: pointer;
 }
 
-/* line 217, ../sass/styles.scss */
+/* line 220, ../sass/styles.scss */
 .link-list, .clock {
   -moz-transition: color, 5s;
   -o-transition: color, 5s;
@@ -148,7 +151,7 @@ a:hover {
   transition: color, 5s;
 }
 
-/* line 221, ../sass/styles.scss */
+/* line 224, ../sass/styles.scss */
 .element, .dock .dock-aspect {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -168,7 +171,7 @@ a:hover {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 237, ../sass/styles.scss */
+/* line 240, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -192,24 +195,24 @@ a:hover {
   z-index: 100;
   pointer-events: none;
 }
-/* line 265, ../sass/styles.scss */
+/* line 268, ../sass/styles.scss */
 .element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #ffd133;
   -webkit-box-shadow: 0 0 10px -2px #ffd133;
   box-shadow: 0 0 10px -2px #ffd133;
 }
 
-/* line 270, ../sass/styles.scss */
+/* line 273, ../sass/styles.scss */
 input, button, select {
   color: #fff;
 }
 
-/* line 274, ../sass/styles.scss */
+/* line 277, ../sass/styles.scss */
 .scrollable {
   overflow-y: scroll;
   max-height: 240px;
 }
-/* line 277, ../sass/styles.scss */
+/* line 280, ../sass/styles.scss */
 .scrollable.youtube {
   max-height: 150px;
 }
@@ -217,14 +220,14 @@ input, button, select {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 285, ../sass/styles.scss */
+/* line 288, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 291, ../sass/styles.scss */
+/* line 294, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -238,7 +241,7 @@ input, button, select {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 303, ../sass/styles.scss */
+/* line 306, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -246,16 +249,16 @@ input, button, select {
   width: 200%;
 }
 
-/* line 310, ../sass/styles.scss */
+/* line 313, ../sass/styles.scss */
 .element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 313, ../sass/styles.scss */
+/* line 316, ../sass/styles.scss */
 .element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 316, ../sass/styles.scss */
+/* line 319, ../sass/styles.scss */
 .element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -266,12 +269,12 @@ input, button, select {
   height: 225px;
 }
 
-/* line 325, ../sass/styles.scss */
+/* line 328, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 329, ../sass/styles.scss */
+/* line 332, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -279,18 +282,18 @@ input, button, select {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 333, ../sass/styles.scss */
+/* line 336, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
 }
 
-/* line 340, ../sass/styles.scss */
+/* line 343, ../sass/styles.scss */
 .youtube-list-rm-button {
   margin-right: 10px;
 }
 
-/* line 341, ../sass/styles.scss */
+/* line 344, ../sass/styles.scss */
 .youtube-list-thumbnail {
   width: 50px;
   margin-right: 10px;
@@ -299,7 +302,7 @@ input, button, select {
 /*============================================================
     clock
 ============================================================*/
-/* line 349, ../sass/styles.scss */
+/* line 352, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -309,12 +312,12 @@ input, button, select {
 /*============================================================
     link list
 ============================================================*/
-/* line 358, ../sass/styles.scss */
+/* line 361, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 362, ../sass/styles.scss */
+/* line 365, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -325,37 +328,37 @@ input, button, select {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 372, ../sass/styles.scss */
+/* line 375, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 374, ../sass/styles.scss */
+/* line 377, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 379, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 383, ../sass/styles.scss */
+/* line 386, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 387, ../sass/styles.scss */
+/* line 390, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 392, ../sass/styles.scss */
+/* line 395, ../sass/styles.scss */
 #searchform {
   margin-bottom: 10px;
 }
 
-/* line 396, ../sass/styles.scss */
+/* line 399, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -366,7 +369,7 @@ input, button, select {
   padding: 10px;
 }
 
-/* line 406, ../sass/styles.scss */
+/* line 409, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -380,7 +383,7 @@ input, button, select {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 417, ../sass/styles.scss */
+/* line 420, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -388,7 +391,7 @@ input, button, select {
 /*============================================================
     dock
 ============================================================*/
-/* line 425, ../sass/styles.scss */
+/* line 428, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -398,14 +401,14 @@ input, button, select {
   left: 0;
   display: block;
 }
-/* line 433, ../sass/styles.scss */
+/* line 436, ../sass/styles.scss */
 .dock ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 439, ../sass/styles.scss */
+/* line 442, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -446,7 +449,7 @@ input, button, select {
   		}
   		*/
 }
-/* line 483, ../sass/styles.scss */
+/* line 486, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -468,7 +471,7 @@ input, button, select {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 497, ../sass/styles.scss */
+/* line 500, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -477,7 +480,7 @@ input, button, select {
   transform: scale(1.2, 1.2);
 }
 
-/* line 505, ../sass/styles.scss */
+/* line 508, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -493,13 +496,13 @@ input, button, select {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 516, ../sass/styles.scss */
+/* line 519, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 522, ../sass/styles.scss */
+/* line 525, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -509,7 +512,7 @@ input, button, select {
   padding: 0;
 }
 
-/* line 531, ../sass/styles.scss */
+/* line 534, ../sass/styles.scss */
 #menu-toggle {
   bottom: 0;
   right: 0;
@@ -517,7 +520,7 @@ input, button, select {
   z-index: 1;
 }
 
-/* line 538, ../sass/styles.scss */
+/* line 541, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -527,7 +530,7 @@ input, button, select {
   width: 100%;
 }
 
-/* line 544, ../sass/styles.scss */
+/* line 547, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -540,3 +543,19 @@ input, button, select {
 	bottom: 100px !important;
 }
 */
+/*============================================================
+    Modal
+============================================================*/
+/* line 564, ../sass/styles.scss */
+.modal-content {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background-color: #000;
+  border: 5px solid #2F4F74;
+}
+
+/* line 570, ../sass/styles.scss */
+.modal-backdrop {
+  z-index: 500;
+}

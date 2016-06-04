@@ -51,13 +51,20 @@
 <!-- youtube dependencies -->
 <script src="http://www.youtube.com/player_api"></script>
 <script>
-	var player;
-	var a = 0;
+
+	var player,
+		dataOrder = 0,
+		lastOrder = $('.playlistlink').last().data("order");
+
 	function onYouTubePlayerAPIReady() {
 		player = new YT.Player('boby', {
 			height: '250',
 			width: '100%',
+			<?php if (isset($_SESSION['id_session'])): ?>
 			videoId: $('#YTlist').find("a")[0].text,
+			<?php else: ?>
+			videoId: "g7TAqv-dx2Y",
+			<?php endif ?>
 			events: {
 				'onStateChange': onPlayerStateChange
 			}
@@ -84,13 +91,17 @@
         }
 	}
 	function nextVideo(){
-		a = a+1; 
-		player.loadVideoById(""+$('#YTlist').find('[data-order='+a.toString()+']').text());
+		if (dataOrder >= lastOrder) {
+			dataOrder = 0;
+			nextVideo();
+		}else{
+			player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
+			dataOrder = dataOrder+1; 
+		}
 	}
 	function prevVideo(){
-		a = a-1; 
-		console.log(":");
-		player.loadVideoById(""+$('#YTlist').find('[data-order='+a.toString()+']').text());
+		dataOrder = dataOrder-1; 
+		player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
 	}
 
 	$("#player-vol").click(function(){			
