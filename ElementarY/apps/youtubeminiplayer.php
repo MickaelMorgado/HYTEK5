@@ -34,7 +34,7 @@
 								<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
 								<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
 								<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
-								<span id="player-vol" title="volume"><i class="fa fa-volume-down"></i></span>
+								<span id="player-vol" title="mute/unmute"><i class="fa fa-volume-down"></i></span>
 								<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
 								<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
 								<!--span class="play-pause"></span>
@@ -51,6 +51,8 @@
 <!-- youtube dependencies -->
 <script src="http://www.youtube.com/player_api"></script>
 <script>
+	
+	$(document).ready(function(){ onYouTubePlayerAPIReady(); });
 
 	var player,
 		dataOrder = 0,
