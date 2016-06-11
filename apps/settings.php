@@ -1,6 +1,4 @@
 <?php 
-	require_once '../dbConnection.php';
-
 	$sql = "SELECT * FROM settings WHERE id_settings = $_SESSION[id_session]";
 	$result = mysqli_query($link,$sql);
 
