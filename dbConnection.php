@@ -11,6 +11,7 @@ session_start();
 
 /* DEBUG PHP ACTIONS (NO HEADER REDIRECTIONS FOR DEBUGING PHP ACTIONS (APPS/FILES)) */
 
+	$query = true;
 	$debug = false;
 
 /* DB CONNECTIONS */

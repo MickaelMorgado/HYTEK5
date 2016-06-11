@@ -1,10 +1,15 @@
 <?php $error_reporting=1;
 	include('../../dbConnection.php');
 
-	$videoId = $_POST['tarea'];
+	echo "before: ".$_POST['tarea'];
 
-	echo $videoId;
+	parse_str( parse_url( $_POST['tarea'], PHP_URL_QUERY ), $my_array_of_vars );
+	$videoId = $my_array_of_vars['v'];
+	
+	echo "<br/>after: ".$my_array_of_vars['v'];    
+	
+
 	$sql = "INSERT INTO `playlists` (`id_playlist`, `ID_session`, `youtubeplaylistlink`) VALUES (NULL, $_SESSION[id_session], '$videoId')";
-	mysqli_query($link,$sql);
-	if($debug!=true){ header("location: ../../"); }
+	if($query!=false){ mysqli_query($link,$sql); 	}
+	if($debug!=true){ header("location: ../../"); 	}
 ?>

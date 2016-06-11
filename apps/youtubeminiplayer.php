@@ -11,7 +11,7 @@
 			    <div class="container-fluid">
 			    	<div class="row">
 			    		<div class="col-xs-6">
-			    			<h5>add Youtube ID's videos</h5>
+			    			<h5>add Youtube url:</h5>
 							<?php if (isset($_SESSION['id_session'])): ?>
 								<form action="apps/youtube/add-link.php" method="POST">
 									<input type="text" name="tarea" palceholder="id video">
