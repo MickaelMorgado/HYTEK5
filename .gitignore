@@ -22,6 +22,8 @@ $RECYCLE.BIN/
 # =========================
 HYTEK4/shoot/head.php
 .sass-cache/*
+credencials.php
+*.scssc
 
 # OSX
 # =========================

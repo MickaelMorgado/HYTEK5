@@ -1,61 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<?php 
+	$error_reporting = 0;
+	include('dbConnection.php');
+?>
+<html>
 <head>
-	<title>HYTEK - HOME</title>
-	<meta name="description" content="HYTEK - web projects like bookmarks and games developped with html,css,js,php">
+	<title>ElementarY</title>
+	<meta name="theme-color" content="#224455">
+	<link rel="icon" href="https://lh3.googleusercontent.com/-UhiNRhND2Ac/UvtXfOIZTbI/AAAAAAAAAdo/1ZTaCtlTsOYck5ADKhFgolv2JLjridn-A/s640-no/H%2Bart%2Bchannel%2B640x640.jpg" type="image/jpg">
     <meta charset="UTF-8">
-    <meta name="theme-color" content="#ffffff">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<meta name="viewport" content="width=device-width" />
 	<meta name="format-detection" content="telephone=no"/>
-	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.css"/>
-	<link href="{% static "stylesheets/styles.css" %}" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" type="text/css" href="css.css"/>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.15/slick.min.js"></script>
+	<meta name="viewport" content="width=device-width" />
 
-	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet" />
-	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<?php include('dependencies/styles.php') ?>
+	<?php include('dependencies/scripts.php') ?>
 
-	<!--[if lt IE 9]>
-	  <script type='text/javascript' src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	  <link rel="stylesheet" href="{% static 'stylesheets/ie.css' %}">
-	<![endif]-->
-	
-	<style>
-		.block {
-			display: inline-block;
-			width:  100%;
-			height: 250px;
-			overflow: hidden;
-			background-repeat:no-repeat;
-			background-size:cover;
-			content: "";
-			box-shadow: 0 0 8px 0 black;
-			-webkit-transition: all .25s;
-			-moz-transition: all .25s;
-			transition: all .25s;
-		}
-		.block:hover { 
-			opacity: .7; 
-			box-shadow: 0 0 8px 3px black;
-		}
-		.container { margin: 120px auto; }
-	</style>
-	
+	<style></style>
 </head>
 <body>
-
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-3"><a href="ElementarY/" class="block" style="background-image:url('Elementary.png')"></a></div>
-		<div class="col-xs-12 col-sm-6 col-md-3"><a href="shoot/" class="block" style="background-image:url('shoot/img/thumbnail1.png')"></a></div>
-		<div class="col-xs-12 col-sm-6 col-md-3"><a href="phpeditor/" class="block" style="background-image:url('phpeditor.bmp')"></a></div>
-		<div class="col-xs-12 col-sm-6 col-md-3"><a href="" class="block" style="background-image:url('hyteklogo.jpg')"></a></div>
+	<!--?php include('dependencies/phpfunctions.php') ?-->
+	<div class="container-fluid">
+		<div class="row masonry-container">
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element">
+																			<?php include('apps/clock.php'); ?>
+					<div class="glass"></div>
+				</div>
+				<div class="element">
+																			<?php include('apps/notes.php'); ?>
+					<div class="glass"></div>
+				</div>	
+			</div>		
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element">
+																			<?php include('apps/link-list.php'); ?>
+					<div class="glass"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element">
+																			<?php include('apps/files.php'); ?>
+					<div class="glass"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-4 item">
+				<div class="element"  style="height:300px;">
+																			<?php include('apps/youtubeminiplayer.php'); ?>
+					<div class="glass"></div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element">
+																			<?php include('apps/cookie-login.php'); ?>
+					<div class="glass"></div>
+				</div>	
+			</div>		
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element" style="height:150px;">
+																			<?php include('apps/meteo.php'); ?>
+					<div class="glass"></div>
+				</div>	
+			</div>		
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element">
+																			<?php include('apps/shooters.php'); ?>
+					<div class="glass"></div>
+				</div>	
+			</div>		
+			<div class="col-xs-12 col-sm-6 col-md-2 item">
+				<div class="element">
+																			<?php include('apps/settings.php'); ?>
+					<div class="glass"></div>
+				</div>	
+			</div>		
+		</div>
 	</div>
-</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="dock text-center">
+					<ul class="list-inline">
+						<li><a href="http://gmail.com/"><img class="dock-icon" src="dependencies/img/1.png" alt=""></a></li>
+						<li><a href="http://facebook.com"><img class="dock-icon" src="dependencies/img/2.png" alt=""></a></li>
+						<li><a href="http://youtube.com"><img class="dock-icon" src="dependencies/img/3.png" alt=""></a></li>
+						<li><a href="http://play.spotify.com/collection/songs"><img class="dock-icon" src="dependencies/img/4.png" alt=""></a></li>
+						<li><a href="http://twitter.com"><img class="dock-icon" src="dependencies/img/5.png" alt=""></a></li>
+						<li class="dock-aspect"><div class="glass"></div></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
+	<script><?php include('dependencies/js/main.js'); ?></script>
+	<script>
 
+	
+		<?php if (!isset($_SESSION['name'])) : ?>
 
-
+			$loginInput = $('#user_email');
+			$loginInput.focus();
+		
+		<?php endif ?>
+	</script>
 </body>
 </html> 
