@@ -16,7 +16,10 @@ Set custom wallpaper (http://...)
 	</form>
 	<form action="">
 		bg cover : <input type="checkbox"><br>
-		bg color : <input type="text" value="#2F4F74" placeholder="#2F4F74">
+		bg color top : <input class="jscolor {onFineChange:'update(this)'}" value="2F4F74">
+		<p id="rect" style="border:1px solid gray; width:161px; height:100px;">
+
+		bg color bottom : <input type="text" value="#2F4F74" placeholder="#2F4F74">
 	</form>
 	<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".laclass">Wallpapers</button>
 	<div class="modal fade laclass" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

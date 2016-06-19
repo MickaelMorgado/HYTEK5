@@ -18,7 +18,23 @@
 	<style></style>
 </head>
 <body>
-	<!--?php include('dependencies/phpfunctions.php') ?-->
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="dock text-center">
+					<ul class="list-inline">
+						<li><a href="http://gmail.com/"><img class="dock-icon" src="dependencies/img/1.png" alt=""></a></li>
+						<li><a href="http://facebook.com"><img class="dock-icon" src="dependencies/img/2.png" alt=""></a></li>
+						<li><a href="http://youtube.com"><img class="dock-icon" src="dependencies/img/3.png" alt=""></a></li>
+						<li><a href="http://play.spotify.com/collection/songs"><img class="dock-icon" src="dependencies/img/4.png" alt=""></a></li>
+						<li><a href="http://twitter.com"><img class="dock-icon" src="dependencies/img/5.png" alt=""></a></li>
+						<li class="dock-aspect"><div class="glass"></div></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="container-fluid">
 		<div class="row masonry-container">
 			<div class="col-xs-12 col-sm-6 col-md-2 item">
@@ -75,24 +91,10 @@
 			</div>		
 		</div>
 	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-12">
-				<div class="dock text-center">
-					<ul class="list-inline">
-						<li><a href="http://gmail.com/"><img class="dock-icon" src="dependencies/img/1.png" alt=""></a></li>
-						<li><a href="http://facebook.com"><img class="dock-icon" src="dependencies/img/2.png" alt=""></a></li>
-						<li><a href="http://youtube.com"><img class="dock-icon" src="dependencies/img/3.png" alt=""></a></li>
-						<li><a href="http://play.spotify.com/collection/songs"><img class="dock-icon" src="dependencies/img/4.png" alt=""></a></li>
-						<li><a href="http://twitter.com"><img class="dock-icon" src="dependencies/img/5.png" alt=""></a></li>
-						<li class="dock-aspect"><div class="glass"></div></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+
 	
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
+	<script src="dependencies/js/jscolor.js"></script>
 	<script><?php include('dependencies/js/main.js'); ?></script>
 	<script>
 

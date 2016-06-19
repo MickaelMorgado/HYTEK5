@@ -109,3 +109,11 @@ function modalsetyoutubeid(val) {
         });
     };
 }.call(this));
+
+/* Color picker for settings 
+============================
+*/
+function update(jscolor) {
+    // 'jscolor' instance can be used as a string
+    document.getElementById('rect').style.backgroundColor = '#' + jscolor
+}

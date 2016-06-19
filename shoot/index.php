@@ -171,6 +171,9 @@
 										$result = mysqli_query($link, "SELECT * FROM players WHERE id_player = $_SESSION[id_player]");
 										while ($row=mysqli_fetch_assoc($result)){
 											$coins = $row['coins'];
+											$weaponappearance = $row['src'];
+											$weaponsound = $row['sound_fire'];
+											$weaponsoundreload = $row['sound_reload'];
 										};
 										?>
 										
@@ -189,6 +192,37 @@
 															<!-- WEAPON 1 -->
 															<div class="tab-pane active" id="tab_default_1">
 																<div class="row">
+																	<div class="col-xs-12">
+																		<form action="set_weapon.php" method="post">
+																			<label for="appearance">appear (default: cursor5.png)</label>
+																			<select name="weaponappearance" id="weaponappearance">
+																				<option value="cursor5.png">cursor5.png</option>
+																				<option value="cursor.png">cursor.png</option>
+																				<option value="cursor2.png">cursor2.png</option>
+																				<option value="cursor4.png">cursor4.png</option>
+																				<option value="cursor6.png">cursor6.png</option>
+																			</select>
+																			<label for="sound">sound: (default: gun.mp3)</label>
+																			<select name="weaponsound" id="weaponsound" >
+																				<option value="futurist2.mp3">futurist2.mp3</option>
+																				<option value="FL.mp3">FL.mp3</option>
+																				<option value="futurist.mp3">futurist.mp3</option>
+																				<option value="gun.mp3">gun.mp3</option>
+																				<option value="handgun.mp3">handgun.mp3</option>
+																				<option value="oldbarret2.mp3">oldbarret2.mp3</option>
+																				<option value="barret.mp3">barret.mp3</option>
+																				<option value="barret2.mp3">barret2.mp3</option>
+																			</select>
+																			<label for="reload-sound">reload sound: (default: reload.mp3)</label>
+																			<select name="weaponreloadsound" id="weaponreloadsound">
+																				<option value="reload.mp3">reload.mp3</option>
+																				<option value="Item2">Item2</option>
+																				<option value="Item3">Item3</option>
+																				<option value="Item4">Item4</option>
+																			</select>
+																			<input type="submit" value="apply">
+																		</form>
+																	</div>
 																	<div class="col-xs-12 col-sm-6 col-md-6">
 																		<p>Current ammo: <?php echo get($link,"score",$join,$me); ?></p>
 																		<p>Magazin: 8</p>
