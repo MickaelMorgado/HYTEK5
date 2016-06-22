@@ -196,6 +196,16 @@
 																		<form action="set_weapon.php" method="post">
 																			<label for="appearance">appear (default: cursor5.png)</label>
 																			<select name="weaponappearance" id="weaponappearance">
+																				<?php 
+																					$sql = "SELECT * FROM weapons WHERE id_player = $_SESSION[id_player]";
+																					$result = mysqli_query($link,$sql);
+
+																					if ($result->num_rows > 0) {
+																						while ($row = mysqli_fetch_assoc($result)) {
+																							echo "<option value='$row[src]' hidden>".$row['src']."</option>";
+																						} 	
+																					}
+																				?>
 																				<option value="cursor5.png">cursor5.png</option>
 																				<option value="cursor.png">cursor.png</option>
 																				<option value="cursor2.png">cursor2.png</option>
@@ -204,6 +214,16 @@
 																			</select>
 																			<label for="sound">sound: (default: gun.mp3)</label>
 																			<select name="weaponsound" id="weaponsound" >
+																				<?php 
+																					$sql = "SELECT * FROM weapons WHERE id_player = $_SESSION[id_player]";
+																					$result = mysqli_query($link,$sql);
+
+																					if ($result->num_rows > 0) {
+																						while ($row = mysqli_fetch_assoc($result)) {
+																							echo "<option value='$row[sound_fire]' hidden>".$row['sound_fire']."</option>";
+																						} 	
+																					}
+																				?>
 																				<option value="futurist2.mp3">futurist2.mp3</option>
 																				<option value="FL.mp3">FL.mp3</option>
 																				<option value="futurist.mp3">futurist.mp3</option>
@@ -215,6 +235,16 @@
 																			</select>
 																			<label for="reload-sound">reload sound: (default: reload.mp3)</label>
 																			<select name="weaponreloadsound" id="weaponreloadsound">
+																				<?php 
+																					$sql = "SELECT * FROM weapons WHERE id_player = $_SESSION[id_player]";
+																					$result = mysqli_query($link,$sql);
+
+																					if ($result->num_rows > 0) {
+																						while ($row = mysqli_fetch_assoc($result)) {
+																							echo "<option value='$row[sound_reload]' hidden>".$row['sound_reload']."</option>";
+																						} 	
+																					}
+																				?>
 																				<option value="reload.mp3">reload.mp3</option>
 																				<option value="Item2">Item2</option>
 																				<option value="Item3">Item3</option>
