@@ -66,7 +66,7 @@
   to{opacity:0;}
 }
 @-webkit-keyframes smoke{
-  0    { top: 0; left: 0}
+  0%    { top: 0; left: 0}
   50%   { top: -50%; left: -50%}
   100%   { top: 0; left: -100%}
 }

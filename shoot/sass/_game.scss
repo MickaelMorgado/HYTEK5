@@ -1,0 +1,433 @@
+/*//////////////////////////////////////////////////////////////////////////////////MENU////////////////////////////////*/
+* {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+.title{
+	font-family: 'Bookman Old Style', serif;
+	line-height: 1em;
+	color: #8a6800;
+	font-weight:bold;
+	font-style:italic;
+	font-size: 131px;
+	text-shadow:0px 0px 0 rgb(128,94,-10),0px 1px 0 rgb(117,83,-21),0px 2px 0 rgb(107,73,-31),0px 3px 0 rgb(97,63,-41),0px 4px 0 rgb(87,53,-51),0px 5px 0 rgb(76,42,-62),0px 6px 0 rgb(66,32,-72), 0px 7px 0 rgb(56,22,-82),0px 8px 7px rgba(0,0,0,0.4),0px 8px 1px rgba(0,0,0,0.5),0px 0px 7px rgba(0,0,0,.2);
+}
+a{
+	padding: 10px;
+	font-size: 20px;
+	color: #FFF;
+	text-decoration: none;
+}
+a:hover{cursor: pointer;}
+#preloader  {
+     position: absolute;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     //background-image: url('../img/smoke.png');
+     //background-size: 100% 100%;
+     background-color: #000;
+     z-index: 99;
+    height: 100%;
+ }
+ .btn {
+  background: #d9aa34;
+  background-image: -webkit-linear-gradient(top, #d9aa34, #6e5800);
+  background-image: -moz-linear-gradient(top, #d9aa34, #6e5800);
+  background-image: -ms-linear-gradient(top, #d9aa34, #6e5800);
+  background-image: -o-linear-gradient(top, #d9aa34, #6e5800);
+  background-image: linear-gradient(to bottom, #d9aa34, #6e5800);
+  -webkit-border-radius: 60;
+  -moz-border-radius: 60;
+  border-radius: 60px;
+  text-shadow: 2px 2px 1px #000000;
+  -webkit-box-shadow: 2px 2px 5px #000000;
+  -moz-box-shadow: 2px 2px 5px #000000;
+  box-shadow: 2px 2px 5px #000000;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 38px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: #a18900;
+  background-image: -webkit-linear-gradient(top, #a18900, #dea700);
+  background-image: -moz-linear-gradient(top, #a18900, #dea700);
+  background-image: -ms-linear-gradient(top, #a18900, #dea700);
+  background-image: -o-linear-gradient(top, #a18900, #dea700);
+  background-image: linear-gradient(to bottom, #a18900, #dea700);
+  text-decoration: none;
+}
+.menubutton ,
+.startbutton,
+.fullscreenbutton {
+	background-color: rgba(0,0,0,0.5);
+	bottom: 0;
+	top: auto;
+	position: absolute;
+	z-index: 200;
+}
+.fullscreenbutton {
+	margin-left: 80px;
+}
+.startbutton {
+	background-color: rgba(0,0,0,0.7);
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+}
+.startbutton span{
+	position: absolute;
+	transform: translate(-50%,-50%);
+	top: 50%;
+	left: 50%;
+	line-height: 50px;
+	font-size: 7em;
+	bottom: auto;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+/*//////////////////////////////////////////////////////////////////////////////////GAME////////////////////////////////*/
+html,body{
+	background-image: url('../img/onlyoneminute/landscape2.jpg');
+	background-color: #111;
+	background-size: 100% 100%;
+	padding: 0;
+	margin: 0;
+	height:100%;
+	z-index: 0;
+	overflow: hidden;
+}
+
+.run-animation ,
+.run-animationinv {
+	//border: 1px solid red;
+	display: block;
+	width: 50px;
+	height: 50px;
+	background-image: url('../img/onlyoneminute/moohurun2.gif');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+ 	
+	animation-name: 			my-animation;
+	animation-timing-function: 	linear;
+	animation-iteration-count: 	infinite;
+
+	-webkit-animation-name: 			my-animation;
+	-webkit-animation-timing-function: 	linear;
+	-webkit-animation-iteration-count: 	infinite;
+}
+
+.run-animationinv {
+	animation-name: 					my-animationinv;
+	-webkit-animation-name: 			my-animationinv;
+}
+
+.run-animation.speed1 , .run-animationinv.speed1 { 	animation-duration: 10s;
+											-webkit-animation-duration: 10s;
+}
+.run-animation.speed2 , .run-animationinv.speed2 { 	animation-duration: 20s;
+											-webkit-animation-duration: 20s;
+}
+.run-animation.speed3 , .run-animationinv.speed3 { 	animation-duration: 30s;
+											-webkit-animation-duration: 30s;
+}
+
+.run-animation .hp-hud,
+.run-animationinv .hp-hud { 
+	width: 100px; 
+	opacity: .2;
+	pointer-event: none;
+}
+.run-animation .hp-bar,
+.run-animationinv .hp-bar {
+	content: "";
+	width: 100%;
+	height: 2px;
+	background-color: green;
+	display: block;
+	box-shadow: 2px 2px 0px #333;
+	pointer-event: none;
+}
+.run-animation:hover .hp-hud,
+.run-animationinv:hover .hp-hud { opacity: 1; }
+
+.ra-body ,
+.ra-head {
+	position: absolute;
+	top: 0;
+	width: 80%;
+	height: 100%;
+	display: block;
+	border: 1px solid green;
+	display: inline-block;
+}
+.ra-head {
+	width: 20%;
+	border: 1px solid blue;
+}
+.run-animation.die,
+.run-animationinv.die {
+	background-image: url('../img/onlyoneminute/chicken-die.png');
+	background-size: 100% 100%;
+}
+.run-animationinv{
+	background-image: url('../img/onlyoneminute/moohuruninv2.gif');
+}
+.cursor-scope {
+  display: block;
+  position: absolute;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
+  text-align: center;
+  transition: transform .1s ease-in-out;
+	pointer-events: none;
+
+  //border: 3px solid rgba(255,255,255,.7);
+  //border-radius: 100%;
+
+  background-image: url('../img/onlyoneminute/cursor.png');  
+  background-size: 100%;
+  content: "";
+}
+.cursor-scope:nth-child(n+2) {
+    display: none;
+}
+/*.cursor-scope:before{
+	content: "+";
+	position: absolute;
+	color: #FFF;
+	top:-32px;
+	left:-10px;
+	font-weight: 300;
+	font-size: 70px;
+}*/
+.score,
+.best-score,
+#timerText{
+	font-size: 30px;
+	color: #FFF;
+	font-weight: bold;
+	font-family: 'Satisfy', cursive;
+	position: absolute;
+		 -webkit-user-select: none;  
+	  -moz-user-select: none;    
+	  -ms-user-select: none;      
+	  user-select: none;
+}
+.score{ top: 40px;}
+#timerText{
+	right: 0;
+}
+.achivement{
+	display: block;
+	position: absolute;
+	top: -100px;
+	left: 50%;
+	margin-left: -125px;
+	width: 250px;
+	padding: 20px;
+	background-color: #111;
+	color: #fff;
+	text-align: center;
+	text-shadow: 0 0 10px #fff;
+	text-transform: uppercase;
+	opacity: 0;
+	border-radius: 3px;
+}
+.achivement.show {
+	animation: fadeout 8s;
+}
+.container{
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	position: absolute;
+	//background-color: rgba(0,0,0,0.2);
+}
+.ammo{
+	position: absolute;
+	display: block;
+	top: auto;
+	bottom: 0;
+	left: auto;
+	right: 0;
+	height: 100px;
+	width: auto;
+	//background: rgba(0,0,0,0.6);
+}
+.smoke {display: none;}	
+.bullets{
+	display: block;
+	height: 100%;
+	width: 50px;
+	bottom: 0;
+	top: auto;
+	background-image: url('../img/onlyoneminute/bullets2.png');
+	background-size: 100% 100%;
+	display: inline-block;
+}
+.bullets.shooted {
+	position: absolute;
+	opacity: 0;
+	left: -50px;
+	animation: shooted 2s;
+}
+.reload,
+.gameOver{
+	display: none;
+	top: 50%;
+	left: 50%;
+	height: 500px;
+	width: 900px;
+	margin-left: -450px;
+	margin-top: -250px;
+	position: absolute;
+	background-image: url('../img/onlyoneminute/reload.png');
+	-webkit-animation: blink 1s infinite;
+	animation: blink 1s infinite;
+}
+.reload_small,
+.gameOver_small{
+	text-align: center;
+	font-size: .5em;
+	display: block;
+}
+.winscore50:after,
+.winscore100:after,
+.winscore200:after,
+.winscore300:after{
+	content: "+50";
+	display: block;
+	width: 100px;
+	height: 20px;
+	color: #FFF;
+	font-size: 30px;
+	opacity: 0;
+	margin-top: 0;
+	position: absolute;
+	top: 0;
+	left:325px;
+	-webkit-animation: winscore 1s infinite;
+	animation: winscore 1s infinite;
+}
+.winscore100:after{
+	content: "+100";
+}
+.winscore200:after{
+	content: "+200";
+}
+.winscore300:after{
+	content: "+300";
+}
+#feed {
+	position: absolute;
+	right: 0;
+	top: 60px;
+	max-height: 30%;
+	color: #FFF;
+}
+.feeded {
+	background-color: rgba(0,0,0,0.7);
+	border-radius: 2px;
+	//border: 2px solid #058;
+	padding: 10px 20px;
+	line-height: 15px;
+	margin: 5px 0;
+	opacity: 1;
+	text-transform: uppercase;
+	text-shadow: 0 0 10px #fff;
+}
+.feeded.dn {
+	opacity: 0;
+}
+/*.feeded:nth-child(8) {opacity: .8;}
+.feeded:nth-child(9) {opacity: .5;}
+.feeded:nth-child(10) {opacity: .2;}
+.feeded:nth-child(n+11) {opacity: 0;}*/
+
+
+/*KEYFRAMES OF ANIMATIONS/////////////////////////////////////////////////////////////////////////////////////*/
+@keyframes winscore {
+	from{
+		opacity: 1;
+		margin-top: 30px;
+		font-size: 10px;
+	}
+	to{
+		opacity: 0;
+		margin-top: 0px;
+		font-size: 70px;
+	}
+}
+@-webkit-keyframes winscore {
+	from{
+		opacity: 1;
+		margin-top: 30px;
+		font-size: 10px;
+	}
+	to{
+		opacity: 0;
+		margin-top: 0px;
+		font-size: 70px;
+	}
+}
+
+@keyframes my-animation {        
+  from { left : -10%; }
+  to { left : 110%; }      
+}
+@-webkit-keyframes my-animation {        
+  from { left : -10%; }
+  to { left : 110%; }      
+}
+@keyframes my-animationinv {        
+  from { left : 110%; }
+  to { left : -10%; }      
+}
+@-webkit-keyframes my-animationinv {        
+  from { left : 110%; }
+  to { left : -10%; }      
+}
+
+@keyframes fadeout {        
+  0% { opacity : 1; }
+  5% { 
+  	top: 10px;
+  	opacity : 1;
+  }
+  50% {
+  	top: 10px;
+  	opacity: 1;
+  }
+  100% { 
+  	opacity : 0; 
+  }      
+}
+@-webkit-keyframes fadeout {        
+  0% { opacity : 1; }
+  5% { 
+  	top: 10px;
+  	opacity : 1;
+  }
+  50% {
+  	top: 10px;
+  	opacity: 1;
+  }
+  100% { 
+  	opacity :0; 
+  }      
+}

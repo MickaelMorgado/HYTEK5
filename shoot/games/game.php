@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="pt"> 
 <head>
-<?php 
-	include('../head.php'); 
-	//session_start();
-?>
+	<?php 
+		include('../head.php'); 
+		//session_start();
+	?>
 	<script src="../js/jquery-2.1.3.min.js"></script>
-	<link rel="stylesheet" href="../stylesheets/styles.css">
+	<link rel="stylesheet" href="https://rawgit.com/peachananr/wheel-menu/master/wheelmenu.css">
+	<link rel="stylesheet" href="../stylesheets/onlyoneminute.css">
 	<?php 
 	if (isset($_SESSION['id_player'])!='') {
 		$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN scores ON settings.id_player=scores.id_player WHERE settings.id_player = $_SESSION[id_player]" );
@@ -40,21 +41,21 @@
 		}
 		switch ($settings) {
 			case 0:
-				echo "<link rel='stylesheet' href='../css/low-settings.css'>";
+				echo "<link rel='stylesheet' href='../stylesheets/low-settings.css'>";
 				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});</script><?php
 				break;
 			case 1:
-				echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
 				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
 				break;
 			case 2:
-				echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
-				echo "<link rel='stylesheet' href='../css/ultra-settings.css'>";
+				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
+				echo "<link rel='stylesheet' href='../stylesheets/ultra-settings.css'>";
 				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});</script><?php
 				break;
 			
 			default:
-				echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
 				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
 				break;
 		}
@@ -64,7 +65,7 @@
 		$ambiance = 1;
 		$weapons = 1;
 		$birds = 1;
-		echo "<link rel='stylesheet' href='../css/normal-settings.css'>";
+		echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
 		$score = "not logged";
 	}
 	?>
@@ -85,13 +86,13 @@
 	<input type="hidden" value="<?php echo $weapon_handle ?>" id="weapon_handle">
 	<input type="hidden" value="<?php echo $weapon_damage ?>" id="weapon_damage">
 	<input type="hidden" value="<?php echo $weapon_mag_capacity ?>" id="weapon_mag_capacity">
-	<input type="hidden" value="../img/onlyoneminute/<?php echo $weapon_src ?>" id="weapon_src">
-	<input type="hidden" value="../audios/onlyoneminute/<?php echo $weapon_sound_fire ?>" id="weapon_sound_fire">
-	<input type="hidden" value="../audios/onlyoneminute/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
+	<input type="hidden" value="../Weapons/cursors/<?php echo $weapon_src ?>" id="weapon_src">
+	<input type="hidden" value="../Weapons/fireaudio/<?php echo $weapon_sound_fire ?>" id="weapon_sound_fire">
+	<input type="hidden" value="../Weapons/fireaudio/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
 
 	<?php 
 	for ($i=0; $i < 8; $i++) { 
-		?><audio class="fire <?php echo $i; ?>" ><source src="../audios/onlyoneminute/barret.mp3" type="audio/mpeg"></audio> <?php
+		?><audio class="fire <?php echo $i; ?>" ><source src="../Weapons/fireaudio/barret.mp3" type="audio/mpeg"></audio> <?php
 	} 
 	?>
 
@@ -122,6 +123,18 @@
 		<span id="feed"></span>
 		<div class="ammo"></div>
 
+		<script src="https://rawgit.com/peachananr/wheel-menu/master/jquery.wheelmenu.min.js"></script>
+			<a href="#wheel2" class="wheel-button ne"><span>+</span></a>
+			<ul id="wheel2" class="wheel">
+				<li class="item"><a href="#home">A</a></li>
+				<li class="item"><a href="#home">B</a></li>
+				<li class="item"><a href="#home">C</a></li>
+				<li class="item"><a href="#home">D</a></li>
+				<li class="item"><a href="#home">E</a></li>
+				<li class="item"><a href="#home">F</a></li>
+			</ul>
+			</ul>
+
 		<span class="reload"><span class="reload_small"></span></span>
 	</div>
 	<section class="rain"></section>
@@ -138,10 +151,50 @@
 
 	}
 
-//FULLSCREEN toggle
+//KEYPRESS
 	$(document).keypress(function(e){
-		if(e.which == 102){ toggleFullScreen(); }
+		if(e.which == 102){ toggleFullScreen(); } // F
 	});
+	$(".wheel-button").wheelmenu({
+	  trigger: "hover", // Can be "click" or "hover". Default: "click"
+	  animation: "fly", // Entrance animation. Can be "fade" or "fly". Default: "fade"
+	  animationSpeed: 1000, // Entrance animation speed. Can be "instant", "fast", "medium", or "slow". Default: "medium"
+	  angle: "N", // Angle which the menu will appear. Can be "all", "N", "NE", "E", "SE", "S", "SW", "W", "NW", or even array [0, 360]. Default: "all" or [0, 360]
+	});
+	function switchWeapon(a) {
+		$weaponsSlot = $('.weaponsSlot');
+		if (a=="hold") {
+      		console.log("hold");	
+			$weaponsSlot.addClass("active");
+		}else{
+    		console.log("release");
+			$weaponsSlot.removeClass("active");
+		};
+	}
+
+	var keyPressed = false;
+	$(document).on('keydown', function(e) {
+	  var key;
+	  if (keyPressed === false) {
+	    keyPressed = true;
+	    key = String.fromCharCode(e.keyCode);
+
+	    //this is where you map your key
+	    if (key === 'E') {
+	      switchWeapon("hold");
+	    }
+	  }
+	  $(this).on('keyup', function() {
+	    if (keyPressed === true) {
+	      keyPressed = false;
+	      switchWeapon("release");
+	    }
+	  });
+	});
+
+
+
+//FULLSCREEN toggle
 	function toggleFullScreen() {
 	  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
 	   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -162,6 +215,8 @@
 	    }  
 	  }  
 	}
+
+//SWITCH WEAPONS
 
 //TIMER
 	var sec = 60;   				// set the seconds
@@ -275,7 +330,6 @@
 		$('.container').append("<span identification='"+c+"' health='100' class='chicken "+$class+"'><div class='hp-hud'><span class='hp-bar'></span></div></span>");
 		
 	};
-
 
 //DOCUMENT READY
 	$(document).ready(function(){
@@ -496,7 +550,7 @@
 			}
 		}
 
-// NOTIFY
+//NOTIFY
 		//console.log(score+"->"+$('#best-score').val());
 		if (score >= $('#best-score').val() && showOneTime == false) {
 			$('.achivement').addClass("show");

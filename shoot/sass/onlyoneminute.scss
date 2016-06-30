@@ -185,15 +185,18 @@ html,body{
 	background-image: url('../img/onlyoneminute/moohuruninv2.gif');
 }
 .cursor-scope {
-  display: block;
-  position: absolute;
-  margin-top: -50px;
-  margin-left: -50px;
-  width: 100px;
-  height: 100px;
-  z-index: 100;
-  text-align: center;
-  transition: transform .1s ease-in-out;
+
+	$scope-size : 125px;
+
+	display: block;
+	position: absolute;
+	margin-top: -($scope-size/2);
+	margin-left: -($scope-size/2);
+	width: $scope-size;
+	height: $scope-size;
+	z-index: 100;
+	text-align: center;
+	transition: transform .1s ease-in-out;
 	pointer-events: none;
 
   //border: 3px solid rgba(255,255,255,.7);
@@ -358,6 +361,43 @@ html,body{
 .feeded:nth-child(9) {opacity: .5;}
 .feeded:nth-child(10) {opacity: .2;}
 .feeded:nth-child(n+11) {opacity: 0;}*/
+
+.weaponsSlot{
+	display: none;
+
+	&.active{ display: block; }
+}
+.wheel-button {
+  position:fixed;
+  left:50%;
+  top: auto;
+  bottom: 0;
+  text-decoration:none;
+  height:40px;
+  width:40px;
+  background:#fff;
+  border-radius:20px;
+  text-align:center;
+  line-height:40px;
+  color:#333;
+}
+.wheel {
+  margin-left:6px;
+}
+.wheel .item {
+  height:40px;
+  width:40px;
+  background:#fff;
+  border-radius:20px;
+  text-align:center;
+  line-height:40px;
+}
+.wheel .item a {
+  text-decoration:none;
+  color:#333;
+}
+
+
 /*KEYFRAMES OF ANIMATIONS/////////////////////////////////////////////////////////////////////////////////////*/
 @keyframes winscore {
 	from{
