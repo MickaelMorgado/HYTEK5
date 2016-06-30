@@ -124,14 +124,14 @@
 		<div class="ammo"></div>
 
 		<script src="https://rawgit.com/peachananr/wheel-menu/master/jquery.wheelmenu.min.js"></script>
-			<a href="#wheel2" class="wheel-button ne"><span>+</span></a>
+			<a href="#wheel2" class="wheel-button ne"><span>Weapons</span></a>
 			<ul id="wheel2" class="wheel">
-				<li class="item"><a href="#home">A</a></li>
-				<li class="item"><a href="#home">B</a></li>
-				<li class="item"><a href="#home">C</a></li>
-				<li class="item"><a href="#home">D</a></li>
-				<li class="item"><a href="#home">E</a></li>
-				<li class="item"><a href="#home">F</a></li>
+				<li class="item"><a href="#home">1</a></li>
+				<li class="item"><a href="#home">2</a></li>
+				<li class="item"><a href="#home">3</a></li>
+				<li class="item"><a href="#home">4</a></li>
+				<li class="item"><a href="#home">5</a></li>
+				<li class="item"><a href="#home">6</a></li>
 			</ul>
 			</ul>
 
@@ -297,15 +297,15 @@
 	$('.loading-statut').append("<br/>weapons-volume: "+document.getElementById('weapons-vol').value);
 
 	var empty    = new Audio(); 
-	var reload   = new Audio(); 
+	var reload   = new Audio();reload.volume=document.getElementById('weapons-vol').value;
 	var notify   = new Audio();
 	var chicken  = new Audio();chicken.volume=document.getElementById('birds-vol').value; 
 	var chicken2 = new Audio();chicken2.volume=document.getElementById('birds-vol').value; 
 	var chicken3 = new Audio();chicken3.volume=document.getElementById('birds-vol').value; 
 	$('.loading-statut').append("<br/>birds-volume: "+document.getElementById('birds-vol').value);
 
-	reload.src='../audios/onlyoneminute/reload.mp3'; 
-	empty.src='../audios/onlyoneminute/emptyn.mp3'; 
+	reload.src='../Weapons/reloadaudio/reload.mp3'; 
+	empty.src='../Weapons/emptyaudio/emptyn.mp3'; 
 	notify.src='../audios/onlyoneminute/notify.mp3'; 
 	chicken.src='../audios/onlyoneminute/chicken2.mp3'; 
 	chicken2.src='../audios/onlyoneminute/chicken3.mp3'; 
