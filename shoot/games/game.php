@@ -88,7 +88,7 @@
 	<input type="hidden" value="<?php echo $weapon_mag_capacity ?>" id="weapon_mag_capacity">
 	<input type="hidden" value="../Weapons/cursors/<?php echo $weapon_src ?>" id="weapon_src">
 	<input type="hidden" value="../Weapons/fireaudio/<?php echo $weapon_sound_fire ?>" id="weapon_sound_fire">
-	<input type="hidden" value="../Weapons/fireaudio/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
+	<input type="hidden" value="../Weapons/reloadaudio/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
 
 	<?php 
 	for ($i=0; $i < 8; $i++) { 
