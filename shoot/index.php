@@ -131,15 +131,16 @@
 				<h1>Options</h1>
 				<img src="img/gtx.jpg" alt="">
 				<div class="scrollable">
-					<a type="button" data-toggle="modal" data-target=".loginmodal">Login / Sign up</a>
 
 					<?php 
 						if (isset($_SESSION['id_player'])) { 
 							?>
+							<a href="../apps/logout.php" type="button">Logout</a>
 							<a type='button' data-toggle='modal' data-target='.boby'>Settings</a>
 							<?php
 						}else{
 							?>
+							<a type="button" data-toggle="modal" data-target=".loginmodal">Login / Sign up</a>
 							<a type="button" data-toggle="modal" data-target=".loginmodal">Settings (need login)</a>
 							<?php
 						}
