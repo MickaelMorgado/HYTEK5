@@ -8404,44 +8404,57 @@ body {
 
 /* line 12, ../sass/_menu.scss */
 .loginmodal .modal-content {
-  background-color: RGBA(30, 0, 0, 0.5);
+  background-color: #111;
 }
 
 /* line 15, ../sass/_menu.scss */
+.nav-tabs > li > a {
+  border-radius: 0;
+  border: none;
+}
+
+/* line 19, ../sass/_menu.scss */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover, .nav > li > a:hover {
+  color: #111;
+  cursor: default;
+  background-color: #b63838;
+}
+
+/* line 24, ../sass/_menu.scss */
 .tabs-content {
   position: relative;
   min-height: 175px;
 }
 
-/* line 19, ../sass/_menu.scss */
+/* line 28, ../sass/_menu.scss */
 .tab-pane {
   position: relative;
   left: 0;
 }
 
-/* line 23, ../sass/_menu.scss */
+/* line 32, ../sass/_menu.scss */
 .tab-pane form {
   height: 0;
   overflow: hidden;
 }
 
-/* line 27, ../sass/_menu.scss */
+/* line 36, ../sass/_menu.scss */
 .tab-pane.active form {
   height: auto;
 }
 
-/* line 29, ../sass/_menu.scss */
+/* line 38, ../sass/_menu.scss */
 .block.armory img.ShopThumbnail {
   display: inline-block;
   width: 60px;
 }
 
-/* line 33, ../sass/_menu.scss */
+/* line 42, ../sass/_menu.scss */
 .armorypopup .modal-lg {
   width: 90%;
 }
 
-/* line 36, ../sass/_menu.scss */
+/* line 45, ../sass/_menu.scss */
 .preview-weapon {
   display: block;
   width: 150px;
@@ -8449,13 +8462,13 @@ body {
   background-color: #222;
 }
 
-/* line 43, ../sass/_menu.scss */
+/* line 52, ../sass/_menu.scss */
 table a,
 .panel a {
   padding: 0;
 }
 
-/* line 45, ../sass/_menu.scss */
+/* line 54, ../sass/_menu.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: verdana, sans-serif;
   font-size: 35px;
@@ -8463,7 +8476,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #FFF;
 }
 
-/* line 51, ../sass/_menu.scss */
+/* line 60, ../sass/_menu.scss */
 label {
   display: block;
   line-height: 3em;
@@ -8471,7 +8484,7 @@ label {
   color: #555;
 }
 
-/* line 57, ../sass/_menu.scss */
+/* line 66, ../sass/_menu.scss */
 select {
   background-color: #222;
   background-image: url("http://megaicons.net/static/img/icons_sizes/16/1058/256/navigate-down-icon.png");
@@ -8490,157 +8503,46 @@ select {
   background-repeat: no-repeat;
 }
 
-/* line 72, ../sass/_menu.scss */
-input[type=range] {
-  -webkit-appearance: none;
-  width: 100%;
-  margin: 7px 0;
-}
-
-/* line 77, ../sass/_menu.scss */
-input[type=range]:focus {
-  outline: none;
-}
-
-/* line 80, ../sass/_menu.scss */
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 1px;
-  cursor: pointer;
-  box-shadow: 1.1px 1.1px 2.6px #000000, 0px 0px 1.1px #0d0d0d;
-  background: #0071a9;
-  border-radius: 0px;
-  border: 0px solid #010101;
-}
-
-/* line 89, ../sass/_menu.scss */
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1.4px 1.4px 4.4px #000000, 0px 0px 1.4px #0d0d0d;
-  border: 0px solid #000000;
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: #ffffff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -7px;
-}
-
-/* line 100, ../sass/_menu.scss */
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #009deb;
-}
-
-/* line 103, ../sass/_menu.scss */
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 1px;
-  cursor: pointer;
-  box-shadow: 1.1px 1.1px 2.6px #000000, 0px 0px 1.1px #0d0d0d;
-  background: #0071a9;
-  border-radius: 0px;
-  border: 0px solid #010101;
-}
-
-/* line 112, ../sass/_menu.scss */
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1.4px 1.4px 4.4px #000000, 0px 0px 1.4px #0d0d0d;
-  border: 0px solid #000000;
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: #ffffff;
-  cursor: pointer;
-}
-
-/* line 121, ../sass/_menu.scss */
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 1px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-/* line 129, ../sass/_menu.scss */
-input[type=range]::-ms-fill-lower {
-  background: #004567;
-  border: 0px solid #010101;
-  border-radius: 0px;
-  box-shadow: 1.1px 1.1px 2.6px #000000, 0px 0px 1.1px #0d0d0d;
-}
-
-/* line 135, ../sass/_menu.scss */
-input[type=range]::-ms-fill-upper {
-  background: #0071a9;
-  border: 0px solid #010101;
-  border-radius: 0px;
-  box-shadow: 1.1px 1.1px 2.6px #000000, 0px 0px 1.1px #0d0d0d;
-}
-
-/* line 141, ../sass/_menu.scss */
-input[type=range]::-ms-thumb {
-  box-shadow: 1.4px 1.4px 4.4px #000000, 0px 0px 1.4px #0d0d0d;
-  border: 0px solid #000000;
-  height: 15px;
-  width: 15px;
-  border-radius: 50px;
-  background: #ffffff;
-  cursor: pointer;
-  height: 1px;
-}
-
-/* line 151, ../sass/_menu.scss */
-input[type=range]:focus::-ms-fill-lower {
-  background: #0071a9;
-}
-
-/* line 154, ../sass/_menu.scss */
-input[type=range]:focus::-ms-fill-upper {
-  background: #009deb;
-}
-
-/* line 158, ../sass/_menu.scss */
+/* line 83, ../sass/_menu.scss */
 select option {
   padding: 10px;
   border: none;
 }
 
-/* line 163, ../sass/_menu.scss */
+/* line 88, ../sass/_menu.scss */
 .row.first {
   height: 70%;
   padding-top: 100px;
   padding-bottom: 15px;
 }
 
-/* line 168, ../sass/_menu.scss */
+/* line 93, ../sass/_menu.scss */
 .row.second {
   height: 30%;
   padding-bottom: 100px;
   padding-top: 15px;
 }
 
-/* line 173, ../sass/_menu.scss */
+/* line 98, ../sass/_menu.scss */
 .row.settings {
   padding-top: 100px;
   padding-bottom: 100px;
   height: 100%;
 }
 
-/* line 178, ../sass/_menu.scss */
+/* line 103, ../sass/_menu.scss */
 .row.first > div,
 .row.second > div,
 .row.settings > div {
   height: 100%;
 }
 
-/* line 183, ../sass/_menu.scss */
+/* line 108, ../sass/_menu.scss */
 .block.settings {
   border-color: #0078A0;
 }
 
-/* line 186, ../sass/_menu.scss */
+/* line 111, ../sass/_menu.scss */
 .settings .left-block {
   height: 100%;
   color: #FFF;
@@ -8650,7 +8552,7 @@ select option {
   float: left;
 }
 
-/* line 194, ../sass/_menu.scss */
+/* line 119, ../sass/_menu.scss */
 .settings .right-block {
   width: 50%;
   height: 100%;
@@ -8659,14 +8561,14 @@ select option {
   overflow: hidden;
 }
 
-/* line 201, ../sass/_menu.scss */
+/* line 126, ../sass/_menu.scss */
 .settings img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* line 206, ../sass/_menu.scss */
+/* line 131, ../sass/_menu.scss */
 .smoke {
   background-image: url("../img/smoke.png");
   background-size: 100%;
@@ -8681,7 +8583,7 @@ select option {
   z-index: -1;
 }
 
-/* line 219, ../sass/_menu.scss */
+/* line 144, ../sass/_menu.scss */
 .menu_container {
   padding: 70px;
   width: 100%;
@@ -8690,12 +8592,12 @@ select option {
   position: absolute;
 }
 
-/* line 226, ../sass/_menu.scss */
+/* line 151, ../sass/_menu.scss */
 h1, h2 {
   margin: 0;
 }
 
-/* line 229, ../sass/_menu.scss */
+/* line 154, ../sass/_menu.scss */
 a {
   display: block;
   text-decoration: none;
@@ -8704,31 +8606,31 @@ a {
   padding: 20px;
 }
 
-/* line 236, ../sass/_menu.scss */
+/* line 161, ../sass/_menu.scss */
 p {
   padding: 20px;
   color: #fff;
 }
 
-/* line 240, ../sass/_menu.scss */
+/* line 165, ../sass/_menu.scss */
 .scrollable {
   height: 35%;
   overflow-y: auto;
 }
 
-/* line 244, ../sass/_menu.scss */
+/* line 169, ../sass/_menu.scss */
 ul.list {
   color: #fff;
   padding: 0 40px;
 }
 
-/* line 248, ../sass/_menu.scss */
+/* line 173, ../sass/_menu.scss */
 b {
   color: #059;
   font-weight: normal;
 }
 
-/* line 252, ../sass/_menu.scss */
+/* line 177, ../sass/_menu.scss */
 .search_friends {
   background: #222;
   height: 50px;
@@ -8738,7 +8640,7 @@ b {
   border-radius: 3px;
 }
 
-/* line 260, ../sass/_menu.scss */
+/* line 185, ../sass/_menu.scss */
 .leaderboardlistLeft,
 .leaderboardlistRight {
   width: 50%;
@@ -8752,23 +8654,23 @@ b {
   box-shadow: 0 0 4px 0px #000;
 }
 
-/* line 272, ../sass/_menu.scss */
+/* line 197, ../sass/_menu.scss */
 .leaderboardlistRight {
   text-align: right;
 }
 
-/* line 275, ../sass/_menu.scss */
+/* line 200, ../sass/_menu.scss */
 .list-unstyled {
   list-style: none;
   margin-left: 0;
 }
 
-/* line 279, ../sass/_menu.scss */
+/* line 204, ../sass/_menu.scss */
 .li-setting.active {
   background-color: #059;
 }
 
-/* line 282, ../sass/_menu.scss */
+/* line 207, ../sass/_menu.scss */
 input[type="submit"] {
   background: #111;
   border: 2px solid #555;
@@ -8778,8 +8680,13 @@ input[type="submit"] {
   text-transform: uppercase;
   cursor: pointer;
 }
+/* line 215, ../sass/_menu.scss */
+input[type="submit"].danger {
+  border-color: #b63838;
+  color: #b63838;
+}
 
-/* line 291, ../sass/_menu.scss */
+/* line 220, ../sass/_menu.scss */
 .notify {
   position: absolute;
   top: 0;
@@ -8791,7 +8698,7 @@ input[type="submit"] {
   padding: 10px 30px;
 }
 
-/* line 301, ../sass/_menu.scss */
+/* line 230, ../sass/_menu.scss */
 .preview-settings {
   background-image: url("../img/onlyoneminute/landscape1.jpg");
   background-position: center center;
@@ -8801,10 +8708,15 @@ input[type="submit"] {
   height: 100%;
 }
 
-/* line 309, ../sass/_menu.scss */
+/* line 238, ../sass/_menu.scss */
 .settings .right-block .smoke {
   z-index: 0;
   opacity: .5;
+}
+
+/* line 242, ../sass/_menu.scss */
+.modal-backdrop {
+  background-color: #2F0000;
 }
 
 /*ANIMATION*/
@@ -8913,7 +8825,7 @@ input[type="submit"] {
 }
 
 /* line 57, ../sass/_menu_blocks.scss */
-.block.games img,
+.block.games > img,
 .block.options > img,
 .block.news > img,
 .block.leaderboard > img,
@@ -8960,7 +8872,7 @@ b {
 
 /* line 93, ../sass/_menu_blocks.scss */
 .block.games:hover {
-  border: 2px solid orange;
+  border: 2px solid #aa9600;
 }
 
 /* line 94, ../sass/_menu_blocks.scss */
@@ -8985,7 +8897,7 @@ b {
 
 /* line 98, ../sass/_menu_blocks.scss */
 .block.games:hover h1 {
-  background-color: orange;
+  background-color: #aa9600;
 }
 
 /* line 99, ../sass/_menu_blocks.scss */
@@ -9010,10 +8922,10 @@ b {
 
 /* line 104, ../sass/_menu_blocks.scss */
 .block.games a:hover {
-  color: orange;
+  color: #aa9600;
   padding-left: 40px;
-  -webkit-box-shadow: inset 0 0 20px 5px orange, 0 0 10px orange;
-  box-shadow: inset 0 0 20px 5px orange, 0 0 10px orange;
+  -webkit-box-shadow: inset 0 0 20px 5px #aa9600, 0 0 10px #aa9600;
+  box-shadow: inset 0 0 20px 5px #aa9600, 0 0 10px #aa9600;
 }
 
 /* line 110, ../sass/_menu_blocks.scss */
@@ -9024,28 +8936,34 @@ b {
   box-shadow: inset 0 0 20px 5px purple, 0 0 10px purple;
 }
 
+/* line 116, ../sass/_menu_blocks.scss */
+.block .scrollable > a:hover {
+  cursor: pointer;
+}
+
 /*OPTIONS*/
-/* line 117, ../sass/_menu_blocks.scss */
-.block.options a:hover {
+/* line 120, ../sass/_menu_blocks.scss */
+.block.options .scrollable > a:hover {
   padding-left: 40px;
   border: 1px dashed #063569;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 /*NEWS*/
-/* line 125, ../sass/_menu_blocks.scss */
+/* line 129, ../sass/_menu_blocks.scss */
 .block.news:hover b {
   color: #5a5;
 }
 
 /*leaderboard*/
-/* line 128, ../sass/_menu_blocks.scss */
+/* line 132, ../sass/_menu_blocks.scss */
 .block.leaderboard:hover .yourscore {
   height: 0;
   background-color: #a00;
 }
 
-/* line 132, ../sass/_menu_blocks.scss */
+/* line 136, ../sass/_menu_blocks.scss */
 .yourscore {
   display: block;
   position: absolute;
@@ -9057,32 +8975,32 @@ b {
   transition: all .5s;
 }
 
-/* line 143, ../sass/_menu_blocks.scss */
+/* line 147, ../sass/_menu_blocks.scss */
 .yourscore > div {
   padding: 20px;
 }
 
-/* line 146, ../sass/_menu_blocks.scss */
+/* line 150, ../sass/_menu_blocks.scss */
 .yourscore .name {
   width: 100%;
   opacity: .5;
   text-decoration: underline;
 }
 
-/* line 151, ../sass/_menu_blocks.scss */
+/* line 155, ../sass/_menu_blocks.scss */
 .yourscore .ys_left {
   float: left;
   width: 50%;
 }
 
-/* line 155, ../sass/_menu_blocks.scss */
+/* line 159, ../sass/_menu_blocks.scss */
 .yourscore .ys_right {
   float: right;
   text-align: right;
   width: 50%;
 }
 
-/* line 161, ../sass/_menu_blocks.scss */
+/* line 165, ../sass/_menu_blocks.scss */
 .block {
   font-size: 1.2em;
   height: 500px;
@@ -9155,6 +9073,117 @@ b {
   background: rgba(0, 0, 0, 0.9);
 }
 
+/* line 1, ../sass/_ranges.scss */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.7px 0;
+}
+
+/* line 6, ../sass/_ranges.scss */
+input[type=range]:focus {
+  outline: none;
+}
+
+/* line 9, ../sass/_ranges.scss */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3.6px;
+  cursor: pointer;
+  box-shadow: 1.9px 1.9px 1.2px rgba(0, 0, 0, 0.82), 0px 0px 1.9px rgba(13, 13, 13, 0.82);
+  background: #007ba9;
+  border-radius: 25px;
+  border: 0px solid #010101;
+}
+
+/* line 18, ../sass/_ranges.scss */
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1.8px 1.8px 2.9px #000000, 0px 0px 1.8px #0d0d0d;
+  border: 3.5px solid transparent;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5.7px;
+}
+
+/* line 29, ../sass/_ranges.scss */
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #1fc2ff;
+}
+
+/* line 32, ../sass/_ranges.scss */
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 3.6px;
+  cursor: pointer;
+  box-shadow: 1.9px 1.9px 1.2px rgba(0, 0, 0, 0.82), 0px 0px 1.9px rgba(13, 13, 13, 0.82);
+  background: #007ba9;
+  border-radius: 25px;
+  border: 0px solid #010101;
+}
+
+/* line 41, ../sass/_ranges.scss */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1.8px 1.8px 2.9px #000000, 0px 0px 1.8px #0d0d0d;
+  border: 3.5px solid transparent;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* line 50, ../sass/_ranges.scss */
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 3.6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+/* line 58, ../sass/_ranges.scss */
+input[type=range]::-ms-fill-lower {
+  background: #002634;
+  border: 0px solid #010101;
+  border-radius: 50px;
+  box-shadow: 1.9px 1.9px 1.2px rgba(0, 0, 0, 0.82), 0px 0px 1.9px rgba(13, 13, 13, 0.82);
+}
+
+/* line 64, ../sass/_ranges.scss */
+input[type=range]::-ms-fill-upper {
+  background: #007ba9;
+  border: 0px solid #010101;
+  border-radius: 50px;
+  box-shadow: 1.9px 1.9px 1.2px rgba(0, 0, 0, 0.82), 0px 0px 1.9px rgba(13, 13, 13, 0.82);
+}
+
+/* line 70, ../sass/_ranges.scss */
+input[type=range]::-ms-thumb {
+  box-shadow: 1.8px 1.8px 2.9px #000000, 0px 0px 1.8px #0d0d0d;
+  border: 3.5px solid transparent;
+  height: 15px;
+  width: 15px;
+  border-radius: 50px;
+  background: #ffffff;
+  cursor: pointer;
+  height: 3.6px;
+}
+
+/* line 80, ../sass/_ranges.scss */
+input[type=range]:focus::-ms-fill-lower {
+  background: #007ba9;
+}
+
+/* line 83, ../sass/_ranges.scss */
+input[type=range]:focus::-ms-fill-upper {
+  background: #1fc2ff;
+}
+
 /* line 1, ../sass/_tabs.scss */
 .tabs {
   margin: 20px;
@@ -9201,7 +9230,7 @@ b {
   line-height: 30px;
   padding: 0 10px;
   margin: 5px 0;
-  background: rgba(156, 118, 118, 0.34);
+  background: #361414;
   border: 2px solid #b63838;
   color: #fff;
   text-shadow: 3px 3px 2px black;

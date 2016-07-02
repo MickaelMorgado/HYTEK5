@@ -90,22 +90,22 @@ b{ color: gray;}
 	text-shadow: none;
 }
 
-.block.games:hover 	 		{	border: 2px solid orange;	}
+.block.games:hover 	 		{	border: 2px solid $orange;	}
 .block.leaderboard:hover 	{	border: 2px solid #a00;		}
 .block.options:hover 		{	border: 2px solid #059;		}
 .block.armory:hover 		{	border: 2px solid purple;	}
 .block.news:hover 			{	border: 2px solid #5a5;		}
-.block.games:hover h1 		{	background-color: orange; 	}
+.block.games:hover h1 		{	background-color: $orange; 	}
 .block.leaderboard:hover h1 {	background-color: #a00;		}
 .block.options:hover h1 	{	background-color: #059;		}
 .block.armory:hover h1 		{	background-color: purple;	}
 .block.news:hover h1 		{	background-color: #5a5;		}
 
 .block.games a:hover{
-	color: orange;
+	color: $orange;
 	padding-left: 40px;
-	-webkit-box-shadow:inset 0 0 20px 5px orange, 0 0 10px orange;
-	box-shadow:inset 0 0 20px 5px orange, 0 0 10px orange;
+	-webkit-box-shadow:inset 0 0 20px 5px $orange, 0 0 10px $orange;
+	box-shadow:inset 0 0 20px 5px $orange, 0 0 10px $orange;
 }
 .block.armory a:hover{
 	color: purple;
@@ -113,13 +113,17 @@ b{ color: gray;}
 	-webkit-box-shadow:inset 0 0 20px 5px purple, 0 0 10px purple;
 	box-shadow:inset 0 0 20px 5px purple, 0 0 10px purple;
 }
+.block .scrollable > a:hover{
+	cursor: pointer;
+}
 /*OPTIONS*/
-.block.options a:hover{
+.block.options .scrollable > a:hover{
 	padding-left: 40px;
 	//-webkit-box-shadow:inset 0 0 20px 5px #059, 0 0 10px #059;
 	//box-shadow:inset 0 0 20px 5px #059, 0 0 10px #059;
 	border: 1px dashed #063569;
 	box-sizing: border-box;
+	text-decoration: none;
 }
 /*NEWS*/
 .block.news:hover b{ color: #5a5;}
