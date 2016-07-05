@@ -59,7 +59,6 @@
 	    }
 	    if (e.keyCode === 76 && $('#searchinput').val() == '') { 	/* on L focus search input if is empty */
 	    	$('#searchinput').focus();
-	    	return false;
 	    }
 	    //if (e.which === 17) {
 	    //	toggle();
