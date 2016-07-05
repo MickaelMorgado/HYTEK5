@@ -25,33 +25,21 @@ body {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  /*
+  &:before {
+  	@include gradient(rgba(0,0,0,0.5),$gradient,bottom);
+  	content: "";
+  	display: block;
+  	position: fixed;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	z-index: -2;
+  }	
+  */
 }
-/* line 82, ../sass/styles.scss */
-body:before {
-  background: -moz-linear-gradient bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%;
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left bottom, left bottom, color-stop(0%, rgba(0, 0, 0, 0.5)), color-stop(100%, #682525));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%;
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%;
-  /* IE10+ */
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #682525 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 );
-  /* IE6-9 */
-  content: "";
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -2;
-}
-/* line 94, ../sass/styles.scss */
+/* line 96, ../sass/styles.scss */
 body:after {
   content: "";
   display: block;
@@ -65,16 +53,16 @@ body:after {
   z-index: -1;
 }
 
-/* line 109, ../sass/styles.scss */
+/* line 111, ../sass/styles.scss */
 a {
   color: #fff;
 }
-/* line 111, ../sass/styles.scss */
+/* line 113, ../sass/styles.scss */
 a:hover {
   cursor: pointer;
 }
 
-/* line 114, ../sass/styles.scss */
+/* line 116, ../sass/styles.scss */
 .link-list, .clock {
   -moz-transition: color, 5s;
   -o-transition: color, 5s;
@@ -82,7 +70,7 @@ a:hover {
   transition: color, 5s;
 }
 
-/* line 118, ../sass/styles.scss */
+/* line 120, ../sass/styles.scss */
 .element, .dock .dock-aspect {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -102,7 +90,7 @@ a:hover {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 134, ../sass/styles.scss */
+/* line 136, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -126,19 +114,19 @@ a:hover {
   z-index: 5;
   pointer-events: none;
 }
-/* line 162, ../sass/styles.scss */
+/* line 164, ../sass/styles.scss */
 .element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #ffd133;
   -webkit-box-shadow: 0 0 10px -2px #ffd133;
   box-shadow: 0 0 10px -2px #ffd133;
 }
 
-/* line 167, ../sass/styles.scss */
+/* line 169, ../sass/styles.scss */
 .scrollable {
   overflow-y: scroll;
   max-height: 240px;
 }
-/* line 170, ../sass/styles.scss */
+/* line 172, ../sass/styles.scss */
 .scrollable.youtube {
   max-height: 150px;
 }
@@ -146,14 +134,14 @@ a:hover {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 178, ../sass/styles.scss */
+/* line 180, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 184, ../sass/styles.scss */
+/* line 186, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -167,7 +155,7 @@ a:hover {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 196, ../sass/styles.scss */
+/* line 198, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -175,16 +163,16 @@ a:hover {
   width: 200%;
 }
 
-/* line 203, ../sass/styles.scss */
+/* line 205, ../sass/styles.scss */
 .element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 206, ../sass/styles.scss */
+/* line 208, ../sass/styles.scss */
 .element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 209, ../sass/styles.scss */
+/* line 211, ../sass/styles.scss */
 .element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -195,12 +183,12 @@ a:hover {
   height: 225px;
 }
 
-/* line 218, ../sass/styles.scss */
+/* line 220, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 222, ../sass/styles.scss */
+/* line 224, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -208,18 +196,18 @@ a:hover {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 226, ../sass/styles.scss */
+/* line 228, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
 }
 
-/* line 233, ../sass/styles.scss */
+/* line 235, ../sass/styles.scss */
 .youtube-list-rm-button {
   margin-right: 10px;
 }
 
-/* line 234, ../sass/styles.scss */
+/* line 236, ../sass/styles.scss */
 .youtube-list-thumbnail {
   width: 50px;
   margin-right: 10px;
@@ -228,7 +216,7 @@ a:hover {
 /*============================================================
     clock
 ============================================================*/
-/* line 242, ../sass/styles.scss */
+/* line 244, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -238,12 +226,12 @@ a:hover {
 /*============================================================
     link list
 ============================================================*/
-/* line 251, ../sass/styles.scss */
+/* line 253, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 255, ../sass/styles.scss */
+/* line 257, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -254,32 +242,32 @@ a:hover {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 265, ../sass/styles.scss */
+/* line 267, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 267, ../sass/styles.scss */
+/* line 269, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 272, ../sass/styles.scss */
+/* line 274, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 276, ../sass/styles.scss */
+/* line 278, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 280, ../sass/styles.scss */
+/* line 282, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 285, ../sass/styles.scss */
+/* line 287, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -290,7 +278,7 @@ a:hover {
   padding: 10px;
 }
 
-/* line 295, ../sass/styles.scss */
+/* line 297, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -304,7 +292,7 @@ a:hover {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 306, ../sass/styles.scss */
+/* line 308, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -312,7 +300,7 @@ a:hover {
 /*============================================================
     tabs
 ============================================================*/
-/* line 313, ../sass/styles.scss */
+/* line 315, ../sass/styles.scss */
 #tabs .list {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -331,18 +319,18 @@ a:hover {
   left: -290px;
   opacity: .05;
 }
-/* line 329, ../sass/styles.scss */
+/* line 331, ../sass/styles.scss */
 #tabs .list:hover, #tabs .list.active {
   left: 0;
   opacity: 1;
 }
-/* line 334, ../sass/styles.scss */
+/* line 336, ../sass/styles.scss */
 #tabs .list a {
   text-align: left;
   padding: 5px 20px;
 }
 
-/* line 339, ../sass/styles.scss */
+/* line 341, ../sass/styles.scss */
 #tabs .scrollable.list {
   max-height: none;
 }
@@ -350,12 +338,12 @@ a:hover {
 /*============================================================
     dock
 ============================================================*/
-/* line 343, ../sass/styles.scss */
+/* line 345, ../sass/styles.scss */
 .masonry-container {
   margin-top: 55px;
 }
 
-/* line 346, ../sass/styles.scss */
+/* line 348, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -366,14 +354,14 @@ a:hover {
   display: block;
   z-index: 10;
 }
-/* line 355, ../sass/styles.scss */
+/* line 357, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 361, ../sass/styles.scss */
+/* line 363, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -413,7 +401,7 @@ a:hover {
   }
   */
 }
-/* line 404, ../sass/styles.scss */
+/* line 406, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
@@ -434,7 +422,7 @@ a:hover {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 417, ../sass/styles.scss */
+/* line 419, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -442,19 +430,19 @@ a:hover {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 422, ../sass/styles.scss */
+/* line 424, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
   background: transparent none repeat scroll 0% 0%;
 }
-/* line 428, ../sass/styles.scss */
+/* line 430, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
 
-/* line 435, ../sass/styles.scss */
+/* line 437, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -470,13 +458,13 @@ a:hover {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 446, ../sass/styles.scss */
+/* line 448, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 452, ../sass/styles.scss */
+/* line 454, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -486,7 +474,7 @@ a:hover {
   padding: 0;
 }
 
-/* line 461, ../sass/styles.scss */
+/* line 463, ../sass/styles.scss */
 #menu-toggle {
   bottom: 0;
   right: 0;
@@ -494,7 +482,7 @@ a:hover {
   z-index: 1;
 }
 
-/* line 468, ../sass/styles.scss */
+/* line 470, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -504,7 +492,7 @@ a:hover {
   width: 100%;
 }
 
-/* line 474, ../sass/styles.scss */
+/* line 476, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -520,7 +508,7 @@ a:hover {
 /*============================================================
     Modal
 ============================================================*/
-/* line 491, ../sass/styles.scss */
+/* line 493, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -529,7 +517,7 @@ a:hover {
   border: 5px solid #2F4F74;
 }
 
-/* line 497, ../sass/styles.scss */
+/* line 499, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }
