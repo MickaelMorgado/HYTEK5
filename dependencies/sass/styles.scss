@@ -39,120 +39,14 @@ $input-color 			: $dark;
 
 
 
-// FIX OF SAFARI COLOR TO TRANSPARENT
-	@mixin gradient($f,$l,$o:top,$start:0%,$end:100%) {
-		@if($f==transparent){$f:rgba(255,255,255,0)}
-		@if($l==transparent){$l:rgba(255,255,255,0)}
-		background: -moz-linear-gradient   ($o,  $f $start, $l $end); /* FF3.6+ */
-		background: -webkit-gradient(linear, left $o, left bottom, color-stop($start,$f), color-stop($end,$l)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient($o,  $f $start,$l $end); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient     ($o,  $f $start,$l $end); /* Opera 11.10+ */
-		background: -ms-linear-gradient    ($o,  $f $start,$l $end); /* IE10+ */
-		background: linear-gradient(     to $o,  $f $start,$l $end); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$f', endColorstr='$l',GradientType=0 ); /* IE6-9 */
-	}
-
-
 	/*============================================================
 	    button / inputs / textareas ...
 	============================================================*/
 
-	/* btn */
-	$btn-radius           :   0;
-	$btn-border           :   0 solid $body-bg;
-	$btn-uppercase        :   true;
-	$btn-enable-shadow    :   true;
-	  $btn-shadow          :   2px 2px 5px 0 $gray;
-
-	/* primary button */
-	$primary-bg-c         :   $brand-primary;
-	$primary-color        :   $body-bg;
-
-	/* inputs */
-	$input-radius         :   0;
-	$input-border         :   1px solid darken($gold,30);
-	$input-color          :   $primary-color;  
-	$input-bottom-margin  :   0;
-	$input-padding        :   2px 8px;
-	$input-bgc 			  :   lighten($dark,15);
-
-	$colored-placeholder  :   false;        /* colorizes placeholder */
-	  $placeholder-color   :   $brand-primary;
-
-	/* extend form-control styles */
-	$extend-form-ctrl    :   false;
-	  $submit-as-block    :   false;        /* submit button as block */
-
-	/* selection style */
-	$selection-bg-c      :   $light;
-	$selection-color     :   $dark;
-	$colored-labels      :   true;
-	  $label-color        :   $brand-primary;
-
-	.btn {
-	  @include border-radius($btn-radius);
-	  border: $btn-border;
-	  @if ($btn-uppercase == true) {      text-transform: uppercase; }
-	  @if ($btn-enable-shadow == true) {  @include box-shadow($btn-shadow); }
-	}
-
-	.btn-primary {
-	  background-color: $primary-bg-c;
-	  color: $primary-color;
-	}
-
-	input ,input[type="submit"] , select , button , textarea {
-	    
-	  @if ($extend-form-ctrl == true) { @extend .form-control; }
-	  @include border-radius($input-radius);
-	  
-	  display: inline-block;
-	  
-	  padding: $input-padding;
-	  margin-bottom: $input-bottom-margin;
-	  border: $input-border;
-	  
-	  color: $input-color;
-
-	  background-color: $input-bgc;
-
-	  &:focus {
-	    border-color: $brand-primary;
-	    box-shadow: 0px 1px 1px $brand-primary inset, 
-	                0px 0px 8px darken($gold,30);
-	  }
-	}
-
-	*::-moz-selection { 
-	  background: $selection-bg-c; 
-	  color: $selection-color;
-	}
-	*::selection { 
-	  background: $selection-bg-c; 
-	  color: $selection-color;
-	}
-
-	@if ($colored-labels == true) {
-	  label , strong { color: $label-color; }
-	}
-
-	@if ($submit-as-block == false) {
-	  input[type="submit"] { width: auto; }
-	}
-
-	@if ($colored-placeholder == true) {
-	  input , textarea {
-	    &::-webkit-input-placeholder {  color: $placeholder-color; }
-	    &:-moz-placeholder {            color: $placeholder-color; }
-	    &::-moz-placeholder {           color: $placeholder-color; }
-	    &:-ms-input-placeholder {       color: $placeholder-color; }
-	  }
-	}
-
-	input[type="file"] {width: 100%;}
-	select > option:hover {
-		background-color: darken($gold,30);
-		color: $dark;
+	button,textarea,input,select { 
+		border: none;
+		background-color: #222;
+		color: #fff;
 	}
 
 
@@ -259,7 +153,7 @@ a {
 		background-color: $light;
 		opacity: $glass-opacity;
 		content: '';
-		z-index: 100;
+		z-index: 5;
 
 		pointer-events: none;
 	}
@@ -268,10 +162,6 @@ a {
 	&:hover {
 		@include box-shadow(0 0 10px -2px lighten($gold,10));
 	}
-}
-
-input,button,select{
-	color: $input-color;
 }
 
 .scrollable {
@@ -392,10 +282,6 @@ $yt-hoverToExpend : true;
 	margin-bottom: 10px;
 }
 
-#searchform {
-	margin-bottom: 10px;
-}
-
 #UI-result > div {
 	position: fixed;
 	top: 0;
@@ -422,18 +308,44 @@ $yt-hoverToExpend : true;
 }
 
 /*============================================================
+    tabs
+============================================================*/
+#tabs .list{
+	direction: rtl;
+	padding: 0;
+	box-shadow: 0 0 10px black;
+	top: 50px;
+	position: fixed;
+	left:0;
+	background-color: #111;
+	height: 100% !important;
+	z-index: 1;
+	width: 300px;
+	@include single-transition(all, .25s, ease-in-out);
+	
+	opacity: .05;
+	
+	&:hover {
+		opacity: 1;
+	}
+}
+#tabs .scrollable.list { max-height: none;}
+/*============================================================
     dock
 ============================================================*/
-
+.masonry-container {
+	margin-top: 55px;
+}
 .dock {
 	background-color: #111;
 	box-shadow: 0 0 5px black;
 	position: fixed;
 	width: 100%;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	display: block;
-	ul {
+	z-index: 10;
+	& > ul {
 		position: relative;
 		display: inline-block;
 		margin-bottom: 5px;
@@ -501,7 +413,17 @@ $yt-hoverToExpend : true;
 			@include scale(1.2);
 		}
 	}
+	.search {
+		text-transform: uppercase;
+		border: medium none;
+		height: 50px;
+		background: transparent none repeat scroll 0% 0%;
+	}
+	input:focus {
+		box-shadow: none;
+	}
 }
+
 
 
   #sidebar-wrapper {

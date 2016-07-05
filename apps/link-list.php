@@ -1,7 +1,5 @@
-<div id="UI-result"></div>
 
-<div id="tabs">
-	<div class="container-full">
+	<!--div class="container-full">
 		<div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
 				<select name="order" id="link-order-select">
@@ -15,8 +13,8 @@
 					<option value="`view`ASC">View ASC</option>
 					<option value="`view`DESC">View DESC</option>
 				</select>
-			</div>
-			<div class="col-xs-6">
+			</div-->
+			<!--div class="col-xs-6">
 				<div class="dropdown pull-right">
 					<button href="#" type="button" id="dropdownMenuAdd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn-search">+<span class="caret"></span></button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenuAdd">
@@ -31,27 +29,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<form id="searchform" action="" method="GET">
-		<div class="container-full">
-			<div class="row">
-				<div class="col-xs-6">
-					<input type="text" placeholder="Search" class="search" id="searchinput" autocomplete="off">
-				</div>
-				<div class="col-xs-6">
-					<div class="toggles-search-buttons">
-						<button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</form>
-	<ul class="list-unstyled scrollable list" id="enableRefresh">
+	</div-->
 		<?php 
 			include('links/get-links.php'); 
 		?>
-	</ul>
-</div>
 
 <?php 
 
