@@ -311,9 +311,10 @@ $yt-hoverToExpend : true;
     tabs
 ============================================================*/
 #tabs .list{
+	@include single-transition(all, .25s, ease-in-out);
 	direction: rtl;
 	padding: 0;
-	box-shadow: 0 0 10px black;
+	box-shadow: 0 10px 20px 5px black;
 	top: 50px;
 	position: fixed;
 	left:0;
@@ -321,12 +322,18 @@ $yt-hoverToExpend : true;
 	height: 100% !important;
 	z-index: 1;
 	width: 300px;
-	@include single-transition(all, .25s, ease-in-out);
+	left: -290px;
 	
 	opacity: .05;
 	
-	&:hover {
+	&:hover,
+	&.active {
+		left: 0;
 		opacity: 1;
+	}
+	a {
+		text-align: left;
+		padding: 5px 20px;
 	}
 }
 #tabs .scrollable.list { max-height: none;}
@@ -397,13 +404,12 @@ $yt-hoverToExpend : true;
 	.dock-icon {
 		$cubic : 30px;
 		$radius: 100%;
+		@include box-shadow(0 0 5px 0 $dark);
+		@include single-transition(all, .1s, ease-in-out);
 		@include border-radius($radius);
 		width: $cubic;
 		height: $cubic;
 		overflow: hidden;
-		@include box-shadow(0 0 5px 0 $dark);
-		@include single-transition(all, .1s, ease-in-out);
-		margin-bottom: 10px;
 		
 		opacity: .8;
 		@include scale(1.0);

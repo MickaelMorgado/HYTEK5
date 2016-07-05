@@ -314,9 +314,13 @@ a:hover {
 ============================================================*/
 /* line 313, ../sass/styles.scss */
 #tabs .list {
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
   direction: rtl;
   padding: 0;
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 10px 20px 5px black;
   top: 50px;
   position: fixed;
   left: 0;
@@ -324,18 +328,21 @@ a:hover {
   height: 100% !important;
   z-index: 1;
   width: 300px;
-  -moz-transition: all 0.25s ease-in-out;
-  -o-transition: all 0.25s ease-in-out;
-  -webkit-transition: all 0.25s ease-in-out;
-  transition: all 0.25s ease-in-out;
+  left: -290px;
   opacity: .05;
 }
-/* line 328, ../sass/styles.scss */
-#tabs .list:hover {
+/* line 329, ../sass/styles.scss */
+#tabs .list:hover, #tabs .list.active {
+  left: 0;
   opacity: 1;
 }
+/* line 334, ../sass/styles.scss */
+#tabs .list a {
+  text-align: left;
+  padding: 5px 20px;
+}
 
-/* line 332, ../sass/styles.scss */
+/* line 339, ../sass/styles.scss */
 #tabs .scrollable.list {
   max-height: none;
 }
@@ -343,12 +350,12 @@ a:hover {
 /*============================================================
     dock
 ============================================================*/
-/* line 336, ../sass/styles.scss */
+/* line 343, ../sass/styles.scss */
 .masonry-container {
   margin-top: 55px;
 }
 
-/* line 339, ../sass/styles.scss */
+/* line 346, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -359,14 +366,14 @@ a:hover {
   display: block;
   z-index: 10;
 }
-/* line 348, ../sass/styles.scss */
+/* line 355, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 354, ../sass/styles.scss */
+/* line 361, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -406,14 +413,8 @@ a:hover {
   }
   */
 }
-/* line 397, ../sass/styles.scss */
+/* line 404, ../sass/styles.scss */
 .dock .dock-icon {
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
   box-shadow: 0 0 5px 0 #000;
@@ -421,14 +422,19 @@ a:hover {
   -o-transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
-  margin-bottom: 10px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
   opacity: .8;
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 411, ../sass/styles.scss */
+/* line 417, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -436,19 +442,19 @@ a:hover {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 416, ../sass/styles.scss */
+/* line 422, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
   background: transparent none repeat scroll 0% 0%;
 }
-/* line 422, ../sass/styles.scss */
+/* line 428, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
 
-/* line 429, ../sass/styles.scss */
+/* line 435, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -464,13 +470,13 @@ a:hover {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 440, ../sass/styles.scss */
+/* line 446, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 446, ../sass/styles.scss */
+/* line 452, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -480,7 +486,7 @@ a:hover {
   padding: 0;
 }
 
-/* line 455, ../sass/styles.scss */
+/* line 461, ../sass/styles.scss */
 #menu-toggle {
   bottom: 0;
   right: 0;
@@ -488,7 +494,7 @@ a:hover {
   z-index: 1;
 }
 
-/* line 462, ../sass/styles.scss */
+/* line 468, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -498,7 +504,7 @@ a:hover {
   width: 100%;
 }
 
-/* line 468, ../sass/styles.scss */
+/* line 474, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -514,7 +520,7 @@ a:hover {
 /*============================================================
     Modal
 ============================================================*/
-/* line 485, ../sass/styles.scss */
+/* line 491, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -523,7 +529,7 @@ a:hover {
   border: 5px solid #2F4F74;
 }
 
-/* line 491, ../sass/styles.scss */
+/* line 497, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }

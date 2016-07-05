@@ -18,6 +18,54 @@
 		var userList = new List('tabs', options);
 	};
 
+	$('#searchinput').on("input",function(){
+		if ($(this).val() == '') {
+			$('#tabs .list').removeClass("active");
+		}else{
+			$('#tabs .list').addClass("active");
+		};
+	});
+
+	/* Tab focus link :
+	====================================
+	*/
+	var nextFocus = 0;
+	var enable = true;
+
+	function goNextFocus(nf) {
+		$('#enableRefresh li:nth-child('+nf+') a').focus();
+	}
+
+	$('#searchinput').on('keyup', function(){ nextFocus = 0; }); /* reset next focus on writing in input */
+
+	//var a = false ;
+	//function toggle(){
+	//	if (a == true) { a = false;
+	//		$('a.link-list').prop('target','_blank');
+	//	}else if (a == false){ a = true;
+	//		$('a.link-list').prop('target','');
+	//	}
+	//}
+	$(document).on('keydown', function(e) {					/* on tab got to next link to focus him */
+	    if (e.keyCode === 9 && enable === true) {
+			if (e.shiftKey) {	shiftKeyDown = true; 	nextFocus= nextFocus - 1; } else {
+					 			shiftKeyDown = false; 	nextFocus= nextFocus + 1; }
+       		goNextFocus(nextFocus);
+	        e.preventDefault();
+	    }
+	    if (e.keyCode === 27) {								/* on esc disable next focus */
+	    	$('#searchinput').focus();
+	    	enable = false;
+	    }
+	    if (e.keyCode === 76 && $('#searchinput').val() == '') { 	/* on L focus search input if is empty */
+	    	$('#searchinput').focus();
+	    	return false;
+	    }
+	    //if (e.which === 17) {
+	    //	toggle();
+	    //};
+	});
+
 	/* Google & Youtube search buttons :
 	====================================
 	*/
