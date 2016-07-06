@@ -16,7 +16,7 @@ $dark 					: #000;
 $light 					: #fff;
 $body-bg 				: $light;
 $gray 					: #555;
-$bgc 					: #2F4F74;
+$bgc 					: #111;
 $gradient 				: #682525;
 $links 					: #fff;
 $gold  					: #ffc600;
@@ -112,10 +112,6 @@ a {
 	color: $links; 
 	&:hover { cursor: pointer; }
 } 
-
-.link-list,.clock {
-	@include transition(color, 5s);
-}
 
 .element {
 	@include border-radius(1px);
@@ -319,7 +315,6 @@ $yt-hoverToExpend : true;
 	box-shadow: 0 10px 20px 5px black;
 	top: 50px;
 	position: fixed;
-	left:0;
 	background-color: #111;
 	height: 100% !important;
 	z-index: 1;
@@ -333,9 +328,13 @@ $yt-hoverToExpend : true;
 		left: 0;
 		opacity: 1;
 	}
-	a {
+	.link-list {
 		text-align: left;
 		padding: 5px 20px;
+		&:focus {
+			outline: none;
+			box-shadow: 0 0 15px 0 black inset;
+		}
 	}
 }
 #tabs .scrollable.list { max-height: none;}

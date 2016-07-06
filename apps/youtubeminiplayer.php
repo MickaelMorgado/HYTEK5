@@ -52,7 +52,7 @@
 <script src="http://www.youtube.com/player_api"></script>
 <script>
 	
-	$(document).ready(function(){ onYouTubePlayerAPIReady(); });
+	$(window).load(function(){ onYouTubePlayerAPIReady(); });
 
 	var player,
 		dataOrder = 0,
