@@ -80,6 +80,20 @@ if(!isset($_SESSION['id_session'])){?>
 
 <?php
 }else{?>
+	<?php 
+		$sql = "SELECT * FROM users WHERE id_session = ".$_SESSION['id_session'];
+		$result = mysqli_query($link,$sql);
+
+		if ($result->num_rows > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				echo $row['name'];
+				echo "<br>";
+			} 	
+		}else{
+			echo "0 results";
+		}
+
+	?>
 	<a href="apps/logout.php" class="btn">Logout</a><?php
 }
 ?>
