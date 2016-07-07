@@ -32,7 +32,7 @@
 										<div class="col-xs-9">
 										<div id="tabs">
 											
-											<input type="text" placeholder="Search" class="search" id="searchinput" autocomplete="off">
+											<input type="text" placeholder="Search [ ALT key ]" title="press alt key to focus" class="search" id="searchinput" autocomplete="off">
 										</div>
 										</div>
 										<div class="col-xs-1">

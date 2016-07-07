@@ -57,8 +57,9 @@
 	    	$('#searchinput').focus();
 	    	enable = false;
 	    }
-	    if (e.keyCode === 17) { 	/* on ctrl focus search input if is empty */
+	    if (e.keyCode === 18) { 	/* on alt focus search input if is empty */
 	    	$('#searchinput').focus();
+	    	return false;
 	    }
 	    //if (e.which === 17) {
 	    //	toggle();
