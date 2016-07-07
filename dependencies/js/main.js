@@ -47,7 +47,7 @@
 	//	}
 	//}
 	$(document).on('keydown', function(e) {					/* on tab got to next link to focus him */
-	    if (e.keyCode === 9 && enable === true) {
+	    if (e.keyCode === 9 && enable === true && $("#enableRefresh").hasClass("active")) {
 			if (e.shiftKey) {	shiftKeyDown = true; 	nextFocus= nextFocus - 1; } else {
 					 			shiftKeyDown = false; 	nextFocus= nextFocus + 1; }
        		goNextFocus(nextFocus);
@@ -57,7 +57,7 @@
 	    	$('#searchinput').focus();
 	    	enable = false;
 	    }
-	    if (e.keyCode === 76 && $('#searchinput').val() == '') { 	/* on L focus search input if is empty */
+	    if (e.keyCode === 17) { 	/* on ctrl focus search input if is empty */
 	    	$('#searchinput').focus();
 	    }
 	    //if (e.which === 17) {

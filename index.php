@@ -77,7 +77,7 @@
 				</div>	
 			</div>		
 			<div class="col-xs-12 col-sm-6 col-md-2 item">
-				<div class="element">
+				<div class="element" style="height:150px;">
 					<div class="container-full">
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6">
