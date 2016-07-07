@@ -32,7 +32,7 @@
 										<div class="col-xs-9">
 										<div id="tabs">
 											
-											<input type="text" placeholder="Search [ ALT key ]" title="press alt key to focus" class="search" id="searchinput" autocomplete="off">
+											<input type="text" placeholder="Search [ ALT key ]" title="press alt key to focus" class="search fuzzy-search" id="searchinput" autocomplete="off">
 										</div>
 										</div>
 										<div class="col-xs-1">
@@ -153,6 +153,7 @@
 
 	
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
+	<script src="http://listjs.com/no-cdn/list.fuzzysearch.js"></script>
 	<script src="dependencies/js/jscolor.js"></script>
 	<script><?php include('dependencies/js/main.js'); ?></script>
 	<script>
