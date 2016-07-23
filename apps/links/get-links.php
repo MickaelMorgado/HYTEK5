@@ -36,7 +36,7 @@
     		else { $r2 = "http://".$r2; } 	
     	?>
 		<a href="<?php echo $r2; ?>" class="link-list title" data-linkid="<?php echo $r0; ?>" title="<?php echo ' View: '.$r4.'&#13; Date: '.$r3.'&#13; Link: '.$r2 ?>">
-			<span class="url" style="display:none"><?php echo $r2 ?></span>
+			<span class="url"><?php echo $r2 ?></span>
 			<?php 
 			if ($row['title'] == '') {	// IF EMPTY TITLE GET ONE BASED FROM THE LINK
 				$url 	= str_replace(array("http://", "https://", "www."), "", $row['url']);//$link = "http://$url.com";

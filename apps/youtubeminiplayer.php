@@ -3,7 +3,9 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-12">
 			
-			<div id="boby"></div>	
+		<div id="boby"></div>
+
+   
 
 			<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			<div id="sidebar-wrapper">
@@ -37,8 +39,6 @@
 								<span id="player-vol" title="mute/unmute"><i class="fa fa-volume-down"></i></span>
 								<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
 								<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
-								<!--span class="play-pause"></span>
-								<span class="yt-time"></span-->
 							</div>
 			    		</div>
 			    	</div>
@@ -49,9 +49,36 @@
 </div>
 
 <!-- youtube dependencies -->
-<script src="http://www.youtube.com/player_api"></script>
+<!--script src="http://www.youtube.com/player_api"></script-->
 <script>
-	
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+  var 	player,
+  		dataOrder = 0,
+  		lastOrder = $('.playlistlink').last().data("order");
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('boby', {
+      	height: '250',
+      	width: '100%',
+     	<?php if (isset($_SESSION['id_session'])): ?>
+		videoId: $('#YTlist').find("a")[0].text,
+		<?php else: ?>
+		videoId: "g7TAqv-dx2Y",
+		<?php endif ?>
+		events: {
+			'onStateChange': onPlayerStateChange
+		}
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+	/*
 	$(window).load(function(){ onYouTubePlayerAPIReady(); });
 
 	var player,
@@ -72,6 +99,7 @@
 			}
 		});
 	}
+	*/
 	var done = false;
 	$("#player-pause").css({"display":"none"});
 	

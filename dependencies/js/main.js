@@ -15,8 +15,8 @@
 
 	if ($('.url').size()>0) {
 		var options = { 
-			valueNames: [ 'title','url' ],
-			plugins: [ ListFuzzySearch() ] 
+			valueNames: ['title','url'],
+			//plugins: [ ListFuzzySearch() ] 
 		};
 		var userList = new List('tabs', options);
 	};
@@ -141,23 +141,27 @@ function modalsetyoutubeid(val) {
 	$('.modal.copiedtoclipboard .txt').val("http://www.youtube.com/watch?v="+val);
 }
 
+function copyButton() {
+	var copy_btn;
+	copy_btn = document.querySelector('.ctc');
+	return copy_btn.addEventListener('click', function (event) {
+	    var err, msg, successful, text;
+	    text = document.querySelector('.txt');
+	    text.select();
+	    try {
+	        successful = document.execCommand('copy');
+	        msg = successful ? 'successful' : 'unsuccessful';
+	        return console.log('Copy command was ' + msg);
+	    } catch (_error) {
+	        err = _error;
+	        return console.log('Oops, unable to copy');
+	    }
+	});
+}
+
 (function () {
     window.onload = function () {
-        var copy_btn;
-        copy_btn = document.querySelector('.ctc');
-        return copy_btn.addEventListener('click', function (event) {
-            var err, msg, successful, text;
-            text = document.querySelector('.txt');
-            text.select();
-            try {
-                successful = document.execCommand('copy');
-                msg = successful ? 'successful' : 'unsuccessful';
-                return console.log('Copy command was ' + msg);
-            } catch (_error) {
-                err = _error;
-                return console.log('Oops, unable to copy');
-            }
-        });
+    	if ($('.ctc').length > 0) {	copyButton(); }
     };
 }.call(this));
 

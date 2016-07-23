@@ -41,8 +41,8 @@
 
 	      //Output data from URL via JSON
 	      $.getJSON(coordinates, function(json) {
-	        console.log((JSON.stringify(json)));
-	        console.log("Latitude: " + latitude + " Longitude: " + longitude);
+	        //console.log((JSON.stringify(json)));
+	        //console.log("Latitude: " + latitude + " Longitude: " + longitude);
 
 	        //Output API data (should eventually evolve into outputting user's location and weather)
 	        let cityName = json.name;
@@ -52,10 +52,10 @@
 	        let celsius = Math.round(json.main.temp);
 	        let fahrenheit = Math.round(json.main.temp * 9 / 5 + 32);
 
-	        console.log("The weather in " + cityName + " is " + weather + " and the temperature is " + temperature + " °C");
+	        //console.log("The weather in " + cityName + " is " + weather + " and the temperature is " + temperature + " °C");
 
 	        //Output appropriate weather ID
-	        console.log("The weather ID is " + json.weather[0].id + " (" + weather + ")");
+	        //console.log("The weather ID is " + json.weather[0].id + " (" + weather + ")");
 
 	        //Now put the appropriate weather icon for ID
 	        $weatherIcon.html("<i class=" + "'" + "wi wi-owm-" + json.weather[0].id + "'" + "></i>");

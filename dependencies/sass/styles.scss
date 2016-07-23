@@ -249,6 +249,11 @@ $yt-hoverToExpend : true;
 .link-list {
 	display: block;
 }
+.title .url {
+	visibility: hidden;
+	position: absolute;
+	z-index: -1;
+}
 
 .submit.fa {
 	@include single-transition(all, .10s, ease-in-out);

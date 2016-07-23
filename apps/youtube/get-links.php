@@ -13,7 +13,9 @@
 				<input type="hidden" name="rm-id" value="<?php echo $row['id_playlist'];?>">
 				<input type="submit" value="x" class="youtube-list-rm-button">
 			</form>
-			<a class='playlistlink' onclick='player.loadVideoById("<?php echo $row['youtubeplaylistlink']; ?>");dataOrder=<?php echo $i; ?>' data-order="<?php echo $i; ?>"><img class="youtube-list-thumbnail" src="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a>
+			<!-- !!! NAO separar a linha abaixo por que ta a ir buscar o texto via js examplo id = "aaaaaa" se separar pode ficar id ="      aaaaaaa     " e perde-se o id -->
+			<a class='playlistlink' title='dataOrder=<?php echo $i; ?>' onclick='player.loadVideoById("<?php echo $row['youtubeplaylistlink']; ?>");dataOrder=<?php echo $i; ?>' data-order="<?php echo $i; ?>"><img class="youtube-list-thumbnail" src="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a>
+			
 			<button type="button" class="pull-right yt-cp2clpbrd" data-toggle="modal" data-target=".copiedtoclipboard" onclick="modalsetyoutubeid('<?php echo $row[youtubeplaylistlink]; ?>')">D</button>
 			<br/>
 			<?php
