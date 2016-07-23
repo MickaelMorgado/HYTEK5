@@ -25,39 +25,7 @@
 				<div class="dock text-center">
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-xs-12">
-								<div id="tabs">
-								<form id="searchform" action="" method="GET">
-									<div class="row">
-										<div class="col-xs-9">
-										<div id="tabs">
-											
-											<input type="text" placeholder="Search [ ALT key ]" title="press alt key to focus" class="search fuzzy-search" id="searchinput" autocomplete="off">
-										</div>
-										</div>
-										<div class="col-xs-1">
-											<div class="toggles-search-buttons">
-												<!--button onclick="google()" class="btn-search gg"><i class="fa fa-google"></i></button><button onclick="youtube()" class="btn-search yt"><i class="fa fa-youtube-play"></i></button-->
-												<button href="#" onclick="google()"><img class="dock-icon" src="dependencies/img/1.png" alt=""></button><button href="#" onclick="youtube()"><img class="dock-icon" src="dependencies/img/3.png" alt=""></button>
-											</div>
-										</div>
-										<div class="col-xs-2">
-											<ul class="list-inline">
-												<!--<li><a href="http://gmail.com/"><img class="dock-icon" src="dependencies/img/1.png" alt=""></a></li-->
-												<li><a href="http://facebook.com"><img class="dock-icon" src="dependencies/img/2.png" alt=""></a></li>
-												<!--<li><a href="http://youtube.com"><img class="dock-icon" src="dependencies/img/3.png" alt=""></a></li-->
-												<li><a href="http://play.spotify.com/collection/songs"><img class="dock-icon" src="dependencies/img/4.png" alt=""></a></li>
-												<li><a href="http://twitter.com"><img class="dock-icon" src="dependencies/img/5.png" alt=""></a></li>
-												<li class="dock-aspect"><div class="glass"></div></li>
-											</ul>
-										</div>
-									</div>
-								</form>
-								<ul class="list-unstyled scrollable list" id="enableRefresh">
-									<?php include('apps/link-list.php'); ?>
-								</ul>
-								</div>
-							</div>
+							<?php include("apps/navbar.php"); ?>
 						</div>
 					</div>
 				</div>
@@ -82,14 +50,10 @@
 						<div class="row">
 							<div class="col-xs-6 col-sm-6 col-md-6">
 								<select name="order" id="link-order-select">
-									<option value="" selected hidden>--</option>
-									<option value="`title`ASC">title ASC</option>
-									<option value="`title`DESC">title DESC</option>
-									<option value="`data`ASC">Date ASC</option>
+									<option value="`view`DESC" selected>--</option>
+									<option value="`title`DESC">title ASC</option>
 									<option value="`data`DESC">Date DESC</option>
-									<option value="`url`ASC">Url ASC</option>
-									<option value="`url`DESC">Url DESC</option>
-									<option value="`view`ASC">View ASC</option>
+									<option value="`url`DESC">Url ASC</option>
 									<option value="`view`DESC">View DESC</option>
 								</select>
 							</div>

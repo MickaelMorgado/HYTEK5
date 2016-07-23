@@ -15,7 +15,10 @@
 
 	if ($('.url').size()>0) {
 		var options = { 
-			valueNames: ['title','url'],
+			valueNames: [
+				'title',
+				'url'
+			],
 			//plugins: [ ListFuzzySearch() ] 
 		};
 		var userList = new List('tabs', options);

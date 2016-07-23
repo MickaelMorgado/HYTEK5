@@ -30,9 +30,8 @@
 			</div>
 		</div>
 	</div-->
-		<?php 
-			include('links/get-links.php'); 
-		?>
+
+<?php include('links/get-links.php'); ?>
 
 <?php 
 

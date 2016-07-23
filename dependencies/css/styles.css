@@ -1,20 +1,26 @@
 /* cd C:\wamp\www\HYTEK5\Elementary\elementary\ */
 /*============================================================
+    variables
+============================================================*/
+/*============================================================
     button / inputs / textareas ...
 ============================================================*/
-/* line 46, ../sass/styles.scss */
+/* line 45, ../sass/styles.scss */
 button, textarea, input, select {
   border: none;
   background-color: #222;
   color: #fff;
 }
 
-/* line 68, ../sass/styles.scss */
+/*============================================================
+    global
+============================================================*/
+/* line 69, ../sass/styles.scss */
 html, body {
   height: 100%;
 }
 
-/* line 70, ../sass/styles.scss */
+/* line 71, ../sass/styles.scss */
 body {
   -moz-transition: all, 3s, ease-in-out;
   -o-transition: all, 3s, ease-in-out;
@@ -39,7 +45,7 @@ body {
   }	
   */
 }
-/* line 96, ../sass/styles.scss */
+/* line 97, ../sass/styles.scss */
 body:after {
   content: "";
   display: block;
@@ -53,16 +59,33 @@ body:after {
   z-index: -1;
 }
 
-/* line 111, ../sass/styles.scss */
+/* line 112, ../sass/styles.scss */
 a {
   color: #fff;
 }
-/* line 113, ../sass/styles.scss */
+/* line 114, ../sass/styles.scss */
 a:hover {
   cursor: pointer;
 }
 
-/* line 116, ../sass/styles.scss */
+/*============================================================
+    header
+============================================================*/
+/* line 122, ../sass/styles.scss */
+#searchform button {
+  background-color: transparent;
+  padding: 0;
+}
+/* line 126, ../sass/styles.scss */
+#searchform li {
+  height: 40px;
+  line-height: 45px;
+}
+
+/*============================================================
+    glass element
+============================================================*/
+/* line 136, ../sass/styles.scss */
 .element, .dock .dock-aspect {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -82,7 +105,7 @@ a:hover {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 132, ../sass/styles.scss */
+/* line 152, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -106,19 +129,19 @@ a:hover {
   z-index: 5;
   pointer-events: none;
 }
-/* line 160, ../sass/styles.scss */
+/* line 180, ../sass/styles.scss */
 .element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #ffd133;
   -webkit-box-shadow: 0 0 10px -2px #ffd133;
   box-shadow: 0 0 10px -2px #ffd133;
 }
 
-/* line 165, ../sass/styles.scss */
+/* line 185, ../sass/styles.scss */
 .scrollable {
   overflow-y: scroll;
   max-height: 240px;
 }
-/* line 168, ../sass/styles.scss */
+/* line 188, ../sass/styles.scss */
 .scrollable.youtube {
   max-height: 150px;
 }
@@ -126,14 +149,14 @@ a:hover {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 176, ../sass/styles.scss */
+/* line 196, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 182, ../sass/styles.scss */
+/* line 202, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -147,7 +170,7 @@ a:hover {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 194, ../sass/styles.scss */
+/* line 214, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -155,16 +178,16 @@ a:hover {
   width: 200%;
 }
 
-/* line 201, ../sass/styles.scss */
+/* line 221, ../sass/styles.scss */
 .element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 204, ../sass/styles.scss */
+/* line 224, ../sass/styles.scss */
 .element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 207, ../sass/styles.scss */
+/* line 227, ../sass/styles.scss */
 .element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -175,12 +198,12 @@ a:hover {
   height: 225px;
 }
 
-/* line 216, ../sass/styles.scss */
+/* line 236, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 220, ../sass/styles.scss */
+/* line 240, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -188,18 +211,18 @@ a:hover {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 224, ../sass/styles.scss */
+/* line 244, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
 }
 
-/* line 231, ../sass/styles.scss */
+/* line 251, ../sass/styles.scss */
 .youtube-list-rm-button {
   margin-right: 10px;
 }
 
-/* line 232, ../sass/styles.scss */
+/* line 252, ../sass/styles.scss */
 .youtube-list-thumbnail {
   width: 50px;
   margin-right: 10px;
@@ -208,7 +231,7 @@ a:hover {
 /*============================================================
     clock
 ============================================================*/
-/* line 240, ../sass/styles.scss */
+/* line 260, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -218,19 +241,19 @@ a:hover {
 /*============================================================
     link list
 ============================================================*/
-/* line 249, ../sass/styles.scss */
+/* line 269, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 252, ../sass/styles.scss */
+/* line 272, ../sass/styles.scss */
 .title .url {
   visibility: hidden;
   position: absolute;
   z-index: -1;
 }
 
-/* line 258, ../sass/styles.scss */
+/* line 278, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -241,32 +264,32 @@ a:hover {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 268, ../sass/styles.scss */
+/* line 288, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 270, ../sass/styles.scss */
+/* line 290, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 275, ../sass/styles.scss */
+/* line 295, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 279, ../sass/styles.scss */
+/* line 299, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 283, ../sass/styles.scss */
+/* line 303, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 288, ../sass/styles.scss */
+/* line 308, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -277,7 +300,7 @@ a:hover {
   padding: 10px;
 }
 
-/* line 298, ../sass/styles.scss */
+/* line 318, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -291,7 +314,7 @@ a:hover {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 309, ../sass/styles.scss */
+/* line 329, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -299,7 +322,7 @@ a:hover {
 /*============================================================
     tabs
 ============================================================*/
-/* line 316, ../sass/styles.scss */
+/* line 336, ../sass/styles.scss */
 #tabs .list {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -317,23 +340,27 @@ a:hover {
   left: -290px;
   opacity: .05;
 }
-/* line 331, ../sass/styles.scss */
+/* line 350, ../sass/styles.scss */
+#tabs .list > div {
+  direction: ltr;
+}
+/* line 353, ../sass/styles.scss */
 #tabs .list:hover, #tabs .list.active {
   left: 0;
   opacity: 1;
 }
-/* line 336, ../sass/styles.scss */
+/* line 358, ../sass/styles.scss */
 #tabs .list .link-list {
   text-align: left;
   padding: 5px 20px;
 }
-/* line 339, ../sass/styles.scss */
+/* line 361, ../sass/styles.scss */
 #tabs .list .link-list:focus {
   outline: none;
   box-shadow: 0 0 15px 0 black inset;
 }
 
-/* line 345, ../sass/styles.scss */
+/* line 367, ../sass/styles.scss */
 #tabs .scrollable.list {
   max-height: none;
 }
@@ -341,12 +368,12 @@ a:hover {
 /*============================================================
     dock
 ============================================================*/
-/* line 349, ../sass/styles.scss */
+/* line 372, ../sass/styles.scss */
 .masonry-container {
   margin-top: 55px;
 }
 
-/* line 352, ../sass/styles.scss */
+/* line 375, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -357,14 +384,14 @@ a:hover {
   display: block;
   z-index: 10;
 }
-/* line 361, ../sass/styles.scss */
+/* line 384, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 367, ../sass/styles.scss */
+/* line 390, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -404,7 +431,7 @@ a:hover {
   }
   */
 }
-/* line 410, ../sass/styles.scss */
+/* line 433, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
@@ -425,7 +452,7 @@ a:hover {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 423, ../sass/styles.scss */
+/* line 446, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -433,19 +460,22 @@ a:hover {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 428, ../sass/styles.scss */
+/* line 451, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
   background: transparent none repeat scroll 0% 0%;
 }
-/* line 434, ../sass/styles.scss */
+/* line 457, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
 
-/* line 441, ../sass/styles.scss */
+/*============================================================
+    sidebar list
+============================================================*/
+/* line 466, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -461,13 +491,13 @@ a:hover {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 452, ../sass/styles.scss */
+/* line 477, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 458, ../sass/styles.scss */
+/* line 483, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -477,7 +507,7 @@ a:hover {
   padding: 0;
 }
 
-/* line 467, ../sass/styles.scss */
+/* line 492, ../sass/styles.scss */
 #menu-toggle {
   bottom: 0;
   right: 0;
@@ -485,7 +515,7 @@ a:hover {
   z-index: 1;
 }
 
-/* line 474, ../sass/styles.scss */
+/* line 499, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -495,23 +525,17 @@ a:hover {
   width: 100%;
 }
 
-/* line 480, ../sass/styles.scss */
+/* line 505, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
   bottom: 0;
 }
 
-/*
-.cke_top {
-	position: fixed !important;
-	bottom: 100px !important;
-}
-*/
 /*============================================================
     Modal
 ============================================================*/
-/* line 497, ../sass/styles.scss */
+/* line 515, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -520,7 +544,7 @@ a:hover {
   border: 5px solid #111;
 }
 
-/* line 503, ../sass/styles.scss */
+/* line 521, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }

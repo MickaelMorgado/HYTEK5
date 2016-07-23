@@ -4,7 +4,7 @@
 		$order = $_GET['order'];
 		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = $_SESSION[id_session] ORDER BY ".$order);
 	}else{
-		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = $_SESSION[id_session] ORDER BY data DESC");
+		$result = mysqli_query($link, "SELECT * FROM mytabs WHERE id_tabs = $_SESSION[id_session] ORDER BY view DESC");
 	}
 	while ($row = mysqli_fetch_assoc($result)) {
 		if(!mysqli_num_rows($result)){ echo 'No results'; }
@@ -35,7 +35,7 @@
 			if(strpos($r2, "http://") !== false){ }
     		else { $r2 = "http://".$r2; } 	
     	?>
-		<a href="<?php echo $r2; ?>" class="link-list title" data-linkid="<?php echo $r0; ?>" title="<?php echo ' View: '.$r4.'&#13; Date: '.$r3.'&#13; Link: '.$r2 ?>">
+		<a href="<?php echo $r2; ?>" class="link-list title view" data-linkid="<?php echo $r0; ?>" data-view="<?php echo $r4; ?>" title="<?php echo ' View: '.$r4.'&#13; Date: '.$r3.'&#13; Link: '.$r2 ?>">
 			<span class="url"><?php echo $r2 ?></span>
 			<?php 
 			if ($row['title'] == '') {	// IF EMPTY TITLE GET ONE BASED FROM THE LINK
