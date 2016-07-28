@@ -1,0 +1,18 @@
+<script>
+
+  
+  function play() {
+    var context = new AudioContext() || new webkitAudioContext(),
+        audio = new Audio(),
+        source,
+        // `stream_url` you'd get from 
+        // requesting http://api.soundcloud.com/tracks/6981096.json
+        url = 'audios/onlyoneminute/soundtracks/Music1.mp3';
+
+    audio.src = url;
+    source = context.createMediaElementSource(audio);
+    source.connect(context.destination);
+    source.mediaElement.play();
+  }
+</script>
+<button onclick="play()">play</button>
