@@ -19,3 +19,9 @@ input, textarea, select {
 textarea {
   width: 100%;
 }
+
+/* line 26, ../sass/styles.scss */
+.container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

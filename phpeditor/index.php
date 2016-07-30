@@ -31,26 +31,32 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<a target="_blank" href="http://localhost/phpmyadmin/">phpmyadmin</a>
 			<form action="index.php" method='GET'>
-				<select name="dbname" id="dbn">
-				<?php 
-					// Usage without mysqli_list_dbs()
-					$link = mysqli_connect('localhost', 'root', '');
-					$res = mysqli_query($link,"SHOW DATABASES");
+				<div class="row">
+					<div class="col-xs-12 col-sm-2 col-md-2">
+						<select name="dbname" id="dbn">
+						<?php 
+							// Usage without mysqli_list_dbs()
+							$link = mysqli_connect('localhost', 'root', '');
+							$res = mysqli_query($link,"SHOW DATABASES");
 
-					while ($row = mysqli_fetch_assoc($res)) {
-					    echo "<option value='".$row['Database']."' ";
-						if (isset($_GET['dbname'])) {
-							if ($_GET['dbname']==$row['Database']) { 
-								echo "selected"; 
+							while ($row = mysqli_fetch_assoc($res)) {
+							    echo "<option value='".$row['Database']."' ";
+								if (isset($_GET['dbname'])) {
+									if ($_GET['dbname']==$row['Database']) { 
+										echo "selected"; 
+									}
+								}
+								echo ">".$row['Database']."</option>";
 							}
-						}
-						echo ">".$row['Database']."</option>";
-					}
-				?>
-				</select>
-				<input type="submit">
+						?>
+						</select>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-8">
+						<input type="submit">
+					</div>
+					<div class="col-xs-12 col-sm-2 col-md-2"><a target="_blank" href="http://localhost/phpmyadmin/">phpmyadmin</a></div>
+				</div>
 			</form>
 			<form action="#" method="GET">
 				<?php 
@@ -59,33 +65,39 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 						$dbname = "no dbname selected";	
 					}
 				?>
-				<input type="hidden" name="dbname" value="<?php echo $dbname; ?>">
-				<select name="tablename" id="tbn">
-					<?php 
-					$dbname = $dbname;
+				<div class="row">
+					<div class="col-xs-12 col-sm-2 col-md-2">
+						<input type="hidden" name="dbname" value="<?php echo $dbname; ?>">
+						<select name="tablename" id="tbn">
+							<?php 
+							$dbname = $dbname;
 
-					if (!mysqli_connect('localhost', 'root', '')) {
-					    echo 'Could not connect to mysql';
-					    exit;
-					}
-
-					$sql = "SHOW TABLES FROM $dbname";
-					$result = mysqli_query($link,$sql);
-
-					while ($row = mysqli_fetch_row($result)) {
-						echo "<option value='".$row[0]."' ";
-						if (isset($_GET['tablename'])) {
-							if ($_GET['tablename']==$row[0]) { 
-								echo "selected"; 
+							if (!mysqli_connect('localhost', 'root', '')) {
+							    echo 'Could not connect to mysql';
+							    exit;
 							}
-						}
-						echo ">".$row[0]."</option>";
-					}
 
-					mysqli_free_result($result);
-					?>
-				</select>			
-				<input type="submit">
+							$sql = "SHOW TABLES FROM $dbname";
+							$result = mysqli_query($link,$sql);
+
+							while ($row = mysqli_fetch_row($result)) {
+								echo "<option value='".$row[0]."' ";
+								if (isset($_GET['tablename'])) {
+									if ($_GET['tablename']==$row[0]) { 
+										echo "selected"; 
+									}
+								}
+								echo ">".$row[0]."</option>";
+							}
+
+							mysqli_free_result($result);
+							?>
+						</select>		
+					</div>
+					<div class="col-xs-12 col-sm-10 col-md-10">
+						<input type="submit">
+					</div>
+				</div>
 			</form>
 
 		</div>
@@ -93,11 +105,13 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			<form action="#" method="GET">
+		<div class="col-xs-12 col-sm-12 col-md-12">SELECT:</div>
+	</div>
+	<div class="row">
+		<form action="#" method="GET">
+			<div class="col-xs-12 col-sm-5 col-md-5">
 				<input type="hidden" name="dbname" value="<?php echo $dbname; ?>">
 				<input type="hidden" name="tablename" value="<?php echo $_GET['tablename']; ?>">
-				select:	 
 				<?php 
 					$link = mysqli_connect("localhost","root","",$dbname);
 					$sql = "SHOW COLUMNS FROM $_GET[tablename]";
@@ -116,48 +130,93 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 							}
 						}
 					?>">
+			</div>
+			<div class="col-xs-12 col-sm-7 col-md-7">
 				<input type="submit">
-			</form>
-		</div>
+			</div>
+		</form>
 	</div>
 </div>
 <div class="container">
+	<form action="#" method="GET">
+		<input type="hidden" name="dbname" value="<?php echo $dbname; ?>">
+		<input type="hidden" name="tablename" value="<?php echo $_GET['tablename']; ?>">
+		<input type="hidden" name="select" value="<?php echo $_GET['select']; ?>">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12">WHERE:</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-3 col-md-3">
+				<?php 
+					$link = mysqli_connect("localhost","root","",$dbname);
+					$sql = "SHOW COLUMNS FROM $_GET[tablename]";
+					$result = mysqli_query($link,$sql);
+					?>
+					<select name="wherefirst" id="wherefirst"><?php
+						$num_rows = mysqli_num_rows($result);
+						$i = 0;
+						while($row = mysqli_fetch_array($result)){
+							?>
+								<option value="<?php echo $row['Field']; ?>"><?php echo $row['Field']; ?></option>
+							<?php
+						}
+					?>">
+					</select>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-md-3">
+				<select name="operator" id="operator">
+					<option value="=" selected>=</option>
+				</select>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-md-3">
+				<input type="wherevalue" name="wherevalue" placeholder="wherevalue" value="<?php echo $_GET['wherevalue']; ?>">
+			</div>		
+			<div class="col-xs-12 col-sm-3 col-md-3">
+				<input type="submit" class="opcional class">
+			</div>
+		</div>
+	</form>
+</div>
+<div class="container">
 	<div class="row">
-	<div class="col-xs-12 col-sm-6 col-md-6">
-		<textarea rows="10">
-			<?php 
+		<div class="col-xs-12 col-sm-5 col-md-5">
+			RESULTS (limit 20 query)
+			<textarea rows="10"><?php 
 
-				$link = mysqli_connect("localhost","root","",$dbname);
+					$link = mysqli_connect("localhost","root","",$dbname);
 
-				if (isset($_GET['select'])) {
-					$sql = "SELECT $_GET[select] FROM $_GET[tablename] LIMIT 20";
-				}else{
-					$sql = "SELECT * FROM $_GET[tablename] LIMIT 20";
-				}
+					if (isset($_GET['select'])) {
+						$sql = "SELECT $_GET[select] FROM $_GET[tablename] LIMIT 20";
+					}else{
+						$sql = "SELECT * FROM $_GET[tablename] LIMIT 20";
+					}
 
-				$result = mysqli_query($link,$sql);
+					$result = mysqli_query($link,$sql);
 
-				if ($result->num_rows > 0) {
-					while ($row = mysqli_fetch_assoc($result)) {
-						print_r($row);
-					} 	
-				}else{
-					echo "0 results";
-				}
+					if ($result->num_rows > 0) {
+						while ($row = mysqli_fetch_assoc($result)) {
+							print_r($row);
+						} 	
+					}else{
+						echo "0 results";
+					}
 
-			?>
-		</textarea>
-	</div>
-		<div class="col-xs-12 col-sm-6 col-md-6">
-			<textarea rows="2">
-	$link = mysqli_connect("localhost","root","","<?php echo $dbname ?>");			
+				?>
+			</textarea>
+		</div>
+		<div class="col-xs-12 col-sm-7 col-md-7">
+			CONNECTION
+			<textarea rows="1">	$link = mysqli_connect("localhost","root","","<?php echo $dbname ?>");</textarea>
+			INSERT
+			<textarea rows="4">	$insert = "INSERT INTO `<?php echo $_GET['tablename'] ?>` (<?php echo $_GET['select'] ?>) VALUES (<?php echo $_GET['select'] ?>)";	
+	mysqli_query($link,$insert);
 			</textarea>
 			SELECT
 			<textarea rows="14">
 
 	<?php 
 	if (isset($_GET['select'])) {?>$sql = "SELECT <?php echo $_GET['select'] ?> FROM <?php echo $_GET['tablename'] ?>";
-	<?php }else{ ?>	$sql = "SELECT * FROM <?php echo $_GET['tablename'] ?>";
+	<?php }else{ ?>$sql = "SELECT * FROM <?php echo $_GET['tablename'] ?>";
 	<?php
 	}
 	?>$result = mysqli_query($link,$sql);
@@ -175,14 +234,14 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 			UPDATE
 			<textarea rows="6">
 
-	$sql = "UPDATE `<?php echo $_GET['tablename'] ?>` SET `content` = 'newvalue' WHERE `sometable` = somevalue";
+	$sql = "UPDATE `<?php echo $_GET['tablename'] ?>` SET `content` = 'newvalue' WHERE `<?php echo "$_GET[wherefirst]"; ?>` = <?php echo $_GET['wherevalue']; ?>";
 	mysqli_query($link,$sql);
 
 			</textarea>
 			DELETE
 			<textarea rows="6">
 
-	$sql = "$sql = "DELETE FROM <?php echo $_GET['tablename'] ?> WHERE sometable = somevalue;
+	$sql = "$sql = "DELETE FROM <?php echo $_GET['tablename'] ?> WHERE <?php echo "$_GET[wherefirst]"; ?> = <?php echo $_GET['wherevalue']; ?>;
 	mysqli_query($link,$sql);
 
 			</textarea>
