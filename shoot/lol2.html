@@ -15,7 +15,17 @@
 </div>
 <button onclick="play()">play</button>
 <button onclick="bass()">bass</button>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/f7kbEKwTU7Y" frameborder="0" allowfullscreen></iframe>
+
+<br><label>Hz200</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz200');console.log(gainDb)"></input>
+<br><label>Hz600</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz600');console.log(gainDb)"></input>
+<br><label>Hz1000</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz1000');console.log(gainDb)"></input>
+<br><label>Hz1200</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz1200');console.log(gainDb)"></input>
+<br><label>Hz1600</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz1600');console.log(gainDb)"></input>
+<br><label>Hz2000</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz2000');console.log(gainDb)"></input>
+<br><label>Hz2400</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz2400');console.log(gainDb)"></input>
+<br><label>Hz2800</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz2800');console.log(gainDb)"></input>
+<br><label>Hz3200</label><input type="range" value="100" step="1" min="0" max="1000" oninput="changeGainHz(this.value, 'Hz3200');onsole.log(gainDb)"></input>
+
 <script>
 
   
@@ -58,25 +68,31 @@
 	//
 	var gainDb = -40.0;
 	var bandSplit = [360,3600];
+	var bandSplit2 = [200,600,1000,1200,1600,2000,2400,2800,3200];
 
 	var hBand = context.createBiquadFilter();
-	hBand.type = "lowshelf";
-	hBand.frequency.value = bandSplit[0];
-	hBand.gain.value = gainDb;
+		hBand.type = "lowshelf";
+		hBand.frequency.value = bandSplit[0];
+		hBand.gain.value = gainDb;
 
 	var hInvert = context.createGain();
-	hInvert.gain.value = -1.0;
+		hInvert.gain.value = -1.0;
 
 	var mBand = context.createGain();
 
 	var lBand = context.createBiquadFilter();
-	lBand.type = "highshelf";
-	lBand.frequency.value = bandSplit[1];
-	lBand.gain.value = gainDb;
+		lBand.type = "highshelf";
+		lBand.frequency.value = bandSplit[1];
+		lBand.gain.value = gainDb;
+
+	var Hz200 = context.createBiquadFilter();
+		Hz200.frequency.value = bandSplit2[0];
+		Hz200.gain.value = gainDb;
 
 	var lInvert = context.createGain();
 	lInvert.gain.value = -1.0;
 
+	sourceNode.connect(Hz200);
 	sourceNode.connect(lBand);
 	sourceNode.connect(mBand);
 	sourceNode.connect(hBand);
@@ -96,6 +112,7 @@
 	hBand.connect(hGain);
 
 	var sum = context.createGain();
+	Hz200.connect(sum);
 	lGain.connect(sum);
 	mGain.connect(sum);
 	hGain.connect(sum);
@@ -112,6 +129,23 @@
 	    case 'lowGain': lGain.gain.value = value; break;
 	    case 'midGain': mGain.gain.value = value; break;
 	    case 'highGain': hGain.gain.value = value; break;
+	  }
+	}
+	function changeGainHz(string,type)
+	{
+	  var value = parseFloat(string) / 100.0;
+	  console.log(value);
+	  switch(type)
+	  {
+	  	case 'Hz200' : Hz200.gain.value = value; break;
+	  	case 'Hz600' : Hz600.gain.value = value; break;
+	  	case 'Hz1000' : Hz1000.gain.value = value; break;
+	  	case 'Hz1200' : Hz1200.gain.value = value; break;
+	  	case 'Hz1600' : Hz1600.gain.value = value; break;
+	  	case 'Hz2000' : Hz2000.gain.value = value; break;
+	  	case 'Hz2400' : Hz2400.gain.value = value; break;
+	  	case 'Hz2800' : Hz2800.gain.value = value; break;
+	  	case 'Hz3200' : Hz3200.gain.value = value; break;
 	  }
 	}
 </script>
