@@ -12,7 +12,7 @@
 <script src="<?php echo $backfolder_string; ?>dependencies/js/list.min.js"></script>
 <script src="<?php echo $backfolder_string; ?>dependencies/js/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script>
-<script src="https://npmcdn.com/masonry-layout@4.0.0/dist/masonry.pkgd.min.js"></script> <!-- like masonary -->
+<script src="https://unpkg.com/masonry-layout@4.0.0/dist/masonry.pkgd.min.js"></script> <!-- like masonary -->
 
 <!-- meteo -->
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
