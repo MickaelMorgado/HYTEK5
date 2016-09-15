@@ -4,13 +4,14 @@
 			<div class="row">
 				<div class="col-xs-9">
 					<div id="tabs">
+						<div id="autocomplete"></div>
 						<input type="text" placeholder="Search [ ALT key ]" title="press alt key to focus" class="search fuzzy-search" id="searchinput" autocomplete="off">
 					</div>
 				</div>
 				<div class="col-xs-1">
 					<div class="toggles-search-buttons">
 						<ul class="list-inline">
-							<li><button href="#" onclick="google()"><img class="dock-icon" src="dependencies/img/1.png" alt="in google"></button></li>
+							<li><button href="#" id="ggsearch" onclick="google()"><img class="dock-icon" src="dependencies/img/1.png" alt="in google"></button></li>
 							<li><button href="#" onclick="youtube()"><img class="dock-icon" src="dependencies/img/3.png" alt="in youtube"></button></li>
 						</ul>
 					</div>

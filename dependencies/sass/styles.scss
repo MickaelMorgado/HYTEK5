@@ -129,6 +129,13 @@
 		}
 	}
 
+	#autocomplete {
+		position: absolute;
+		text-transform: uppercase;
+		line-height: 50px;
+		right: 0;
+	}
+
 /*============================================================
     glass element
 ============================================================*/
@@ -335,7 +342,7 @@
 ============================================================*/
 	#tabs .list{
 		@include single-transition(all, .25s, ease-in-out);
-		direction: rtl;
+		//direction: rtl;
 		padding: 0;
 		box-shadow: 0 10px 20px 5px black;
 		top: 50px;
@@ -345,11 +352,10 @@
 		z-index: 1;
 		width: 300px;
 		left: -290px;
-		
 		opacity: .05;
-		& > div {
+		/*& > div {
 			direction: ltr;
-		}
+		}*/
 		&:hover,
 		&.active {
 			left: 0;

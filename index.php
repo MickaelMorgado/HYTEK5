@@ -129,7 +129,7 @@
 
 	
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
-	<script src="http://listjs.com/no-cdn/list.fuzzysearch.js"></script>
+	<script src="dependencies/js/list.fuzzysearch.js"></script>
 	<script src="dependencies/js/jscolor.js"></script>
 	<script><?php include('dependencies/js/main.js'); ?></script>
 	<script>
