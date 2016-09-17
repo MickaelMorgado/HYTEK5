@@ -383,21 +383,21 @@ a:hover {
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;
   display: block;
   z-index: 10;
 }
-/* line 390, ../sass/styles.scss */
+/* line 391, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 396, ../sass/styles.scss */
+/* line 397, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -437,7 +437,7 @@ a:hover {
   }
   */
 }
-/* line 439, ../sass/styles.scss */
+/* line 440, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
@@ -458,7 +458,7 @@ a:hover {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 452, ../sass/styles.scss */
+/* line 453, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -466,14 +466,14 @@ a:hover {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 457, ../sass/styles.scss */
+/* line 458, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
-  background: transparent none repeat scroll 0% 0%;
+  background: #111 none repeat scroll 0% 0%;
 }
-/* line 463, ../sass/styles.scss */
+/* line 464, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
@@ -481,7 +481,7 @@ a:hover {
 /*============================================================
     sidebar list
 ============================================================*/
-/* line 472, ../sass/styles.scss */
+/* line 473, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -497,13 +497,13 @@ a:hover {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 483, ../sass/styles.scss */
+/* line 484, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 489, ../sass/styles.scss */
+/* line 490, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -513,7 +513,7 @@ a:hover {
   padding: 0;
 }
 
-/* line 498, ../sass/styles.scss */
+/* line 499, ../sass/styles.scss */
 #menu-toggle {
   bottom: 0;
   right: 0;
@@ -521,7 +521,7 @@ a:hover {
   z-index: 1;
 }
 
-/* line 505, ../sass/styles.scss */
+/* line 506, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -531,7 +531,7 @@ a:hover {
   width: 100%;
 }
 
-/* line 511, ../sass/styles.scss */
+/* line 512, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -541,7 +541,7 @@ a:hover {
 /*============================================================
     Modal
 ============================================================*/
-/* line 521, ../sass/styles.scss */
+/* line 522, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -550,7 +550,7 @@ a:hover {
   border: 5px solid #111;
 }
 
-/* line 527, ../sass/styles.scss */
+/* line 528, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }

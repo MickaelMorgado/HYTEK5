@@ -52,77 +52,19 @@
 	//		$('a.link-list').prop('target','');
 	//	}
 	//}
-	$(document).on('keydown', function(e) {					
-
-																	/* on tab got to next link to focus him */
-	    /*if (e.keyCode === 9 && enable === true && $("#enableRefresh").hasClass("active")) {
-			if (e.shiftKey) {	shiftKeyDown = true; 	nextFocus= nextFocus - 1; } else {
-					 			shiftKeyDown = false; 	nextFocus= nextFocus + 1; }
-       		goNextFocus(nextFocus);
-	        e.preventDefault();
-	    }*/
-
-	    var autocompleteListWords = ["YOUTUBE","GOOGLE","FACEBOOK"];
-
-
-	    if (e.keyCode === 27) {								/* on esc disable next focus */
-	    	$('#searchinput').focus();
-	    	enable = false;
-	    }else {
-	    	if (e.keyCode != 13) /* not pressing enter */ {
-	    		if (e.keyCode === 40 && enable === true && $("#enableRefresh").hasClass("active")) { nextFocus= nextFocus + 1; goNextFocus(nextFocus); e.preventDefault(); } /* down */
-	    		else if (e.keyCode === 38 && enable === true && $("#enableRefresh").hasClass("active")) { nextFocus= nextFocus - 1; goNextFocus(nextFocus); e.preventDefault(); } /* up */
-	    		else { 
-	    			$('#searchinput').focus(); 
-	    			//var SIVal = $('#searchinput').val();
-	    			//var thisString = new RegExp('\\b' + SIVal + '\\b', 'i');
-	    			//var thisString = new RegExp('\b'+SIVal,'i'); /* i = insensitive */
-	    			//var FoundIt = thisString.test(autocompleteListWords);  
-
-					/* new RegExp('\\b' + "YOUTUBE" + '\\b', 'i').test(["YOUTUBE","GOOGLE","FACEBOOK"]); */
-
-
-	    			//$('#autocomplete').text(""+thisString); 
-	    			//if (FoundIt) { 
-	    			//	console.log("found:"+thisString);
-		    		//	$('#autocomplete').text("true"); 
-	    			//}
-	    			if (e.keyCode === 9){ /* tab */
-	    				//console.log("autocomplete : "+$('#searchinput').val()+renderAutocompleteWord); return false; 
-	    			} 
-	    		}
-	    	}else{
-	    		if ($('#enableRefresh li a:focus').length()>0) {/* search google */
-	    			$('#enableRefresh li a:focus').trigger("click");
-	    		};
-	    		return false;
-	    	};
-	    }
-
-	    //if (e.keyCode === 18) { 	/* on alt focus search input if is empty */
-	    //	$('#searchinput').focus();
-	    //	return false;
-	    //}
-	    //if (e.which === 17) {
-	    //	toggle();
-	    //};
-	});
+	
 
 	/* Google & Youtube search buttons :
 	====================================
 	*/
-	form = document.getElementById("searchform");
+	form = $("#searchform");
 	
-	function google() {
-		$('#searchinput').attr("name","q");
-		form.action="https://www.google.pt/search";
-		form.submit();
+	function google(e) {
+		$(location).attr('href','https://www.google.com/search?q='+e);
 	}
 	
-	function youtube() {
-		$('#searchinput').attr("name","search_query");
-		form.action="http://www.youtube.com/results";
-		form.submit();
+	function youtube(e) {
+		$(location).attr('href','https://www.youtube.com/results?search_query='+e);
 	} 
 
 	$("#link-order-select").change(function(){
