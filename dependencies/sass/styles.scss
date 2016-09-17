@@ -125,7 +125,6 @@
 		}
 		li {
 			height: 40px;
-			line-height: 45px;
 		}
 	}
 
@@ -291,6 +290,7 @@
 		background-color: transparent;
 		
 		opacity: $opacity-submit-fa;
+		margin-top: 8px;
 		
 		&:hover { opacity: 1; }
 
@@ -341,7 +341,7 @@
     tabs
 ============================================================*/
 	#tabs .list{
-		@include single-transition(all, .25s, ease-in-out);
+		@include single-transition(all, .1s, ease-in-out);
 		//direction: rtl;
 		padding: 0;
 		box-shadow: 0 10px 20px 5px black;
@@ -350,8 +350,8 @@
 		background-color: #111;
 		height: 100% !important;
 		z-index: 1;
-		width: 300px;
-		left: -290px;
+		width: 280px;
+		left: -270px;
 		opacity: .05;
 		/*& > div {
 			direction: ltr;
@@ -443,11 +443,12 @@
 			@include box-shadow(0 0 5px 0 $dark);
 			@include single-transition(all, .1s, ease-in-out);
 			@include border-radius($radius);
+			opacity: .8;
 			width: $cubic;
 			height: $cubic;
-			overflow: hidden;
-			
-			opacity: .8;
+			margin-top: 10px;
+			overflow: hidden;			
+			background-size: 100%;
 			@include scale(1.0);
 			
 			&:hover {
@@ -455,6 +456,7 @@
 				@include scale(1.2);
 			}
 		}
+		input.dock-icon { color: transparent; }
 		.search {
 			text-transform: uppercase;
 			border: medium none;

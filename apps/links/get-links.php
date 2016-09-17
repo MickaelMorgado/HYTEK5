@@ -21,7 +21,7 @@
 			<input type="submit" value="" class="submit fa fa-trash-o" /> 
 		</form>
 		<div class="dropdown">
-			<a href="#" class="submit fa" type="button" id="dropdownMenu<?php echo $r0 ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">E<span class="caret"></span></a>
+			<a href="#" class="submit fa fa-pencil" type="button" id="dropdownMenu<?php echo $r0 ?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"></a>
 			<ul class="dropdown-menu" aria-labelledby="dropdownMenu<?php echo $r0 ?>">
 				<form action="apps/links/edit-link.php" method="post" class="htmlForm editForm" data-form="form<?php echo $r0; ?>"> 
 					<input type="hidden"   value="<?php echo $r0; ?>" class="link-id"    name="link-id">

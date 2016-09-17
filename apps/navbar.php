@@ -1,7 +1,7 @@
 <div class="col-xs-12">
 	<div id="tabs">
 		<form id="searchform"
-			action="apps/links/add-link.php" 
+			action="apps/links/navbar-submit.php" 
 			method="post">
 			<div class="row">
 				<div class="col-xs-9">
@@ -23,29 +23,62 @@
 					<div class="toggles-search-buttons">
 						<ul class="list-inline">
 							<li>
-								<a 	id="ggsearch" 
-									onclick="google($('#searchinput').val());"
-									title="enter">
-										<img class="dock-icon" src="dependencies/img/1.png" alt="in google">
-								</a>
+								<input 
+									type	=	"submit" 
+									title 	= 	"google search (enter)" 
+									name 	= 	"method"
+									value 	= 	"google" 
+									class 	= 	"dock-icon"
+									style 	= 	"background-image:url('dependencies/img/1.png')">
+								</input>
 							</li><li>
-								<a 	onclick="youtube($('#searchinput').val());"
-									title="shift + enter">
-										<img class="dock-icon" src="dependencies/img/3.png" alt="in youtube">
-								</a>
+								<input 
+									type	= 	"submit" 
+									title 	= 	"youtube search" 
+									name 	= 	"method"
+									value 	= 	"youtube" 
+									class 	= 	"dock-icon"
+									style 	= 	"background-image:url('dependencies/img/3.png')">
+								</input>
 							</li><li>
-								<input type="submit" value="add" class="fa fa-plus-circle"></input>
+								<input 
+									type 	= 	"submit" 
+									title 	= 	"add this link" 
+									name 	= 	"method"
+									value 	= 	"add" 
+									class 	= 	"dock-icon"
+									style 	= 	"background-image:url('dependencies/img/6.png')">
+								</input>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-xs-2">
 					<ul class="list-inline">
-						<li><a href="http://gmail.com/"><img class="dock-icon" src="dependencies/img/1.png" alt=""></a></li>
-						<li><a href="http://facebook.com"><img class="dock-icon" src="dependencies/img/2.png" alt=""></a></li>
-						<li><a href="http://play.spotify.com/collection/songs"><img class="dock-icon" src="dependencies/img/4.png" alt=""></a></li>
-						<li><a href="http://twitter.com"><img class="dock-icon" src="dependencies/img/5.png" alt=""></a></li>
-						<!--li class="dock-aspect"><div class="glass"></div></li-->
+						<li><a href="http://gmail.com/">
+							<img 	class="dock-icon" 
+									src="dependencies/img/1.png" 
+									alt="gmail"
+									title="gmail"></a>
+						</li>
+						<li><a href="http://facebook.com">
+							<img 	class="dock-icon" 
+									src="dependencies/img/2.png" 
+									alt="facebook"
+									title="facebook"></a>
+						</li>
+						<li><a href="http://play.spotifycollection/songs">
+							<img 	class="dock-icon" 
+									src="dependencies/img/4.png" 
+									alt="spotify songs"
+									title="spotify songs"></a>
+						</li>
+						<li><a href="http://twitter.com">
+							<img 	class="dock-icon" 
+									src="dependencies/img/5.png" 
+									alt="twitter"
+									title="twitter"></a>
+						</li>
 					</ul>
 				</div>
 			</div>
