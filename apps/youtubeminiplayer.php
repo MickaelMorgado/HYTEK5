@@ -9,7 +9,7 @@
 
 			<a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-cog" aria-hidden="true"></i></a>
 			<div id="sidebar-wrapper">
-			    <a id="menu-close" href="#" class="btn btn-default btn-lg toggle"><i class="fa fa-times" aria-hidden="true"></i></a>
+			    <a id="menu-close" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-times" aria-hidden="true"></i></a>
 			    <div class="container-fluid">
 			    	<div class="row">
 			    		<div class="col-xs-6">

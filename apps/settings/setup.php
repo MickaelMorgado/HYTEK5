@@ -3,7 +3,13 @@
 
 	$bg = $_POST['bg'];
 
-	$sql = "UPDATE `settings` SET `bg` = '$bg' WHERE `id_settings` = $_SESSION[id_session]";
+	$sql = "UPDATE `settings` 
+			SET `bg` = '$bg' 
+			WHERE `id_settings` = $_SESSION[id_session]";
+	
+	echo $bg;
+	echo $_SESSION['id_session'];
+
 	mysqli_query($link,$sql);
 
 	header("location: ../../");

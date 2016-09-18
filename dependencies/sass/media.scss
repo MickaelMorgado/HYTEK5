@@ -1,0 +1,15 @@
+@media (max-width: 1199px){ // * < 1199px small desk. para baixo
+	// ... , [---]|
+	body > .container-fluid {
+		margin-top: 50px;
+	}
+}
+@media (max-width: 767px){ // * < 767px only phones
+	// [-]|
+	.dock {
+		position: fixed;
+	}
+	body > .container-fluid {
+		margin-top: 50px;
+	}
+}

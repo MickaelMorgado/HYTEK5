@@ -3,8 +3,10 @@ if (isset($_SESSION['id_session'])) {
 ?>
 	<form action="apps/upload.php" method="post" enctype="multipart/form-data">
 	    <input type="file" name="fileToUpload" id="fileToUpload">
+	    <label for="fileToUpload" class="btn">Choose a file</label>
 	    <input type="submit" value="Upload" name="submit">
 	</form>
+	<hr>
 	<?php 
 	$dir = "apps/uploads/";
 	$dh  = opendir($dir);
@@ -28,5 +30,5 @@ if (isset($_SESSION['id_session'])) {
 	}
 	?>
 <?php 
-} else { echo "need to login to see files"; }
+} else { echo "You need to log on to see your files"; }
 ?>

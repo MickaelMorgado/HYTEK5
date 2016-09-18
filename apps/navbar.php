@@ -2,9 +2,10 @@
 	<div id="tabs">
 		<form id="searchform"
 			action="apps/links/navbar-submit.php" 
-			method="post">
+			method="post"
+			onsubmit="ajax($(this),event)">
 			<div class="row">
-				<div class="col-xs-9">
+				<div class="col-sm-9 col-md-8 col-lg-9">
 					<div id="tabs">
 						<div id="autocomplete"></div>
 						<input 
@@ -19,45 +20,50 @@
 							data-step="2">
 					</div>
 				</div>
-				<div class="col-xs-1">
+				<div class="col-sm-3 col-md-2 col-lg-1">
 					<div class="toggles-search-buttons">
 						<ul class="list-inline">
+							<input 
+								id="dynamic-method"
+								type="hidden" 
+								name="method" 
+								value="google">
 							<li>
 								<input 
 									type	=	"submit" 
 									title 	= 	"google search (enter)" 
-									name 	= 	"method"
 									value 	= 	"google" 
 									class 	= 	"dock-icon"
+									onclick = 	"$(location).attr('href', 'https://www.google.com/search?q='+$('#searchinput').val())" 
 									style 	= 	"background-image:url('dependencies/img/1.png')">
 								</input>
 							</li><li>
 								<input 
 									type	= 	"submit" 
 									title 	= 	"youtube search" 
-									name 	= 	"method"
 									value 	= 	"youtube" 
 									class 	= 	"dock-icon"
+									onclick = 	"$(location).attr('href', 'https://www.youtube.com/results?search_query='+$('#searchinput').val())" 
 									style 	= 	"background-image:url('dependencies/img/3.png')">
 								</input>
 							</li><li>
 								<input 
 									type 	= 	"submit" 
 									title 	= 	"add this link" 
-									name 	= 	"method"
 									value 	= 	"add" 
 									class 	= 	"dock-icon"
+									onclick = 	"$('#dynamic-method').val('add');" 
 									style 	= 	"background-image:url('dependencies/img/6.png')">
 								</input>
 							</li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-xs-2">
+				<div class="col-sm-12 col-md-2 col-lg-2">
 					<ul class="list-inline">
 						<li><a href="http://gmail.com/">
 							<img 	class="dock-icon" 
-									src="dependencies/img/1.png" 
+									src="dependencies/img/7.png" 
 									alt="gmail"
 									title="gmail"></a>
 						</li>
@@ -83,6 +89,7 @@
 				</div>
 			</div>
 		</form>
+		<div class="ajax-response"></div>
 		<ul class="list-unstyled scrollable list" id="enableRefresh">
 			<?php include('apps/link-list.php'); ?>
 		</ul>

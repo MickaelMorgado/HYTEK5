@@ -98,10 +98,10 @@
 
 	$(document).ready(function(){
 		$('.masonry-container').masonry({
-		columnWidth: '.item',
-		itemSelector: '.item'
-	});
-
+			columnWidth: '.item',
+			itemSelector: '.item'
+		});
+		$('#enableRefresh').height($(window).height()-55);
 	});
 
 $("#menu-close").click(function(e) {
@@ -153,3 +153,43 @@ function update(jscolor) {
     // 'jscolor' instance can be used as a string
     document.getElementById('rect').style.backgroundColor = '#' + jscolor
 }
+
+
+/*============================================================
+    CUSTOME FILE STYLES
+============================================================*/	
+
+	$('input[type="file"]').on('change',function(){
+		var val = $(this).val();
+	  	$(this)
+	  		.next()
+	  		.addClass('has-file')
+	  		.text(val+" was uploaded");
+	});
+
+/*============================================================
+    AJAX
+============================================================*/
+
+	function ajax(e,event) {
+
+		var $myForm  	= 	$('#'+e.attr('id')), 							/* form */
+			phpFile  	= 	e.attr('action'), 						/* target php file */
+			method  	= 	e.attr('method'),						/* form method */
+			$targetDiv 	= 	$('#'+e.attr('id')).parent().find('.ajax-response'); 		/* div where php response will be shown */
+
+		$.ajax({
+			url: phpFile,
+			type: method,
+			data: $myForm.serialize(),
+			cache: false,
+			success: function(output) {
+				$targetDiv.html(output);
+		  	},
+		  	error: function(xhr, desc, err) {
+				console.log(xhr + "\n" + err);
+		  	}
+		});
+		event.preventDefault(); /* escaping from html submit event */
+
+	}

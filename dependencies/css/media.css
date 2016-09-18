@@ -1,0 +1,17 @@
+@media (max-width: 1199px) {
+  /* line 3, ../sass/media.scss */
+  body > .container-fluid {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 767px) {
+  /* line 9, ../sass/media.scss */
+  .dock {
+    position: fixed;
+  }
+
+  /* line 12, ../sass/media.scss */
+  body > .container-fluid {
+    margin-top: 50px;
+  }
+}

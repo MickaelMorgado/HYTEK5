@@ -40,45 +40,8 @@
 				</div>	
 			</div>		
 			<div class="col-xs-12 col-sm-6 col-md-2 item">
-				<div class="element" style="height:150px;">
-					<div class="container-full">
-						<div class="row">
-							<div class="col-xs-6 col-sm-6 col-md-6">
-								<select name="order" id="link-order-select">
-									<option value="`view`DESC" selected>--</option>
-									<option value="`title`DESC">title ASC</option>
-									<option value="`data`DESC">Date DESC</option>
-									<option value="`url`DESC">Url ASC</option>
-									<option value="`view`DESC">View DESC</option>
-								</select>
-							</div>
-							<div class="col-xs-6">
-								<div class="dropdown pull-right">
-									<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".addlinkreveal">add link</button>
-									<div class="modal fade addlinkreveal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-										<div class="modal-dialog modal-lg">
-											<div class="modal-content">
-												<div class="modal-header">        
-													<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													</button>
-												</div>
-												<div class="modal-body">
-													<form action="apps/links/add-link.php" method="post">
-														<ul class="list-inline">
-															<li><input type="text" name="link-add-title" placeholder="title (opcional)"></li>
-															<li><input type="text" name="link-add-url" 	 placeholder="url"></li>
-															<li><input type="submit" value="add"></li>
-														</ul>
-													</form>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+				<div class="element">
+																			<?php include('apps/ordering.php') ?>
 					<div class="glass"></div>
 				</div>
 			</div>		
@@ -123,6 +86,22 @@
 		</div>
 	</div>
 
+	<!-- SIGNUP MODAL -->
+		<div class="modal fade signup-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">        
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<?php include("apps/signup.php"); ?>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
 	
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
 	<script src="dependencies/js/list.fuzzysearch.js"></script>

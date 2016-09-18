@@ -4,6 +4,7 @@ if($debug==true){ echo "session: ".$_SESSION['id_session']; }
 if(!isset($_SESSION['id_session'])){?>
 
 	<div class="signin-form">
+		<label for="user_email">Login / Signup:</label>
 		<form action="apps/login.php" method="POST" class="form-signin" id="login-form">
 			<div id="error"><!-- error will be shown here ! --></div>
 
@@ -24,8 +25,7 @@ if(!isset($_SESSION['id_session'])){?>
 			</div>        
 		</form>
 	</div>
-	or	
-	<a href="apps/signup.php">Sign up</a>
+	or <a data-toggle="modal" data-target=".signup-modal">Sign up</a>
 
 	<!--script>
 		$('document').ready(function(){ 

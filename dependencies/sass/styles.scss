@@ -46,6 +46,28 @@
 		border: none;
 		background-color: #222;
 		color: #fff;
+		line-height: 30px;
+		margin-bottom: 5px;
+		padding: 0 8px;
+		height: 30px;
+	}
+	
+	textarea {
+		@include box-shadow(inset 0 0 4px 1px #000);
+		height: auto;
+		line-height: 20px;
+		padding: 10px;
+	}
+
+	select {
+		option {
+				padding: 10px 10px;
+				&:hover ,
+				&:checked {
+				box-shadow: inset 0 40px #444;
+				cursor: pointer;
+				}
+		}
 	}
 
 
@@ -115,6 +137,34 @@
 	} 
 
 /*============================================================
+    INPUT TYPE FILE
+============================================================*/
+
+	@mixin custom-input-file(
+		){
+		visibility: hidden;
+		position: absolute;
+		& + label { 
+			@include border-radius(0); 
+			border: 1px solid #fff; 
+			display: block;
+		}
+		& + label.has-file { 
+			border: 1px solid $gold;
+			color: $gold; 
+			max-width: 100%;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		@content;
+	}
+
+	input[type="file"] {
+		@include custom-input-file();
+	}
+
+/*============================================================
     header
 ============================================================*/
 	
@@ -133,6 +183,15 @@
 		text-transform: uppercase;
 		line-height: 50px;
 		right: 0;
+	}
+
+/*============================================================
+    well
+============================================================*/
+
+	.well {
+		@include border-radius(0);
+		border: none;
 	}
 
 /*============================================================
@@ -290,7 +349,6 @@
 		background-color: transparent;
 		
 		opacity: $opacity-submit-fa;
-		margin-top: 8px;
 		
 		&:hover { opacity: 1; }
 
@@ -330,11 +388,51 @@
 		border: none;
 	}
 
+	#enableRefresh > li {
+		position: relative;
+	}
+
+	.links-remove ,
+	.links-edit {
+		position: absolute;
+		top: 8px;
+		right: 10px;
+	}
+	.links-edit {
+		right: 40px;
+		.dropdown-menu {
+			left: auto;
+			right: 0;
+		}
+	}
+	input.fa {
+		height: initial;
+	}
+
 /*============================================================
     bordered links
 ============================================================*/
 	.border-link img {
 		border: 1px solid darken($gold,30);
+	}
+
+/*============================================================
+    accordions
+============================================================*/
+	.panel-group .panel {
+		@include border-radius(0);
+		border: none;
+		background-color: #111;
+		&.panel-default > .panel-heading {
+			@include border-radius(0);
+			padding: 0;
+			background-color: #333;
+			color: #fff;
+			a {
+				padding: 10px;
+				display: block;
+			}
+		}
 	}
 
 /*============================================================
@@ -345,10 +443,10 @@
 		//direction: rtl;
 		padding: 0;
 		box-shadow: 0 10px 20px 5px black;
-		top: 50px;
+		top: 55px;
 		position: fixed;
 		background-color: #111;
-		height: 100% !important;
+		//height: 100% !important;
 		z-index: 1;
 		width: 280px;
 		left: -270px;
@@ -498,11 +596,14 @@
 	    padding: 0;
 	}
 
-	#menu-toggle {
+	#menu-toggle,#menu-close {
 	    bottom: 0;
 	    right: 0;
-	    position: absolute;
 	    z-index: 1;
+	    position: absolute;
+	    border: medium none;
+	    border-radius: 0px;
+	    background-color: rgba(0, 0, 0, 0.8);
 	}
 
 	#sidebar-wrapper.active {
@@ -530,3 +631,5 @@
 	.modal-backdrop {
 		z-index: 500;
 	}
+
+@import "media";
