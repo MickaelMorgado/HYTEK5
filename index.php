@@ -5,7 +5,7 @@
 ?>
 <html>
 <head>
-	<title>ElementarY</title>
+	<title>HYTEK5 - Start Page</title>
 	<meta name="theme-color" content="#224455">
 	<link rel="icon" href="hyteklogo.jpg" type="image/jpg">
     <meta charset="UTF-8">
