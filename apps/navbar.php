@@ -7,7 +7,7 @@
 			<div class="row">
 				<div class="col-sm-9 col-md-8 col-lg-9">
 					<div id="tabs">
-						<div id="autocomplete"></div>
+						<ul id="autocomplete"></ul>
 						<input 
 							type="text" 
 							name="link-add-url" 
@@ -62,28 +62,32 @@
 				<div class="col-sm-12 col-md-2 col-lg-2">
 					<ul class="list-inline">
 						<li><a href="http://gmail.com/">
-							<img 	class="dock-icon" 
-									src="dependencies/img/7.png" 
-									alt="gmail"
-									title="gmail"></a>
+							<img 	
+								class 	= 	"dock-icon" 
+								src 	= 	"dependencies/img/7.png" 
+								alt 	= 	"gmail"
+								title 	= 	"gmail"></a>
 						</li>
 						<li><a href="http://facebook.com">
-							<img 	class="dock-icon" 
-									src="dependencies/img/2.png" 
-									alt="facebook"
-									title="facebook"></a>
+							<img 	
+								class 	= 	"dock-icon" 
+								src 	= 	"dependencies/img/2.png" 
+								alt 	= 	"facebook"
+								title 	= 	"facebook"></a>
 						</li>
 						<li><a href="http://play.spotifycollection/songs">
-							<img 	class="dock-icon" 
-									src="dependencies/img/4.png" 
-									alt="spotify songs"
-									title="spotify songs"></a>
+							<img 	
+								class 	= 	"dock-icon" 
+								src 	= 	"dependencies/img/4.png" 
+								alt 	= 	"spotify songs"
+								title 	= 	"spotify songs"></a>
 						</li>
 						<li><a href="http://twitter.com">
-							<img 	class="dock-icon" 
-									src="dependencies/img/5.png" 
-									alt="twitter"
-									title="twitter"></a>
+							<img 	
+								class 	= 	"dock-icon" 
+								src 	= 	"dependencies/img/5.png" 
+								alt 	= 	"twitter"
+								title 	= 	"twitter"></a>
 						</li>
 					</ul>
 				</div>

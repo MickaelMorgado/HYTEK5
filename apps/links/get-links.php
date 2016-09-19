@@ -37,6 +37,7 @@
     	?>
 		<a href="<?php echo $r2; ?>" class="link-list title view" data-linkid="<?php echo $r0; ?>" data-view="<?php echo $r4; ?>" title="<?php echo ' View: '.$r4.'&#13; Date: '.$r3.'&#13; Link: '.$r2 ?>">
 			<span class="url"><?php echo $r2 ?></span>
+			<span class="title">
 			<?php 
 			if ($row['title'] == '') {	// IF EMPTY TITLE GET ONE BASED FROM THE LINK
 				$url 	= str_replace(array("http://", "https://", "www."), "", $row['url']);//$link = "http://$url.com";
@@ -48,6 +49,7 @@
 				echo $r1; 
 			} 
 			?>
+			</span>
 		</a>
 	</li>
 <?php 

@@ -164,25 +164,53 @@
 			    		}
 
 			    		else { 
-			    			//$('#searchinput').focus(); 
-			    			//var SIVal = $('#searchinput').val();
-			    			//var thisString = new RegExp('\\b' + SIVal + '\\b', 'i');
-			    			//var thisString = new RegExp('\b'+SIVal,'i'); /* i = insensitive */
-			    			//var FoundIt = thisString.test(autocompleteListWords);  
-							/* new RegExp('\\b' + "YOUTUBE" + '\\b', 'i').test(["YOUTUBE","GOOGLE","FACEBOOK"]); */
-			    			//$('#autocomplete').text(""+thisString); 
-			    			//if (FoundIt) { 
-			    			//	console.log("found:"+thisString);
-				    		//	$('#autocomplete').text("true"); 
-			    			//}
-			    			if (e.keyCode === escKey){ /* tab */
-			    				//console.log("autocomplete : "+$('#searchinput').val()+renderAutocompleteWord); return false; 
-			    			} 
-			    		}
 
-			    	}
-			    	else {
-
+			    			/* AUTOCOMPLETE ============================================ http://jsfiddle.net/uMqyn/1/ or http://stackoverflow.com/questions/25193173/getting-jquery-autocomplete-suggestion-list-on-select-or-enter */
+				    			$(function(){
+				    			  	//var availableTags = ["google","youtube","facebook"];
+				    			  	var availableTags = $('.link-list > span.title').text().trim().split(" ");
+				    			  	function split(val) {return val.split( / \s*/ );}
+				    			  	function extractLast(term) {return split(term).pop();}
+				    				$("#searchinput")									// don't navigate away from the field on tab when selecting an item
+				    			    	.on( "keydown", function( event ) {
+				    			      		if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( "instance" ).menu.active ) {
+				    			        		event.preventDefault();
+				    			      		}
+				    			      		/* dropdown following caret postion  
+				    			      				https://forum.jquery.com/topic/i-would-like-autocomplete-dropdown-to-follow-caret , 
+				    			      				http://jsfiddle.net/prgtrdr/pTt2L/5/
+											var newY = $(this).textareaHelper('caretPos').top + (parseInt($(this).css('font-size'), 10) * 1.5);
+											var newX = $(this).textareaHelper('caretPos').left;
+											var posString = "left+" + newX + "px top+" + newY + "px";
+											$(this).autocomplete("option", "position", {
+												my: "left top",
+							                	at: posString
+							            	});
+				    			      		*/
+				    			    	})
+				    			    	.autocomplete({
+				    			    		autoFocus: true,
+				    			    		delay: 0,
+				    			      		minLength: 0,
+				    			      		source: function( request, response ) { 	// delegate back to autocomplete, but extract the last term
+				    			        		response( $.ui.autocomplete.filter(availableTags,extractLast(request.term)));
+				    			      		},
+				    			      		focus: function() {							// prevent value inserted on focus
+				    			        		return false;
+				    			      		},
+				    			      		select: function( event, ui ) {
+						    			        var terms = split( this.value );
+				    			        		terms.pop();							// remove the current input
+				    			        		terms.push(ui.item.value);			// add the selected item
+												terms.push("");						// add placeholder to get the comma-and-space at the end
+												this.value = terms.join(" ");
+												return false;
+			    			      			}
+		    			    			});
+				    			});
+							/* END OF AUTOCOMPLETE ============================================*/
+		    			}
+			    	}else{
 			    		if ( e.keyCode === enterKey ) {
 			    			alert("pressing enter key");
 			    			if ($("#searchinput").is(":focus")) {
@@ -192,7 +220,6 @@
 			    				$('#enableRefresh li a:focus').trigger("click"); 	/* "enter" to click on tab */
 			    			}
 			    		}
-			    		
 			    		return false;
 			    	};
 			    }
