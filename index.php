@@ -5,7 +5,7 @@
 ?>
 <html>
 <head>
-	<title>ElementarY</title>
+	<title>HYTEK5 - Start Page</title>
 	<meta name="theme-color" content="#224455">
 	<link rel="icon" href="hyteklogo.jpg" type="image/jpg">
     <meta charset="UTF-8">
@@ -197,7 +197,7 @@
 			    			/* AUTOCOMPLETE ============================================ http://jsfiddle.net/uMqyn/1/ or http://stackoverflow.com/questions/25193173/getting-jquery-autocomplete-suggestion-list-on-select-or-enter */
 				    			$(function(){
 				    			  	//var availableTags = ["google","youtube","facebook"];
-				    			  	var availableTags = $('.link-list > span.title').text().trim().split(" ");
+				    			  	var availableTags = $('.link-list > span.title').map(function(i, e){return $.trim(e.innerHTML)}).get();
 				    			  	function split(val) {return val.split( / \s*/ );}
 				    			  	function extractLast(term) {return split(term).pop();}
 				    				$("#searchinput")									// don't navigate away from the field on tab when selecting an item

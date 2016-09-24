@@ -5,7 +5,7 @@
 			method="post"
 			onsubmit="ajax($(this),event)">
 			<div class="row">
-				<div class="col-sm-9 col-md-8 col-lg-9">
+				<div class="col-sm-9 col-md-8 col-lg-8">
 					<div id="tabs">
 						<ul id="autocomplete"></ul>
 						<input 
@@ -20,7 +20,7 @@
 							data-step="2">
 					</div>
 				</div>
-				<div class="col-sm-3 col-md-2 col-lg-1">
+				<div class="col-sm-3 col-md-2 col-lg-2">
 					<div class="toggles-search-buttons">
 						<ul class="list-inline">
 							<input 
