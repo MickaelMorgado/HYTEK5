@@ -18,7 +18,7 @@
 	<style></style>
 </head>
 <body>
-
+	<div class="preloader"></div>
 	<div class="dock text-center">
 		<div class="container-fluid">
 			<div class="row">

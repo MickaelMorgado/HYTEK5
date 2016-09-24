@@ -32,7 +32,7 @@
 			</ul>
 		</div>
 		<?php 
-			if(strpos($r2, "http://") !== false){ }
+			if(strpos($r2, "http://") !== false || strpos($r2, "https://") !== false){}
     		else { $r2 = "http://".$r2; } 	
     	?>
 		<a href="<?php echo $r2; ?>" class="link-list title view" data-linkid="<?php echo $r0; ?>" data-view="<?php echo $r4; ?>" title="<?php echo ' View: '.$r4.'&#13; Date: '.$r3.'&#13; Link: '.$r2 ?>">

@@ -61,11 +61,7 @@
 	<div class="modal fade laclass" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content well">
-				<h3>Choose a example wallpaper: </h3>
-				<form action="apps/settings/setup.php" method="POST">
-					<input class="btn btn-primary" type="submit" name="bg" value="http://s8.favim.com/orig/150705/crystal-growth-ice-gif-space-talking-shape-Favim.com-2904298.gif">
-					<input class="btn btn-primary" type="submit" name="bg" value="http://img0.joyreactor.com/pics/post/full/river-hd-gif-nature-1314656.gif">
-				</form>
+				<?php include('chooseWallpapers.php') ?>
 			</div>
 		</div>
 	</div>

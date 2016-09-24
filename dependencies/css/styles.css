@@ -93,14 +93,30 @@ a:hover {
 }
 
 /*============================================================
+    preloader
+============================================================*/
+/* line 143, ../sass/styles.scss */
+.preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  background-color: #0f0f0f;
+  content: '';
+  opacity: 1;
+}
+
+/*============================================================
     INPUT TYPE FILE
 ============================================================*/
-/* line 163, ../sass/styles.scss */
+/* line 179, ../sass/styles.scss */
 input[type="file"] {
   visibility: hidden;
   position: absolute;
 }
-/* line 147, ../sass/styles.scss */
+/* line 163, ../sass/styles.scss */
 input[type="file"] + label {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -108,7 +124,7 @@ input[type="file"] + label {
   border: 1px solid #fff;
   display: block;
 }
-/* line 152, ../sass/styles.scss */
+/* line 168, ../sass/styles.scss */
 input[type="file"] + label.has-file {
   border: 1px solid #ffc600;
   color: #ffc600;
@@ -121,17 +137,17 @@ input[type="file"] + label.has-file {
 /*============================================================
     header
 ============================================================*/
-/* line 172, ../sass/styles.scss */
+/* line 188, ../sass/styles.scss */
 #searchform button {
   background-color: transparent;
   padding: 0;
 }
-/* line 176, ../sass/styles.scss */
+/* line 192, ../sass/styles.scss */
 #searchform li {
   height: 40px;
 }
 
-/* line 181, ../sass/styles.scss */
+/* line 197, ../sass/styles.scss */
 #autocomplete {
   position: absolute;
   text-transform: uppercase;
@@ -142,7 +158,7 @@ input[type="file"] + label.has-file {
 /*============================================================
     well
 ============================================================*/
-/* line 192, ../sass/styles.scss */
+/* line 208, ../sass/styles.scss */
 .well {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -153,7 +169,7 @@ input[type="file"] + label.has-file {
 /*============================================================
     glass element
 ============================================================*/
-/* line 201, ../sass/styles.scss */
+/* line 217, ../sass/styles.scss */
 .element, .dock .dock-aspect {
   -moz-border-radius: 1px;
   -webkit-border-radius: 1px;
@@ -173,7 +189,7 @@ input[type="file"] + label.has-file {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 217, ../sass/styles.scss */
+/* line 233, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -197,19 +213,19 @@ input[type="file"] + label.has-file {
   z-index: 5;
   pointer-events: none;
 }
-/* line 245, ../sass/styles.scss */
+/* line 261, ../sass/styles.scss */
 .element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #ffd133;
   -webkit-box-shadow: 0 0 10px -2px #ffd133;
   box-shadow: 0 0 10px -2px #ffd133;
 }
 
-/* line 250, ../sass/styles.scss */
+/* line 266, ../sass/styles.scss */
 .scrollable {
   overflow-y: scroll;
   max-height: 240px;
 }
-/* line 253, ../sass/styles.scss */
+/* line 269, ../sass/styles.scss */
 .scrollable.youtube {
   max-height: 150px;
 }
@@ -217,14 +233,14 @@ input[type="file"] + label.has-file {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 261, ../sass/styles.scss */
+/* line 277, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 267, ../sass/styles.scss */
+/* line 283, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -238,7 +254,7 @@ input[type="file"] + label.has-file {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 279, ../sass/styles.scss */
+/* line 295, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -246,16 +262,16 @@ input[type="file"] + label.has-file {
   width: 200%;
 }
 
-/* line 286, ../sass/styles.scss */
+/* line 302, ../sass/styles.scss */
 .element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 289, ../sass/styles.scss */
+/* line 305, ../sass/styles.scss */
 .element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 292, ../sass/styles.scss */
+/* line 308, ../sass/styles.scss */
 .element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -266,12 +282,12 @@ input[type="file"] + label.has-file {
   height: 225px;
 }
 
-/* line 301, ../sass/styles.scss */
+/* line 317, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 305, ../sass/styles.scss */
+/* line 321, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -279,18 +295,18 @@ input[type="file"] + label.has-file {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 309, ../sass/styles.scss */
+/* line 325, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
 }
 
-/* line 316, ../sass/styles.scss */
+/* line 332, ../sass/styles.scss */
 .youtube-list-rm-button {
   margin-right: 10px;
 }
 
-/* line 317, ../sass/styles.scss */
+/* line 333, ../sass/styles.scss */
 .youtube-list-thumbnail {
   width: 50px;
   margin-right: 10px;
@@ -299,7 +315,7 @@ input[type="file"] + label.has-file {
 /*============================================================
     clock
 ============================================================*/
-/* line 325, ../sass/styles.scss */
+/* line 341, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -309,19 +325,19 @@ input[type="file"] + label.has-file {
 /*============================================================
     link list
 ============================================================*/
-/* line 334, ../sass/styles.scss */
+/* line 350, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 337, ../sass/styles.scss */
+/* line 353, ../sass/styles.scss */
 .title .url {
   visibility: hidden;
   position: absolute;
   z-index: -1;
 }
 
-/* line 343, ../sass/styles.scss */
+/* line 359, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -332,32 +348,32 @@ input[type="file"] + label.has-file {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 353, ../sass/styles.scss */
+/* line 369, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 355, ../sass/styles.scss */
+/* line 371, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 360, ../sass/styles.scss */
+/* line 376, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 364, ../sass/styles.scss */
+/* line 380, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 368, ../sass/styles.scss */
+/* line 384, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 373, ../sass/styles.scss */
+/* line 389, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -368,7 +384,7 @@ input[type="file"] + label.has-file {
   padding: 10px;
 }
 
-/* line 383, ../sass/styles.scss */
+/* line 399, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -379,12 +395,13 @@ input[type="file"] + label.has-file {
   border: none;
 }
 
-/* line 391, ../sass/styles.scss */
+/* line 407, ../sass/styles.scss */
 #enableRefresh > li {
+  width: 260px;
   position: relative;
 }
 
-/* line 395, ../sass/styles.scss */
+/* line 412, ../sass/styles.scss */
 .links-remove,
 .links-edit {
   position: absolute;
@@ -392,17 +409,17 @@ input[type="file"] + label.has-file {
   right: 10px;
 }
 
-/* line 401, ../sass/styles.scss */
+/* line 418, ../sass/styles.scss */
 .links-edit {
   right: 40px;
 }
-/* line 403, ../sass/styles.scss */
+/* line 420, ../sass/styles.scss */
 .links-edit .dropdown-menu {
   left: auto;
   right: 0;
 }
 
-/* line 408, ../sass/styles.scss */
+/* line 425, ../sass/styles.scss */
 input.fa {
   height: initial;
 }
@@ -410,7 +427,7 @@ input.fa {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 415, ../sass/styles.scss */
+/* line 432, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -418,7 +435,7 @@ input.fa {
 /*============================================================
     accordions
 ============================================================*/
-/* line 422, ../sass/styles.scss */
+/* line 439, ../sass/styles.scss */
 .panel-group .panel {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -426,7 +443,7 @@ input.fa {
   border: none;
   background-color: #111;
 }
-/* line 426, ../sass/styles.scss */
+/* line 443, ../sass/styles.scss */
 .panel-group .panel.panel-default > .panel-heading {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -435,7 +452,7 @@ input.fa {
   background-color: #333;
   color: #fff;
 }
-/* line 431, ../sass/styles.scss */
+/* line 448, ../sass/styles.scss */
 .panel-group .panel.panel-default > .panel-heading a {
   padding: 10px;
   display: block;
@@ -444,7 +461,7 @@ input.fa {
 /*============================================================
     tabs
 ============================================================*/
-/* line 441, ../sass/styles.scss */
+/* line 458, ../sass/styles.scss */
 #tabs .list {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -463,23 +480,23 @@ input.fa {
   	direction: ltr;
   }*/
 }
-/* line 457, ../sass/styles.scss */
+/* line 474, ../sass/styles.scss */
 #tabs .list:hover, #tabs .list.active {
   left: 0;
   opacity: 1;
 }
-/* line 462, ../sass/styles.scss */
+/* line 479, ../sass/styles.scss */
 #tabs .list .link-list {
   text-align: left;
   padding: 5px 20px;
 }
-/* line 465, ../sass/styles.scss */
+/* line 482, ../sass/styles.scss */
 #tabs .list .link-list:focus {
   outline: none;
   box-shadow: 0 0 15px 0 black inset;
 }
 
-/* line 471, ../sass/styles.scss */
+/* line 488, ../sass/styles.scss */
 #tabs .scrollable.list {
   max-height: none;
 }
@@ -487,12 +504,12 @@ input.fa {
 /*============================================================
     dock
 ============================================================*/
-/* line 476, ../sass/styles.scss */
+/* line 493, ../sass/styles.scss */
 .masonry-container {
   margin-top: 55px;
 }
 
-/* line 479, ../sass/styles.scss */
+/* line 496, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -503,14 +520,14 @@ input.fa {
   display: block;
   z-index: 10;
 }
-/* line 489, ../sass/styles.scss */
+/* line 506, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 495, ../sass/styles.scss */
+/* line 512, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -550,7 +567,7 @@ input.fa {
   }
   */
 }
-/* line 538, ../sass/styles.scss */
+/* line 555, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
@@ -573,7 +590,7 @@ input.fa {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 552, ../sass/styles.scss */
+/* line 569, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -581,18 +598,18 @@ input.fa {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 557, ../sass/styles.scss */
+/* line 574, ../sass/styles.scss */
 .dock input.dock-icon {
   color: transparent;
 }
-/* line 558, ../sass/styles.scss */
+/* line 575, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
   background: #111 none repeat scroll 0% 0%;
 }
-/* line 564, ../sass/styles.scss */
+/* line 581, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
@@ -600,7 +617,7 @@ input.fa {
 /*============================================================
     sidebar list
 ============================================================*/
-/* line 573, ../sass/styles.scss */
+/* line 590, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -616,13 +633,13 @@ input.fa {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 584, ../sass/styles.scss */
+/* line 601, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 590, ../sass/styles.scss */
+/* line 607, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -632,7 +649,7 @@ input.fa {
   padding: 0;
 }
 
-/* line 599, ../sass/styles.scss */
+/* line 616, ../sass/styles.scss */
 #menu-toggle, #menu-close {
   bottom: 0;
   right: 0;
@@ -643,7 +660,7 @@ input.fa {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 609, ../sass/styles.scss */
+/* line 626, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -653,7 +670,7 @@ input.fa {
   width: 100%;
 }
 
-/* line 615, ../sass/styles.scss */
+/* line 632, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -663,7 +680,7 @@ input.fa {
 /*============================================================
     Modal
 ============================================================*/
-/* line 625, ../sass/styles.scss */
+/* line 642, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -672,15 +689,39 @@ input.fa {
   border: 5px solid #111;
 }
 
-/* line 631, ../sass/styles.scss */
+/* line 648, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }
 
 /*============================================================
+    thumbnail for preview wallpapers
+============================================================*/
+/* line 655, ../sass/styles.scss */
+.thumbnail-preview {
+  width: 150px;
+  height: 100px;
+  display: inline-block;
+  border: 2px solid #111;
+  background-position: cover;
+  background-size: 100% 100%;
+}
+/* line 662, ../sass/styles.scss */
+.thumbnail-preview:hover {
+  cursor: pointer;
+}
+
+/* line 664, ../sass/styles.scss */
+.thumbnail-preview + input {
+  z-index: -1;
+  visibility: hidden;
+  position: absolute;
+}
+
+/*============================================================
     autocomplete styles
 ============================================================*/
-/* line 638, ../sass/styles.scss */
+/* line 673, ../sass/styles.scss */
 .ui-widget-content {
   border: none;
   background: #111 none 50% 50% repeat-x !important;

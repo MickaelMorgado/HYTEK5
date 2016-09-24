@@ -103,6 +103,9 @@
 		});
 		$('#enableRefresh').height($(window).height()-55);
 	});
+	$(window).load(function(){
+		$('.preloader').fadeOut(1000);
+	});
 
 $("#menu-close").click(function(e) {
   e.preventDefault();

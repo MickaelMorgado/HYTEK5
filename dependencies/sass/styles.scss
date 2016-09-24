@@ -137,6 +137,22 @@
 	} 
 
 /*============================================================
+    preloader
+============================================================*/
+
+	.preloader {
+		position: absolute;
+		
+		top: 0;left: 0;bottom: 0;right: 0;
+		display: block;
+		
+		background-color: #0f0f0f;
+		
+		content: '';
+		opacity: 1;
+	}
+
+/*============================================================
     INPUT TYPE FILE
 ============================================================*/
 
@@ -389,6 +405,7 @@
 	}
 
 	#enableRefresh > li {
+		width: 260px;
 		position: relative;
 	}
 
@@ -630,6 +647,24 @@
 
 	.modal-backdrop {
 		z-index: 500;
+	}
+
+/*============================================================
+    thumbnail for preview wallpapers
+============================================================*/
+	.thumbnail-preview {
+		width: 150px;
+		height: 100px;
+		display: inline-block;
+		border: 2px solid $bgc; 
+		background-position: cover;
+		background-size: 100% 100%;
+		&:hover { cursor: pointer; }
+	}
+	.thumbnail-preview + input {
+		z-index: -1;
+		visibility: hidden;
+		position: absolute;
 	}
 
 /*============================================================
