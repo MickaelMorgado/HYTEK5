@@ -16,12 +16,13 @@ if(!isset($_SESSION['id_session'])){?>
 			<div class="form-group">
 				<input type="password" placeholder="Password" name="password" id="password" />
 			</div>
-			<div class="form-group">
+			<!--div class="form-group">
 				remeber me: <input type="checkbox" name="keepSession" checked="checked">
-			</div>
+			</div-->
 
 			<div class="form-group">
 				<button type="submit" name="btn-login" id="btn-login">Sign In</button> 
+				<button type="button" data-toggle="modal" data-target=".reset-password-modal">reset your password</button>
 			</div>        
 		</form>
 	</div>
@@ -90,10 +91,34 @@ if(!isset($_SESSION['id_session'])){?>
 				echo "<br>";
 			} 	
 		}else{
-			echo "0 results";
+			echo "user not found";
 		}
 
 	?>
+
+	<a href="#" data-toggle="modal" data-target=".change-password">change password</a>
+	
+	
+	<div class="modal fade change-password" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">        
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form action="apps/change-password.php" method="post">
+						<input type="password" name="old-password" placeholder="old password">
+						<input type="password" name="new-password" placeholder="new password">
+						<input type="password" name="confirm-password" placeholder="confirm password">
+						<input type="submit" value="reset password">
+					</form>
+				</div>
+				<div class="modal-footer"></div>
+			</div>
+		</div>
+	</div>
 	<a href="apps/logout.php" class="btn">Logout</a><?php
 }
 ?>

@@ -102,7 +102,36 @@
 				</div>
 			</div>
 		</div>
-	
+
+	<!-- RESET PASSWORD -->
+		<div class="modal fade reset-password-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">        
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form 
+							action="apps/send-email-reset-password.php"
+							method="post">
+								<label for="reset-password-email">Email:</label>
+								<input 
+									type="email" 
+									id="reset-password-email" 
+									name="reset-password-email"
+									placeholder="email">
+								<input 
+									type="submit" 
+									value="reset password">
+						</form>
+					</div>
+					<div class="modal-footer"></div>
+				</div>
+			</div>
+		</div>
+		
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
 	<script src="dependencies/js/list.fuzzysearch.js"></script>
 	<script src="dependencies/js/jscolor.js"></script>
