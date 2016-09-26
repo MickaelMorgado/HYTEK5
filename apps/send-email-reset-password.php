@@ -31,9 +31,6 @@ $mail->Port = 587;                                    // TCP port to connect to
 
 $mail->setFrom('mickaelmorgado31@gmail.com');
 $mail->addAddress($_POST['reset-password-email']);     // Add a recipient
-//$mail->addReplyTo('info@example.com', 'Information');
-//$mail->addCC('cc@example.com');
-//$mail->addBCC('bcc@example.com');
 
 //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
 //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
