@@ -12,7 +12,7 @@
 	mouseover3.src = 'audios/mouseover.mp3';
 	mouseover4.src = 'audios/mouseover.mp3';
 	
-	soundtrack.src = 'audios/soundtrack.mp3';soundtrack.loop=true;
+	soundtrack.src = 'audios/soundtrack2.mp3';soundtrack.loop=true;
 
 	$(document).ready(function(){					soundtrack.play();			});
 
