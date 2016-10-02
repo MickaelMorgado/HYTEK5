@@ -1,14 +1,15 @@
 <!doctype html>
+<?php 
+	$error_reporting = 0;
+	include('../dbConnection.php');
+?>
 <html class="no-js" lang="en">
 <?php 
 	include('head.php'); 
 ?>
 <body class="homemenu">
-
 	<?php include('preloader.html'); ?>
-
 	<div class="smoke"></div>
-
 <!--div class="block friends">
 	<h1>
 		<input type="text" placeholder="Search" class="search_friends">
@@ -45,144 +46,159 @@
 
 	<div class="row first">
 
-
 <div class="single-item">
 	<div>
 		<div class="col-md-3">
-			<div class="block games">
-				<h1>Games</h1>
-				<img src="img/thumbnail1.png" alt="">
-				<a href="games/game.php" id="oom" class="link">only one minute</a></li>
-				<a href="#" class="link">waves</a></li>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div class="block leaderboard">
-			<?php 
-				if(isset($_SESSION['id_player']) != ''){ include('apps/your_score.php')
-					?>
-					<div class="yourscore">
-						<div>
-							<div class="ys_list">
-								<span class="name"><?php echo "$Name"; ?></span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Your best Score:</span>
-								<span class="ys_right"><?php echo "$Score"; ?></span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Your last Score:</span>
-								<span class="ys_right"><?php echo "$last_Score"; ?></span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Game Type:</span>
-								<span class="ys_right"><?php echo "$GameMode"; ?></span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Time Played:</span>
-								<span class="ys_right"><?php echo "$TimePlayed"; ?></span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Coins:</span>
-								<span class="ys_right"><?php echo "$coins €"; ?></span>
-							</div>
-						</div>
-					</div>
-					<?php
-				}else{
-					?>
-					<div class="yourscore scrollable">
-						<div>
-							<div class="ys_list">
-								<span class="name">Not logged</span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Your best Score:</span>
-								<span class="ys_right">None</span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Game Type:</span>
-								<span class="ys_right">None</span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Time Played:</span>
-								<span class="ys_right">None</span>
-							</div>
-							<div class="ys_list">
-								<span class="ys_left">Coins:</span>
-								<span class="ys_right">None</span>
-							</div>
-						</div>
-					</div>
-					<?php
-				}
-			?>
-				<h1>Leaderboard</h1>
-				<img src="img/trophy.jpg" alt="">
-				<div class="leaderboardlist scrollable">
-					<?php 
-						include('apps/leaderboard_list.php');
-					?>
+			
+			<!-- GAMES -->
+				<div class="block games">
+					<h1>Games</h1>
+					<img src="img/thumbnail1.png" alt="">
+					<a href="games/game.php" id="oom" class="link">only one minute</a></li>
+					<a href="#" class="link">waves <?php echo $_SESSION['id_session']; ?></a></li>
 				</div>
-			</div>
+
 		</div>
 		<div class="col-md-3">
-			<div class="block options">
-				<h1>Options</h1>
-				<img src="img/gtx.jpg" alt="">
-				<div class="scrollable">
 
-					<?php 
-						if (isset($_SESSION['id_player'])) { 
-							?>
-							<a href="../apps/logout.php" type="button">Logout</a>
-							<a type='button' data-toggle='modal' data-target='.boby'>Settings</a>
+			<!-- LEADERBOARD -->
+				<div class="block leaderboard">
+					<?php if(isset($_SESSION['id_session'])){ include('apps/your_score.php') ?>
+							<div class="yourscore">
+								<div>
+									<div class="ys_list">
+										<span class="name"><?php echo "$Name"; ?></span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Your best Score:</span>
+										<span class="ys_right"><?php echo "$Score"; ?></span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Your last Score:</span>
+										<span class="ys_right"><?php echo "$last_Score"; ?></span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Game Type:</span>
+										<span class="ys_right"><?php echo "$GameMode"; ?></span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Time Played:</span>
+										<span class="ys_right"><?php echo "$TimePlayed"; ?></span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Coins:</span>
+										<span class="ys_right"><?php echo "$coins €"; ?></span>
+									</div>
+								</div>
+							</div>
 							<?php
 						}else{
 							?>
-							<a type="button" data-toggle="modal" data-target=".loginmodal">Login / Sign up</a>
-							<a type="button" data-toggle="modal" data-target=".loginmodal">Settings (need login)</a>
+							<div class="yourscore scrollable">
+								<div>
+									<div class="ys_list">
+										<span class="name">Not logged</span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Your best Score:</span>
+										<span class="ys_right">None</span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Game Type:</span>
+										<span class="ys_right">None</span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Time Played:</span>
+										<span class="ys_right">None</span>
+									</div>
+									<div class="ys_list">
+										<span class="ys_left">Coins:</span>
+										<span class="ys_right">None</span>
+									</div>
+								</div>
+							</div>
 							<?php
 						}
 					?>
-					<a href="#" id="HS">Help / Support</a>
-					
-
-
+						<h1>Leaderboard</h1>
+						<img src="img/trophy.jpg" alt="">
+						<div class="leaderboardlist scrollable">
+							<?php 
+								include('apps/leaderboard_list.php');
+							?>
+						</div>
 				</div>
-			</div>
+
 		</div>
 		<div class="col-md-3">
-			<div class="block armory">
-				<?php include("armory.php") ?>
-			</div>
+
+			<!-- OPTION -->
+				<div class="block options">
+					<h1>Options</h1>
+					<img src="img/gtx.jpg">
+					<div class="scrollable">
+
+						<?php 
+							if (isset($_SESSION['id_session'])) { 
+								?>
+								<a href="../apps/logout.php" type="button">Logout</a>
+								<a type='button' data-toggle='modal' data-target='.boby'>Settings</a>
+								<?php
+							}else{
+								?>
+								<a type="button" data-toggle="modal" data-target=".loginmodal">Login / Sign up</a>
+								<a type="button" data-toggle="modal" data-target=".loginmodal">Settings (need login)</a>
+								<?php
+							}
+						?>
+						<a href="#" id="HS">Help / Support</a>
+						
+
+
+					</div>
+				</div>
+
+		</div>
+		<div class="col-md-3">
+
+			<!-- WEAPONS -->
+				<div class="block armory">
+					<?php include("armory.php") ?>
+				</div>
+
 		</div>		
 	</div>
 	<div>
 		<div class="col-md-3">
-			<div class="block news">
-				<h1>News</h1>
-				<img src="img/news.jpg" alt="">
-				<div class="scrollable">
-					<p>Next <b>Updates</b>:</p>
-					<ul class="list">
-						<li>Beat leaderboard score by clicking on user.</li>
-					</ul>
+
+			<!-- NEWS -->
+				<div class="block news">
+					<h1>News</h1>
+					<img src="img/news.jpg" alt="">
+					<div class="scrollable">
+						<p>Next <b>Updates</b>:</p>
+						<ul class="list">
+							<li>Beat leaderboard score by clicking on user.</li>
+						</ul>
+					</div>
 				</div>
-			</div>
+
 		</div>
 		<div class="col-md-3">
-			<div class="block hs">
-				<h1>Help/Support</h1>
-				<img src="img/flag.png" alt="">
-				<div class="scrollable">
-					<p>If you encontred any problem in game see the list below:</p>
-					<ul class="list">
-						<li>Close unecessary tabs;</li>
-						<li>Videos players like (youtube, vimeo, etc.) can affect game performances close them or use different browser;</li>
-					</ul>
+			
+			<!-- HELPS -->
+				<div class="block hs">
+					<h1>Help/Support</h1>
+					<img src="img/flag.png" alt="">
+					<div class="scrollable">
+						<p>If you encontred any problem in game see the list below:</p>
+						<ul class="list">
+							<li>Close unecessary tabs;</li>
+							<li>Videos players like (youtube, vimeo, etc.) can affect game performances close them or use different browser;</li>
+						</ul>
+					</div>
 				</div>
-			</div>
+
 		</div>
 	</div>
 </div>
@@ -279,7 +295,9 @@
 			<div class="modal-content">
 				
 				<?php 
+
 					if(isset($_SESSION['id_player']) != '') { 
+						
 						$result = mysqli_query($link, "SELECT * FROM players WHERE id_player = $_SESSION[id_player]");
 						while ($row=mysqli_fetch_assoc($result)){
 							$coins = $row['coins'];
@@ -516,10 +534,12 @@
 								</div>
 							</div>
 						</div>
-					<?php
+						<?php
 					}else {
+
 						echo "<a href='#popup'>Shop (need login)</a>";
 					}
+					
 				?>
 			</div>
 		</div>
@@ -534,7 +554,7 @@
 								<h1>Settings</h1>
 								<?php 
 									if(isset($_SESSION['id_player']) != ''){
-										$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN players ON settings.id_player=players.id_player INNER JOIN scores ON scores.id_player=players.id_player WHERE players.id_player=$_SESSION[id_player]" );
+										$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN players ON settings.id_settings=users.id_session INNER JOIN scores ON scores.id_player=players.id_player WHERE players.id_player=$_SESSION[id_player]" );
 										while($row = mysqli_fetch_assoc($result)) {
 											$Name = $row['player_name'];
 											$settings = $row['presets'];

@@ -146,13 +146,18 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 			<div class="col-xs-12 col-sm-12 col-md-12">WHERE:</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="col-xs-12 col-sm-2 col-md-2">
 				<?php 
 					$link = mysqli_connect("localhost","root","",$dbname);
 					$sql = "SHOW COLUMNS FROM $_GET[tablename]";
 					$result = mysqli_query($link,$sql);
 					?>
-					<select name="wherefirst" id="wherefirst"><?php
+					<select name="wherefirst" id="wherefirst">
+					<?php if (isset($_GET['wherefirst'])): ?>
+					<?php else: ?>
+						<option value="">--</option>
+					<?php endif ?>
+					<?php
 						$num_rows = mysqli_num_rows($result);
 						$i = 0;
 						while($row = mysqli_fetch_array($result)){
@@ -163,13 +168,13 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 					?>">
 					</select>
 			</div>
-			<div class="col-xs-12 col-sm-3 col-md-3">
+			<div class="col-xs-12 col-sm-1 col-md-1">
 				<select name="operator" id="operator">
 					<option value="=" selected>=</option>
 				</select>
 			</div>
-			<div class="col-xs-12 col-sm-3 col-md-3">
-				<input type="wherevalue" name="wherevalue" placeholder="wherevalue" value="<?php echo $_GET['wherevalue']; ?>">
+			<div class="col-xs-12 col-sm-2 col-md-2">
+				<input type="wherevalue" name="wherevalue" placeholder="wherevalue" value="<?php if(isset($_GET['wherevalue'])){echo $_GET['wherevalue'];} ?>">
 			</div>		
 			<div class="col-xs-12 col-sm-3 col-md-3">
 				<input type="submit" class="opcional class">
@@ -179,14 +184,18 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 </div>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-5 col-md-5">
+		<div class="col-xs-12 col-sm-4 col-md-4">
 			RESULTS (limit 20 query)
 			<textarea rows="10"><?php 
 
 					$link = mysqli_connect("localhost","root","",$dbname);
 
 					if (isset($_GET['select'])) {
-						$sql = "SELECT $_GET[select] FROM $_GET[tablename] LIMIT 20";
+						if (isset($_GET['wherefirst'])) {
+							$sql = "SELECT $_GET[select] FROM $_GET[tablename] WHERE `".$_GET['wherefirst']."` = '".$_GET['wherevalue']."' LIMIT 20";
+						}else{
+							$sql = "SELECT $_GET[select] FROM $_GET[tablename] LIMIT 20";
+						}
 					}else{
 						$sql = "SELECT * FROM $_GET[tablename] LIMIT 20";
 					}
@@ -204,45 +213,51 @@ if (isset($_GET['tablename'])){}else{$_GET['tablename']='';}
 				?>
 			</textarea>
 		</div>
-		<div class="col-xs-12 col-sm-7 col-md-7">
+		<div class="col-xs-12 col-sm-8 col-md-8">
 			CONNECTION
-			<textarea rows="1">	$link = mysqli_connect("localhost","root","","<?php echo $dbname ?>");</textarea>
+			<textarea rows="1">$link = mysqli_connect("localhost","root","","<?php echo $dbname ?>");</textarea>
 			INSERT
-			<textarea rows="4">	$insert = "INSERT INTO `<?php echo $_GET['tablename'] ?>` (<?php echo $_GET['select'] ?>) VALUES (<?php echo $_GET['select'] ?>)";	
-	mysqli_query($link,$insert);
+			<textarea rows="4">$insert = "INSERT INTO `<?php echo $_GET['tablename'] ?>` (<?php echo $_GET['select'] ?>) VALUES (<?php echo $_GET['select'] ?>)";	
+mysqli_query($link,$insert);
 			</textarea>
 			SELECT
-			<textarea rows="14">
+			<textarea rows="14"><?php if (isset($_GET['select'])): ?>
+<?php if (isset($_GET['wherefirst'])): ?>
+$sql = "SELECT <?php echo $_GET['select'] ?> FROM <?php echo $_GET['tablename'] ?> WHERE `<?php echo "$_GET[wherefirst]"; ?>` = '<?php echo $_GET['wherevalue']; ?>'"
+<?php else: ?>
+$sql = "SELECT <?php echo $_GET['select'] ?> FROM <?php echo $_GET['tablename'] ?>";
+<?php endif ?>
+<?php else: ?>
+$sql = "SELECT * FROM <?php echo $_GET['tablename'] ?>";
+<?php endif ?>
 
-	<?php 
-	if (isset($_GET['select'])) {?>$sql = "SELECT <?php echo $_GET['select'] ?> FROM <?php echo $_GET['tablename'] ?>";
-	<?php }else{ ?>$sql = "SELECT * FROM <?php echo $_GET['tablename'] ?>";
-	<?php
-	}
-	?>$result = mysqli_query($link,$sql);
-
-	if ($result->num_rows > 0) {
-		while ($row = mysqli_fetch_assoc($result)) {
-			echo $row['Field'];
-			echo &quot;<br>&quot;;
-		} 	
-	}else{
-		echo "0 results";
-	}
-
+$result = mysqli_query($link,$sql);
+if ($result->num_rows > 0) {
+	while ($row = mysqli_fetch_assoc($result)) {
+		echo $row['Field'];
+		echo &quot;<br>&quot;;
+	} 	
+}else{
+	echo "0 results";
+}
 			</textarea>
 			UPDATE
-			<textarea rows="6">
+			<textarea rows="6"><?php if (isset($_GET['wherefirst'])): ?>
+$sql = "UPDATE `<?php echo $_GET['tablename'] ?>` SET `content` = 'newvalue' WHERE `<?php echo "$_GET[wherefirst]"; ?>` = <?php echo $_GET['wherevalue']; ?>";				
+<?php else: ?>
+$sql = "UPDATE `<?php echo $_GET['tablename'] ?>` SET `content` = 'newvalue'";
+<?php endif ?>
+mysqli_query($link,$sql);
 
-	$sql = "UPDATE `<?php echo $_GET['tablename'] ?>` SET `content` = 'newvalue' WHERE `<?php echo "$_GET[wherefirst]"; ?>` = <?php echo $_GET['wherevalue']; ?>";
-	mysqli_query($link,$sql);
 
 			</textarea>
 			DELETE
-			<textarea rows="6">
-
-	$sql = "$sql = "DELETE FROM <?php echo $_GET['tablename'] ?> WHERE <?php echo "$_GET[wherefirst]"; ?> = <?php echo $_GET['wherevalue']; ?>;
-	mysqli_query($link,$sql);
+			<textarea rows="6"><?php if (isset($_GET['wherefirst'])): ?>
+$sql = "$sql = "DELETE * FROM <?php echo $_GET['tablename'] ?> WHERE <?php echo "$_GET[wherefirst]"; ?> = <?php echo $_GET['wherevalue']; ?>";
+<?php else: ?>
+$sql = "$sql = "DELETE * FROM <?php echo $_GET['tablename'] ?>";
+<?php endif ?>
+mysqli_query($link,$sql);
 
 			</textarea>
 		</div>

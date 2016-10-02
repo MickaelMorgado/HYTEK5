@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-	<div id="tabs">
+	<div id="tabs" class="socialicons">
 		<form id="searchform"
 			action="apps/links/navbar-submit.php" 
 			method="post"
@@ -33,27 +33,24 @@
 									type	=	"submit" 
 									title 	= 	"google search (enter)" 
 									value 	= 	"google" 
-									class 	= 	"dock-icon"
-									onclick = 	"$(location).attr('href', 'https://www.google.com/search?q='+$('#searchinput').val())" 
-									style 	= 	"background-image:url('dependencies/img/1.png')">
+									class 	= 	"dock-icon sprite s1"
+									onclick = 	"$(location).attr('href', 'https://www.google.com/search?q='+$('#searchinput').val())" >
 								</input>
 							</li><li>
 								<input 
 									type	= 	"submit" 
 									title 	= 	"youtube search" 
 									value 	= 	"youtube" 
-									class 	= 	"dock-icon"
-									onclick = 	"$(location).attr('href', 'https://www.youtube.com/results?search_query='+$('#searchinput').val())" 
-									style 	= 	"background-image:url('dependencies/img/3.png')">
+									class 	= 	"dock-icon sprite s3"
+									onclick = 	"$(location).attr('href', 'https://www.youtube.com/results?search_query='+$('#searchinput').val())" >
 								</input>
 							</li><li>
 								<input 
 									type 	= 	"submit" 
 									title 	= 	"add this link" 
 									value 	= 	"add" 
-									class 	= 	"dock-icon"
-									onclick = 	"$('#dynamic-method').val('add');" 
-									style 	= 	"background-image:url('dependencies/img/6.png')">
+									class 	= 	"dock-icon sprite s6"
+									onclick = 	"$('#dynamic-method').val('add');" >
 								</input>
 							</li>
 						</ul>
@@ -63,30 +60,22 @@
 					<ul class="list-inline">
 						<li><a href="http://gmail.com/">
 							<img 	
-								class 	= 	"dock-icon" 
-								src 	= 	"dependencies/img/7.png" 
-								alt 	= 	"gmail"
+								class 	= 	"dock-icon sprite s7" 
 								title 	= 	"gmail"></a>
 						</li>
 						<li><a href="http://facebook.com">
 							<img 	
-								class 	= 	"dock-icon" 
-								src 	= 	"dependencies/img/2.png" 
-								alt 	= 	"facebook"
+								class 	= 	"dock-icon sprite s2" 
 								title 	= 	"facebook"></a>
 						</li>
 						<li><a href="http://play.spotifycollection/songs">
 							<img 	
-								class 	= 	"dock-icon" 
-								src 	= 	"dependencies/img/4.png" 
-								alt 	= 	"spotify songs"
+								class 	= 	"dock-icon sprite s5" 
 								title 	= 	"spotify songs"></a>
 						</li>
 						<li><a href="http://twitter.com">
 							<img 	
-								class 	= 	"dock-icon" 
-								src 	= 	"dependencies/img/5.png" 
-								alt 	= 	"twitter"
+								class 	= 	"dock-icon sprite s4" 
 								title 	= 	"twitter"></a>
 						</li>
 					</ul>

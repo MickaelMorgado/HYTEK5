@@ -1,0 +1,43 @@
+.webbuilder { /* START OF WEBBUILDER */
+
+background-color: #222;
+color: white;
+
+	.sidebar {
+		background-color: #111;
+		top: 0;
+		left: -240px;
+		width: 250px;
+		bottom: 0;
+		display: inline-block;
+		position: fixed;
+		overflow-y: scroll;
+		opacity: .1;
+		@include single-transition(all, .25s, ease-in-out);		
+		&:hover { 
+			left: 0; 
+			opacity: 1;
+		}
+	}
+
+
+	.node-style {
+		background-color: #333;
+		border-radius: 4px;
+		padding: 10px;
+		display: inline-block;
+	}
+
+
+
+	.workspace {
+		width: 100%;
+		min-height: 500px;
+	}
+
+
+
+
+
+
+} /* END OF WEBBUILDER */

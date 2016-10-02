@@ -1,26 +1,26 @@
-/* line 8, ../sass/styles.scss */
+/* line 9, ../sass/styles.scss */
 body {
   background-color: #111;
   color: #fff;
 }
 
-/* line 13, ../sass/styles.scss */
+/* line 14, ../sass/styles.scss */
 input, textarea, select {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  color: #fff;
-  background-color: #111;
-  border: 1px solid gray;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  color: #bbb;
+  background-color: #222;
+  border: 1px solid #444;
   padding: 3px 5px;
 }
 
-/* line 21, ../sass/styles.scss */
+/* line 22, ../sass/styles.scss */
 textarea {
   width: 100%;
 }
 
-/* line 26, ../sass/styles.scss */
+/* line 27, ../sass/styles.scss */
 .container {
   padding-top: 20px;
   padding-bottom: 20px;

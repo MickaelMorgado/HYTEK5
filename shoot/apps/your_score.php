@@ -1,6 +1,6 @@
 <?php
-	$Name = "no user ".$_SESSION['id_player'];
-	$result = mysqli_query( $link, "SELECT * FROM scores INNER JOIN players ON scores.id_player=players.id_player WHERE players.id_player = $_SESSION[id_player]" );
+	$Name = "no user ".$_SESSION['id_session'];
+	$result = mysqli_query( $link, "SELECT * FROM scores INNER JOIN players ON scores.id_player=players.id_player WHERE players.id_player = $_SESSION[id_session]" );
 	while($row = mysqli_fetch_assoc($result)) {
 		$Name = $row['player_name'];
 		if($row['last_score']==''){$last_Score = "No Score";}else{$last_Score = $row['last_score'];}

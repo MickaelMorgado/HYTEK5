@@ -584,7 +584,6 @@ input.fa {
   height: 30px;
   margin-top: 10px;
   overflow: hidden;
-  background-size: 100%;
   -moz-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -615,9 +614,134 @@ input.fa {
 }
 
 /*============================================================
+    sprite or socio icons
+============================================================*/
+	/*
+		how to use:
+
+			/* create new folder called "icons" in image folder */
+/* check if images doesnt start with number or capitalized and uncomment bellow */
+/*
+@import "compass/utilities/sprites";
+@import "icons/*.png"; 
+@include all-icons-sprites;
+*/
+/* after running scss compilation "get name" of image rendered in parented folder (../) */
+			/* check 
+
+			  config.rb:      
+			    images_dir = "assets/images"
+
+		    HTML: =================================================
+
+		    <ul class="list-inline someclass">
+				<li><a href="#" class="sprite s1"></a></li>
+				<li><a href="#" class="sprite s2"></a></li>
+				<li><a href="#" class="sprite s3"></a></li>
+		    </ul>
+	    
+		    SCSS: =================================================
+
+		    .someclass {
+				@include sprite(
+					"/static/images/icons-s57c5ee8098.png",
+					100px,
+					3,
+					horizontal (opcional)
+				);
+		    }
+	*/
+/* line 630, ../sass/styles.scss */
+.socialicons .sprite {
+  -moz-transition: all, 0.25s, ease-in-out;
+  -o-transition: all, 0.25s, ease-in-out;
+  -webkit-transition: all, 0.25s, ease-in-out;
+  transition: all, 0.25s, ease-in-out;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  background-image: url("../img/socio.png");
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s2 {
+  background-position: 0 -30px;
+  background-position: -30px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s2:hover {
+  opacity: .5;
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s3 {
+  background-position: 0 -60px;
+  background-position: -60px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s3:hover {
+  opacity: .5;
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s4 {
+  background-position: 0 -90px;
+  background-position: -90px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s4:hover {
+  opacity: .5;
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s5 {
+  background-position: 0 -120px;
+  background-position: -120px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s5:hover {
+  opacity: .5;
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s6 {
+  background-position: 0 -150px;
+  background-position: -150px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s6:hover {
+  opacity: .5;
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s7 {
+  background-position: 0 -180px;
+  background-position: -180px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s7:hover {
+  opacity: .5;
+}
+/* line 639, ../sass/styles.scss */
+.socialicons .sprite.s8 {
+  background-position: 0 -210px;
+  background-position: -210px 0;
+  opacity: 1;
+}
+/* line 643, ../sass/styles.scss */
+.socialicons .sprite.s8:hover {
+  opacity: .5;
+}
+/* line 661, ../sass/styles.scss */
+.socialicons .sprite {
+  background-size: 210px;
+}
+
+/*============================================================
     sidebar list
 ============================================================*/
-/* line 590, ../sass/styles.scss */
+/* line 670, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -633,13 +757,13 @@ input.fa {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 601, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 607, ../sass/styles.scss */
+/* line 687, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -649,7 +773,7 @@ input.fa {
   padding: 0;
 }
 
-/* line 616, ../sass/styles.scss */
+/* line 696, ../sass/styles.scss */
 #menu-toggle, #menu-close {
   bottom: 0;
   right: 0;
@@ -660,7 +784,7 @@ input.fa {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 626, ../sass/styles.scss */
+/* line 706, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -670,7 +794,7 @@ input.fa {
   width: 100%;
 }
 
-/* line 632, ../sass/styles.scss */
+/* line 712, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -680,7 +804,7 @@ input.fa {
 /*============================================================
     Modal
 ============================================================*/
-/* line 642, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -689,7 +813,7 @@ input.fa {
   border: 5px solid #111;
 }
 
-/* line 648, ../sass/styles.scss */
+/* line 728, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }
@@ -697,7 +821,7 @@ input.fa {
 /*============================================================
     thumbnail for preview wallpapers
 ============================================================*/
-/* line 655, ../sass/styles.scss */
+/* line 735, ../sass/styles.scss */
 .thumbnail-preview {
   width: 150px;
   height: 100px;
@@ -706,12 +830,12 @@ input.fa {
   background-position: cover;
   background-size: 100% 100%;
 }
-/* line 662, ../sass/styles.scss */
+/* line 742, ../sass/styles.scss */
 .thumbnail-preview:hover {
   cursor: pointer;
 }
 
-/* line 664, ../sass/styles.scss */
+/* line 744, ../sass/styles.scss */
 .thumbnail-preview + input {
   z-index: -1;
   visibility: hidden;
@@ -721,7 +845,7 @@ input.fa {
 /*============================================================
     autocomplete styles
 ============================================================*/
-/* line 673, ../sass/styles.scss */
+/* line 753, ../sass/styles.scss */
 .ui-widget-content {
   border: none;
   background: #111 none 50% 50% repeat-x !important;
@@ -749,3 +873,44 @@ input.fa {
     margin-top: 50px;
   }
 }
+/* line 1, ../sass/_webbuilder.scss */
+.webbuilder {
+  /* START OF WEBBUILDER */
+  background-color: #222;
+  color: white;
+}
+/* line 6, ../sass/_webbuilder.scss */
+.webbuilder .sidebar {
+  background-color: #111;
+  top: 0;
+  left: -240px;
+  width: 250px;
+  bottom: 0;
+  display: inline-block;
+  position: fixed;
+  overflow-y: scroll;
+  opacity: .1;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+/* line 17, ../sass/_webbuilder.scss */
+.webbuilder .sidebar:hover {
+  left: 0;
+  opacity: 1;
+}
+/* line 24, ../sass/_webbuilder.scss */
+.webbuilder .node-style {
+  background-color: #333;
+  border-radius: 4px;
+  padding: 10px;
+  display: inline-block;
+}
+/* line 33, ../sass/_webbuilder.scss */
+.webbuilder .workspace {
+  width: 100%;
+  min-height: 500px;
+}
+
+/* END OF WEBBUILDER */

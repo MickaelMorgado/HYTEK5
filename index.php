@@ -131,6 +131,8 @@
 				</div>
 			</div>
 		</div>
+
+		<!--?php phpdebugger() ?-->
 		
 	<!--script src="http://listjs.com/no-cdn/list.js"></script-->
 	<script src="dependencies/js/list.fuzzysearch.js"></script>

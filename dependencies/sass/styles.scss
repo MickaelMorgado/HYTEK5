@@ -563,7 +563,7 @@
 			height: $cubic;
 			margin-top: 10px;
 			overflow: hidden;			
-			background-size: 100%;
+			//background-size: 100%;
 			@include scale(1.0);
 			
 			&:hover {
@@ -580,6 +580,86 @@
 		}
 		input:focus {
 			box-shadow: none;
+		}
+	}
+
+/*============================================================
+    sprite or socio icons
+============================================================*/
+
+	/*
+		how to use:
+
+			/* create new folder called "icons" in image folder */
+			/* check if images doesnt start with number or capitalized and uncomment bellow */
+			
+			/*
+			@import "compass/utilities/sprites";
+			@import "icons/*.png"; 
+			@include all-icons-sprites;
+			*/
+
+			/* after running scss compilation "get name" of image rendered in parented folder (../) */
+
+			/* check 
+
+			  config.rb:      
+			    images_dir = "assets/images"
+
+		    HTML: =================================================
+
+		    <ul class="list-inline someclass">
+				<li><a href="#" class="sprite s1"></a></li>
+				<li><a href="#" class="sprite s2"></a></li>
+				<li><a href="#" class="sprite s3"></a></li>
+		    </ul>
+	    
+		    SCSS: =================================================
+
+		    .someclass {
+				@include sprite(
+					"/static/images/icons-s57c5ee8098.png",
+					100px,
+					3,
+					horizontal (opcional)
+				);
+		    }
+	*/
+	@mixin sprite($src,$cubicsz:100px,$howmany:3,$bgsz:$cubicsz,$orientation:vertical) {
+
+	  .sprite {
+	    @include transition(all, .25s, ease-in-out);
+	    display: inline-block;
+	    width:  $cubicsz;
+	    height: $cubicsz;
+	    background-size: $bgsz;
+	    background-image: url($src);
+
+	    @for $i from 1 through $howmany {
+	      &.#{s}#{$i+1} {
+	        background-position: 0 (-$cubicsz*$i);
+	        @if ($orientation!=vertical) { background-position: (-$cubicsz*$i) 0; }
+	        opacity: 1;
+	        &:hover {
+	          //background-position: -$cubicsz*$i $cubicsz;
+	          opacity: .5;
+	        }
+	      }
+	    }
+
+	  }
+
+	}
+
+	.socialicons {
+		@include sprite(
+			"../img/socio.png",
+			30px,
+			7,
+			$orientation:horizontal
+		);
+		.sprite {
+			background-size: 210px;
 		}
 	}
 
@@ -681,3 +761,4 @@
 	}
 
 @import "media";
+@import "webbuilder";
