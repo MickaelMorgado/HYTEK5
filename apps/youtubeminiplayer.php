@@ -32,13 +32,20 @@
 							<br>
 							<br>
 							<div class="player-controls">
+								<div class="progress">
+								    <div id="youtubeRangeSlider" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+								      	<span class="sr-only">70% Complete</span>
+								    </div>
+									<input id="youtubeRangeSlider-input" type="range" min="0" max="100">
+								  </div>
 								<span id="player-prev" title="previous"><i class="fa fa-fast-backward"></i></span>
 								<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
 								<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
 								<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
-								<span id="player-vol" title="mute/unmute"><i class="fa fa-volume-down"></i></span>
+								<span id="player-vol" title="mute/unmute"><i class="fa fa-volume-up"></i><i class="fa fa-volume-off"></i></span>
 								<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
-								<span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span>
+								<!--span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span-->
+								<span id="player-repeat" title="repeat video"><i class="fa fa-repeat" aria-hidden="true"></i></span>
 							</div>
 			    		</div>
 			    	</div>
@@ -51,6 +58,7 @@
 <!-- youtube dependencies -->
 <!--script src="http://www.youtube.com/player_api"></script-->
 <script>
+
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -78,36 +86,45 @@
   function onPlayerReady(event) {
     event.target.playVideo();
   }
-	/*
-	$(window).load(function(){ onYouTubePlayerAPIReady(); });
 
-	var player,
-		dataOrder = 0,
-		lastOrder = $('.playlistlink').last().data("order");
+	var done = false,
+		gate = true,
+		repeatVideoVar = false;
 
-	function onYouTubePlayerAPIReady() {
-		player = new YT.Player('boby', {
-			height: '250',
-			width: '100%',
-			<?php if (isset($_SESSION['id_session'])): ?>
-			videoId: $('#YTlist').find("a")[0].text,
-			<?php else: ?>
-			videoId: "g7TAqv-dx2Y",
-			<?php endif ?>
-			events: {
-				'onStateChange': onPlayerStateChange
-			}
-		});
-	}
-	*/
-	var done = false;
 	$("#player-pause").css({"display":"none"});
 	
+	function repeatVideo() {
+		if (repeatVideoVar) { 
+			repeatVideoVar = false; 
+			$("#player-repeat").css({"tex<t-shadow":"0 0 0 white"});
+		}
+		else{ 
+			repeatVideoVar = true; 
+			$("#player-repeat").css({"text-shadow":"0 0 5px white"});
+		};
+	}
 	// when video ends
 	function onPlayerStateChange(event) { 
-		if (event.data === 0) { nextVideo(); }
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-        	// CODE HERE like open links to target blank // check player.getPlayerState()
+		console.log("isplaying");
+		if (event.data === 0 ){nextVideo();}
+		else{
+        	$("#youtubeRangeSlider").attr("aria-valuemax",player.getDuration());
+        	$("#youtubeRangeSlider-input").attr("max",player.getDuration());
+        	$("#youtubeRangeSlider-input").change(function(){
+        		player.seekTo($(this).val()); 
+        	});
+        	function getCurrentTimeYT() {
+        		setTimeout(function(){
+        			var w = player.getCurrentTime()*100/player.getDuration();
+	        		$("#youtubeRangeSlider")
+	        			.attr("aria-valuenow",player.getCurrentTime())
+	        			.css({"width":w+"%"});
+	        		getCurrentTimeYT();
+	        	}, 500);
+        	}
+        	getCurrentTimeYT();
+		}
+        if (event.data == YT.PlayerState.PLAYING && !done) { /* CODE HERE like open links to target blank // check player.getPlayerState() */
         	$("#player-play").css({"display":"none"});
         	$("#player-pause").css({"display":"inline-block"});
         	$("a").attr("target","_blank");
@@ -121,26 +138,46 @@
         }
 	}
 	function nextVideo(){
-		if (dataOrder >= lastOrder) {
+		if (dataOrder >= lastOrder) { /* repeat all playlist again on reach last video */
 			dataOrder = 0;
 			nextVideo();
 		}else{
 			player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
-			dataOrder = dataOrder+1; 
+			if (repeatVideoVar == true) {
+				dataOrder = dataOrder;
+			}else{
+				dataOrder = dataOrder+1; 
+			};
 		}
 	}
 	function prevVideo(){
-		dataOrder = dataOrder-1; 
+		if (repeatVideoVar == true) {
+			dataOrder = dataOrder;
+		}else{
+			dataOrder = dataOrder-1; 
+		};
 		player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
 	}
-
-	$("#player-vol").click(function(){			
-		if (player.isMuted()==true) {			player.unMute();	}
-		else{									player.mute();		};
-	});
+	function showUnmuteIcon() {
+		$("#player-vol .fa-volume-off").css({"display":"none"});	
+		$("#player-vol .fa-volume-up").css({"display":"inline-block"});	
+	}
+	function showMuteIcon() {
+		$("#player-vol .fa-volume-up").css({"display":"none"});	
+		$("#player-vol .fa-volume-off").css({"display":"inline-block"});			
+	}
+	function muteUnmute() {
+		if (player.isMuted()==true) {			
+			player.unMute();
+			showUnmuteIcon();
+		}else{									
+			player.mute();
+			showMuteIcon();
+		};
+	}
 
 	function expand() {							$("#player").parent().parent().toggleClass("expand");	}
-
+	showUnmuteIcon();
 	$("#player-expand").click(function(){		expand();				});
 
 	$("#player-pause").click(function(){		player.pauseVideo();	});
@@ -149,5 +186,6 @@
 	$("#player-playAt").click(function(){		onYouTubePlayerAPIReady();	});
 	$("#player-prev").click(function(){			prevVideo();	});
 	$("#player-next").click(function(){			nextVideo();	});
-
+	$("#player-vol").click(function(){			muteUnmute(); 	});
+	$("#player-repeat").click(function(){		repeatVideo();	});
 </script>

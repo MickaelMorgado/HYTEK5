@@ -44,12 +44,20 @@
 																			<?php include('apps/ordering.php') ?>
 					<div class="glass"></div>
 				</div>
+				<div class="element">
+																			<?php include('apps/settings.php'); ?>																			
+					<div class="glass"></div>
+				</div>
 			</div>		
 			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element">
 																			<?php include('apps/files.php'); ?>
 					<div class="glass"></div>
 				</div>
+				<div class="element">
+																			<?php include('apps/shooters.php'); ?>
+					<div class="glass"></div>
+				</div>	
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 item">
 				<div class="element"  style="height:300px;">
@@ -65,24 +73,12 @@
 					<div class="glass"></div>
 				</div>	
 			</div>		
-			<div class="col-xs-12 col-sm-6 col-md-2 item">
+			<!--div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element" style="height:150px;">
-																			<?php include('apps/meteo.php'); ?>
+																			<!--?php include('apps/meteo.php'); ?>
 					<div class="glass"></div>
 				</div>	
-			</div>		
-			<div class="col-xs-12 col-sm-6 col-md-2 item">
-				<div class="element">
-																			<?php include('apps/shooters.php'); ?>
-					<div class="glass"></div>
-				</div>	
-			</div>		
-			<div class="col-xs-12 col-sm-6 col-md-2 item">
-				<div class="element">
-																			<?php include('apps/settings.php'); ?>
-					<div class="glass"></div>
-				</div>	
-			</div>		
+			</div-->		
 		</div>
 	</div>
 
@@ -196,11 +192,11 @@
 
 			    		else { 
 
-			    			/* AUTOCOMPLETE ============================================ http://jsfiddle.net/uMqyn/1/ or http://stackoverflow.com/questions/25193173/getting-jquery-autocomplete-suggestion-list-on-select-or-enter */
+			    			/* AUTOCOMPLETE ============================================ http://jsfiddle.net/uMqyn/1/ or http://stackoverflow.com/questions/25193173/getting-jquery-autocomplete-suggestion-list-on-select-or-enter /
 				    			$(function(){
 				    			  	//var availableTags = ["google","youtube","facebook"];
 				    			  	var availableTags = $('.link-list > span.title').map(function(i, e){return $.trim(e.innerHTML)}).get();
-				    			  	function split(val) {return val.split( / \s*/ );}
+				    			  	function split(val) {return val.split( / \s*/ /*);}
 				    			  	function extractLast(term) {return split(term).pop();}
 				    				$("#searchinput")									// don't navigate away from the field on tab when selecting an item
 				    			    	.on( "keydown", function( event ) {
@@ -217,7 +213,6 @@
 												my: "left top",
 							                	at: posString
 							            	});
-				    			      		*/
 				    			    	})
 				    			    	.autocomplete({
 				    			    		autoFocus: true,

@@ -38,9 +38,8 @@
 	if (isset($_SESSION['id_session'])) {
 		?>
 
-			<!--script>
 
-		<script>
+		<!--script>
 		var singletab = 0;
 		$(document).on('keydown', function(e) {					/* on tab focus */
 			if (e.keyCode === 9 && singletab == 0) {
@@ -48,8 +47,9 @@
 				singletab = 1;
 			}
 		});
-		</script>
+		</script-->
 
+			<script>
 				var nextFocus = 0;
 
 				function goNextFocus(nf) {
@@ -77,7 +77,7 @@
 				    //	toggle();
 				    //};
 				});
-			</script-->
+			</script>
 
 		<?php
 	}else{

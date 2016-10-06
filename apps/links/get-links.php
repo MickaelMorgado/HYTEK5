@@ -27,6 +27,7 @@
 					<input type="hidden"   value="<?php echo $r0; ?>" class="link-id"    name="link-id">
 					<li><input type="text" value="<?php echo $r1; ?>" class="link-title" name="link-title"></li>
 					<li><input type="text" value="<?php echo $r2; ?>" class="link-url"   name="link-url"></li>
+					<li><input type="number" value="<?php echo $r4; ?>" class="link-view"   name="link-view"></li>
 					<li><input type="submit" value="edit" class="fa-pencil" /></li> 
 				</form>
 			</ul>

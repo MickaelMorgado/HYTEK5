@@ -1,5 +1,6 @@
 /* cd C:\wamp\www\HYTEK5\Elementary\elementary\ */
 @import "compass/css3";
+@import "bootstrap";
 
 /*============================================================
     variables
@@ -334,6 +335,43 @@
 		width: 50px; 
 		margin-right: 10px;
 	}
+
+	.progress {
+	  	@include border-radius(0);
+	  	height: 10px;
+	  	position: relative;
+	  	background-color: #333;
+	  	.progress-bar {
+	  		background-color: #a72727;
+	  	}
+		#youtubeRangeSlider-input {
+			top: 0;
+			opacity: 0;
+			z-index: 1;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			height: 100%;
+			cursor: pointer;
+			position: absolute;
+		}
+		input[type=range]::-moz-range-thumb {
+			width: 0 !important;
+			padding: 0 !important;
+			border: 0 !important;	
+		}
+		input[type=range]::-webkit-slider-thumb {
+			width: 0 !important;
+			padding: 0 !important;
+			border: 0 !important;	
+		}
+		input[type=range]::-ms-thumb {
+			width: 0 !important;
+			padding: 0 !important;
+			border: 0 !important;			
+		}
+	}
+
 
 /*============================================================
     clock
@@ -737,14 +775,21 @@
 		height: 100px;
 		display: inline-block;
 		border: 2px solid $bgc; 
-		background-position: cover;
-		background-size: 100% 100%;
+		img {
+			width: 100%;
+			height: 100%;
+		}
 		&:hover { cursor: pointer; }
 	}
 	.thumbnail-preview + input {
 		z-index: -1;
 		visibility: hidden;
 		position: absolute;
+	}
+	.wallpapers-form {
+		overflow-y: scroll;
+		max-height: 160px;
+		display: inline-block;		
 	}
 
 /*============================================================

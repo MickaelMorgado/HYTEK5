@@ -18,7 +18,7 @@
 				class='playlistlink' 
 				title='dataOrder=<?php echo $i; ?>' 
 				onclick='player.loadVideoById("<?php echo $row['youtubeplaylistlink']; ?>");dataOrder=<?php echo $i; ?>' 
-				data-order="<?php echo $i; ?>"><img class="youtube-list-thumbnail" src="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a>
+				data-order="<?php echo $i; ?>"><img class="youtube-list-thumbnail lazy" data-original="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a>
 			
 			<button 
 				type="button" 
@@ -58,13 +58,3 @@
 			</div>
 		</div>
 	</div>
-
-<!-- youtube list 
-<script>
-    var str = $('#tarea').val();
-    var res = str.split(",");
-    for (i = 0; i <= res.length - 1; i++) {
-    	$("#YTlist").append("<a onclick='youtubeChangeSrc(&#34;"+res[i]+"&#34;,"+i+")'><img width='50px' src='http://i1.ytimg.com/vi/"+res[i]+"/default.jpg'>"+res[i]+"</a><br/>");
-    };
-</script>
--->

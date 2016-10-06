@@ -1,4 +1,4 @@
-/* animate bg color
+	/* animate bg color
 		$(document).ready(function(){
 			bgr();
 			function bgr() {
@@ -10,7 +10,6 @@
 				bgr();
 			},5000);
 		});
-
 	*/
 
 	if ($('.url').size()>0) {
@@ -32,9 +31,9 @@
 		};
 	});
 
-	/* Tab focus link :
-	====================================
-	*/
+/* Tab focus link :
+====================================
+*/
 	var nextFocus = 0;
 	var enable = true;
 
@@ -54,9 +53,9 @@
 	//}
 	
 
-	/* Google & Youtube search buttons :
-	====================================
-	*/
+/* Google & Youtube search buttons :
+====================================
+*/
 	form = $("#searchform");
 	
 	function google(e) {
@@ -97,10 +96,12 @@
 	*/
 
 	$(document).ready(function(){
-		$('.masonry-container').masonry({
+		/*$('.masonry-container').masonry({
 			columnWidth: '.item',
 			itemSelector: '.item'
-		});
+		});*/
+		$("img.lazy").lazyload({ effect : "fadeIn",container: $("#YTlist")});
+		$("img.lazy2").lazyload({ effect : "fadeIn",container: $(".wallpapers-form")});
 		$('#enableRefresh').height($(window).height()-55);
 	});
 	$(window).load(function(){
@@ -121,41 +122,41 @@ $("#menu-toggle").click(function(e) {
 ====================
 */
 
-function modalsetyoutubeid(val) {
-	$('.modal.copiedtoclipboard .txt').val("http://www.youtube.com/watch?v="+val);
-}
+	function modalsetyoutubeid(val) {
+		$('.modal.copiedtoclipboard .txt').val("http://www.youtube.com/watch?v="+val);
+	}
 
-function copyButton() {
-	var copy_btn;
-	copy_btn = document.querySelector('.ctc');
-	return copy_btn.addEventListener('click', function (event) {
-	    var err, msg, successful, text;
-	    text = document.querySelector('.txt');
-	    text.select();
-	    try {
-	        successful = document.execCommand('copy');
-	        msg = successful ? 'successful' : 'unsuccessful';
-	        return console.log('Copy command was ' + msg);
-	    } catch (_error) {
-	        err = _error;
-	        return console.log('Oops, unable to copy');
-	    }
-	});
-}
+	function copyButton() {
+		var copy_btn;
+		copy_btn = document.querySelector('.ctc');
+		return copy_btn.addEventListener('click', function (event) {
+		    var err, msg, successful, text;
+		    text = document.querySelector('.txt');
+		    text.select();
+		    try {
+		        successful = document.execCommand('copy');
+		        msg = successful ? 'successful' : 'unsuccessful';
+		        return console.log('Copy command was ' + msg);
+		    } catch (_error) {
+		        err = _error;
+		        return console.log('Oops, unable to copy');
+		    }
+		});
+	}
 
-(function () {
-    window.onload = function () {
-    	if ($('.ctc').length > 0) {	copyButton(); }
-    };
-}.call(this));
+	(function () {
+	    window.onload = function () {
+	    	if ($('.ctc').length > 0) {	copyButton(); }
+	    };
+	}.call(this));
 
 /* Color picker for settings 
 ============================
 */
-function update(jscolor) {
-    // 'jscolor' instance can be used as a string
-    document.getElementById('rect').style.backgroundColor = '#' + jscolor
-}
+	function update(jscolor) {
+	    // 'jscolor' instance can be used as a string
+	    document.getElementById('rect').style.backgroundColor = '#' + jscolor
+	}
 
 
 /*============================================================
