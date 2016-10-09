@@ -2,24 +2,25 @@
 <html dir="ltr" lang="pt"> 
 <head>
 	<?php 
-		include('../head.php'); 
-		//session_start();
+		include('../../dbConnection.php');
+		//include('../head.php'); 
+		session_start();
 	?>
 	<script src="../js/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" href="https://rawgit.com/peachananr/wheel-menu/master/wheelmenu.css">
 	<link rel="stylesheet" href="../stylesheets/onlyoneminute.css">
 	<?php 
-	if (isset($_SESSION['id_player'])!='') {
-		$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN scores ON settings.id_player=scores.id_player WHERE settings.id_player = $_SESSION[id_player]" );
+	if (isset($_SESSION['id_session'])) {
+		$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE shooters.id_session = $_SESSION[id_session]" );
 		while($row = mysqli_fetch_assoc($result)) {
 			$settings = $row['presets'];
 			$music = $row['aud_musics'];
 			$ambiance = $row['aud_ambiances'];
 			$weapons = $row['aud_weapons'];
 			$birds = $row['aud_birds'];
-			$score = $row['best_score'];
+			$score = $row['score'];
 		}
-		$result = mysqli_query($link,"SELECT * FROM weapons INNER JOIN players ON weapons.id_player=players.id_player WHERE weapons.id_player = $_SESSION[id_player]");
+		$result = mysqli_query($link,"SELECT * FROM shooters_weapon INNER JOIN players ON weapons.id_session=players.id_session WHERE weapons.id_session = $_SESSION[id_session]");
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
 				$weapon_mag_capacity = $row['mag_capacity'];
@@ -35,7 +36,7 @@
 			$weapon_damage = 1;
 			$weapon_handle = 0.1;
 			$weapon_ammo = 200;
-			$weapon_src = "cursor5.png";
+			$weapon_src = "cursor1.png";
 			$weapon_sound_fire = "gun.mp3";
 			$weapon_sound_reload = "reload.mp3";
 		}

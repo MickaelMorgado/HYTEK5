@@ -61,6 +61,7 @@
 	}
 
 	/* <?php echo get($link,"selectCol","table","whereCond."); ?> /
+*/
 	function get($link,$col,$table,$who){
 		$rslt = "select ".$col." FROM ".$table;
 		if(isset($who)){ 
@@ -71,6 +72,5 @@
 			return $rslt;
 		}
 	}
-*/
 	include("apps/notify.php");	
 ?>

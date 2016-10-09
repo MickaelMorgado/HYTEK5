@@ -1,5 +1,5 @@
 <?php 
-	$sql = "SELECT * FROM weapons WHERE id_player = $_SESSION[id_player]";
+	$sql = "SELECT * FROM shooters_myweapon";
 	$result = mysqli_query($link,$sql);
 
 	if ($result->num_rows > 0) {
@@ -14,7 +14,7 @@
 <img src="img/gun.jpg" alt="">
 <div class="scrollable">
 	<?php 
-		if (isset($_SESSION['id_player'])) { 
+		if (isset($_SESSION['id_session'])) { 
 			?>
 			<a class="link" data-toggle="modal" data-target=".armorypopup">Weapons Shop</a>
 			<?php
