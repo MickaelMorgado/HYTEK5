@@ -17,7 +17,8 @@
 							id="searchinput" 
 							autocomplete="off"
 							data-intro='This field enables you to go to your favorite bookmarks or simply search on Google or YouTube'
-							data-step="2">
+							data-step="2"
+						>
 					</div>
 				</div>
 				<div class="col-sm-3 col-md-2 col-lg-2">

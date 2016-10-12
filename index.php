@@ -69,6 +69,7 @@
 				<div class="element" 
 					data-intro='Hello new visitor, Sign Up to HYTEK5 (WIP start page) and get your new environment for better & faster browsing experience!'
 					data-step="1">
+				<!--div class="element"-->
 																			<?php include('apps/cookie-login.php'); ?>
 					<div class="glass"></div>
 				</div>	
@@ -143,8 +144,8 @@
 		<?php endif ?>
 
 	/* START INTRO JS ============================ */
-		<?php if ($_SESSION['id_session']==''): ?>
-			$(document).ready(function(){
+		<?php if (isset($_SESSION['id_session'])): ?>
+			$('.tutorial').click(function(){
 				introJs().start();
 			});
 		<?php else: ?>

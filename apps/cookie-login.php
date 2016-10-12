@@ -119,6 +119,7 @@ if(!isset($_SESSION['id_session'])){?>
 			</div>
 		</div>
 	</div>
-	<a href="apps/logout.php" class="btn">Logout</a><?php
+	<a href="apps/logout.php" class="btn">Logout</a>
+	<a href="#" class="tutorial">tutorial</a><?php
 }
 ?>
