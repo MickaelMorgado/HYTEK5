@@ -2,7 +2,7 @@
 	<h1>Settings</h1>
 	<?php 
 		if(isset($_SESSION['id_session'])){
-			$result = mysqli_query( $link, "SELECT * FROM settings INNER JOIN users ON settings.id_settings=users.id_session INNER JOIN scores ON scores.id_session=players.id_session WHERE players.id_session=$_SESSION[id_session]" );
+			$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session INNER JOIN shooter ON scores.id_session=users.id_session WHERE users.id_session=$_SESSION[id_session]" );
 			while($row = mysqli_fetch_assoc($result)) {
 				$Name = $row['player_name'];
 				$settings = $row['presets'];

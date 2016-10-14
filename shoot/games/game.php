@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="pt"> 
 <head>
-	<?php 
+	<?php $error_reporting=1;
 		include('../../dbConnection.php');
 		//include('../head.php'); 
 		session_start();
@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="https://rawgit.com/peachananr/wheel-menu/master/wheelmenu.css">
 	<link rel="stylesheet" href="../stylesheets/onlyoneminute.css">
 	<?php 
-	if (isset($_SESSION['id_session'])) {
-		$result = mysqli_query( $link, "SELECT * FROM shooters INNER JOIN users ON shooters.id_session=users.id_session WHERE shooters.id_session = $_SESSION[id_session]" );
+	if (isset($_SESSION['id_session'])) { /* GET SETTINGS */
+		$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters.id_session=users.id_session WHERE shooters.id_session = $_SESSION[id_session]" );
 		while($row = mysqli_fetch_assoc($result)) {
 			$settings = $row['presets'];
 			$music = $row['aud_musics'];
@@ -19,8 +19,8 @@
 			$weapons = $row['aud_weapons'];
 			$birds = $row['aud_birds'];
 			$score = $row['score'];
-		}
-		$result = mysqli_query($link,"SELECT * FROM shooters_weapon INNER JOIN players ON weapons.id_session=players.id_session WHERE weapons.id_session = $_SESSION[id_session]");
+		} /* GET WEAPON */
+		$result = mysqli_query($link,"SELECT * FROM shooters_myweapon INNER JOIN users ON shooters_myweapon.id_session=players.id_session WHERE shooters_myweapon.id_session = $_SESSION[id_session]");
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
 				$weapon_mag_capacity = $row['mag_capacity'];
@@ -36,7 +36,7 @@
 			$weapon_damage = 1;
 			$weapon_handle = 0.1;
 			$weapon_ammo = 200;
-			$weapon_src = "cursor1.png";
+			$weapon_src = "cursor.png";
 			$weapon_sound_fire = "gun.mp3";
 			$weapon_sound_reload = "reload.mp3";
 		}
@@ -68,6 +68,13 @@
 		$birds = 1;
 		echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
 		$score = "not logged";
+		$weapon_mag_capacity = 8;
+		$weapon_damage = 1;
+		$weapon_handle = 0.1;
+		$weapon_ammo = 200;
+		$weapon_src = "cursor.png";
+		$weapon_sound_fire = "gun.mp3";
+		$weapon_sound_reload = "reload.mp3";
 	}
 	?>
 	<script type="text/javascript" src="../js/TweenMax.min.js"></script>
