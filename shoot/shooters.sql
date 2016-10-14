@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `players` (
-  `id_player` int(11) NOT NULL AUTO_INCREMENT,
+  `id_session` int(11) NOT NULL AUTO_INCREMENT,
   `player_name ` varchar(30) NOT NULL,
   `pass ` varchar(200) NOT NULL,
   `time_played ` int(11) NOT NULL,
@@ -35,8 +35,8 @@ CREATE TABLE IF NOT EXISTS `players` (
   `SETTINGS` int(11) NOT NULL,
   `SCORES` int(11) NOT NULL,
   `WEAPONS` int(11) NOT NULL,
-  PRIMARY KEY (`id_player`),
-  UNIQUE KEY `ID` (`id_player`),
+  PRIMARY KEY (`id_session`),
+  UNIQUE KEY `ID` (`id_session`),
   UNIQUE KEY `player_name ` (`player_name `),
   UNIQUE KEY `player_name _2` (`player_name `),
   UNIQUE KEY `player_name _3` (`player_name `),
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `players` (
 -- Extraindo dados da tabela `players`
 --
 
-INSERT INTO `players` (`id_player`, `player_name `, `pass `, `time_played `, `coins `, `SETTINGS`, `SCORES`, `WEAPONS`) VALUES
+INSERT INTO `players` (`id_session`, `player_name `, `pass `, `time_played `, `coins `, `SETTINGS`, `SCORES`, `WEAPONS`) VALUES
 (11, 'BOBY', 'f54f5fc8a4673693d9e642ee5cb460591ee496ff83ecbc3028e437b5750a73c02d0a935919434bb0c507f84ee328c9d5ba3c9d3db2f9cfbf3ab8344a265483a6', 0, 0, 0, 0, 0),
 (13, 'BABA', 'c6267d09f0cd20b6aa691e91965e1f1f1e0e1204e8ce59b4e828cdaa059f31e1a0a4cdde7c70f9b12fd2d66a718bd6402675df4a0c851e7543febd3ba8fe79b9', 0, 0, 0, 0, 0),
 (14, 'AS', '2f6bb74272ea9ed4176db79759068f530a4e4ef05d307e37533231863c063c538ce4bde28f17e029b86b3d7e7f79f98b1caec4ccf52637e9c6f04e68cfb1328f', 0, 0, 0, 0, 0),
@@ -62,7 +62,7 @@ INSERT INTO `players` (`id_player`, `player_name `, `pass `, `time_played `, `co
 
 CREATE TABLE IF NOT EXISTS `scores` (
   `ID_SCORES` int(11) NOT NULL AUTO_INCREMENT,
-  `id_player` int(11) NOT NULL,
+  `id_session` int(11) NOT NULL,
   `BEST_SCORE` int(11) NOT NULL DEFAULT '0',
   `last_score ` int(11) NOT NULL DEFAULT '0',
   `game_mode ` varchar(20) NOT NULL DEFAULT 'LOW',
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `scores` (
 -- Extraindo dados da tabela `scores`
 --
 
-INSERT INTO `scores` (`ID_SCORES`, `id_player`, `BEST_SCORE`, `last_score `, `game_mode `) VALUES
+INSERT INTO `scores` (`ID_SCORES`, `id_session`, `BEST_SCORE`, `last_score `, `game_mode `) VALUES
 (3, 11, 1, 0, 'LOW'),
 (4, 11, 0, 0, 'LOW'),
 (5, 13, 2, 0, 'LOW'),
@@ -91,7 +91,7 @@ INSERT INTO `scores` (`ID_SCORES`, `id_player`, `BEST_SCORE`, `last_score `, `ga
 
 CREATE TABLE IF NOT EXISTS `settings` (
   `ID_SETTINGS` int(11) NOT NULL AUTO_INCREMENT,
-  `id_player` int(11) NOT NULL,
+  `id_session` int(11) NOT NULL,
   `presets` int(11) NOT NULL DEFAULT '1',
   `AUD_EFFECTS` float NOT NULL DEFAULT '1',
   `aud_musics ` float NOT NULL DEFAULT '1',
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
 -- Extraindo dados da tabela `settings`
 --
 
-INSERT INTO `settings` (`ID_SETTINGS`, `id_player`, `presets`, `AUD_EFFECTS`, `aud_musics `, `aud_ambiances `, `aud_weapons `, `aud_birds `) VALUES
+INSERT INTO `settings` (`ID_SETTINGS`, `id_session`, `presets`, `AUD_EFFECTS`, `aud_musics `, `aud_ambiances `, `aud_weapons `, `aud_birds `) VALUES
 (1, 0, 0, 0, 0, 0, 0, 0),
 (2, 14, 0, 0, 0, 0, 0, 0),
 (3, 18, 2, 1, 0.3, 0.3, 1, 0.3);

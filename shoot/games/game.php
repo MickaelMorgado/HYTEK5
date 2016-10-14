@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="pt"> 
 <head>
-	<?php $error_reporting=1;
+	<?php 
 		include('../../dbConnection.php');
 		//include('../head.php'); 
 		session_start();
@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../stylesheets/onlyoneminute.css">
 	<?php 
 	if (isset($_SESSION['id_session'])) { /* GET SETTINGS */
-		$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters.id_session=users.id_session WHERE shooters.id_session = $_SESSION[id_session]" );
+		$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session INNER JOIN shooters ON shooters.id_session=users.id_session WHERE users.id_session=$_SESSION[id_session]" );
 		while($row = mysqli_fetch_assoc($result)) {
 			$settings = $row['presets'];
 			$music = $row['aud_musics'];
@@ -20,17 +20,18 @@
 			$birds = $row['aud_birds'];
 			$score = $row['score'];
 		} /* GET WEAPON */
-		$result = mysqli_query($link,"SELECT * FROM shooters_myweapon INNER JOIN users ON shooters_myweapon.id_session=players.id_session WHERE shooters_myweapon.id_session = $_SESSION[id_session]");
+		$result = mysqli_query($link,"SELECT * FROM shooters_myweapon INNER JOIN users ON shooters_myweapon.id_session=users.id_session WHERE shooters_myweapon.id_session = $_SESSION[id_session]");
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
-				$weapon_mag_capacity = $row['mag_capacity'];
-				$weapon_damage = $row['damage'];
-				$weapon_handle = $row['handle'];
-				$weapon_ammo = $row['ammo'];
-				$weapon_src = $row['src'];
-				$weapon_sound_fire = $row['sound_fire'];
-				$weapon_sound_reload = $row['sound_reload'];
+				$weapon_mag_capacity = $row['mag_capacity'];   	/* int */
+				$weapon_damage = $row['damage']; 				/* int */
+				$weapon_handle = $row['handle']; 				/* float */
+				$weapon_ammo = $row['ammo']; 	 				/* int */
+				$weapon_src = $row['src'];       				/* varchar */
+				$weapon_sound_fire = $row['sound_fire'];		/* varchar */
+				$weapon_sound_reload = $row['sound_reload'];	/* varchar */
 			} 	
+			//echo $weapon_mag_capacity." - ".$weapon_damage." - ".$weapon_handle." - ".$weapon_ammo." - ".$weapon_src." - ".$weapon_sound_fire." - ".$weapon_sound_reload;
 		}else{
 			$weapon_mag_capacity = 8;
 			$weapon_damage = 1;
@@ -279,6 +280,15 @@
 
 //GAME src SETTINGS OR VARIABLES ============================================================================================================================
 
+	/* SET DEFAULT WEAPON SETTINGS IF FIELDS DOESNT HAVE DATA: */
+		if ($('#weapon_mag_capacity').val() == '' 	|| $('#weapon_mag_capacity').val()=="0") 			{ weapon_mag_capacity	= 8 };
+		if ($('#weapon_damage').val() == '' 		|| $('#weapon_damage').val()=="0") 					{ weapon_damage			= 1 };
+		if ($('#weapon_handle').val() == '' 		|| $('#weapon_handle').val()=="0") 					{ weapon_handle			= 0.1 };
+		if ($('#weapon_ammo').val() == '' 			|| $('#weapon_ammo').val()=="0") 					{ weapon_ammo			= 200 };
+		if ($('#weapon_sound_fire').val() == '' 	|| $('#weapon_sound_fire').val()=="0") 				{ weapon_sound_fire		= "gun.mp3" };
+		if ($('#weapon_src').val() == '' 			|| $('#weapon_src').val()=="0") 					{ weapon_src			= "cursor.png" };
+		if ($('#weapon_sound_reload').val() == '' 	|| $('#weapon_sound_reload').val()=="0") 			{ weapon_sound_reload	= "reload.mp3" };
+
 	var weapon = {			//dictionary
 	    1: $('#weapon_handle').val(),				//handling
 	    2: $('#weapon_sound_fire').val(),			//sound
@@ -286,6 +296,7 @@
 	    4: $('#weapon_mag_capacity').val(),			//magazine capacity
 	    5: $('#weapon_src').val(),
 	    6: $('#weapon_sound_reload').val(),
+	    //7: $('#weapon_ammo').val(),
 	};
 
 

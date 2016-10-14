@@ -1,13 +1,13 @@
 <?php
 	include('../../head.php');
-	if ($_SESSION['id_player']!='') {
+	if ($_SESSION['id_session']!='') {
 
 		$score 		= $_GET['score'];
 		$gm 		= $_GET['GM'];
 		$coins 		= $_GET['coins'];
 		
-		$query 			= "SELECT best_score FROM scores INNER JOIN players ON scores.id_player=players.id_player WHERE scores.id_player = $_SESSION[id_player]";
-		$getCoinsQuery 	= "SELECT coins FROM players WHERE id_player = $_SESSION[id_player]";
+		$query 			= "SELECT best_score FROM scores INNER JOIN users ON scores.id_session=users.id_session WHERE scores.id_session = $_SESSION[id_session]";
+		$getCoinsQuery 	= "SELECT coins FROM players WHERE id_session = $_SESSION[id_session]";
 		
 		$best_score = mysqli_query($link, $query);
 		while($row = mysqli_fetch_assoc($best_score)){	//echo "best_score is : ".$best_score['score'];
@@ -22,8 +22,8 @@
 			/* CALCULATED COINS FOR UPLOAD TO DB */
 			$calculatedCoins = $obtainedCoins + $coins;
 
-			$lvlupQuery = "UPDATE scores INNER JOIN players ON scores.id_player=players.id_player SET coins = $calculatedCoins, last_score = $score, best_score = $score, game_mode = '$gm' WHERE scores.id_player = $_SESSION[id_player]";
-			$update 	= "UPDATE scores INNER JOIN players ON scores.id_player=players.id_player SET coins = $calculatedCoins, last_score = $score, game_mode = '$gm' WHERE scores.id_player = $_SESSION[id_player]";
+			$lvlupQuery = "UPDATE scores INNER JOIN users ON scores.id_session=users.id_session SET coins = $calculatedCoins, last_score = $score, best_score = $score, game_mode = '$gm' WHERE scores.id_session = $_SESSION[id_session]";
+			$update 	= "UPDATE scores INNER JOIN users ON scores.id_session=users.id_session SET coins = $calculatedCoins, last_score = $score, game_mode = '$gm' WHERE scores.id_session = $_SESSION[id_session]";
 
 
 

@@ -2,7 +2,7 @@
 	<h1>Settings</h1>
 	<?php 
 		if(isset($_SESSION['id_session'])){
-			$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session INNER JOIN shooter ON scores.id_session=users.id_session WHERE users.id_session=$_SESSION[id_session]" );
+			$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session INNER JOIN shooters ON shooters.id_session=users.id_session WHERE users.id_session=$_SESSION[id_session]" );
 			while($row = mysqli_fetch_assoc($result)) {
 				$Name = $row['player_name'];
 				$settings = $row['presets'];
@@ -67,7 +67,7 @@
 	            <input type="submit" value="apply settings">
 			</form>
 			<form action="reset-score.php" method="GET">
-				<label>BEST SCORE:</label><?php echo get($link,"BEST_SCORE","SCORES INNER JOIN players  ON scores.id_session=players.id_session","players.id_session=$_SESSION[id_session]"); ?>
+				<label>BEST SCORE:</label><?php echo get($link,"BEST_SCORE","SCORES INNER JOIN users  ON scores.id_session=users.id_session","players.id_session=$_SESSION[id_session]"); ?>
 	            <input type="submit" class="danger" value="reset score">
 			</form>
 			<?php

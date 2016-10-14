@@ -5,7 +5,7 @@
 ?>
 <html class="no-js" lang="en">
 <?php 
-	include('head.php'); 
+	include('head.php');  
 ?>
 <body class="homemenu">
 	<?php include('preloader.html'); ?>

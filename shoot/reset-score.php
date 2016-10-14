@@ -1,8 +1,8 @@
 <?php 
-	include('head.php'); 
+	include('../dbConnection.php');  
 	session_start();
 
-	mysqli_query($link,"UPDATE scores INNER JOIN players ON scores.id_player=players.id_player SET best_score = 0 WHERE scores.id_player = $_SESSION[id_player];");
+	mysqli_query($link,"UPDATE scores INNER JOIN users ON scores.id_session=users.id_session SET best_score = 0 WHERE scores.id_session = $_SESSION[id_session];");
 
 	header("location: index.php");
 ?>
