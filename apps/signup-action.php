@@ -44,8 +44,6 @@
 			mysqli_query($link,"INSERT INTO `mytabs` (`id_tabs`) VALUES ('$getid')");
 			mysqli_query($link,"INSERT INTO `playlists` (`ID_session`,`youtubeplaylistlink`) VALUES ('$getid','5wiK2_1JWLo')");
 			mysqli_query($link,"INSERT INTO `shooters` (`id_session`) VALUES ('$getid')");
-			mysqli_query($link,"INSERT INTO `shooters_mysettings` (`id_session`) VALUES ('$getid')");
-			mysqli_query($link,"INSERT INTO `shooters_myweapon` (`id_session`) VALUES ('$getid')");
 			mysqli_query($link,"INSERT INTO `notes` (`id_session`) VALUES ('$getid')");
 			mysqli_query($link,"INSERT INTO `settings` (`id_settings`) VALUES ('$getid')");
 		}

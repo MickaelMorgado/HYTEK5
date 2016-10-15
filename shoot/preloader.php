@@ -1,3 +1,6 @@
+<?php 
+	include('../../dbConnection.php');
+?>
 <style>
 	/*PRELOADER*/
 	#preloader  {
@@ -276,7 +279,22 @@
 
 <div id="preloader">
 	<div id="status">
-		<span class="loading-statut"></span>
+		<span class="loading-statut">
+			SETTINGS:<br/>
+			Setup ambiances volume : <?php echo $aud_ambiances; ?> <br/>
+			Setup weapons volume : <?php echo $aud_weapons; ?> <br/>
+			Setup birds volume : <?php echo $aud_birds; ?> <br/>
+			Loading graphics preset nº : <?php echo $settings; ?> <br/><br/>
+			PREFERENCES:<br/>
+			Scope : <?php echo $weapon_src; ?> <br/>
+			Fire sound : <?php echo $weapon_sound_fire; ?> <br/>
+			Reload sound : <?php echo $weapon_sound_reload; ?> <br/>
+			Coins : <?php echo $coins; ?> € <br/>
+			Mag capacity : <?php echo $weapon_mag_capacity; ?> <br/>
+			Damage : <?php echo $weapon_damage; ?> <br/>
+			Handle : <?php echo $weapon_handle; ?> <br/>
+			Ammo : <?php echo $weapon_ammo; ?> <br/>
+		</span>
 		<div id="pulse-loader">
 		  <div class="pulse-loader-1"></div>
 		  <div class="pulse-loader-2"></div>

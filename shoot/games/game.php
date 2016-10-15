@@ -4,92 +4,23 @@
 	<?php 
 		include('../../dbConnection.php');
 		//include('../head.php'); 
-		session_start();
 	?>
 	<script src="../js/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" href="https://rawgit.com/peachananr/wheel-menu/master/wheelmenu.css">
 	<link rel="stylesheet" href="../stylesheets/onlyoneminute.css">
-	<?php 
-	if (isset($_SESSION['id_session'])) { /* GET SETTINGS */
-		$result = mysqli_query( $link, "SELECT * FROM shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session INNER JOIN shooters ON shooters.id_session=users.id_session WHERE users.id_session=$_SESSION[id_session]" );
-		while($row = mysqli_fetch_assoc($result)) {
-			$settings = $row['presets'];
-			$music = $row['aud_musics'];
-			$ambiance = $row['aud_ambiances'];
-			$weapons = $row['aud_weapons'];
-			$birds = $row['aud_birds'];
-			$score = $row['score'];
-		} /* GET WEAPON */
-		$result = mysqli_query($link,"SELECT * FROM shooters_myweapon INNER JOIN users ON shooters_myweapon.id_session=users.id_session WHERE shooters_myweapon.id_session = $_SESSION[id_session]");
-		if ($result->num_rows > 0) {
-			while ($row = mysqli_fetch_assoc($result)) {
-				$weapon_mag_capacity = $row['mag_capacity'];   	/* int */
-				$weapon_damage = $row['damage']; 				/* int */
-				$weapon_handle = $row['handle']; 				/* float */
-				$weapon_ammo = $row['ammo']; 	 				/* int */
-				$weapon_src = $row['src'];       				/* varchar */
-				$weapon_sound_fire = $row['sound_fire'];		/* varchar */
-				$weapon_sound_reload = $row['sound_reload'];	/* varchar */
-			} 	
-			//echo $weapon_mag_capacity." - ".$weapon_damage." - ".$weapon_handle." - ".$weapon_ammo." - ".$weapon_src." - ".$weapon_sound_fire." - ".$weapon_sound_reload;
-		}else{
-			$weapon_mag_capacity = 8;
-			$weapon_damage = 1;
-			$weapon_handle = 0.1;
-			$weapon_ammo = 200;
-			$weapon_src = "cursor.png";
-			$weapon_sound_fire = "gun.mp3";
-			$weapon_sound_reload = "reload.mp3";
-		}
-		switch ($settings) {
-			case 0:
-				echo "<link rel='stylesheet' href='../stylesheets/low-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});</script><?php
-				break;
-			case 1:
-				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
-				break;
-			case 2:
-				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-				echo "<link rel='stylesheet' href='../stylesheets/ultra-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});</script><?php
-				break;
-			
-			default:
-				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
-				break;
-		}
-	}else{
-		$settings = 0;
-		$music = 1;
-		$ambiance = 1;
-		$weapons = 1;
-		$birds = 1;
-		echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-		$score = "not logged";
-		$weapon_mag_capacity = 8;
-		$weapon_damage = 1;
-		$weapon_handle = 0.1;
-		$weapon_ammo = 200;
-		$weapon_src = "cursor.png";
-		$weapon_sound_fire = "gun.mp3";
-		$weapon_sound_reload = "reload.mp3";
-	}
-	?>
+
 	<script type="text/javascript" src="../js/TweenMax.min.js"></script>
 	<link href='http://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
 </head>
 <body oncontextmenu="return false" onselectstart="return false" ondragstart="return false">
 	
-	<?php include('../preloader.html'); ?>
+	<?php include('../preloader.php'); ?>
 	
 	<input type="hidden" value="<?php echo $settings ?>" id="settings">
-	<input type="hidden" value="<?php echo $music ?>" id="music-vol">
-	<input type="hidden" value="<?php echo $ambiance ?>" id="ambiance-vol">
-	<input type="hidden" value="<?php echo $weapons ?>" id="weapons-vol">
-	<input type="hidden" value="<?php echo $birds ?>" id="birds-vol">
+	<input type="hidden" value="<?php echo $aud_musics ?>" id="music-vol">
+	<input type="hidden" value="<?php echo $aud_ambiances ?>" id="ambiance-vol">
+	<input type="hidden" value="<?php echo $aud_weapons ?>" id="weapons-vol">
+	<input type="hidden" value="<?php echo $aud_birds ?>" id="birds-vol">
 	<input type="hidden" value="1" id="rain-effect">
 	<input type="hidden" value="<?php echo $weapon_ammo ?>" id="weapon_ammo">
 	<input type="hidden" value="<?php echo $weapon_handle ?>" id="weapon_handle">
@@ -98,12 +29,6 @@
 	<input type="hidden" value="../Weapons/cursors/<?php echo $weapon_src ?>" id="weapon_src">
 	<input type="hidden" value="../Weapons/fireaudio/<?php echo $weapon_sound_fire ?>" id="weapon_sound_fire">
 	<input type="hidden" value="../Weapons/reloadaudio/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
-
-	<?php 
-	for ($i=0; $i < 8; $i++) { 
-		?><audio class="fire <?php echo $i; ?>" ><source src="../Weapons/fireaudio/barret.mp3" type="audio/mpeg"></audio> <?php
-	} 
-	?>
 
 	<div class="smoke"></div>
 	<div class="light"></div>
@@ -225,10 +150,8 @@
 	  }  
 	}
 
-//SWITCH WEAPONS
-
 //TIMER
-	var sec = 60;   				// set the seconds
+	var sec = 60;   				// set the seconds (60)
 
 	function countDown() {
 		var min = 0;   				// set the minutes
@@ -253,7 +176,7 @@
 
 		if (min == "00" && sec == '10') { countdown.play(); }
 		if (min == '00' && sec == '00') { sec = "00"; window.clearTimeout(SD); 
-			var r = confirm("End of the Game!\nYour Score is:"+score+"\nRestart?"); 
+			var r = confirm("End of the Game!\nYour Score is:"+score+"\nRestart?");  /* PROMPT */
 			if(r){
 				$("#status,#preloader").fadeIn();
 				document.location.href = "../apps/onlyoneminute/gamerestart.php?score="+score+"&coins="+score+"&GM=only one minute&phase=restart";
@@ -280,15 +203,6 @@
 
 //GAME src SETTINGS OR VARIABLES ============================================================================================================================
 
-	/* SET DEFAULT WEAPON SETTINGS IF FIELDS DOESNT HAVE DATA: */
-		if ($('#weapon_mag_capacity').val() == '' 	|| $('#weapon_mag_capacity').val()=="0") 			{ weapon_mag_capacity	= 8 };
-		if ($('#weapon_damage').val() == '' 		|| $('#weapon_damage').val()=="0") 					{ weapon_damage			= 1 };
-		if ($('#weapon_handle').val() == '' 		|| $('#weapon_handle').val()=="0") 					{ weapon_handle			= 0.1 };
-		if ($('#weapon_ammo').val() == '' 			|| $('#weapon_ammo').val()=="0") 					{ weapon_ammo			= 200 };
-		if ($('#weapon_sound_fire').val() == '' 	|| $('#weapon_sound_fire').val()=="0") 				{ weapon_sound_fire		= "gun.mp3" };
-		if ($('#weapon_src').val() == '' 			|| $('#weapon_src').val()=="0") 					{ weapon_src			= "cursor.png" };
-		if ($('#weapon_sound_reload').val() == '' 	|| $('#weapon_sound_reload').val()=="0") 			{ weapon_sound_reload	= "reload.mp3" };
-
 	var weapon = {			//dictionary
 	    1: $('#weapon_handle').val(),				//handling
 	    2: $('#weapon_sound_fire').val(),			//sound
@@ -298,7 +212,6 @@
 	    6: $('#weapon_sound_reload').val(),
 	    //7: $('#weapon_ammo').val(),
 	};
-
 
 	var chickenElm = {
 		1: 100, 			//max health
@@ -310,18 +223,14 @@
 	var score = 0;
 	var showFirstTime = 1;
 	var blt = weapon[4];
-	var ambience = new Audio();ambience.loop=true;ambience.volume=document.getElementById('ambiance-vol').value;
+	var ambience = new Audio();ambience.loop=true;ambience.volume=$('#ambiance-vol').val();
 	var countdown = new Audio();
-	$('.loading-statut').append("<br/>ambiance-volume: "+document.getElementById('ambiance-vol').value);
-	$('.loading-statut').append("<br/>weapons-volume: "+document.getElementById('weapons-vol').value);
-
 	var empty    = new Audio(); 
-	var reload   = new Audio();reload.volume=document.getElementById('weapons-vol').value;
+	var reload   = new Audio();reload.volume=$('#weapons-vol').val();
 	var notify   = new Audio();
-	var chicken  = new Audio();chicken.volume=document.getElementById('birds-vol').value; 
-	var chicken2 = new Audio();chicken2.volume=document.getElementById('birds-vol').value; 
-	var chicken3 = new Audio();chicken3.volume=document.getElementById('birds-vol').value; 
-	$('.loading-statut').append("<br/>birds-volume: "+document.getElementById('birds-vol').value);
+	var chicken  = new Audio();chicken.volume=$('#birds-vol').val(); 
+	var chicken2 = new Audio();chicken2.volume=$('#birds-vol').val(); 
+	var chicken3 = new Audio();chicken3.volume=$('#birds-vol').val(); 
 
 	reload.src='../Weapons/reloadaudio/reload.mp3'; 
 	empty.src='../Weapons/emptyaudio/emptyn.mp3'; 
@@ -364,7 +273,8 @@
 	$('body').css("background-image","url("+random_background([	"../img/onlyoneminute/landscape1.jpg",
 																"../img/onlyoneminute/landscape2.jpg",
 																"../img/onlyoneminute/landscape3.jpg",
-																"../img/onlyoneminute/landscape4.jpg"])+")");
+																"../img/onlyoneminute/landscape4.jpg",
+																"../img/onlyoneminute/landscape5.jpg"])+")");
 	//console.log("oi: "+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape1.jpg"]));
 
 //CURSOR - BLUR
@@ -373,8 +283,7 @@
 	  inter = 10,
 	  speed = 0;
 
-	var sets = document.getElementById("settings").value;
-	$('.loading-statut').append("<br/>settings: "+document.getElementById('settings').value);
+	var sets = $("#settings").val();
 
 	function moveBox(e) {
 		handling = weapon[1]; //0.05 - default

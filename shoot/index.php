@@ -55,7 +55,7 @@
 					<h1>Games</h1>
 					<img src="img/thumbnail1.png" alt="">
 					<a href="games/game.php" id="oom" class="link">only one minute</a></li>
-					<a href="#" class="link">waves <?php echo $_SESSION['id_session']; ?></a></li>
+					<a href="#" class="link">waves</a></li>
 				</div>
 
 		</div>
@@ -92,11 +92,11 @@
 								?>
 								<!--a type="button" data-toggle="modal" data-target=".loginmodal">Login / Sign up</a-->
 								<a href="../">Login / Sign up</a>
-								<a type="button" data-toggle="modal" data-target=".loginmodal">Settings (need login)</a>
+								<a href="../">Settings (need login)</a>
 								<?php
 							}
 						?>
-						<a href="#" id="HS">Help / Support</a>
+						<a href="#" id="HS"><?php echo "settings: ".$settings."<br/>aud_musics: ".$aud_musics."<br/>aud_ambiances: ".$aud_ambiances."<br/>aud_weapons: ".$aud_weapons."<br/>aud_birds: ".$aud_birds."<br/>score: ".$score."<br/>weapon_mag_capacity: ".$weapon_mag_capacity."<br/>weapon_damage: ".$weapon_damage."<br/>weapon_handle: ".$weapon_handle."<br/>weapon_ammo: ".$weapon_ammo."<br/>weapon_src: ".$weapon_src."<br/>weapon_sound_fire: ".$weapon_sound_fire."<br/>weapon_sound_reload: ".$weapon_sound_reload; ?></a>
 						
 
 
