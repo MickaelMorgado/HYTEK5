@@ -8655,22 +8655,32 @@ b {
 }
 
 /* line 197, ../sass/_menu.scss */
+.leaderboardlistLeft {
+  width: 70%;
+}
+
+/* line 198, ../sass/_menu.scss */
+.leaderboardlistRight {
+  width: 30%;
+}
+
+/* line 199, ../sass/_menu.scss */
 .leaderboardlistRight {
   text-align: right;
 }
 
-/* line 200, ../sass/_menu.scss */
+/* line 202, ../sass/_menu.scss */
 .list-unstyled {
   list-style: none;
   margin-left: 0;
 }
 
-/* line 204, ../sass/_menu.scss */
+/* line 206, ../sass/_menu.scss */
 .li-setting.active {
   background-color: #059;
 }
 
-/* line 207, ../sass/_menu.scss */
+/* line 209, ../sass/_menu.scss */
 input[type="submit"] {
   background: #111;
   border: 2px solid #555;
@@ -8680,13 +8690,13 @@ input[type="submit"] {
   text-transform: uppercase;
   cursor: pointer;
 }
-/* line 215, ../sass/_menu.scss */
+/* line 217, ../sass/_menu.scss */
 input[type="submit"].danger {
   border-color: #b63838;
   color: #b63838;
 }
 
-/* line 220, ../sass/_menu.scss */
+/* line 222, ../sass/_menu.scss */
 .notify {
   position: absolute;
   top: 0;
@@ -8697,8 +8707,90 @@ input[type="submit"].danger {
   font-size: 13px;
   padding: 10px 30px;
 }
+/* line 231, ../sass/_menu.scss */
+.notify.back-button {
+  right: auto;
+  left: 0;
+  text-transform: lowercase;
+}
 
-/* line 230, ../sass/_menu.scss */
+/* line 237, ../sass/_menu.scss */
+.tracklist-player {
+  -moz-transition: all, 0.25s, ease-in-out;
+  -o-transition: all, 0.25s, ease-in-out;
+  -webkit-transition: all, 0.25s, ease-in-out;
+  transition: all, 0.25s, ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  border: 2px solid gray;
+  position: fixed;
+  width: 300px;
+  bottom: 0;
+  left: -275px;
+  color: #fff;
+  opacity: 1;
+  animation: fadein 7s linear;
+}
+@-moz-keyframes fadein {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  5% {
+    left: 0;
+    opacity: 1;
+  }
+  95% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -275px;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadein {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  5% {
+    left: 0;
+    opacity: 1;
+  }
+  95% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -275px;
+    opacity: 0;
+  }
+}
+@keyframes fadein {
+  0% {
+    left: -300px;
+    opacity: 0;
+  }
+  5% {
+    left: 0;
+    opacity: 1;
+  }
+  95% {
+    left: 0;
+    opacity: 1;
+  }
+  100% {
+    left: -275px;
+    opacity: 0;
+  }
+}
+/* line 259, ../sass/_menu.scss */
+.tracklist-player:hover {
+  left: 0;
+}
+
+/* line 264, ../sass/_menu.scss */
 .preview-settings {
   background-image: url("../img/onlyoneminute/landscape1.jpg");
   background-position: center center;
@@ -8708,13 +8800,13 @@ input[type="submit"].danger {
   height: 100%;
 }
 
-/* line 238, ../sass/_menu.scss */
+/* line 272, ../sass/_menu.scss */
 .settings .right-block .smoke {
   z-index: 0;
   opacity: .5;
 }
 
-/* line 242, ../sass/_menu.scss */
+/* line 276, ../sass/_menu.scss */
 .modal-backdrop {
   background-color: #2F0000;
 }
@@ -8725,16 +8817,16 @@ input[type="submit"].danger {
 /*============================================================
     SCSS
 ============================================================*/
-/* line 289, ../sass/_menu.scss */
+/* line 323, ../sass/_menu.scss */
 .radio-weapons {
   visibility: hidden;
   position: absolute;
 }
-/* line 260, ../sass/_menu.scss */
+/* line 294, ../sass/_menu.scss */
 .radio-weapons + label {
   cursor: pointer;
 }
-/* line 274, ../sass/_menu.scss */
+/* line 308, ../sass/_menu.scss */
 .radio-weapons + label:before {
   position: relative;
   left: 0;
@@ -8745,11 +8837,11 @@ input[type="submit"].danger {
   content: '';
   background-color: red;
 }
-/* line 284, ../sass/_menu.scss */
+/* line 318, ../sass/_menu.scss */
 .radio-weapons:checked + label:before {
   background-color: green;
 }
-/* line 292, ../sass/_menu.scss */
+/* line 326, ../sass/_menu.scss */
 .radio-weapons + label {
   border: 2px solid gray;
   background-color: #111;
@@ -8759,12 +8851,12 @@ input[type="submit"].danger {
   text-align: center;
   overflow: hidden;
 }
-/* line 301, ../sass/_menu.scss */
+/* line 335, ../sass/_menu.scss */
 .radio-weapons:checked + label {
   border: 2px solid purple;
   color: purple;
 }
-/* line 305, ../sass/_menu.scss */
+/* line 339, ../sass/_menu.scss */
 .radio-weapons + label:before {
   display: none;
 }
@@ -8772,7 +8864,7 @@ input[type="submit"].danger {
 /*============================================================
     THUMBNAILS
 ============================================================*/
-/* line 313, ../sass/_menu.scss */
+/* line 347, ../sass/_menu.scss */
 .ShopThumbnail {
   max-width: 100px;
   max-height: 100px;

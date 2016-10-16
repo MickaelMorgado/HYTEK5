@@ -12,9 +12,18 @@
 	mouseover3.src = 'audios/mouseover.mp3';
 	mouseover4.src = 'audios/mouseover.mp3';
 	
-	soundtrack.src = 'audios/soundtrack4.mp3';soundtrack.loop=true;soundtrack.volume=0.4;
 
-	$(document).ready(function(){					soundtrack.play();			});
+	random_soundtrack = function (list) {
+		return list[Math.floor((Math.random()*list.length))];
+	} 
+
+	$(document).ready(function(){	
+		rs = random_soundtrack(["Hitman - Kevin Macleod",
+								"Day Of Recon - Max Surla"])				
+		soundtrack.src = "audios/"+rs+".mp3";soundtrack.loop=true;soundtrack.volume=0.6;
+		$(".tracklist-player__text").html(rs)
+		soundtrack.play();	
+	});
 
 	$('.block.games').hover(function(){				mouseover1.play();			});
 	$('.block.leaderboard').hover(function(){		mouseover2.play();			});

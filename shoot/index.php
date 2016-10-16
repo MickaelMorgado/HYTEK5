@@ -44,8 +44,8 @@
 	}
 </style>
 
+<a href="../" class="notify back-button">< Back</a>
 	<div class="row first">
-
 <div class="single-item">
 	<div>
 		<div class="col-md-3">
@@ -151,6 +151,10 @@
 
 	</div><!--ROW-->
 
+<div class="tracklist-player">
+	Currently playing: <br/>
+	<span class="tracklist-player__text"></span>
+</div>
 
 <script type="text/javascript">
 	$(document).ready(function(){

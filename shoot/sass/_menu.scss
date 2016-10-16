@@ -194,6 +194,8 @@ b{
   vertical-align: top;
   box-shadow: 0 0 4px 0px #000;
 }
+.leaderboardlistLeft {  width: 70%; }
+.leaderboardlistRight {  width: 30%; }
 .leaderboardlistRight{
   text-align: right;
 }
@@ -226,6 +228,38 @@ input[type="submit"] {
   color: #ccc;
   font-size: 13px;
   padding: 10px 30px;
+  &.back-button {
+    right: auto;
+    left: 0;
+    text-transform: lowercase;
+  }
+}
+.tracklist-player {
+  $w:300px;
+  $s:$w - 25;
+  @include transition(all, .25s, ease-in-out);
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px 40px;
+  border: 2px solid gray; 
+  position: fixed;
+  width: $w;
+  bottom: 0;
+  left: -$s;
+  color: #fff;
+  opacity: 1;
+  animation: fadein 7s linear;
+  
+  @include keyframes(fadein) {
+    0%   {left:-$w;opacity:0;}
+    5%   {left:0;opacity:1;}
+    95%   {left:0;opacity:1;}
+    100% {left:-$s;opacity:0;}
+  }
+
+  &:hover {
+    left: 0;
+  }
+  
 }
 .preview-settings {
   background-image:url('../img/onlyoneminute/landscape1.jpg');
