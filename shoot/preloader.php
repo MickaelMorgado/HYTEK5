@@ -289,6 +289,7 @@
 			Scope : <?php echo $weapon_src; ?> <br/>
 			Fire sound : <?php echo $weapon_sound_fire; ?> <br/>
 			Reload sound : <?php echo $weapon_sound_reload; ?> <br/>
+			Empty sound : <?php echo $weapon_sound_empty; ?> <br/>
 			Coins : <?php echo $coins; ?> € <br/>
 			Mag capacity : <?php echo $weapon_mag_capacity; ?> <br/>
 			Damage : <?php echo $weapon_damage; ?> <br/>

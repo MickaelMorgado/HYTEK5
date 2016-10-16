@@ -1,17 +1,10 @@
 <?php 
 	include('../dbConnection.php'); 
 
-	$music = $_GET['music'];
-	$ambiance = $_GET['ambiance'];
-	$weapons = $_GET['weapons'];
-	$birds = $_GET['birds'];
-
-	$music = $music/10;
-	$ambiance = $ambiance/10;
-	$weapons = $weapons/10;
-	$birds = $birds/10;
-
-	//echo "$music,$ambiance,$weapons,$birds";
+	$music = $_GET['music']/10;
+	$ambiance = $_GET['ambiance']/10;
+	$weapons = $_GET['weapons']/10;
+	$birds = $_GET['birds']/10;
 
 	switch ($_GET['settings']) {
 		case 'low':
@@ -28,10 +21,13 @@
 			break;
 	}
 	
-	//echo "UPDATE shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session SET presets = '$set' , aud_musics  = '$music' , aud_ambiances  = '$ambiance' , aud_weapons  = '$weapons' , aud_birds  = '$birds' WHERE users.id_session = $_SESSION[id_session];";
-	
-	mysqli_query($link,"UPDATE shooters_mysettings INNER JOIN users ON shooters_mysettings.id_session=users.id_session SET presets = '$set' , aud_musics  = '$music' , aud_ambiances  = '$ambiance' , aud_weapons  = '$weapons' , aud_birds  = '$birds' WHERE users.id_session = $_SESSION[id_session];");
+	$mysql_query_settings = "UPDATE shooters SET settings = '$set' , aud_musics  = '$music' , aud_ambiances  = '$ambiance' , aud_weapons  = '$weapons' , aud_birds  = '$birds' WHERE id_session = $_SESSION[id_session];";
+	mysqli_query($link,$mysql_query_settings);
 
-	header("location: index.php");
+	if (!$debug) {
+		header("location: index.php");
+	}else{
+		echo $mysql_query_settings;
+	}
 
 ?>

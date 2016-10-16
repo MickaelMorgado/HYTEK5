@@ -242,6 +242,82 @@ input[type="submit"] {
 .modal-backdrop {
   background-color: #2F0000;
 }
+
+
+/*============================================================
+    ARMORY
+============================================================*/
+
+  /*============================================================
+      SCSS
+  ============================================================*/
+    
+    @mixin custom-radio(
+      $side : l
+      ){
+      visibility: hidden;
+      position: absolute;
+      & + label { cursor: pointer; }
+      @if($side!=l){
+        & + label:after {
+          position: relative;
+          right: 0;
+          display: inline-block;
+          margin-left: 5px;
+          width: 15px;
+          height: 15px;
+          content: '';
+          background-color: red;
+        }
+        &:checked + label:after { background-color: green; }
+        }@else{
+        & + label:before {
+          position: relative;
+          left: 0;
+          display: inline-block;
+          margin-right: 5px;
+          width: 15px;
+          height: 15px;
+          content: '';
+          background-color: red;
+        }
+        &:checked + label:before { background-color: green; }
+        }
+        @content;
+    }
+
+    .radio-weapons {
+      $cubicsz: 125px;
+      @include custom-radio(){
+        & + label {
+          border: 2px solid gray;
+          background-color: #111;
+          display: inline-block;
+          width: $cubicsz;
+          height: $cubicsz;
+          text-align: center;
+          overflow: hidden;
+        }
+        &:checked + label {
+          border: 2px solid purple;
+          color: purple;
+        }
+        & + label:before { display: none; }
+      };
+    }
+
+  /*============================================================
+      THUMBNAILS
+  ============================================================*/
+
+    .ShopThumbnail {
+      max-width: 100px;
+      max-height: 100px;
+    }  
+
+
+
+
 /*ANIMATION*/
 @-webkit-keyframes smoke{
   0%   { top: 0; left: 0}

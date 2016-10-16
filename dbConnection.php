@@ -47,6 +47,7 @@ session_start();
 				$weapon_src				 = $row['src'];       		/* varchar */
 				$weapon_sound_fire		 = $row['sound_fire'];		/* varchar */
 				$weapon_sound_reload	 = $row['sound_reload'];	/* varchar */
+				$weapon_sound_empty	 	 = $row['sound_empty'];		/* varchar */
 			} 
 
 		//	echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
@@ -71,6 +72,7 @@ session_start();
 		if ($weapon_src=='' 				|| $weapon_src==NULL) 			{ $weapon_src = "cursor.png"; 			}
 		if ($weapon_sound_fire=='' 			|| $weapon_sound_fire==NULL) 	{ $weapon_sound_fire = "gun.mp3"; 		}
 		if ($weapon_sound_reload=='' 		|| $weapon_sound_reload==NULL) 	{ $weapon_sound_reload = "reload.mp3"; 	}
+		if ($weapon_sound_empty=='' 		|| $weapon_sound_empty==NULL) 	{ $weapon_sound_empty = "empty.mp3"; 	}
 
 	/* SETTING UP PRESETS */
 		switch ($settings) {

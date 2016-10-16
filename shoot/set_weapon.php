@@ -5,13 +5,17 @@
 	$weaponappearance 	= $_POST['weaponappearance'];
 	$weaponsound 		= $_POST['weaponsound'];
 	$weaponreloadsound 	= $_POST['weaponreloadsound'];
+	$weaponemptysound 	= $_POST['weaponemptysound'];
 
-	//echo "lol: ".$weaponappearance.$weaponsound.$weaponreloadsound.$_SESSION['id_session'];
+	$mysql_query_update = "UPDATE shooters SET src = '$weaponappearance' , sound_fire  = '$weaponsound' , sound_reload  = '$weaponreloadsound' , sound_empty  = '$weaponemptysound' WHERE id_session = $_SESSION[id_session];";
 
-	//echo "UPDATE shooters_myweapon INNER JOIN users ON shooters_myweapon.id_session=users.id_session SET src = '$weaponappearance' , sound_fire  = '$weaponsound' , sound_reload  = '$weaponreloadsound' WHERE users.id_session = $_SESSION[id_session];";
+	mysqli_query($link,$mysql_query_update);
 
-	mysqli_query($link,"UPDATE shooters SET src = '$weaponappearance' , sound_fire  = '$weaponsound' , sound_reload  = '$weaponreloadsound' WHERE id_session = $_SESSION[id_session];");
-
-	header("location: index.php");
+	if (!$debug) {
+		header("location: index.php");
+	}else{
+		echo "rslt: ".$weaponappearance." - ".$weaponsound." - ".$weaponreloadsound." - ".$weaponemptysound." - ".$_SESSION['id_session'];
+		echo "<br/><br/>".$mysql_query_update;
+	}
 
 ?>

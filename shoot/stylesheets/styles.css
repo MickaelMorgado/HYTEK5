@@ -8719,6 +8719,65 @@ input[type="submit"].danger {
   background-color: #2F0000;
 }
 
+/*============================================================
+    ARMORY
+============================================================*/
+/*============================================================
+    SCSS
+============================================================*/
+/* line 289, ../sass/_menu.scss */
+.radio-weapons {
+  visibility: hidden;
+  position: absolute;
+}
+/* line 260, ../sass/_menu.scss */
+.radio-weapons + label {
+  cursor: pointer;
+}
+/* line 274, ../sass/_menu.scss */
+.radio-weapons + label:before {
+  position: relative;
+  left: 0;
+  display: inline-block;
+  margin-right: 5px;
+  width: 15px;
+  height: 15px;
+  content: '';
+  background-color: red;
+}
+/* line 284, ../sass/_menu.scss */
+.radio-weapons:checked + label:before {
+  background-color: green;
+}
+/* line 292, ../sass/_menu.scss */
+.radio-weapons + label {
+  border: 2px solid gray;
+  background-color: #111;
+  display: inline-block;
+  width: 125px;
+  height: 125px;
+  text-align: center;
+  overflow: hidden;
+}
+/* line 301, ../sass/_menu.scss */
+.radio-weapons:checked + label {
+  border: 2px solid purple;
+  color: purple;
+}
+/* line 305, ../sass/_menu.scss */
+.radio-weapons + label:before {
+  display: none;
+}
+
+/*============================================================
+    THUMBNAILS
+============================================================*/
+/* line 313, ../sass/_menu.scss */
+.ShopThumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}
+
 /*ANIMATION*/
 @-webkit-keyframes smoke {
   0% {

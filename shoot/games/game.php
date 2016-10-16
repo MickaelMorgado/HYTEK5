@@ -29,6 +29,7 @@
 	<input type="hidden" value="../Weapons/cursors/<?php echo $weapon_src ?>" id="weapon_src">
 	<input type="hidden" value="../Weapons/fireaudio/<?php echo $weapon_sound_fire ?>" id="weapon_sound_fire">
 	<input type="hidden" value="../Weapons/reloadaudio/<?php echo $weapon_sound_reload ?>" id="weapon_sound_reload">
+	<input type="hidden" value="../Weapons/emptyaudio/<?php echo $weapon_sound_empty ?>" id="weapon_sound_empty">
 
 	<div class="smoke"></div>
 	<div class="light"></div>
@@ -210,6 +211,7 @@
 	    4: $('#weapon_mag_capacity').val(),			//magazine capacity
 	    5: $('#weapon_src').val(),
 	    6: $('#weapon_sound_reload').val(),
+	    7: $('#weapon_sound_empty').val(),
 	    //7: $('#weapon_ammo').val(),
 	};
 
@@ -232,8 +234,6 @@
 	var chicken2 = new Audio();chicken2.volume=$('#birds-vol').val(); 
 	var chicken3 = new Audio();chicken3.volume=$('#birds-vol').val(); 
 
-	reload.src='../Weapons/reloadaudio/reload.mp3'; 
-	empty.src='../Weapons/emptyaudio/emptyn.mp3'; 
 	notify.src='../audios/onlyoneminute/notify.mp3'; 
 	chicken.src='../audios/onlyoneminute/chicken2.mp3'; 
 	chicken2.src='../audios/onlyoneminute/chicken3.mp3'; 
@@ -564,7 +564,9 @@
 		}		
 
 		if ( blt == 0 ) {
-			empty.play();
+			var empty = new Audio();
+			empty.src = weapon[7];
+			empty.play(); 
 			blt = 0;
 			$('.run-animation,.run-animationinv').css('pointer-events','none');
 			if (showFirstTime==1) {
@@ -601,7 +603,9 @@
 			$('.reload').css({display: "none"});
 			$('.bullets').removeClass("shooted");
 
-			reload.play();
+			var reload = new Audio();
+			reload.src = weapon[6];
+			reload.play(); 
 
 		}
 
