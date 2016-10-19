@@ -301,8 +301,8 @@
 //CURSOR - BLUR
 
 	var $box = $('.cursor-scope'),
-	  inter = 10,
-	  speed = 0;
+	  	inter = 10,
+	  	speed = 0;
 
 	var sets = $("#settings").val();
 
@@ -351,7 +351,6 @@
 		    }
 		);
 	}else{
-	
 		$box.each(function(index, val) {
 		    index = index + 1;
 		    TweenMax.set(
@@ -541,7 +540,7 @@
 
 	}
 
-//CURSOR
+//CURSOR (STYLES AND ANIMATION)
 
 	$('body').mouseover(function(){
 		$(this).css({cursor: 'none',height: '100%'});
