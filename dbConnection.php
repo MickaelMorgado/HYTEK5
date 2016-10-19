@@ -74,26 +74,5 @@ session_start();
 		if ($weapon_sound_reload=='' 		|| $weapon_sound_reload==NULL) 	{ $weapon_sound_reload = "reload.mp3"; 	}
 		if ($weapon_sound_empty=='' 		|| $weapon_sound_empty==NULL) 	{ $weapon_sound_empty = "empty.mp3"; 	}
 
-	/* SETTING UP PRESETS */
-		switch ($settings) {
-			case 0:
-				echo "<link rel='stylesheet' href='../stylesheets/low-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});</script><?php
-				break;
-			case 1:
-				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
-				break;
-			case 2:
-				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-				echo "<link rel='stylesheet' href='../stylesheets/ultra-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});</script><?php
-				break;
-			default:
-				echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
-				?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
-				break;
-		}
-
 
 ?>

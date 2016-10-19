@@ -25,7 +25,9 @@
 				break;
 		}
 		?>
-			<script>$.notify("added need refresh tabs sidebar (WIP)");</script>
+			<script>
+				$("#enableRefresh").load("apps/links/link-list.php");
+			</script>
 		<?php
 	}else{
 		echo "Can't be empty";

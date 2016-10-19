@@ -517,6 +517,7 @@
 		.link-list {
 			text-align: left;
 			padding: 5px 20px;
+			min-height: 30px;
 			&:focus {
 				outline: none;
 				box-shadow: 0 0 15px 0 black inset;

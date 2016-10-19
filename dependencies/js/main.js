@@ -12,17 +12,6 @@
 		});
 	*/
 
-	if ($('.url').size()>0) {
-		var options = { 
-			valueNames: [
-				'title',
-				'url'
-			],
-			//plugins: [ ListFuzzySearch() ] 
-		};
-		var userList = new List('tabs', options);
-	};
-
 	$('#searchinput').on("input",function(){
 		if ($(this).val() == '') {
 			$('#tabs .list').removeClass("active");
@@ -175,6 +164,11 @@ $("#menu-toggle").click(function(e) {
     AJAX
 ============================================================*/
 
+	/* how to use :
+		<form ... onsubmit="ajax($(this),event)" ... >
+		<form ... onsubmit="ajax($(this),event);$('divUwant').load('phpfileuwant');" ... > // W/ reload div
+		<span class="ajax-response"></span>
+	*/
 	function ajax(e,event) {
 
 		var $myForm  	= 	$('#'+e.attr('id')), 							/* form */

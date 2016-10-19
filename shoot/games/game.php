@@ -1,11 +1,32 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="pt"> 
 <head>
+	<script src="../js/jquery-2.1.3.min.js"></script>
 	<?php 
 		include('../../dbConnection.php');
+		/* SETTING UP PRESETS */
+			switch ($settings) {
+				case 0:
+					echo "<link rel='stylesheet' href='../stylesheets/low-settings.css'>";
+					?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: low-settings.css")});</script><?php
+					break;
+				case 1:
+					echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
+					?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
+					break;
+				case 2:
+					echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
+					echo "<link rel='stylesheet' href='../stylesheets/ultra-settings.css'>";
+					?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: ultra-settings.css")});</script><?php
+					break;
+				default:
+					echo "<link rel='stylesheet' href='../stylesheets/normal-settings.css'>";
+					?><script>$(document).ready(function () {$('.loading-statut').append("<br/>loading: normal-settings.css")});</script><?php
+					break;
+			}
+
 		//include('../head.php'); 
 	?>
-	<script src="../js/jquery-2.1.3.min.js"></script>
 	<link rel="stylesheet" href="https://rawgit.com/peachananr/wheel-menu/master/wheelmenu.css">
 	<link rel="stylesheet" href="../stylesheets/onlyoneminute.css">
 

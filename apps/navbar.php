@@ -69,7 +69,7 @@
 								class 	= 	"dock-icon sprite s2" 
 								title 	= 	"facebook"></a>
 						</li>
-						<li><a href="http://play.spotifycollection/songs">
+						<li><a href="https://play.spotify.com/collection/songs/">
 							<img 	
 								class 	= 	"dock-icon sprite s5" 
 								title 	= 	"spotify songs"></a>
@@ -85,7 +85,7 @@
 		</form>
 		<div class="ajax-response"></div>
 		<ul class="list-unstyled scrollable list" id="enableRefresh">
-			<?php include('apps/link-list.php'); ?>
+			<?php include('links/link-list.php'); ?>
 		</ul>
 	</div>
 </div>
