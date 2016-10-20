@@ -74,3 +74,4 @@
 	}
 	include("apps/notify.php");	
 ?>
+<script src="../dependencies/js/main.js"></script>

@@ -25,7 +25,7 @@
 	mysqli_query($link,$mysql_query_settings);
 
 	if (!$debug) {
-		header("location: index.php");
+		//header("location: index.php");
 	}else{
 		echo $mysql_query_settings;
 	}

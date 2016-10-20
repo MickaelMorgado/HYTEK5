@@ -2,6 +2,7 @@
 <?php 
 	$error_reporting = 0;
 	include('../dbConnection.php');
+	include('../shoot/apps/shooters-userdata.php');
 ?>
 <html class="no-js" lang="en">
 <?php 

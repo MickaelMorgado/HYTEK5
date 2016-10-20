@@ -4,6 +4,7 @@
 	<script src="../js/jquery-2.1.3.min.js"></script>
 	<?php 
 		include('../../dbConnection.php');
+		include('../../shoot/apps/shooters-userdata.php');
 		/* SETTING UP PRESETS */
 			switch ($settings) {
 				case 0:
