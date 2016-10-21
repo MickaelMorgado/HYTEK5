@@ -23,6 +23,7 @@
   <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script--> 
 
 <script>
+$(window).load(function(){ /* load after all */ 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -39,4 +40,5 @@
       r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
       a.appendChild(r);
   })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+});
 </script>

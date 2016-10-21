@@ -57,6 +57,7 @@
 	<div class="light"></div>
 
 	<div class="container">
+
 		<span class="cursor-scope"></span>
 		<span class="cursor-scope"></span>
 		<span class="cursor-scope"></span>
@@ -67,7 +68,12 @@
 		<span class="cursor-scope"></span>
 		<span class="cursor-scope"></span>
 		<span class="cursor-scope"></span>
-		
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+		<span class="cursor-scope"></span>
+
 		<div class="best-score">Best score: <span><?php echo $score ; ?></span></div>
 		<input type="hidden" id="best-score" value="<?php echo $score ; ?>">
 		<div id="score" class="score">Your score: 0</div>
@@ -302,20 +308,20 @@
 //CURSOR - BLUR
 
 	var $box = $('.cursor-scope'),
-	  	inter = 10,
-	  	speed = 0;
+	  	inter = $('.cursor-scope').length,
+	  	opac = 1/inter;
 
 	var sets = $("#settings").val();
 
 	function moveBox(e) {
 		handling = weapon[1]; //0.05 - default
 		if (sets==0) {
-			blur_amount = 0; //750 - default
+			blur_amount = 0;
 		}else{
-			blur_amount = 350; //750 - default
+			blur_amount = 350; //350 - default
 		}
 	  	$box.each(function(index, val) {
-	   		TweenLite.to($(this), handling, { css: { left: e.pageX, top: e.pageY},delay:0+(index/blur_amount)});
+	   		TweenLite.to($(this), handling, { css: { left: e.pageX, top: e.pageY },delay:0+(index/blur_amount)});
 	  	});
 	}
 
@@ -340,7 +346,7 @@
 		    index = index + 1;
 		    TweenMax.set(
 		      $(this),{
-		        autoAlpha: 1 - (0.0333 * index), //scope opacity
+		        autoAlpha: 0.5 - (opac * index), //scope opacity
 		        delay:1
 		      }
 		    );
@@ -356,7 +362,7 @@
 		    index = index + 1;
 		    TweenMax.set(
 		      $(this),{
-		        autoAlpha: 0.3 - (0.0333 * index), //scope opacity
+		        autoAlpha: 0.5 - (opac * index), //scope opacity
 		        delay:1
 		      }
 		    );
@@ -563,6 +569,7 @@
 
 		var fire = new Audio();
 		fire.src = weapon[2];
+		fire.volume=$('#weapons-vol').val();
 		fire.play(); 
 
 	}
@@ -587,6 +594,7 @@
 		if ( blt == 0 ) {
 			var empty = new Audio();
 			empty.src = weapon[7];
+			empty.volume=$('#weapons-vol').val();
 			empty.play(); 
 			blt = 0;
 			$('.run-animation,.run-animationinv').css('pointer-events','none');
@@ -626,6 +634,7 @@
 
 			var reload = new Audio();
 			reload.src = weapon[6];
+			reload.volume=$('#weapons-vol').val();
 			reload.play(); 
 
 		}

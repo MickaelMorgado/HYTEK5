@@ -1,0 +1,29 @@
+FALLBACK
+# v1 2011-08-14
+# This is another comment
+./hyteklogo.jpg
+./dependencies/css/styles.css
+./dependencies/img/shooters.png
+./dependencies/js/bootstrap.min.js
+./dependencies/js/list.min.js
+./dependencies/js/moment.min.js
+./dependencies/js/intro.js
+./dependencies/js/lazyload.min.js
+./dependencies/css/introjs.css
+http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css
+https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css
+https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
+https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js
+./dependencies/img/socio.png
+https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff2?v=4.5.0                         
+./dependencies/img/noise.png                         
+https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.woff?v=4.5.0                         
+https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/fonts/fontawesome-webfont.ttf?v=4.5.0                         
+./dependencies/img/shooters.png
+https://wallpaperscraft.com/image/texture_black_pattern_light_lines_44980_1920x1080.jpg                         
+./dependencies/img/noise-diagonal.png                         
+./dependencies/js/list.fuzzysearch.js
+./dependencies/js/jscolor.js
+https://www.google-analytics.com/analytics.js
+http://static.hotjar.com/c/hotjar-251262.js?sv=5                         
+https://www.youtube.com/iframe_api

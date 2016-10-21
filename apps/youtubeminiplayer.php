@@ -58,11 +58,12 @@
 <!-- youtube dependencies -->
 <!--script src="http://www.youtube.com/player_api"></script-->
 <script>
-
+$(window).load(function(){
   var tag = document.createElement('script');
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+});
   var 	player,
   		dataOrder = 0,
   		lastOrder = $('.playlistlink').last().data("order");
@@ -105,7 +106,6 @@
 	}
 	// when video ends
 	function onPlayerStateChange(event) { 
-		console.log("isplaying");
 		if (event.data === 0 ){nextVideo();}
 		else{
         	$("#youtubeRangeSlider").attr("aria-valuemax",player.getDuration());
