@@ -68,7 +68,7 @@ a:hover{cursor: pointer;}
 	background-color: rgba(0,0,0,0.5);
 	bottom: 0;
 	top: auto;
-	position: absolute;
+	position: fixed;
 	z-index: 200;
 }
 .fullscreenbutton {
@@ -222,7 +222,7 @@ html,body{
 	color: #FFF;
 	font-weight: bold;
 	font-family: 'Satisfy', cursive;
-	position: absolute;
+	position: fixed;
 		 -webkit-user-select: none;  
 	  -moz-user-select: none;    
 	  -ms-user-select: none;      
@@ -259,7 +259,7 @@ html,body{
 	//background-color: rgba(0,0,0,0.2);
 }
 .ammo{
-	position: absolute;
+	position: fixed;
 	display: block;
 	top: auto;
 	bottom: 0;
@@ -269,7 +269,6 @@ html,body{
 	width: auto;
 	//background: rgba(0,0,0,0.6);
 }
-.smoke {display: none;}	
 .bullets{
 	display: block;
 	height: 100%;
@@ -295,7 +294,7 @@ html,body{
 	width: 900px;
 	margin-left: -450px;
 	margin-top: -250px;
-	position: absolute;
+	position: fixed;
 	background-image: url('../img/onlyoneminute/reload.png');
 	-webkit-animation: blink 1s infinite;
 	animation: blink 1s infinite;
@@ -334,7 +333,7 @@ html,body{
 	content: "+300";
 }
 #feed {
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 60px;
 	max-height: 30%;
@@ -392,6 +391,19 @@ html,body{
 .wheel .item a {
   text-decoration:none;
   color:#333;
+}
+
+.side-moves {
+	top: 0;
+	bottom: 0;
+	position: fixed;
+	left: 0;
+	width: 100px;
+	//border:1px solid red;
+}
+.side-moves.moveToRight{
+	left: auto;	
+	right: 0;
 }
 
 

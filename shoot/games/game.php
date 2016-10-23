@@ -99,6 +99,8 @@
 			</ul>
 
 		<span class="reload"><span class="reload_small"></span></span>
+		<div class="side-moves moveToLeft"></div>
+		<div class="side-moves moveToRight"></div>
 	</div>
 	<section class="rain"></section>
 </body>	
@@ -155,7 +157,42 @@
 	  });
 	});
 
+//PANORAMIC BODY & SIDES MOVES FUNCTIONS
+	var bodyWidth = $('body').width()*3;
 
+	$('body').width(bodyWidth);
+
+	$(".side-moves").mouseenter(function() {
+		if ($(this).hasClass('moveToRight')){
+			$('html').animate({scrollLeft: "+=1000"},1000);
+		}else{
+			$('html').animate({scrollLeft: "-=1000"},1000);
+		};
+	});
+
+
+/*
+var mouseOver = false;
+function moveSideWays(e) {
+    if (mouseOver) {
+		var moveSpeed = 250;
+    	if (e.hasClass('moveToRight')){
+    		$(window).scrollLeft($(document).scrollLeft()+moveSpeed);
+    	}else{
+    		$(window).scrollLeft($(document).scrollLeft()-moveSpeed);
+    	};
+    }
+}
+
+
+$(".side-moves").bind('mouseenter', function() {
+    mouseOver = true;
+    moveSideWays(e);
+});
+$(".side-moves").bind('mouseleave', function() {
+    mouseOver = false;
+});
+*/
 
 //FULLSCREEN toggle
 	function toggleFullScreen() {
@@ -245,7 +282,7 @@
 
 	var chickenElm = {
 		1: 100, 			//max health
-		2: 10, 				//how many chickenElm
+		2: 1, 				//how many chickenElm
 	};
 
 	var WeaponDamage = 100/weapon[3];
@@ -283,6 +320,7 @@
 			else if ( a == false ) 	{ 	a = true;	$class = "run-animation";		}
 		}
 		toggle();
+		/* creating birds element */
 		$('.container').append("<span identification='"+c+"' health='100' class='chicken "+$class+"'><div class='hp-hud'><span class='hp-bar'></span></div></span>");
 		
 	};
@@ -298,11 +336,15 @@
 	  return list[Math.floor((Math.random()*list.length))];
 	} 
 
+/*
 	$('body').css("background-image","url("+random_background([	"../img/onlyoneminute/landscape1.jpg",
 																"../img/onlyoneminute/landscape2.jpg",
 																"../img/onlyoneminute/landscape3.jpg",
 																"../img/onlyoneminute/landscape4.jpg",
 																"../img/onlyoneminute/landscape5.jpg"])+")");
+*/
+	$('body').css("background-image","url("+random_background([	"../img/onlyoneminute/360landscape1.jpg"])+")");
+
 	//console.log("oi: "+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape1.jpg"]));
 
 //CURSOR - BLUR
@@ -400,6 +442,35 @@
 				var startDelay = Math.floor((   Math.random()*10                  ) +30   ),
 				    randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       ),
 				    randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
+
+
+				    dirR = "+=2";
+				    dirL = "+=2";
+
+				    function moveDir() {
+					    if (Math.random() > 0.95) {
+					      swapDirL();
+					    }
+					    if (Math.random() < 0.05) {
+					      swapDirR();
+					    }
+				    }
+
+				    function swapDirL() {
+				        if(dirL == "+=2") {
+				            dirL = "-=2";
+				        }
+				        else {
+				          dirL = "+=2";   
+				        }
+				    }
+
+				    function swapDirR() {
+				        dirR == "+=2" ? dirR = "-=2" : dirR = "+=2";   
+				    }
+				    setInterval (function() { console.log("in function");ra[EI].style.left = dirL; ra[EI].style.top = dirR; moveDir(); } , 50);
+/*
+
 				ra[EI].style.left = -startDelay*5+"px";ra[EI].style.top = randPosY+"%";ra[EI].style.width = randSize+"px";ra[EI].style.height = randSize+"px";
 				if (randSize < 30) { 				ra[EI].style['-webkit-animation-duration'] = "30s";ra[EI].style['animation-duration'] = "30s";			 }else{
 					if (randSize < 50) { 			ra[EI].style['-webkit-animation-duration'] = "20s";ra[EI].style['animation-duration'] = "20s";			 }else{
@@ -408,6 +479,7 @@
 						};
 					};
 				};
+*/
 			}
 
 			var ei = ra[EI];
@@ -645,7 +717,7 @@
 
 	var re = document.getElementById('rain-effect').value;
 	if ( re == 1 ) {
-		var nbDrop = 200;//858; 			// number of drops created.
+		var nbDrop = 300;//858; 			// number of drops created.
 
 		function randRange( minNum, maxNum) {
 		  return (Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum);
@@ -653,7 +725,7 @@
 
 		function createRain() {
 			for( i=1;i<nbDrop;i++) {
-				var dropLeft = randRange(0,1920);
+				var dropLeft = randRange(0,bodyWidth);
 				var dropTop = randRange(-1000,1400);
 				$('.rain').append('<div class="drop" id="drop'+i+'"></div>');
 				$('#drop'+i).css('left',dropLeft);

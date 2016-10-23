@@ -83,7 +83,7 @@ a:hover {
   background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   top: auto;
-  position: absolute;
+  position: fixed;
   z-index: 200;
 }
 
@@ -263,7 +263,7 @@ html, body {
   color: #FFF;
   font-weight: bold;
   font-family: 'Satisfy', cursive;
-  position: absolute;
+  position: fixed;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -313,7 +313,7 @@ html, body {
 
 /* line 261, ../sass/onlyoneminute.scss */
 .ammo {
-  position: absolute;
+  position: fixed;
   display: block;
   top: auto;
   bottom: 0;
@@ -324,11 +324,6 @@ html, body {
 }
 
 /* line 272, ../sass/onlyoneminute.scss */
-.smoke {
-  display: none;
-}
-
-/* line 273, ../sass/onlyoneminute.scss */
 .bullets {
   display: block;
   height: 100%;
@@ -340,7 +335,7 @@ html, body {
   display: inline-block;
 }
 
-/* line 283, ../sass/onlyoneminute.scss */
+/* line 282, ../sass/onlyoneminute.scss */
 .bullets.shooted {
   position: absolute;
   opacity: 0;
@@ -348,7 +343,7 @@ html, body {
   animation: shooted 2s;
 }
 
-/* line 289, ../sass/onlyoneminute.scss */
+/* line 288, ../sass/onlyoneminute.scss */
 .reload,
 .gameOver {
   display: none;
@@ -358,13 +353,13 @@ html, body {
   width: 900px;
   margin-left: -450px;
   margin-top: -250px;
-  position: absolute;
+  position: fixed;
   background-image: url("../img/onlyoneminute/reload.png");
   -webkit-animation: blink 1s infinite;
   animation: blink 1s infinite;
 }
 
-/* line 303, ../sass/onlyoneminute.scss */
+/* line 302, ../sass/onlyoneminute.scss */
 .reload_small,
 .gameOver_small {
   text-align: center;
@@ -372,7 +367,7 @@ html, body {
   display: block;
 }
 
-/* line 309, ../sass/onlyoneminute.scss */
+/* line 308, ../sass/onlyoneminute.scss */
 .winscore50:after,
 .winscore100:after,
 .winscore200:after,
@@ -392,31 +387,31 @@ html, body {
   animation: winscore 1s infinite;
 }
 
-/* line 327, ../sass/onlyoneminute.scss */
+/* line 326, ../sass/onlyoneminute.scss */
 .winscore100:after {
   content: "+100";
 }
 
-/* line 330, ../sass/onlyoneminute.scss */
+/* line 329, ../sass/onlyoneminute.scss */
 .winscore200:after {
   content: "+200";
 }
 
-/* line 333, ../sass/onlyoneminute.scss */
+/* line 332, ../sass/onlyoneminute.scss */
 .winscore300:after {
   content: "+300";
 }
 
-/* line 336, ../sass/onlyoneminute.scss */
+/* line 335, ../sass/onlyoneminute.scss */
 #feed {
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 60px;
   max-height: 30%;
   color: #FFF;
 }
 
-/* line 343, ../sass/onlyoneminute.scss */
+/* line 342, ../sass/onlyoneminute.scss */
 .feeded {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 2px;
@@ -428,7 +423,7 @@ html, body {
   text-shadow: 0 0 10px #fff;
 }
 
-/* line 354, ../sass/onlyoneminute.scss */
+/* line 353, ../sass/onlyoneminute.scss */
 .feeded.dn {
   opacity: 0;
 }
@@ -437,16 +432,16 @@ html, body {
 .feeded:nth-child(9) {opacity: .5;}
 .feeded:nth-child(10) {opacity: .2;}
 .feeded:nth-child(n+11) {opacity: 0;}*/
-/* line 362, ../sass/onlyoneminute.scss */
+/* line 361, ../sass/onlyoneminute.scss */
 .weaponsSlot {
   display: none;
 }
-/* line 365, ../sass/onlyoneminute.scss */
+/* line 364, ../sass/onlyoneminute.scss */
 .weaponsSlot.active {
   display: block;
 }
 
-/* line 367, ../sass/onlyoneminute.scss */
+/* line 366, ../sass/onlyoneminute.scss */
 .wheel-button {
   position: fixed;
   left: 50%;
@@ -462,12 +457,12 @@ html, body {
   color: #333;
 }
 
-/* line 381, ../sass/onlyoneminute.scss */
+/* line 380, ../sass/onlyoneminute.scss */
 .wheel {
   margin-left: 6px;
 }
 
-/* line 384, ../sass/onlyoneminute.scss */
+/* line 383, ../sass/onlyoneminute.scss */
 .wheel .item {
   height: 40px;
   width: 40px;
@@ -477,10 +472,25 @@ html, body {
   line-height: 40px;
 }
 
-/* line 392, ../sass/onlyoneminute.scss */
+/* line 391, ../sass/onlyoneminute.scss */
 .wheel .item a {
   text-decoration: none;
   color: #333;
+}
+
+/* line 396, ../sass/onlyoneminute.scss */
+.side-moves {
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  width: 100px;
+}
+
+/* line 404, ../sass/onlyoneminute.scss */
+.side-moves.moveToRight {
+  left: auto;
+  right: 0;
 }
 
 /*KEYFRAMES OF ANIMATIONS/////////////////////////////////////////////////////////////////////////////////////*/
