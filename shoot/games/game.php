@@ -282,7 +282,7 @@ $(".side-moves").bind('mouseleave', function() {
 
 	var chickenElm = {
 		1: 100, 			//max health
-		2: 1, 				//how many chickenElm
+		2: 10, 				//how many chickenElm
 	};
 
 	var WeaponDamage = 100/weapon[3];
@@ -442,33 +442,6 @@ $(".side-moves").bind('mouseleave', function() {
 				var startDelay = Math.floor((   Math.random()*10                  ) +30   ),
 				    randPosY = Math.floor( (    Math.random()*(max-min+1)+min     )       ),
 				    randSize = Math.floor( (    Math.random()*maxsize             ) +30   );
-
-
-				    dirR = "+=2";
-				    dirL = "+=2";
-
-				    function moveDir() {
-					    if (Math.random() > 0.95) {
-					      swapDirL();
-					    }
-					    if (Math.random() < 0.05) {
-					      swapDirR();
-					    }
-				    }
-
-				    function swapDirL() {
-				        if(dirL == "+=2") {
-				            dirL = "-=2";
-				        }
-				        else {
-				          dirL = "+=2";   
-				        }
-				    }
-
-				    function swapDirR() {
-				        dirR == "+=2" ? dirR = "-=2" : dirR = "+=2";   
-				    }
-				    setInterval (function() { console.log("in function");ra[EI].style.left = dirL; ra[EI].style.top = dirR; moveDir(); } , 50);
 /*
 
 				ra[EI].style.left = -startDelay*5+"px";ra[EI].style.top = randPosY+"%";ra[EI].style.width = randSize+"px";ra[EI].style.height = randSize+"px";
@@ -480,10 +453,16 @@ $(".side-moves").bind('mouseleave', function() {
 					};
 				};
 */
+				setInterval (function() { 
+					console.log(ei);
+					$(ei).css('left','+=1px');
+					$(ei).css('top','+=0px'); 
+				},10);
 			}
 
 			var ei = ra[EI];
 			birds_random_start(ei);
+
 			
 			ra[EI].addEventListener("click", function(e,health,identification) {			e.preventDefault;
 				

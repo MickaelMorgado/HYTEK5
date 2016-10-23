@@ -141,18 +141,6 @@ html, body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   position: absolute;
-  animation-name: my-animation;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  -webkit-animation-name: my-animation;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-}
-
-/* line 131, ../sass/onlyoneminute.scss */
-.run-animationinv {
-  animation-name: my-animationinv;
-  -webkit-animation-name: my-animationinv;
 }
 
 /* line 136, ../sass/onlyoneminute.scss */
