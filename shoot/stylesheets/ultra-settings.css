@@ -12,7 +12,7 @@
   background-size: 100%;
   opacity: .5;
   display: block;
-  position: absolute;
+  position: fixed;
   width: 200%;
   height: 150%;
   top: 0;
@@ -34,26 +34,30 @@
 
 /* line 31, ../sass/ultra-settings.scss */
 .bullets + .effect {
+  -ms-transform: translate(-50%, 40%) rotate(90deg);
+  /* IE 9 */
+  -webkit-transform: translate(-50%, 40%) rotate(90deg);
+  /* Safari */
+  transform: translate(-50%, 40%) rotate(90deg);
+  transition: all 0.1s;
   display: block;
   position: absolute;
   width: 300px;
   height: 300px;
   top: auto;
-  bottom: -130px;
-  left: -175px;
+  bottom: 0;
+  left: 0;
   background-image: url("../Weapons/explosion/bullet-explosion.png");
   background-size: 100% 100%;
   opacity: 0;
-  transform: rotate(90deg);
-  transition: all 0.1s;
 }
 
-/* line 45, ../sass/ultra-settings.scss */
+/* line 50, ../sass/ultra-settings.scss */
 .bullets.shooted + .effect {
   animation: bullet-effect 1s;
 }
 
-/* line 48, ../sass/ultra-settings.scss */
+/* line 53, ../sass/ultra-settings.scss */
 .drop {
   background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(transparent), to(rgba(255, 255, 255, 0.2)));
   background: -moz-linear-gradient(top, transparent 0%, rgba(255, 255, 255, 0.2) 100%);

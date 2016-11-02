@@ -33,7 +33,7 @@ a:hover {
 
 /* line 24, ../sass/onlyoneminute.scss */
 #preloader {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
