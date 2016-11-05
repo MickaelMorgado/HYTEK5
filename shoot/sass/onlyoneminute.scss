@@ -176,6 +176,9 @@ html,body{
 	width: 20%;
 	border: 1px solid blue;
 }
+.die {
+	animation: diegravity 3s ease-in;
+}
 .run-animation.die,
 .run-animationinv.die {
 	background-image: url('../img/onlyoneminute/chicken-die.png');
@@ -183,6 +186,10 @@ html,body{
 }
 .run-animationinv{
 	background-image: url('../img/onlyoneminute/moohuruninv2.gif');
+}
+.chicken-diseabled {
+	pointer-events: none;
+	z-index: -100;
 }
 .cursor-scope {
 
@@ -448,6 +455,16 @@ html,body{
 @-webkit-keyframes my-animationinv {        
   from { left : 110%; }
   to { left : -10%; }      
+}
+
+
+@keyframes keyframes(diegravity) {
+	from   {bottom: auto;}
+	to {bottom: 0;}
+}
+@-webkit-keyframes keyframes(diegravity) {
+	from   {bottom: auto;}
+	to {bottom: 0;}
 }
 
 @keyframes fadeout {        

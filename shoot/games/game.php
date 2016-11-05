@@ -161,15 +161,24 @@
 	var bodyWidth = $('body').width()*3;
 
 	$('body').width(bodyWidth);
-	var autoscroll = '';
-	$(".side-moves").mouseover(function() {
+	var autoscroll = '',
+		speed = 10;
+	$(".side-moves").mouseover(function(mouse) {
 		if ($(this).hasClass('moveToRight')){
 			autoscroll = setInterval (function() { 
-				$('html').scrollLeft($('html').scrollLeft()+10);
+				$('html').scrollLeft($('html').scrollLeft()+speed);
+				var h = mouse.screenX + $(window).scrollLeft(),
+					v = mouse.pageY;
+				//console.log(h+","+v);
+				$('.cursor-scope').css({"top":v,"left":h});
 			},10);
 		}else{
 			autoscroll = setInterval (function() { 
-				$('html').scrollLeft($('html').scrollLeft()-10);
+				$('html').scrollLeft($('html').scrollLeft()-speed);
+				var h = mouse.screenX + $(window).scrollLeft(),
+					v = mouse.pageY;
+				//console.log(h+","+v);
+				$('.cursor-scope').css({"top":v,"left":h});
 			},10);
 		};
 	});
@@ -328,7 +337,9 @@
 																	"../img/onlyoneminute/landscape5.jpg"])+")");
 	*/
 	$('body').css("background-image","url("+random_background([ "../img/onlyoneminute/360landscape1.jpg",
-																"../img/onlyoneminute/360landscape2.jpg"])+")");
+																"../img/onlyoneminute/360landscape2.jpg",
+																"https://themysteryhouse.files.wordpress.com/2011/11/img_1836-img_18621.png",
+																"https://upload.wikimedia.org/wikipedia/commons/b/bd/Spitzkoppe_360_Panorama.jpg"])+")");
 
 	//console.log("oi: "+random_background(["../img/onlyoneminute/landscape1.jpg","../img/onlyoneminute/landscape1.jpg"]));
 
@@ -403,11 +414,14 @@
 		
 	}
 
+
+
 //BIRDS LOGIC
 
 	$('.chicken').each(function(index) {
 		reset_bird($(this));
-	})
+		hit($(this));
+	});
 
 	/*
 	for(EI = 0; EI < $bird_element.length; EI++){
@@ -460,6 +474,8 @@
 	/*}*/
 
 	var $bird_element  = $(".chicken");
+
+	var intervalspeed;
 		
 	/* for feed */
 	var feed = [],
@@ -483,35 +499,57 @@
 	    return r*interval+min;
 	}
 
+	function dieAnimation(bird_element) {
+		bird_element.addClass("chicken-diseabled");
+		bird_element.addClass("die");
+		setTimeout(function(){
+			reset_bird(bird_element);
+		}, 5000);
+	}
+
+	function hit(bird_element) {
+		bird_element.click(function(e){
+			$(this).stop(true , true); 																	// stop animation
+			$(this).attr("health",$(this).attr("health")-WeaponDamage);							// dicrease HP
+			$(this).children().children().css("width",$(this).attr("health")+"%");				// update HP bar
+			chickensound();
+			if ($(this).attr("health") <= 0) {
+				var ths = $(this).width();
+				kill_to_score(ths);
+				dieAnimation($(this));
+			};
+		});
+	}
+
 	/* birds direction & velocity (depth) */
 	function direction(bird_element,orientation,velocity) {
 		switch (orientation) {
-			case 'N': 	$(bird_element).css('top','+='+velocity);	
+			case 'N': 	$(bird_element).animate({'top':velocity},60000,"linear");	
 						break;
 
-			case 'W': 	$(bird_element).css('left','+='+velocity);	
+			case 'W': 	$(bird_element).animate({'left':velocity},60000,"linear");	
 						break;
 
-			case 'S': 	$(bird_element).css('top','+='+velocity);	
+			case 'S': 	$(bird_element).animate({'top':velocity},60000,"linear");	
 						break;
 
-			case 'E': 	$(bird_element).css('left','-='+velocity);	
+			case 'E': 	$(bird_element).animate({'left':velocity},60000,"linear");	
 						break;
 
-			case 'NW': 	$(bird_element).css('left','+='+velocity);
-						$(bird_element).css('top','+='+velocity);	
+			case 'NW': 	$(bird_element).animate({'left':velocity},60000,"linear");
+						$(bird_element).animate({'top':velocity},60000,"linear");	
 						break;
 
-			case 'WS': 	$(bird_element).css('left','+='+velocity);
-						$(bird_element).css('top','+='+velocity);	
+			case 'WS': 	$(bird_element).animate({'left':velocity},60000,"linear");
+						$(bird_element).animate({'top':velocity},60000,"linear");	
 						break;
 
-			case 'SE': 	$(bird_element).css('left','-='+velocity);
-						$(bird_element).css('top','+='+velocity);	
+			case 'SE': 	$(bird_element).animate({'left':velocity},60000,"linear");
+						$(bird_element).animate({'top':velocity},60000,"linear");	
 						break;
 
-			case 'EN': 	$(bird_element).css('left','-='+velocity);
-						$(bird_element).css('top','-='+velocity);	
+			case 'EN': 	$(bird_element).animate({'left':velocity},60000,"linear");
+						$(bird_element).animate({'top':velocity},60000,"linear");	
 						break;
 		}
 	}
@@ -527,10 +565,8 @@
 			bird_element_offset_Y = bird_offset.top;
 
 		if (bird_element_offset_X >= max_dead_zone_X || bird_element_offset_X <= min_dead_zone_X){
-			//console.log("ready to reset_bird");
 			birds_random_start(bird_element);
 		}else{
-			//console.log("not ready to reset_bird");
 			return false;
 		};
 	}
@@ -544,18 +580,10 @@
 			SE	|	WS
 				S
 		*/
-		//var orientation = orientation,
-			var velocity = "3px"; 
-		setInterval (function() { 
-			reache_dead_zone(bird_element);
-			if (bird_element.hasClass('run-animationinv')){
-				var orientation = "E"
-			}else{
-				var orientation = "W"
-			};
-			/* animating orientation */
-			direction(bird_element,orientation,velocity);
-		},10);
+		var velocity = bodyWidth;
+		if (bird_element.hasClass('run-animationinv')){ 		var orientation = "E"; 	}
+		else{													var orientation = "W"; 	};
+		direction(bird_element,orientation,velocity);
 	}
 
 	/* Setting bird size (depth) */
@@ -604,10 +632,15 @@
 
 
 	function reset_bird(bird_element) {
-		//console.log("reset for : "+bird_element);
+		bird_element.removeClass("chicken-diseabled");
+		bird_element.removeClass("die");
 		birds_random_start(bird_element);
 		birds_random_size(bird_element,max_depth_level);
-		animating_birds(bird_element,"W");
+		if (bird_element.hasClass('run-animationinv')){
+			animating_birds(bird_element,"E");
+		}else{
+			animating_birds(bird_element,"W");
+		};
 	}
 
 //KILL TO SCORE

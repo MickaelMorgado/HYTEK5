@@ -206,18 +206,29 @@ html, body {
 }
 
 /* line 179, ../sass/onlyoneminute.scss */
+.die {
+  animation: diegravity 3s ease-in;
+}
+
+/* line 182, ../sass/onlyoneminute.scss */
 .run-animation.die,
 .run-animationinv.die {
   background-image: url("../img/onlyoneminute/chicken-die.png");
   background-size: 100% 100%;
 }
 
-/* line 184, ../sass/onlyoneminute.scss */
+/* line 187, ../sass/onlyoneminute.scss */
 .run-animationinv {
   background-image: url("../img/onlyoneminute/moohuruninv2.gif");
 }
 
-/* line 187, ../sass/onlyoneminute.scss */
+/* line 190, ../sass/onlyoneminute.scss */
+.chicken-diseabled {
+  pointer-events: none;
+  z-index: -100;
+}
+
+/* line 194, ../sass/onlyoneminute.scss */
 .cursor-scope {
   display: block;
   position: absolute;
@@ -243,7 +254,7 @@ html, body {
 	font-weight: 300;
 	font-size: 70px;
 }*/
-/* line 218, ../sass/onlyoneminute.scss */
+/* line 225, ../sass/onlyoneminute.scss */
 .score,
 .best-score,
 #timerText {
@@ -258,17 +269,17 @@ html, body {
   user-select: none;
 }
 
-/* line 231, ../sass/onlyoneminute.scss */
+/* line 238, ../sass/onlyoneminute.scss */
 .score {
   top: 40px;
 }
 
-/* line 232, ../sass/onlyoneminute.scss */
+/* line 239, ../sass/onlyoneminute.scss */
 #timerText {
   right: 0;
 }
 
-/* line 235, ../sass/onlyoneminute.scss */
+/* line 242, ../sass/onlyoneminute.scss */
 .achivement {
   display: block;
   position: absolute;
@@ -286,12 +297,12 @@ html, body {
   border-radius: 3px;
 }
 
-/* line 251, ../sass/onlyoneminute.scss */
+/* line 258, ../sass/onlyoneminute.scss */
 .achivement.show {
   animation: fadeout 8s;
 }
 
-/* line 254, ../sass/onlyoneminute.scss */
+/* line 261, ../sass/onlyoneminute.scss */
 .container {
   width: 100%;
   height: 100%;
@@ -299,7 +310,7 @@ html, body {
   position: absolute;
 }
 
-/* line 261, ../sass/onlyoneminute.scss */
+/* line 268, ../sass/onlyoneminute.scss */
 .ammo {
   position: fixed;
   display: block;
@@ -311,7 +322,7 @@ html, body {
   width: auto;
 }
 
-/* line 272, ../sass/onlyoneminute.scss */
+/* line 279, ../sass/onlyoneminute.scss */
 .bullets {
   display: block;
   height: 100%;
@@ -323,7 +334,7 @@ html, body {
   display: inline-block;
 }
 
-/* line 282, ../sass/onlyoneminute.scss */
+/* line 289, ../sass/onlyoneminute.scss */
 .bullets.shooted {
   position: absolute;
   opacity: 0;
@@ -331,7 +342,7 @@ html, body {
   animation: shooted 2s;
 }
 
-/* line 288, ../sass/onlyoneminute.scss */
+/* line 295, ../sass/onlyoneminute.scss */
 .reload,
 .gameOver {
   display: none;
@@ -347,7 +358,7 @@ html, body {
   animation: blink 1s infinite;
 }
 
-/* line 302, ../sass/onlyoneminute.scss */
+/* line 309, ../sass/onlyoneminute.scss */
 .reload_small,
 .gameOver_small {
   text-align: center;
@@ -355,7 +366,7 @@ html, body {
   display: block;
 }
 
-/* line 308, ../sass/onlyoneminute.scss */
+/* line 315, ../sass/onlyoneminute.scss */
 .winscore50:after,
 .winscore100:after,
 .winscore200:after,
@@ -375,22 +386,22 @@ html, body {
   animation: winscore 1s infinite;
 }
 
-/* line 326, ../sass/onlyoneminute.scss */
+/* line 333, ../sass/onlyoneminute.scss */
 .winscore100:after {
   content: "+100";
 }
 
-/* line 329, ../sass/onlyoneminute.scss */
+/* line 336, ../sass/onlyoneminute.scss */
 .winscore200:after {
   content: "+200";
 }
 
-/* line 332, ../sass/onlyoneminute.scss */
+/* line 339, ../sass/onlyoneminute.scss */
 .winscore300:after {
   content: "+300";
 }
 
-/* line 335, ../sass/onlyoneminute.scss */
+/* line 342, ../sass/onlyoneminute.scss */
 #feed {
   position: fixed;
   right: 0;
@@ -399,7 +410,7 @@ html, body {
   color: #FFF;
 }
 
-/* line 342, ../sass/onlyoneminute.scss */
+/* line 349, ../sass/onlyoneminute.scss */
 .feeded {
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 2px;
@@ -411,7 +422,7 @@ html, body {
   text-shadow: 0 0 10px #fff;
 }
 
-/* line 353, ../sass/onlyoneminute.scss */
+/* line 360, ../sass/onlyoneminute.scss */
 .feeded.dn {
   opacity: 0;
 }
@@ -420,16 +431,16 @@ html, body {
 .feeded:nth-child(9) {opacity: .5;}
 .feeded:nth-child(10) {opacity: .2;}
 .feeded:nth-child(n+11) {opacity: 0;}*/
-/* line 361, ../sass/onlyoneminute.scss */
+/* line 368, ../sass/onlyoneminute.scss */
 .weaponsSlot {
   display: none;
 }
-/* line 364, ../sass/onlyoneminute.scss */
+/* line 371, ../sass/onlyoneminute.scss */
 .weaponsSlot.active {
   display: block;
 }
 
-/* line 366, ../sass/onlyoneminute.scss */
+/* line 373, ../sass/onlyoneminute.scss */
 .wheel-button {
   position: fixed;
   left: 50%;
@@ -445,12 +456,12 @@ html, body {
   color: #333;
 }
 
-/* line 380, ../sass/onlyoneminute.scss */
+/* line 387, ../sass/onlyoneminute.scss */
 .wheel {
   margin-left: 6px;
 }
 
-/* line 383, ../sass/onlyoneminute.scss */
+/* line 390, ../sass/onlyoneminute.scss */
 .wheel .item {
   height: 40px;
   width: 40px;
@@ -460,13 +471,13 @@ html, body {
   line-height: 40px;
 }
 
-/* line 391, ../sass/onlyoneminute.scss */
+/* line 398, ../sass/onlyoneminute.scss */
 .wheel .item a {
   text-decoration: none;
   color: #333;
 }
 
-/* line 396, ../sass/onlyoneminute.scss */
+/* line 403, ../sass/onlyoneminute.scss */
 .side-moves {
   top: 0;
   bottom: 0;
@@ -475,7 +486,7 @@ html, body {
   width: 100px;
 }
 
-/* line 404, ../sass/onlyoneminute.scss */
+/* line 411, ../sass/onlyoneminute.scss */
 .side-moves.moveToRight {
   left: auto;
   right: 0;
@@ -536,6 +547,22 @@ html, body {
   }
   to {
     left: -10%;
+  }
+}
+@keyframes keyframes(diegravity) {
+  from {
+    bottom: auto;
+  }
+  to {
+    bottom: 0;
+  }
+}
+@-webkit-keyframes keyframes(diegravity) {
+  from {
+    bottom: auto;
+  }
+  to {
+    bottom: 0;
   }
 }
 @keyframes fadeout {
