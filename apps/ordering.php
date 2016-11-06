@@ -1,40 +1,39 @@
+<?php 
+	include('../dbConnection.php');
+	$sql = "SELECT * FROM settings WHERE `id_settings` = ".$_SESSION['id_session'];
+	$result = mysqli_query($link,$sql);
+	if ($result->num_rows > 0) {
+		while ($row = mysqli_fetch_assoc($result)) {
+			$selected = $row['tabs_order'];
+		} 	
+	}else{
+		$selected = '';
+	}
+?>
 <div class="container-full">
 	<div class="row">
 		<div class="col-xs-12">
 			<label for="link-order-select">Ordering tabs by:</label>
 			<select name="order" id="link-order-select">
-				<option value="`view`DESC" selected>--</option>
-				<option value="`title`DESC">title 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp			(alphabetically)</option>
-				<option value="`data`DESC">Date 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(recently added)</option>
-				<option value="`url`DESC">Url 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(alphabetically)</option>
-				<option value="`view`DESC">View 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(most viewed)</option>
-				<option value="`last_view`DESC">history 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp									(recently viewed)</option>
+				<option 
+					<?= $selected == '' ? 'selected="selected"' : ''; ?>
+					value="`view`DESC" selected>--</option>
+				<option 
+					<?= $selected == '`title`DESC' ? 'selected="selected"' : ''; ?>
+					value="`title`DESC">title 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp			(alphabetically)</option>
+				<option 
+					<?= $selected == '`data`DESC' ? 'selected="selected"' : ''; ?>
+					value="`data`DESC">Date 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(recently added)</option>
+				<option 
+					<?= $selected == '`url`DESC' ? 'selected="selected"' : ''; ?>
+					value="`url`DESC">Url 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(alphabetically)</option>
+				<option 
+					<?= $selected == '`view`DESC' ? 'selected="selected"' : ''; ?>
+					value="`view`DESC">View 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(most viewed)</option>
+				<option 
+					<?= $selected == '`last_view`DESC' ? 'selected="selected"' : ''; ?>
+					value="`last_view`DESC">history 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp							(recently viewed)</option>
 			</select>
 		</div>
-		<!--div class="col-xs-6">
-			<div class="dropdown pull-right">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".addlinkreveal">add link</button>
-				<div class="modal fade addlinkreveal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-lg">
-						<div class="modal-content">
-							<div class="modal-header">        
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								<form action="apps/links/add-link.php" method="post">
-									<ul class="list-inline">
-										<li><input type="text" name="link-add-title" placeholder="title (opcional)"></li>
-										<li><input type="text" name="link-add-url" 	 placeholder="url"></li>
-										<li><input type="submit" value="add"></li>
-									</ul>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div-->
 	</div>
 </div>

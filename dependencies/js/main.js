@@ -57,7 +57,15 @@
 
 	$("#link-order-select").change(function(){
 		var val = $(this).val();
-		$('#enableRefresh').load("apps/links/get-links.php?order="+val);
+		$.ajax({
+			method: "POST",
+			url: "apps/links/setup-ordering.php",
+			data: { order:val },
+			success: function(data) {
+				//$.notify(data);
+			}
+		});
+		$('#enableRefresh').load("apps/links/link-list.php?order="+val);
 		console.log(val);
 	});
 
