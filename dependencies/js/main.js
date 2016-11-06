@@ -61,20 +61,22 @@
 		console.log(val);
 	});
 
-	function viewCount(a,b) { /* passing "id" of link and "href" */
+	function viewCount(a,b,c) { /* passing "id" of link and "href" and current date */
 		$.ajax({
 			method: "POST",
 			url: "apps/links/link-view.php",
-			data: { linkid: a },
+			data: { linkid: a, date: c },
 			success: function(data) {
 				window.location=b;
+				//$.notify(data);
 			}
 		});
 	}
 
 	$('.link-list').click(function(e){
 		e.preventDefault();
-		viewCount($(this).data("linkid"),$(this).attr("href"));
+		var lastview = moment().format('YYYY-MM-DD HH:mm:ss');
+		viewCount($(this).data("linkid"),$(this).attr("href"),lastview);
 	});
 
 	/* Dragable windows :

@@ -5,9 +5,10 @@
 			<select name="order" id="link-order-select">
 				<option value="`view`DESC" selected>--</option>
 				<option value="`title`DESC">title 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp			(alphabetically)</option>
-				<option value="`data`DESC">Date 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(most recent)</option>
+				<option value="`data`DESC">Date 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(recently added)</option>
 				<option value="`url`DESC">Url 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp	(alphabetically)</option>
 				<option value="`view`DESC">View 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp					(most viewed)</option>
+				<option value="`last_view`DESC">history 	&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp									(recently viewed)</option>
 			</select>
 		</div>
 		<!--div class="col-xs-6">
