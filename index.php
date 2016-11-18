@@ -6,7 +6,8 @@
 <html manifest="example.appcache">
 <head>
 	<title>HYTEK5 - Start Page</title>
-	<meta name="theme-color" content="#224455">
+	<!--meta name="theme-color" content="#224455"-->
+	<meta name="theme-color" content="#111">
 	<link rel="icon" href="hyteklogo.jpg" type="image/jpg">
     <meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no"/>
@@ -15,7 +16,6 @@
 	<?php include('dependencies/styles.php') ?>
 	<?php include('dependencies/scripts.php') ?>
 
-	<style></style>
 </head>
 <body>
 	<div class="preloader"></div>
@@ -253,5 +253,12 @@
 			});
 		<?php endif ?>
 	</script>
+
+	<style id="global"></style>
+	<style id="hoverColor"></style>
+	<style id="MateEffect"></style>
+	<style id="elementsOpacity"></style>
+	<style id="elementsGlassOpacity"></style>
 </body>
 </html> 
+

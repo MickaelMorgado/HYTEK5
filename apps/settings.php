@@ -5,7 +5,9 @@
 	if ($result->num_rows > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			$bg = $row['bg'];
-		} 	
+			$hbg = $row['hbg'];
+		} 
+		$hbg = explode(",",$hbg);	
 	}
 ?>
 <?php if (isset($_SESSION['id_session'])): ?>
@@ -32,14 +34,20 @@
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 			<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"class="panel-title">
-				Color of effects
+				Effects
 			</a>
 		  </div>
 		  <div id="collapse2" class="panel-collapse collapse">
 			<div class="panel-body">
-				bg color top : <input class="jscolor {onFineChange:'update(this)'}" value="2F4F74">
-				<p id="rect" style="border:1px solid gray; width:161px; height:100px;">
-				bg color bottom : <input type="text" value="#2F4F74" placeholder="#2F4F74">
+				<form action="apps/settings/setupstyles.php" method="POST">
+					Hover color : <input name="jscolor" class="jscolor {onFineChange:'update(this)'}" value="ffc600"><br/>
+					<!--p id="rect" style="border:1px solid gray; width:161px; height:100px;">
+					bg color bottom : <input type="text" value="#2F4F74" placeholder="#2F4F74"-->
+					Mate effect : <input name="rangeMate" type="range" min="0" max="1" step="0.1" value="1" id="rangeMate">
+					Blocks opacity : <input name="rangeOpacity" type="range" min="0" max="1" step="0.1" value="1" id="rangeOpacity">
+					Glass opacity : <input name="rangeGlassOpacity" type="range" min="0" max="0.05" step="0.01" value="0.05" id="rangeGlassOpacity">
+					<input type="submit" value="Apply">
+				</form>
 			</div>
 		  </div>
 		</div>
@@ -73,7 +81,28 @@
 			background-size: cover;
 			background-repeat: no-repeat;	
 		}
+		.element:hover {			box-shadow: 0 0 10px -2px #<?php echo $hbg[0]; ?>;			}
+		a:hover {					color: #<?php echo $hbg[0]; ?>;								}
+		.progress .progress-bar {	background-color: #<?php echo $hbg[0]; ?>;					}
+		body:after { 				opacity: <?php echo $hbg[1]; ?>; 							}
+		.element {					background-color: rgba(21,21,21,<?php echo $hbg[2]; ?>);	}
+		.element .glass	{			opacity: <?php echo $hbg[3]; ?>;							}
+		.border-link img {			border: 1px solid #<?php echo $hbg[0]; ?>;					}
 	</style>
+	<script>
+		$('.jscolor').on("change",function(){
+			$('#hoverColor').html(".element:hover{box-shadow: 0 0 10px -2px #"+$(this).val()+"}.border-link img{border:1px solid #"+$(this).val()+"}");
+		});
+		$('#rangeMate').on("input",function(){
+			$('#MateEffect').html("body:after{opacity:"+$(this).val()+";}");
+		});
+		$('#rangeOpacity').on("input",function(){
+			$('#elementsOpacity').html(".element{background-color: rgba(21,21,21,"+$(this).val()+");}");
+		});
+		$('#rangeGlassOpacity').on("input",function(){
+			$('#elementsGlassOpacity').html(".element .glass{opacity:"+$(this).val()+"}");
+		});
+	</script>
 <?php else: ?>
 	You need to log on to customize aspects
 <?php endif ?>
