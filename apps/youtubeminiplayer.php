@@ -97,11 +97,11 @@ $(window).load(function(){
 	function repeatVideo() {
 		if (repeatVideoVar) { 
 			repeatVideoVar = false; 
-			$("#player-repeat").css({"tex<t-shadow":"0 0 0 white"});
+			$("#player-repeat").removeClass("repeat-active");
 		}
 		else{ 
 			repeatVideoVar = true; 
-			$("#player-repeat").css({"text-shadow":"0 0 5px white"});
+			$("#player-repeat").addClass("repeat-active");
 		};
 	}
 	// when video ends
@@ -139,15 +139,12 @@ $(window).load(function(){
 	}
 	function nextVideo(){
 		if (dataOrder >= lastOrder) { /* repeat all playlist again on reach last video */
-			dataOrder = 0;
+			dataOrder = -1;
 			nextVideo();
 		}else{
+			if (repeatVideoVar == true) { 	dataOrder = dataOrder; 		}
+			else{							dataOrder = dataOrder+1; 	};
 			player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
-			if (repeatVideoVar == true) {
-				dataOrder = dataOrder;
-			}else{
-				dataOrder = dataOrder+1; 
-			};
 		}
 	}
 	function prevVideo(){

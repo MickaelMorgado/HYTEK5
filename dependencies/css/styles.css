@@ -8745,10 +8745,15 @@ input[type="file"] + label.has-file {
   border: 0 !important;
 }
 
+/* line 375, ../sass/styles.scss */
+.repeat-active {
+  text-shadow: 0 0 5px white;
+}
+
 /*============================================================
     clock
 ============================================================*/
-/* line 379, ../sass/styles.scss */
+/* line 382, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -8758,19 +8763,19 @@ input[type="file"] + label.has-file {
 /*============================================================
     link list
 ============================================================*/
-/* line 388, ../sass/styles.scss */
+/* line 391, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 391, ../sass/styles.scss */
+/* line 394, ../sass/styles.scss */
 .title .url {
   visibility: hidden;
   position: absolute;
   z-index: -1;
 }
 
-/* line 397, ../sass/styles.scss */
+/* line 400, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -8781,32 +8786,32 @@ input[type="file"] + label.has-file {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 407, ../sass/styles.scss */
+/* line 410, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 409, ../sass/styles.scss */
+/* line 412, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 414, ../sass/styles.scss */
+/* line 417, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 418, ../sass/styles.scss */
+/* line 421, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 422, ../sass/styles.scss */
+/* line 425, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 427, ../sass/styles.scss */
+/* line 430, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -8817,7 +8822,7 @@ input[type="file"] + label.has-file {
   padding: 10px;
 }
 
-/* line 437, ../sass/styles.scss */
+/* line 440, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8828,13 +8833,13 @@ input[type="file"] + label.has-file {
   border: none;
 }
 
-/* line 445, ../sass/styles.scss */
+/* line 448, ../sass/styles.scss */
 #enableRefresh > li {
   width: 260px;
   position: relative;
 }
 
-/* line 450, ../sass/styles.scss */
+/* line 453, ../sass/styles.scss */
 .links-remove,
 .links-edit {
   position: absolute;
@@ -8842,17 +8847,17 @@ input[type="file"] + label.has-file {
   right: 10px;
 }
 
-/* line 456, ../sass/styles.scss */
+/* line 459, ../sass/styles.scss */
 .links-edit {
   right: 40px;
 }
-/* line 458, ../sass/styles.scss */
+/* line 461, ../sass/styles.scss */
 .links-edit .dropdown-menu {
   left: auto;
   right: 0;
 }
 
-/* line 463, ../sass/styles.scss */
+/* line 466, ../sass/styles.scss */
 input.fa {
   height: initial;
 }
@@ -8860,7 +8865,7 @@ input.fa {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 470, ../sass/styles.scss */
+/* line 473, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -8868,7 +8873,7 @@ input.fa {
 /*============================================================
     accordions
 ============================================================*/
-/* line 477, ../sass/styles.scss */
+/* line 480, ../sass/styles.scss */
 .panel-group .panel {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8876,7 +8881,7 @@ input.fa {
   border: none;
   background-color: #111;
 }
-/* line 481, ../sass/styles.scss */
+/* line 484, ../sass/styles.scss */
 .panel-group .panel.panel-default > .panel-heading {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8885,7 +8890,7 @@ input.fa {
   background-color: #333;
   color: #fff;
 }
-/* line 486, ../sass/styles.scss */
+/* line 489, ../sass/styles.scss */
 .panel-group .panel.panel-default > .panel-heading a {
   padding: 10px;
   display: block;
@@ -8894,7 +8899,7 @@ input.fa {
 /*============================================================
     tabs
 ============================================================*/
-/* line 496, ../sass/styles.scss */
+/* line 499, ../sass/styles.scss */
 #tabs .list {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -8913,24 +8918,24 @@ input.fa {
   	direction: ltr;
   }*/
 }
-/* line 512, ../sass/styles.scss */
+/* line 515, ../sass/styles.scss */
 #tabs .list:hover, #tabs .list.active {
   left: 0;
   opacity: 1;
 }
-/* line 517, ../sass/styles.scss */
+/* line 520, ../sass/styles.scss */
 #tabs .list .link-list {
   text-align: left;
   padding: 5px 20px;
   min-height: 30px;
 }
-/* line 521, ../sass/styles.scss */
+/* line 524, ../sass/styles.scss */
 #tabs .list .link-list:focus {
   outline: none;
   box-shadow: 0 0 15px 0 black inset;
 }
 
-/* line 527, ../sass/styles.scss */
+/* line 530, ../sass/styles.scss */
 #tabs .scrollable.list {
   max-height: none;
 }
@@ -8938,12 +8943,12 @@ input.fa {
 /*============================================================
     dock
 ============================================================*/
-/* line 532, ../sass/styles.scss */
+/* line 535, ../sass/styles.scss */
 .masonry-container {
   margin-top: 55px;
 }
 
-/* line 535, ../sass/styles.scss */
+/* line 538, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -8954,14 +8959,14 @@ input.fa {
   display: block;
   z-index: 10;
 }
-/* line 545, ../sass/styles.scss */
+/* line 548, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 551, ../sass/styles.scss */
+/* line 554, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -9001,7 +9006,7 @@ input.fa {
   }
   */
 }
-/* line 594, ../sass/styles.scss */
+/* line 597, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
@@ -9023,7 +9028,7 @@ input.fa {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 608, ../sass/styles.scss */
+/* line 611, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -9031,18 +9036,18 @@ input.fa {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 613, ../sass/styles.scss */
+/* line 616, ../sass/styles.scss */
 .dock input.dock-icon {
   color: transparent;
 }
-/* line 614, ../sass/styles.scss */
+/* line 617, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
   background: #111 none repeat scroll 0% 0%;
 }
-/* line 620, ../sass/styles.scss */
+/* line 623, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
@@ -9085,7 +9090,7 @@ input.fa {
 				);
 		    }
 	*/
-/* line 669, ../sass/styles.scss */
+/* line 672, ../sass/styles.scss */
 .socialicons .sprite {
   -moz-transition: all, 0.25s, ease-in-out;
   -o-transition: all, 0.25s, ease-in-out;
@@ -9097,77 +9102,77 @@ input.fa {
   background-size: 30px;
   background-image: url("../img/socio.png");
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s2 {
   background-position: 0 -30px;
   background-position: -30px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s2:hover {
   opacity: .5;
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s3 {
   background-position: 0 -60px;
   background-position: -60px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s3:hover {
   opacity: .5;
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s4 {
   background-position: 0 -90px;
   background-position: -90px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s4:hover {
   opacity: .5;
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s5 {
   background-position: 0 -120px;
   background-position: -120px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s5:hover {
   opacity: .5;
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s6 {
   background-position: 0 -150px;
   background-position: -150px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s6:hover {
   opacity: .5;
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s7 {
   background-position: 0 -180px;
   background-position: -180px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s7:hover {
   opacity: .5;
 }
-/* line 678, ../sass/styles.scss */
+/* line 681, ../sass/styles.scss */
 .socialicons .sprite.s8 {
   background-position: 0 -210px;
   background-position: -210px 0;
   opacity: 1;
 }
-/* line 682, ../sass/styles.scss */
+/* line 685, ../sass/styles.scss */
 .socialicons .sprite.s8:hover {
   opacity: .5;
 }
-/* line 700, ../sass/styles.scss */
+/* line 703, ../sass/styles.scss */
 .socialicons .sprite {
   background-size: 210px;
 }
@@ -9175,7 +9180,7 @@ input.fa {
 /*============================================================
     sidebar list
 ============================================================*/
-/* line 709, ../sass/styles.scss */
+/* line 712, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -9191,13 +9196,13 @@ input.fa {
   overflow: hidden;
   z-index: 1000;
 }
-/* line 720, ../sass/styles.scss */
+/* line 723, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 726, ../sass/styles.scss */
+/* line 729, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -9207,7 +9212,7 @@ input.fa {
   padding: 0;
 }
 
-/* line 735, ../sass/styles.scss */
+/* line 738, ../sass/styles.scss */
 #menu-toggle, #menu-close {
   bottom: 0;
   right: 0;
@@ -9218,7 +9223,7 @@ input.fa {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 745, ../sass/styles.scss */
+/* line 748, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -9228,7 +9233,7 @@ input.fa {
   width: 100%;
 }
 
-/* line 751, ../sass/styles.scss */
+/* line 754, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -9238,7 +9243,7 @@ input.fa {
 /*============================================================
     Modal
 ============================================================*/
-/* line 761, ../sass/styles.scss */
+/* line 764, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -9247,7 +9252,7 @@ input.fa {
   border: 5px solid #111;
 }
 
-/* line 767, ../sass/styles.scss */
+/* line 770, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }
@@ -9255,31 +9260,31 @@ input.fa {
 /*============================================================
     thumbnail for preview wallpapers
 ============================================================*/
-/* line 774, ../sass/styles.scss */
+/* line 777, ../sass/styles.scss */
 .thumbnail-preview {
   width: 150px;
   height: 100px;
   display: inline-block;
   border: 2px solid #111;
 }
-/* line 779, ../sass/styles.scss */
+/* line 782, ../sass/styles.scss */
 .thumbnail-preview img {
   width: 100%;
   height: 100%;
 }
-/* line 783, ../sass/styles.scss */
+/* line 786, ../sass/styles.scss */
 .thumbnail-preview:hover {
   cursor: pointer;
 }
 
-/* line 785, ../sass/styles.scss */
+/* line 788, ../sass/styles.scss */
 .thumbnail-preview + input {
   z-index: -1;
   visibility: hidden;
   position: absolute;
 }
 
-/* line 790, ../sass/styles.scss */
+/* line 793, ../sass/styles.scss */
 .wallpapers-form {
   overflow-y: scroll;
   max-height: 160px;
@@ -9289,7 +9294,7 @@ input.fa {
 /*============================================================
     autocomplete styles
 ============================================================*/
-/* line 799, ../sass/styles.scss */
+/* line 802, ../sass/styles.scss */
 .ui-widget-content {
   border: none;
   background: #111 none 50% 50% repeat-x !important;

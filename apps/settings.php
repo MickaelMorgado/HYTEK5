@@ -88,6 +88,12 @@
 		.element {					background-color: rgba(21,21,21,<?php echo $hbg[2]; ?>);	}
 		.element .glass	{			opacity: <?php echo $hbg[3]; ?>;							}
 		.border-link img {			border: 1px solid #<?php echo $hbg[0]; ?>;					}
+		.repeat-active {			
+			text-shadow: 	0 0 5px #<?php echo $hbg[0]; ?>,
+							0 0 10px #<?php echo $hbg[0]; ?>,
+							0 0 15px #<?php echo $hbg[0]; ?>; 				
+			color: #<?php echo $hbg[0]; ?>;
+		}
 	</style>
 	<script>
 		$('.jscolor').on("change",function(){
