@@ -74,15 +74,15 @@
 			method: "POST",
 			url: "apps/links/link-view.php",
 			data: { linkid: a, date: c },
-			success: function(data) {
-				window.location=b;
+			//success: function(data) {
+			//	window.location=b;
 				//$.notify(data);
-			}
+			//}
 		});
 	}
 
 	$('.link-list').click(function(e){
-		e.preventDefault();
+		//e.preventDefault();
 		var lastview = moment().format('YYYY-MM-DD HH:mm:ss');
 		viewCount($(this).data("linkid"),$(this).attr("href"),lastview);
 	});

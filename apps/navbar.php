@@ -11,7 +11,7 @@
 						<input 
 							type="text" 
 							name="link-add-url" 
-							placeholder="Search [ ALT key ]" 
+							placeholder="Search [ ESC key ]" 
 							title="press alt key to focus" 
 							class="search fuzzy-search" 
 							id="searchinput" 
@@ -35,6 +35,7 @@
 									title 	= 	"google search (enter)" 
 									value 	= 	"google" 
 									class 	= 	"dock-icon sprite s1"
+									id  	= 	"google-search"
 									onclick = 	"$(location).attr('href', 'https://www.google.com/search?q='+$('#searchinput').val())" >
 								</input>
 							</li><li>
@@ -43,6 +44,7 @@
 									title 	= 	"youtube search" 
 									value 	= 	"youtube" 
 									class 	= 	"dock-icon sprite s3"
+									id  	= 	"youtube-search"
 									onclick = 	"$(location).attr('href', 'https://www.youtube.com/results?search_query='+$('#searchinput').val())" >
 								</input>
 							</li><li>

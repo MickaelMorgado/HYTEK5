@@ -1,0 +1,93 @@
+		<?php else: ?>
+	/* KEY DOWNS EVENTS ============================ */
+			$(document).on('keydown', function(e) {					
+			    var autocompleteListWords = ["YOUTUBE","GOOGLE","FACEBOOK"];
+			    var enterKey 	= 13,
+			    	altKey 		= 64,
+			    	downKey 	= 40,
+			    	upKey 		= 38,
+			    	escKey 		= 27,
+			    	tabKey 		= 9;
+			    if ( e.keyCode === escKey ) {								/* on esc disable next focus */
+			    	$('#searchinput').focus();
+			    	enable = false;
+			    }
+			    else {
+			    	if ( e.keyCode != enterKey || e.charCode != altKey ){ 	 /* not pressing enter or alt */
+			    		if ( 												 /* down */ 
+			    			e.keyCode === downKey && 
+			    			enable === true && 
+			    			$("#enableRefresh").hasClass("active")
+			    		){ 
+			    			nextFocus = nextFocus + 1; 
+			    			goNextFocus(nextFocus); 
+			    			e.preventDefault(); 
+			    		}
+			    		else if (											/* up */
+			    			e.keyCode === upKey && 
+			    			enable === true && 
+			    			$("#enableRefresh").hasClass("active")
+			    		){ 
+			    			nextFocus = nextFocus - 1; 
+			    			goNextFocus(nextFocus); 
+			    			e.preventDefault(); 
+			    		}
+			    		else { 
+			    			/* AUTOCOMPLETE ============================================ http://jsfiddle.net/uMqyn/1/ or http://stackoverflow.com/questions/25193173/getting-jquery-autocomplete-suggestion-list-on-select-or-enter /
+				    			$(function(){
+				    			  	//var availableTags = ["google","youtube","facebook"];
+				    			  	var availableTags = $('.link-list > span.title').map(function(i, e){return $.trim(e.innerHTML)}).get();
+				    			  	function split(val) {return val.split( / \s*/ /*);}
+				    			  	function extractLast(term) {return split(term).pop();}
+				    				$("#searchinput")									// don't navigate away from the field on tab when selecting an item
+				    			    	.on( "keydown", function( event ) {
+				    			      		if ( event.keyCode === $.ui.keyCode.TAB && $( this ).autocomplete( "instance" ).menu.active ) {
+				    			        		event.preventDefault();
+				    			      		}
+				    			      		/* dropdown following caret postion  
+				    			      				https://forum.jquery.com/topic/i-would-like-autocomplete-dropdown-to-follow-caret , 
+				    			      				http://jsfiddle.net/prgtrdr/pTt2L/5/
+											var newY = $(this).textareaHelper('caretPos').top + (parseInt($(this).css('font-size'), 10) * 1.5);
+											var newX = $(this).textareaHelper('caretPos').left;
+											var posString = "left+" + newX + "px top+" + newY + "px";
+											$(this).autocomplete("option", "position", {
+												my: "left top",
+							                	at: posString
+							            	});
+				    			    	})
+				    			    	.autocomplete({
+				    			    		autoFocus: true,
+				    			    		delay: 0,
+				    			      		minLength: 0,
+				    			      		source: function( request, response ) { 	// delegate back to autocomplete, but extract the last term
+				    			        		response( $.ui.autocomplete.filter(availableTags,extractLast(request.term)));
+				    			      		},
+				    			      		focus: function() {							// prevent value inserted on focus
+				    			        		return false;
+				    			      		},
+				    			      		select: function( event, ui ) {
+						    			        var terms = split( this.value );
+				    			        		terms.pop();							// remove the current input
+				    			        		terms.push(ui.item.value);			// add the selected item
+												terms.push("");						// add placeholder to get the comma-and-space at the end
+												this.value = terms.join(" ");
+												return false;
+			    			      			}
+		    			    			});
+				    			});
+							/* END OF AUTOCOMPLETE ============================================*/
+		    			}
+			    	}else{
+			    		if ( e.keyCode === enterKey ) {
+			    			alert("pressing enter key");
+			    			if ($("#searchinput").is(":focus")) {
+			    				google($("#searchinput").val());
+			    			}
+			    			if ($('#enableRefresh li a:focus').length() > 0) {
+			    				$('#enableRefresh li a:focus').trigger("click"); 	/* "enter" to click on tab */
+			    			}
+			    		}
+			    		return false;
+			    	};
+			    }
+			});

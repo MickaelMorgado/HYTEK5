@@ -2,24 +2,20 @@
 session_start();
 if($debug==true){ echo "session: ".$_SESSION['id_session']; }
 if(!isset($_SESSION['id_session'])){?>
-
 	<div class="signin-form">
 		<label for="user_email">Login / Signup:</label>
 		<form action="apps/login.php" method="POST" class="form-signin" id="login-form">
 			<div id="error"><!-- error will be shown here ! --></div>
-
 			<div class="form-group">
 				<input type="email" placeholder="Email address" name="user_email" id="user_email" />
 				<span id="check-e"></span>
 			</div>
-
 			<div class="form-group">
 				<input type="password" placeholder="Password" name="password" id="password" />
 			</div>
 			<!--div class="form-group">
 				remeber me: <input type="checkbox" name="keepSession" checked="checked">
 			</div-->
-
 			<div class="form-group">
 				<button type="submit" name="btn-login" id="btn-login">Sign In</button> 
 				<button type="button" data-toggle="modal" data-target=".reset-password-modal">reset your password</button>
@@ -27,7 +23,6 @@ if(!isset($_SESSION['id_session'])){?>
 		</form>
 	</div>
 	or <a data-toggle="modal" data-target=".signup-modal">Sign up</a>
-
 	<!--script>
 		$('document').ready(function(){ 
 			/* validation ===================================================================*/
@@ -78,27 +73,19 @@ if(!isset($_SESSION['id_session'])){?>
 		    /* end of login submit ========================================================================*/
 		});
 	</script-->
-
 <?php
 }else{?>
 	<?php 
 		$sql = "SELECT * FROM users WHERE id_session = ".$_SESSION['id_session'];
 		$result = mysqli_query($link,$sql);
-
 		if ($result->num_rows > 0) {
 			while ($row = mysqli_fetch_assoc($result)) {
 				echo $row['name'];
 				echo "<br>";
 			} 	
-		}else{
-			echo "user not found";
-		}
-
+		}else{echo "user not found";}
 	?>
-
 	<a href="#" data-toggle="modal" data-target=".change-password">change password</a>
-	
-	
 	<div class="modal fade change-password" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -121,5 +108,4 @@ if(!isset($_SESSION['id_session'])){?>
 	</div>
 	<a href="apps/logout.php" class="btn">Logout</a>
 	<a href="#" class="tutorial">tutorial</a><?php
-}
-?>
+}?>

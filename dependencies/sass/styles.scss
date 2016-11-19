@@ -91,8 +91,9 @@
 
 	html, body {	height: 100%;  }
 
-	body {
+	*:focus { outline: none !important; }
 
+	body {
 		@include transition(all, 3s, ease-in-out);
 		//@include gradient($dark,$primary,top);
 
@@ -267,7 +268,7 @@
 	.scrollable {
 		overflow-y: scroll;
 		max-height: 240px;
-		&.youtube { max-height: 150px; }
+		&.youtube { max-height: 90px; }
 	}
 
 /*============================================================
@@ -341,6 +342,8 @@
 	  	height: 10px;
 	  	position: relative;
 	  	background-color: #333;
+	  	margin-top: 15px;
+	  	margin-bottom: 10px;
 	  	.progress-bar {
 	  		background-color: #a72727;
 	  	}
@@ -742,7 +745,7 @@
 	    position: absolute;
 	    border: medium none;
 	    border-radius: 0px;
-	    background-color: rgba(0, 0, 0, 0.8);
+	    background-color: #000;
 	}
 
 	#sidebar-wrapper.active {

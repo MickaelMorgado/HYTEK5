@@ -1,7 +1,6 @@
 <?php 
 	$sql = "SELECT * FROM settings WHERE id_settings = $_SESSION[id_session]";
 	$result = mysqli_query($link,$sql);
-
 	if ($result->num_rows > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
 			$bg = $row['bg'];
@@ -13,11 +12,7 @@
 <?php if (isset($_SESSION['id_session'])): ?>
 	<div class="panel-group" id="accordion">
 		<div class="panel panel-default">
-		  <div class="panel-heading">
-			<a data-toggle="collapse" data-parent="#accordion" href="#collapse1"class="panel-title">
-			 	Change background
-			</a>
-		  </div>
+		  <div class="panel-heading"><a data-toggle="collapse" data-parent="#accordion" href="#collapse1"class="panel-title">Change background</a></div>
 		  <div id="collapse1" class="panel-collapse collapse">
 			<div class="panel-body">
 				<label for="bgcimgsrc">Set custom wallpaper (http://...)</label>
@@ -25,23 +20,17 @@
 					<input id="bgcimgsrc" name="bg" type="input" placeholder="background image src" value="<?php echo $bg; ?>">
 					<input type="submit" value="Apply">
 				</form>
-				<!-- 
-				bg cover : <input type="checkbox"><br>
-				-->
 			</div>
 		  </div>
 		</div>
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-			<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"class="panel-title">
-				Effects
-			</a>
+			<a data-toggle="collapse" data-parent="#accordion" href="#collapse2"class="panel-title">Effects</a>
 		  </div>
 		  <div id="collapse2" class="panel-collapse collapse">
 			<div class="panel-body">
 				<form action="apps/settings/setupstyles.php" method="POST">
 					Hover color : <input name="jscolor" class="jscolor {onFineChange:'update(this)'}" value="ffc600"><br/>
-					<!--p id="rect" style="border:1px solid gray; width:161px; height:100px;">
 					bg color bottom : <input type="text" value="#2F4F74" placeholder="#2F4F74"-->
 					Mate effect : <input name="rangeMate" type="range" min="0" max="1" step="0.1" value="1" id="rangeMate">
 					Blocks opacity : <input name="rangeOpacity" type="range" min="0" max="1" step="0.1" value="1" id="rangeOpacity">
@@ -52,28 +41,15 @@
 		  </div>
 		</div>
 		<div class="panel panel-default">
-		  <div class="panel-heading">
-			<a data-toggle="collapse" data-parent="#accordion" href="#collapse3"class="panel-title">
-				More backgrounds
-			</a>
-		  </div>
-		  <div id="collapse3" class="panel-collapse collapse">
-			<div class="panel-body">
-				<a data-toggle="modal" data-target=".laclass">Wallpapers</a>
-			</div>
-		  </div>
+		  <div class="panel-heading"><a data-toggle="collapse" data-parent="#accordion" href="#collapse3"class="panel-title">More backgrounds</a></div>
+		  <div id="collapse3" class="panel-collapse collapse"><div class="panel-body"><a data-toggle="modal" data-target=".laclass">Wallpapers</a></div></div>
 		</div>
-	</div>
-		
-	
+	</div>	
 	<div class="modal fade laclass" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
-			<div class="modal-content well">
-				<?php include('chooseWallpapers.php') ?>
-			</div>
+			<div class="modal-content well"><?php include('chooseWallpapers.php') ?></div>
 		</div>
-	</div>
-	
+	</div>	
 	<style>
 		body {	
 			background-image: url('<?php echo $bg ?>');
@@ -96,19 +72,13 @@
 		}
 	</style>
 	<script>
-		$('.jscolor').on("change",function(){
-			$('#hoverColor').html(".element:hover{box-shadow: 0 0 10px -2px #"+$(this).val()+"}.border-link img{border:1px solid #"+$(this).val()+"}");
-		});
-		$('#rangeMate').on("input",function(){
-			$('#MateEffect').html("body:after{opacity:"+$(this).val()+";}");
-		});
-		$('#rangeOpacity').on("input",function(){
-			$('#elementsOpacity').html(".element{background-color: rgba(21,21,21,"+$(this).val()+");}");
-		});
-		$('#rangeGlassOpacity').on("input",function(){
-			$('#elementsGlassOpacity').html(".element .glass{opacity:"+$(this).val()+"}");
-		});
+		$('.jscolor').on("change",function(){$('#hoverColor')
+			.html(".element:hover{box-shadow: 0 0 10px -2px #"+$(this).val()+"}.border-link img{border:1px solid #"+$(this).val()+"}"); 	});
+		$('#rangeMate').on("input",function(){$('#MateEffect')
+			.html("body:after{opacity:"+$(this).val()+";}"); 																				});
+		$('#rangeOpacity').on("input",function(){$('#elementsOpacity')
+			.html(".element{background-color: rgba(21,21,21,"+$(this).val()+");}"); 														});
+		$('#rangeGlassOpacity').on("input",function(){$('#elementsGlassOpacity')
+			.html(".element .glass{opacity:"+$(this).val()+"}"); 																			});
 	</script>
-<?php else: ?>
-	You need to log on to customize aspects
-<?php endif ?>
+<?php else: ?>You need to log on to customize aspects<?php endif ?>

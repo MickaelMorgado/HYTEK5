@@ -6,9 +6,7 @@
 		while ($row = mysqli_fetch_assoc($result)) {
 			$selected = $row['tabs_order'];
 		} 	
-	}else{
-		$selected = '';
-	}
+	}else{$selected = '';}
 ?>
 <div class="container-full">
 	<div class="row">
