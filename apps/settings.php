@@ -31,7 +31,7 @@
 			<div class="panel-body">
 				<form action="apps/settings/setupstyles.php" method="POST">
 					Hover color : <input name="jscolor" class="jscolor {onFineChange:'update(this)'}" value="ffc600"><br/>
-					bg color bottom : <input type="text" value="#2F4F74" placeholder="#2F4F74"-->
+					<!--bg color bottom : <input type="text" value="#2F4F74" placeholder="#2F4F74"-->
 					Mate effect : <input name="rangeMate" type="range" min="0" max="1" step="0.1" value="1" id="rangeMate">
 					Blocks opacity : <input name="rangeOpacity" type="range" min="0" max="1" step="0.1" value="1" id="rangeOpacity">
 					Glass opacity : <input name="rangeGlassOpacity" type="range" min="0" max="0.05" step="0.01" value="0.05" id="rangeGlassOpacity">
