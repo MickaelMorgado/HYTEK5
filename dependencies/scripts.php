@@ -16,6 +16,7 @@
 <script src="<?php echo $backfolder_string; ?>dependencies/js/intro.js"></script>                       <!-- intro js -->
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.3.0/intro.min.js"></script>                       <!-- intro js -->
 <script src="<?php echo $backfolder_string; ?>dependencies/js/lazyload.min.js"></script>                <!-- lazy load -->
+<script src="<?php echo $backfolder_string; ?>dependencies/js/keypress-2.1.4.min.js"></script>          <!-- keypress plugin -->
 <!--script src="https://rawgit.com/notifyjs/notifyjs/master/dist/notify.js"></script>                      <!-- notify -->
 <!--script src="https://unpkg.com/masonry-layout@4.0.0/dist/masonry.pkgd.min.js"></script-->                 <!-- like masonary -->
 <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js"></script-->

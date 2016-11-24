@@ -28,14 +28,14 @@
 								    </div>
 									<input id="youtubeRangeSlider-input" type="range" min="0" max="100">
 								  </div>
-								<span id="player-prev" title="previous"><i class="fa fa-fast-backward"></i></span>
-								<span id="player-pause" title="pause (s)"><i class="fa fa-pause"></i></span>
-								<span id="player-play" title="play (p)"><i class="fa fa-play"></i></span>
-								<span id="player-next" title="next"><i class="fa fa-fast-forward"></i></span>
-								<span id="player-vol" title="mute/unmute"><i class="fa fa-volume-up"></i><i class="fa fa-volume-off"></i></span>
-								<span id="player-playAt" title="go to first"><i class="fa fa-reply"></i></span>
+								<span id="player-prev" 		title="previous [shift+b]"><i class="fa fa-fast-backward"></i></span>
+								<span id="player-pause" 	title="pause [shift+p]"><i class="fa fa-pause"></i></span>
+								<span id="player-play" 		title="play [shift+p]"><i class="fa fa-play"></i></span>
+								<span id="player-next" 		title="next [shift+n]"><i class="fa fa-fast-forward"></i></span>
+								<span id="player-vol" 		title="mute/unmute [shift+m]"><i class="fa fa-volume-up"></i><i class="fa fa-volume-off"></i></span>
+								<span id="player-playAt" 	title="go to first"><i class="fa fa-reply"></i></span>
 								<!--span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span-->
-								<span id="player-repeat" title="repeat video"><i class="fa fa-repeat" aria-hidden="true"></i></span>
+								<span id="player-repeat" 	title="repeat video [shift+r]"><i class="fa fa-repeat" aria-hidden="true"></i></span>
 							</div>
 			    		</div>
 			    	</div>
@@ -54,23 +54,23 @@ $(window).load(function(){
   var 	player,
   		dataOrder = 0,
   		lastOrder = $('.playlistlink').last().data("order");
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('boby', {
-      	height: '250',
-      	width: '100%',
-     	<?php if (isset($_SESSION['id_session'])): ?>
-		videoId: $('#YTlist').find("a")[0].text,
-		<?php else: ?>
-		videoId: "g7TAqv-dx2Y",
-		<?php endif ?>
-		events: {
-			'onStateChange': onPlayerStateChange
-		}
-    });
-  }
-  function onPlayerReady(event) {
-    event.target.playVideo();
-  }
+	function onYouTubeIframeAPIReady() {
+	    player = new YT.Player('boby', {
+	      	height: '250',
+	      	width: '100%',
+	     	<?php if (isset($_SESSION['id_session'])): ?>
+			videoId: $('#YTlist').find("a")[0].text,
+			<?php else: ?>
+			videoId: "g7TAqv-dx2Y",
+			<?php endif ?>
+			events: {
+				'onStateChange': onPlayerStateChange
+			}
+	    });
+	}
+	function onPlayerReady(event) {
+	    event.target.playVideo();
+	}
 	var done = false,
 		gate = true,
 		repeatVideoVar = false;
@@ -154,16 +154,40 @@ $(window).load(function(){
 			showMuteIcon();
 		};
 	}
+	var ff = false ;
+	function toggle(player){
+		if (ff == true) { ff = false;
+			player.pauseVideo();
+		}else if (ff == false){ ff = true;
+			player.playVideo();
+		}
+	}
+	function PlayOrPauseVideo(player) { 		toggle(player);	}
 	function expand() {							$("#player").parent().parent().toggleClass("expand");	}
 	showUnmuteIcon();
 	$("#player-expand").click(function(){		expand();				});
 
-	$("#player-pause").click(function(){		player.pauseVideo();	});
-	$("#player-play").click(function(){			player.playVideo();		});
+	$("#player-pause").click(function(){		PlayOrPauseVideo(player);	});
+	$("#player-play").click(function(){			PlayOrPauseVideo(player);	});
 
 	$("#player-playAt").click(function(){		onYouTubePlayerAPIReady();	});
 	$("#player-prev").click(function(){			prevVideo();	});
 	$("#player-next").click(function(){			nextVideo();	});
 	$("#player-vol").click(function(){			muteUnmute(); 	});
 	$("#player-repeat").click(function(){		repeatVideo();	});
+
+
+	/*============================================================
+	    keypress plugin (https://dmauro.github.io/Keypress/)
+	============================================================*/
+		
+		var listener = new window.keypress.Listener();
+
+		/* PLAY YOUTUBE */
+			listener.simple_combo("shift p", function() { PlayOrPauseVideo(player); });
+			listener.simple_combo("shift n", function() { nextVideo(); });
+			listener.simple_combo("shift b", function() { prevVideo(); });
+			listener.simple_combo("shift m", function() { muteUnmute(); });
+			listener.simple_combo("shift r", function() { repeatVideo(); });
+
 </script>
