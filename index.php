@@ -15,6 +15,19 @@
 	<?php include('dependencies/scripts.php') ?>
 </head>
 <body>
+
+
+<?php 
+if(!isset($_SESSION['id_session'])){
+	// if not logged in try with cookies
+	if (isset($_COOKIE['username'])) {
+		echo "try w/:".$_COOKIE['username'].$_COOKIE['password'];
+		header("location: apps/login.php?username=$_COOKIE[username]&password=$_COOKIE[password]");
+	}else{
+		echo "no try";
+	}
+}
+?>
 	<div class="preloader"></div>
 	<div class="dock text-center">
 		<div class="container-fluid">

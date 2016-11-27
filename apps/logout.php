@@ -2,16 +2,10 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.js" type="text/javascript"></script>
 </head>
-<script>
-	console.log($.cookie("name")+" - "+$.cookie("pass"));
-	$.removeCookie('name',{path: '/'});
-	$.removeCookie('pass',{path: '/'});
-	console.log($.cookie("name")+" - "+$.cookie("pass"));
-</script>
 <?php 
 	session_start();
 	session_destroy();
-?>
-<?php 
-header("location: ../index.php"); 
+	setcookie("username", "", time() - 3600, '/');
+	setcookie("password", "", time() - 3600, '/');
+	header("location: ../index.php"); 
 ?>

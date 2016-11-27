@@ -7,9 +7,14 @@
 ?>
 </head>
 <?php
-	$keep_session =  $_POST['keepSession'];
-	$user_email = trim($_POST['user_email']);
-	$user_password = trim($_POST['password']);
+
+	if ($_COOKIE['username']) {
+		$user_email = trim($_COOKIE['username']);
+		$user_password = trim($_COOKIE['password']);
+	}else{
+		$user_email = trim($_POST['user_email']);
+		$user_password = trim($_POST['password']);
+	}
 
 	$password = hash('SHA512', $user_password);
 
@@ -18,28 +23,15 @@
 	echo $user_email." - ".$password;
 
 	while($row = mysqli_fetch_assoc($result)){
-		if($row['pass']==$password){
-	    	echo "ok"; // log in
+		if($row['pass']==$password){ // log in
+	        setcookie('username', $user_email, time()+(30 * 24 * 60 * 60), '/'); // this sets cookie for 30 days.
+	        setcookie('password', $user_password, time()+(30 * 24 * 60 * 60), '/'); // this sets cookie for 30 days.
+	        //echo $_COOKIE['username'];
+	        //echo $_COOKIE['password'];
 	    	$_SESSION['id_session'] = $row['id_session'];
 		}else{
 	    	echo "email or password does not exist."; // wrong details 
 		}
-	}
-?>
-<input type="hidden" value="<?php echo $user_email; ?>" id="hidden_name">
-<input type="hidden" value="<?php echo $user_password; ?>" id="hidden_pass">
-<a href="../" class="button">back</a>
-
-<?php 
-
-	if ($keep_session == true) {
-		echo "on";
-		?>
-			<script>$.cookie("name", $('#hidden_name').val(), {expires:10,path:'/'}); alert("name: "+$.cookie("name"));</script>
-			<script>$.cookie("pass", $('#hidden_pass').val(), {expires:10,path:'/'}); alert("pass: "+$.cookie("pass"));</script>
-		<?php
-	}else{
-		echo "off";
 	}
 
 	if ($debug != true) { header("location: ../"); }

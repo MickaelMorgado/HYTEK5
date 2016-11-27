@@ -1,6 +1,8 @@
 <?php 
 session_start();
 if($debug==true){ echo "session: ".$_SESSION['id_session']; }
+
+
 if(!isset($_SESSION['id_session'])){?>
 	<div class="signin-form">
 		<label for="user_email">Login / Signup:</label>
@@ -109,3 +111,9 @@ if(!isset($_SESSION['id_session'])){?>
 	<a href="apps/logout.php" class="btn">Logout</a>
 	<a href="#" class="tutorial">tutorial</a><?php
 }?>
+
+<br/><?php 
+
+	if ($debug == true) {	echo "cookies: <br/>".$_COOKIE['username']."<br/>".$_COOKIE['password'];	}
+
+?>
