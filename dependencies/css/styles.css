@@ -8599,7 +8599,7 @@ input[type="file"] + label.has-file {
 /* line 244, ../sass/styles.scss */
 .element.ytb, .dock .ytb.dock-aspect {
   height: 300px;
-  overflow: visible;
+  overflow-y: visible;
 }
 /* line 248, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {

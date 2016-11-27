@@ -243,7 +243,7 @@
 		overflow: hidden;
 		&.ytb {
 			height:300px;
-			overflow: visible;
+			overflow-y: visible;
 		}
 		.glass {
 			@include transform(rotate(40deg) translate(50%,0%) scale(2.5));
