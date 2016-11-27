@@ -752,7 +752,9 @@
 	    background: $element-bg-color;
 	    position: absolute;
 	    height: 100%;
-	    overflow: hidden;
+	    @media (max-width: 768px){
+		    overflow: hidden;    	
+	    }
 	    z-index: 1000;
 	    textarea {
 	    	width: 100%;

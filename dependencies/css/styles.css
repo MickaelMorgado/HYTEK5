@@ -9237,16 +9237,21 @@ input.fa {
   background: #151515;
   position: absolute;
   height: 100%;
-  overflow: hidden;
   z-index: 1000;
 }
-/* line 757, ../sass/styles.scss */
+@media (max-width: 768px) {
+  /* line 746, ../sass/styles.scss */
+  #sidebar-wrapper {
+    overflow: hidden;
+  }
+}
+/* line 759, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 763, ../sass/styles.scss */
+/* line 765, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -9256,7 +9261,7 @@ input.fa {
   padding: 0;
 }
 
-/* line 772, ../sass/styles.scss */
+/* line 774, ../sass/styles.scss */
 #menu-toggle, #menu-close {
   bottom: 0;
   right: 0;
@@ -9267,7 +9272,7 @@ input.fa {
   background-color: #000;
 }
 
-/* line 782, ../sass/styles.scss */
+/* line 784, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -9277,7 +9282,7 @@ input.fa {
   width: 100%;
 }
 
-/* line 788, ../sass/styles.scss */
+/* line 790, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -9287,7 +9292,7 @@ input.fa {
 /*============================================================
     Modal
 ============================================================*/
-/* line 798, ../sass/styles.scss */
+/* line 800, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -9296,7 +9301,7 @@ input.fa {
   border: 5px solid #111;
 }
 
-/* line 804, ../sass/styles.scss */
+/* line 806, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }
@@ -9304,31 +9309,31 @@ input.fa {
 /*============================================================
     thumbnail for preview wallpapers
 ============================================================*/
-/* line 811, ../sass/styles.scss */
+/* line 813, ../sass/styles.scss */
 .thumbnail-preview {
   width: 150px;
   height: 100px;
   display: inline-block;
   border: 2px solid #111;
 }
-/* line 816, ../sass/styles.scss */
+/* line 818, ../sass/styles.scss */
 .thumbnail-preview img {
   width: 100%;
   height: 100%;
 }
-/* line 820, ../sass/styles.scss */
+/* line 822, ../sass/styles.scss */
 .thumbnail-preview:hover {
   cursor: pointer;
 }
 
-/* line 822, ../sass/styles.scss */
+/* line 824, ../sass/styles.scss */
 .thumbnail-preview + input {
   z-index: -1;
   visibility: hidden;
   position: absolute;
 }
 
-/* line 827, ../sass/styles.scss */
+/* line 829, ../sass/styles.scss */
 .wallpapers-form {
   overflow-y: scroll;
   max-height: 160px;
@@ -9338,7 +9343,7 @@ input.fa {
 /*============================================================
     autocomplete styles
 ============================================================*/
-/* line 836, ../sass/styles.scss */
+/* line 838, ../sass/styles.scss */
 .ui-widget-content {
   border: none;
   background: #111 none 50% 50% repeat-x !important;

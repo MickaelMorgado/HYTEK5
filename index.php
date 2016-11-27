@@ -3,7 +3,7 @@
 	$error_reporting = 0;
 	include('dbConnection.php');
 ?>
-<html manifest="example.appcache">
+<html>
 <head>
 	<title>HYTEK5 - Start Page</title>
 	<meta name="theme-color" content="#111"><!--meta name="theme-color" content="#224455"-->
