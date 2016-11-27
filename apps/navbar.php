@@ -62,24 +62,24 @@
 				<div class="col-sm-12 col-md-2 col-lg-2">
 					<ul class="list-inline">
 						<li><a href="http://gmail.com/">
-							<img 	
+							<span 	
 								class 	= 	"dock-icon sprite s7" 
-								title 	= 	"gmail"></a>
+								title 	= 	"gmail"></span></a>
 						</li>
 						<li><a href="http://facebook.com">
-							<img 	
+							<span 	
 								class 	= 	"dock-icon sprite s2" 
-								title 	= 	"facebook"></a>
+								title 	= 	"facebook"></span></a>
 						</li>
 						<li><a href="https://play.spotify.com/collection/songs/">
-							<img 	
+							<span 	
 								class 	= 	"dock-icon sprite s5" 
-								title 	= 	"spotify songs"></a>
+								title 	= 	"spotify songs"></span></a>
 						</li>
 						<li><a href="http://twitter.com">
-							<img 	
+							<span 	
 								class 	= 	"dock-icon sprite s4" 
-								title 	= 	"twitter"></a>
+								title 	= 	"twitter"></span></a>
 						</li>
 					</ul>
 				</div>
