@@ -8596,7 +8596,12 @@ input[type="file"] + label.has-file {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
 }
-/* line 245, ../sass/styles.scss */
+/* line 244, ../sass/styles.scss */
+.element.ytb, .dock .ytb.dock-aspect {
+  height: 300px;
+  overflow: visible;
+}
+/* line 248, ../sass/styles.scss */
 .element .glass, .dock .dock-aspect .glass {
   -moz-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
   -ms-transform: rotate(40deg) translate(50%, 0%) scale(2.5);
@@ -8620,19 +8625,19 @@ input[type="file"] + label.has-file {
   z-index: 5;
   pointer-events: none;
 }
-/* line 273, ../sass/styles.scss */
+/* line 276, ../sass/styles.scss */
 .element:hover, .dock .dock-aspect:hover {
   -moz-box-shadow: 0 0 10px -2px #ffd133;
   -webkit-box-shadow: 0 0 10px -2px #ffd133;
   box-shadow: 0 0 10px -2px #ffd133;
 }
 
-/* line 278, ../sass/styles.scss */
+/* line 281, ../sass/styles.scss */
 .scrollable {
   overflow-y: scroll;
   max-height: 240px;
 }
-/* line 281, ../sass/styles.scss */
+/* line 284, ../sass/styles.scss */
 .scrollable.youtube {
   max-height: 90px;
 }
@@ -8640,14 +8645,14 @@ input[type="file"] + label.has-file {
 /*============================================================
     youtubeminiplayer
 ============================================================*/
-/* line 289, ../sass/styles.scss */
+/* line 292, ../sass/styles.scss */
 .player {
   text-align: center;
   padding: 10px 0;
   padding-bottom: 30px;
 }
 
-/* line 295, ../sass/styles.scss */
+/* line 298, ../sass/styles.scss */
 #player {
   -moz-border-radius: 100%;
   -webkit-border-radius: 100%;
@@ -8661,7 +8666,7 @@ input[type="file"] + label.has-file {
   border: 5px solid #1a1a1a;
   overflow: hidden;
 }
-/* line 307, ../sass/styles.scss */
+/* line 310, ../sass/styles.scss */
 #player:hover {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8669,16 +8674,16 @@ input[type="file"] + label.has-file {
   width: 200%;
 }
 
-/* line 314, ../sass/styles.scss */
+/* line 317, ../sass/styles.scss */
 .element.expand, .dock .expand.dock-aspect {
   overflow: visible;
   z-index: 1;
 }
-/* line 317, ../sass/styles.scss */
+/* line 320, ../sass/styles.scss */
 .element.expand .player, .dock .expand.dock-aspect .player {
   padding: 0;
 }
-/* line 320, ../sass/styles.scss */
+/* line 323, ../sass/styles.scss */
 .element.expand #player, .dock .expand.dock-aspect #player {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8689,12 +8694,12 @@ input[type="file"] + label.has-file {
   height: 225px;
 }
 
-/* line 329, ../sass/styles.scss */
+/* line 332, ../sass/styles.scss */
 .player-controls {
   font-size: 1.5em;
   text-align: center;
 }
-/* line 333, ../sass/styles.scss */
+/* line 336, ../sass/styles.scss */
 .player-controls span {
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -8702,24 +8707,24 @@ input[type="file"] + label.has-file {
   transition: all 0.25s ease-in-out;
   margin: 0 5px;
 }
-/* line 337, ../sass/styles.scss */
+/* line 340, ../sass/styles.scss */
 .player-controls span:hover {
   color: #fff;
   cursor: pointer;
 }
 
-/* line 344, ../sass/styles.scss */
+/* line 347, ../sass/styles.scss */
 .youtube-list-rm-button {
   margin-right: 10px;
 }
 
-/* line 345, ../sass/styles.scss */
+/* line 348, ../sass/styles.scss */
 .youtube-list-thumbnail {
   width: 50px;
   margin-right: 10px;
 }
 
-/* line 350, ../sass/styles.scss */
+/* line 353, ../sass/styles.scss */
 .progress {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8730,11 +8735,11 @@ input[type="file"] + label.has-file {
   margin-top: 15px;
   margin-bottom: 10px;
 }
-/* line 357, ../sass/styles.scss */
+/* line 360, ../sass/styles.scss */
 .progress .progress-bar {
   background-color: #a72727;
 }
-/* line 360, ../sass/styles.scss */
+/* line 363, ../sass/styles.scss */
 .progress #youtubeRangeSlider-input {
   top: 0;
   opacity: 0;
@@ -8746,32 +8751,32 @@ input[type="file"] + label.has-file {
   cursor: pointer;
   position: absolute;
 }
-/* line 371, ../sass/styles.scss */
+/* line 374, ../sass/styles.scss */
 .progress input[type=range]::-moz-range-thumb {
   width: 0 !important;
   padding: 0 !important;
   border: 0 !important;
 }
-/* line 376, ../sass/styles.scss */
+/* line 379, ../sass/styles.scss */
 .progress input[type=range]::-webkit-slider-thumb {
   width: 0 !important;
   padding: 0 !important;
   border: 0 !important;
 }
-/* line 381, ../sass/styles.scss */
+/* line 384, ../sass/styles.scss */
 .progress input[type=range]::-ms-thumb {
   width: 0 !important;
   padding: 0 !important;
   border: 0 !important;
 }
 
-/* line 388, ../sass/styles.scss */
+/* line 391, ../sass/styles.scss */
 .repeat-active {
   text-shadow: 0 0 5px white;
 }
 
 @media (max-width: 767px) {
-  /* line 394, ../sass/styles.scss */
+  /* line 397, ../sass/styles.scss */
   .player-controls {
     position: fixed;
     display: inline-block;
@@ -8784,12 +8789,12 @@ input[type="file"] + label.has-file {
     z-index: 99999;
   }
 
-  /* line 405, ../sass/styles.scss */
+  /* line 408, ../sass/styles.scss */
   .progress {
     margin-top: 0;
   }
 
-  /* line 408, ../sass/styles.scss */
+  /* line 411, ../sass/styles.scss */
   .scrollable.youtube {
     max-height: 150px;
   }
@@ -8797,7 +8802,7 @@ input[type="file"] + label.has-file {
 /*============================================================
     clock
 ============================================================*/
-/* line 416, ../sass/styles.scss */
+/* line 419, ../sass/styles.scss */
 .clock {
   display: block;
   text-align: center;
@@ -8807,19 +8812,19 @@ input[type="file"] + label.has-file {
 /*============================================================
     link list
 ============================================================*/
-/* line 425, ../sass/styles.scss */
+/* line 428, ../sass/styles.scss */
 .link-list {
   display: block;
 }
 
-/* line 428, ../sass/styles.scss */
+/* line 431, ../sass/styles.scss */
 .title .url {
   visibility: hidden;
   position: absolute;
   z-index: -1;
 }
 
-/* line 434, ../sass/styles.scss */
+/* line 437, ../sass/styles.scss */
 .submit.fa {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -8830,32 +8835,32 @@ input[type="file"] + label.has-file {
   background-color: transparent;
   opacity: 0.1;
 }
-/* line 444, ../sass/styles.scss */
+/* line 447, ../sass/styles.scss */
 .submit.fa:hover {
   opacity: 1;
 }
-/* line 446, ../sass/styles.scss */
+/* line 449, ../sass/styles.scss */
 .submit.fa.fa-trash-o {
   color: #008cc3;
 }
 
-/* line 451, ../sass/styles.scss */
+/* line 454, ../sass/styles.scss */
 .toggles-search-buttons {
   float: right;
 }
 
-/* line 455, ../sass/styles.scss */
+/* line 458, ../sass/styles.scss */
 .search {
   width: 100%;
 }
 
-/* line 459, ../sass/styles.scss */
+/* line 462, ../sass/styles.scss */
 #link-order-select {
   width: 100%;
   margin-bottom: 10px;
 }
 
-/* line 464, ../sass/styles.scss */
+/* line 467, ../sass/styles.scss */
 #UI-result > div {
   position: fixed;
   top: 0;
@@ -8866,7 +8871,7 @@ input[type="file"] + label.has-file {
   padding: 10px;
 }
 
-/* line 474, ../sass/styles.scss */
+/* line 477, ../sass/styles.scss */
 #tabs .dropdown-menu {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8877,13 +8882,13 @@ input[type="file"] + label.has-file {
   border: none;
 }
 
-/* line 482, ../sass/styles.scss */
+/* line 485, ../sass/styles.scss */
 #enableRefresh > li {
   width: 260px;
   position: relative;
 }
 
-/* line 487, ../sass/styles.scss */
+/* line 490, ../sass/styles.scss */
 .links-remove,
 .links-edit {
   position: absolute;
@@ -8891,17 +8896,17 @@ input[type="file"] + label.has-file {
   right: 10px;
 }
 
-/* line 493, ../sass/styles.scss */
+/* line 496, ../sass/styles.scss */
 .links-edit {
   right: 40px;
 }
-/* line 495, ../sass/styles.scss */
+/* line 498, ../sass/styles.scss */
 .links-edit .dropdown-menu {
   left: auto;
   right: 0;
 }
 
-/* line 500, ../sass/styles.scss */
+/* line 503, ../sass/styles.scss */
 input.fa {
   height: initial;
 }
@@ -8909,7 +8914,7 @@ input.fa {
 /*============================================================
     bordered links
 ============================================================*/
-/* line 507, ../sass/styles.scss */
+/* line 510, ../sass/styles.scss */
 .border-link img {
   border: 1px solid #664f00;
 }
@@ -8917,7 +8922,7 @@ input.fa {
 /*============================================================
     accordions
 ============================================================*/
-/* line 514, ../sass/styles.scss */
+/* line 517, ../sass/styles.scss */
 .panel-group .panel {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8925,7 +8930,7 @@ input.fa {
   border: none;
   background-color: #111;
 }
-/* line 518, ../sass/styles.scss */
+/* line 521, ../sass/styles.scss */
 .panel-group .panel.panel-default > .panel-heading {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -8934,7 +8939,7 @@ input.fa {
   background-color: #222;
   color: #fff;
 }
-/* line 523, ../sass/styles.scss */
+/* line 526, ../sass/styles.scss */
 .panel-group .panel.panel-default > .panel-heading a {
   padding: 10px;
   display: block;
@@ -8943,7 +8948,7 @@ input.fa {
 /*============================================================
     tabs
 ============================================================*/
-/* line 533, ../sass/styles.scss */
+/* line 536, ../sass/styles.scss */
 #tabs .list {
   -moz-transition: all 0.1s ease-in-out;
   -o-transition: all 0.1s ease-in-out;
@@ -8962,24 +8967,24 @@ input.fa {
   	direction: ltr;
   }*/
 }
-/* line 549, ../sass/styles.scss */
+/* line 552, ../sass/styles.scss */
 #tabs .list:hover, #tabs .list.active {
   left: 0;
   opacity: 1;
 }
-/* line 554, ../sass/styles.scss */
+/* line 557, ../sass/styles.scss */
 #tabs .list .link-list {
   text-align: left;
   padding: 5px 20px;
   min-height: 30px;
 }
-/* line 558, ../sass/styles.scss */
+/* line 561, ../sass/styles.scss */
 #tabs .list .link-list:focus {
   outline: none;
   box-shadow: 0 0 15px 0 black inset;
 }
 
-/* line 564, ../sass/styles.scss */
+/* line 567, ../sass/styles.scss */
 #tabs .scrollable.list {
   max-height: none;
 }
@@ -8987,12 +8992,12 @@ input.fa {
 /*============================================================
     dock
 ============================================================*/
-/* line 569, ../sass/styles.scss */
+/* line 572, ../sass/styles.scss */
 .masonry-container {
   margin-top: 55px;
 }
 
-/* line 572, ../sass/styles.scss */
+/* line 575, ../sass/styles.scss */
 .dock {
   background-color: #111;
   box-shadow: 0 0 5px black;
@@ -9003,14 +9008,14 @@ input.fa {
   display: block;
   z-index: 1010;
 }
-/* line 582, ../sass/styles.scss */
+/* line 585, ../sass/styles.scss */
 .dock > ul {
   position: relative;
   display: inline-block;
   margin-bottom: 5px;
   margin-top: 15px;
 }
-/* line 588, ../sass/styles.scss */
+/* line 591, ../sass/styles.scss */
 .dock .dock-aspect {
   position: absolute;
   margin-bottom: 0;
@@ -9050,7 +9055,7 @@ input.fa {
   }
   */
 }
-/* line 631, ../sass/styles.scss */
+/* line 634, ../sass/styles.scss */
 .dock .dock-icon {
   -moz-box-shadow: 0 0 5px 0 #000;
   -webkit-box-shadow: 0 0 5px 0 #000;
@@ -9072,7 +9077,7 @@ input.fa {
   -webkit-transform: scale(1, 1);
   transform: scale(1, 1);
 }
-/* line 645, ../sass/styles.scss */
+/* line 648, ../sass/styles.scss */
 .dock .dock-icon:hover {
   opacity: 1;
   -moz-transform: scale(1.2, 1.2);
@@ -9080,18 +9085,18 @@ input.fa {
   -webkit-transform: scale(1.2, 1.2);
   transform: scale(1.2, 1.2);
 }
-/* line 650, ../sass/styles.scss */
+/* line 653, ../sass/styles.scss */
 .dock input.dock-icon {
   color: transparent;
 }
-/* line 651, ../sass/styles.scss */
+/* line 654, ../sass/styles.scss */
 .dock .search {
   text-transform: uppercase;
   border: medium none;
   height: 50px;
   background: #111 none repeat scroll 0% 0%;
 }
-/* line 657, ../sass/styles.scss */
+/* line 660, ../sass/styles.scss */
 .dock input:focus {
   box-shadow: none;
 }
@@ -9134,7 +9139,7 @@ input.fa {
 				);
 		    }
 	*/
-/* line 706, ../sass/styles.scss */
+/* line 709, ../sass/styles.scss */
 .socialicons .sprite {
   -moz-transition: all, 0.25s, ease-in-out;
   -o-transition: all, 0.25s, ease-in-out;
@@ -9146,77 +9151,77 @@ input.fa {
   background-size: 30px;
   background-image: url("../img/socio.png");
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s2 {
   background-position: 0 -30px;
   background-position: -30px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s2:hover {
   opacity: .5;
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s3 {
   background-position: 0 -60px;
   background-position: -60px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s3:hover {
   opacity: .5;
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s4 {
   background-position: 0 -90px;
   background-position: -90px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s4:hover {
   opacity: .5;
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s5 {
   background-position: 0 -120px;
   background-position: -120px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s5:hover {
   opacity: .5;
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s6 {
   background-position: 0 -150px;
   background-position: -150px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s6:hover {
   opacity: .5;
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s7 {
   background-position: 0 -180px;
   background-position: -180px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s7:hover {
   opacity: .5;
 }
-/* line 715, ../sass/styles.scss */
+/* line 718, ../sass/styles.scss */
 .socialicons .sprite.s8 {
   background-position: 0 -210px;
   background-position: -210px 0;
   opacity: 1;
 }
-/* line 719, ../sass/styles.scss */
+/* line 722, ../sass/styles.scss */
 .socialicons .sprite.s8:hover {
   opacity: .5;
 }
-/* line 737, ../sass/styles.scss */
+/* line 740, ../sass/styles.scss */
 .socialicons .sprite {
   background-size: 210px;
 }
@@ -9224,7 +9229,7 @@ input.fa {
 /*============================================================
     sidebar list
 ============================================================*/
-/* line 746, ../sass/styles.scss */
+/* line 749, ../sass/styles.scss */
 #sidebar-wrapper {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -9239,19 +9244,19 @@ input.fa {
   height: 100%;
   z-index: 1000;
 }
-@media (max-width: 768px) {
-  /* line 746, ../sass/styles.scss */
+@media (min-width: 768px) {
+  /* line 749, ../sass/styles.scss */
   #sidebar-wrapper {
     overflow: hidden;
   }
 }
-/* line 759, ../sass/styles.scss */
+/* line 762, ../sass/styles.scss */
 #sidebar-wrapper textarea {
   width: 100%;
   height: 190px;
 }
 
-/* line 765, ../sass/styles.scss */
+/* line 768, ../sass/styles.scss */
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -9261,7 +9266,7 @@ input.fa {
   padding: 0;
 }
 
-/* line 774, ../sass/styles.scss */
+/* line 777, ../sass/styles.scss */
 #menu-toggle, #menu-close {
   bottom: 0;
   right: 0;
@@ -9272,7 +9277,7 @@ input.fa {
   background-color: #000;
 }
 
-/* line 784, ../sass/styles.scss */
+/* line 787, ../sass/styles.scss */
 #sidebar-wrapper.active {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
@@ -9282,7 +9287,7 @@ input.fa {
   width: 100%;
 }
 
-/* line 790, ../sass/styles.scss */
+/* line 793, ../sass/styles.scss */
 .toggle {
   position: absolute;
   right: 0;
@@ -9292,7 +9297,7 @@ input.fa {
 /*============================================================
     Modal
 ============================================================*/
-/* line 800, ../sass/styles.scss */
+/* line 803, ../sass/styles.scss */
 .modal-content {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -9301,7 +9306,7 @@ input.fa {
   border: 5px solid #111;
 }
 
-/* line 806, ../sass/styles.scss */
+/* line 809, ../sass/styles.scss */
 .modal-backdrop {
   z-index: 500;
 }
@@ -9309,31 +9314,31 @@ input.fa {
 /*============================================================
     thumbnail for preview wallpapers
 ============================================================*/
-/* line 813, ../sass/styles.scss */
+/* line 816, ../sass/styles.scss */
 .thumbnail-preview {
   width: 150px;
   height: 100px;
   display: inline-block;
   border: 2px solid #111;
 }
-/* line 818, ../sass/styles.scss */
+/* line 821, ../sass/styles.scss */
 .thumbnail-preview img {
   width: 100%;
   height: 100%;
 }
-/* line 822, ../sass/styles.scss */
+/* line 825, ../sass/styles.scss */
 .thumbnail-preview:hover {
   cursor: pointer;
 }
 
-/* line 824, ../sass/styles.scss */
+/* line 827, ../sass/styles.scss */
 .thumbnail-preview + input {
   z-index: -1;
   visibility: hidden;
   position: absolute;
 }
 
-/* line 829, ../sass/styles.scss */
+/* line 832, ../sass/styles.scss */
 .wallpapers-form {
   overflow-y: scroll;
   max-height: 160px;
@@ -9343,7 +9348,7 @@ input.fa {
 /*============================================================
     autocomplete styles
 ============================================================*/
-/* line 838, ../sass/styles.scss */
+/* line 841, ../sass/styles.scss */
 .ui-widget-content {
   border: none;
   background: #111 none 50% 50% repeat-x !important;

@@ -51,7 +51,7 @@ if(!isset($_SESSION['id_session'])){
 				<div class="element"><?php include('apps/shooters.php'); ?><div class="glass"></div></div>	
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-4 item">
-				<div class="element"  style="height:300px;"><?php include('apps/youtubeminiplayer.php'); ?><div class="glass"></div></div>
+				<div class="element ytb"><?php include('apps/youtubeminiplayer.php'); ?></div>
 			</div>
 			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element" 

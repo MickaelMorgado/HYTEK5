@@ -241,7 +241,10 @@
 		background-image: url($element-mask);
 
 		overflow: hidden;
-
+		&.ytb {
+			height:300px;
+			overflow: visible;
+		}
 		.glass {
 			@include transform(rotate(40deg) translate(50%,0%) scale(2.5));
 		
@@ -752,7 +755,7 @@
 	    background: $element-bg-color;
 	    position: absolute;
 	    height: 100%;
-	    @media (max-width: 768px){
+	    @media (min-width: 768px){
 		    overflow: hidden;    	
 	    }
 	    z-index: 1000;
