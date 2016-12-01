@@ -15,7 +15,7 @@ if (isset($_SESSION['id_session'])) {
 		$i=$i++;
 	    //$files[] = $filename;
 		if ($filename != "." && $filename != "..") {
-			?><a href="<?php echo "apps/uploads/".$filename; ?>"><?php
+			?><a class="ellipsis" href="<?php echo "apps/uploads/".$filename; ?>"><?php
 			if (preg_match('/\.jpg$/', $filename)) {					?><i aria-hidden="true" class="fa fa-picture-o" ></i><?php
 			}elseif (preg_match('/\.rar$/', $filename)) {				?><i aria-hidden="true" class="fa fa-compress" ></i><?php
 			}elseif (preg_match('/\.tar.gz$/', $filename)) {			?><i aria-hidden="true" class="fa fa-compress" ></i><?php

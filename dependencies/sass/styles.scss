@@ -39,6 +39,8 @@
 
 	$input-color 			: $dark;
 
+	$arrow-url 				: "../../dependencies/img/right-arrow.png"; 	
+
 /*============================================================
     button / inputs / textareas ...
 ============================================================*/
@@ -148,6 +150,13 @@
 		&:hover { cursor: pointer; }
 	} 
 
+	%ellipsis {
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
 /*============================================================
     preloader
 ============================================================*/
@@ -181,15 +190,17 @@
 			border: 1px solid $gold;
 			color: $gold; 
 			max-width: 100%;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
+			@extend %ellipsis;
 		}
 		@content;
 	}
 
 	input[type="file"] {
 		@include custom-input-file();
+	}
+
+	.ellipsis {
+		@extend %ellipsis;
 	}
 
 /*============================================================
@@ -846,6 +857,74 @@
 	    left: auto !important;
 	    width: 200px !important;
 	    right: 15px !important;
+	}
+
+/*============================================================
+    todo list
+============================================================*/
+
+	.warp-input-and-list {
+		position: relative;
+	}
+	
+	.todolist {
+		list-style: none;
+		padding: 0;
+		overflow-y: scroll;
+		max-height: 250px;
+		label {
+			font-weight: initial;
+			position: relative;
+			background: #111;
+			height: 60px;
+			line-height: 15px;
+			margin: 0;
+			border-bottom: 2px solid #0b0b0b;
+			padding: 7px 0px;
+			//overflow: hidden;
+			background-image: url($arrow-url);
+			background-size: 15px;
+			background-repeat: no-repeat;
+			background-position: right 15px top 15px;
+			&:nth-child(n+4){
+				box-shadow: inset 0 4px 2px -3px black;
+			}
+		}
+	}
+
+	.todolist a {
+		display: block;
+		vertical-align: middle;
+		margin: auto 50px;
+		color: #fff;
+		text-decoration: none;
+		max-height: 100%;
+		overflow: hidden;
+		h5 {
+			font-weight: bold;
+			margin: 0;
+		}
+		small { color: $gray; }
+		p { 
+			font-style: italic; 
+			font-size: .8em;
+			@extend %ellipsis;
+		}
+	}
+	.todolist input[type="checkbox"].complete{
+		position: absolute;
+		margin-top: 15px;
+		margin-left: 15px;
+		z-index: 10;
+		&:focus,&:active{outline:none !important;}
+	}
+	.todolist .complete:checked + label{
+		background-color: darken($gold,20);
+		small {
+			&:after {
+				content: ' (Done)';
+			}
+		}
 	}
 
 @import "media";

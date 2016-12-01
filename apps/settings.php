@@ -58,13 +58,16 @@
 			background-size: cover;
 			background-repeat: no-repeat;	
 		}
-		.element:hover {			box-shadow: 0 0 10px -2px #<?php echo $hbg[0]; ?>;			}
-		a:hover {					color: #<?php echo $hbg[0]; ?>;								}
-		.progress .progress-bar {	background-color: #<?php echo $hbg[0]; ?>;					}
-		body:after { 				opacity: <?php echo $hbg[1]; ?>; 							}
-		.element {					background-color: rgba(21,21,21,<?php echo $hbg[2]; ?>);	}
-		.element .glass	{			opacity: <?php echo $hbg[3]; ?>;							}
-		.border-link img {			border: 1px solid #<?php echo $hbg[0]; ?>;					}
+		.element:hover {						box-shadow: 0 0 10px -2px #<?php echo $hbg[0]; ?>;			}
+		a:hover {								color: #<?php echo $hbg[0]; ?>;								}
+		.progress .progress-bar {				background-color: #<?php echo $hbg[0]; ?>;					}
+		.todolist .complete:checked + label{ 	background-color: #<?php echo $hbg[0]; ?>;					}
+		input[type="file"] + label.has-file { 	border: 1px solid #<?php echo $hbg[0]; ?>;
+												color: #<?php echo $hbg[0]; ?>; 							}
+		body:after { 							opacity: <?php echo $hbg[1]; ?>; 							}
+		.element {								background-color: rgba(21,21,21,<?php echo $hbg[2]; ?>);	}
+		.element .glass	{						opacity: <?php echo $hbg[3]; ?>;							}
+		.border-link img {						border: 1px solid #<?php echo $hbg[0]; ?>;					}
 		.repeat-active {			
 			text-shadow: 	0 0 5px #<?php echo $hbg[0]; ?>,
 							0 0 10px #<?php echo $hbg[0]; ?>,
@@ -74,7 +77,7 @@
 	</style>
 	<script>
 		$('.jscolor').on("change",function(){$('#hoverColor')
-			.html(".element:hover{box-shadow: 0 0 10px -2px #"+$(this).val()+"}.border-link img{border:1px solid #"+$(this).val()+"}"); 	});
+			.html(".element:hover{box-shadow: 0 0 10px -2px #"+$(this).val()+"}.border-link img{border:1px solid #"+$(this).val()+"}.todolist .complete:checked+label{background-color: #"+$(this).val()+";}"); 	});
 		$('#rangeMate').on("input",function(){$('#MateEffect')
 			.html("body:after{opacity:"+$(this).val()+";}"); 																				});
 		$('#rangeOpacity').on("input",function(){$('#elementsOpacity')

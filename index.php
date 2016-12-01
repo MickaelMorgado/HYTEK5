@@ -58,6 +58,7 @@ if(!isset($_SESSION['id_session'])){
 					data-intro='Hello new visitor, Sign Up to HYTEK5 (WIP start page) and get your new environment for better & faster browsing experience!'
 					data-step="1"><!--div class="element"--><?php include('apps/cookie-login.php'); ?><div class="glass"></div>
 				</div>	
+				<div class="element"><?php include('apps/todolist.php'); ?><div class="glass"></div></div>	
 			</div><!--div class="col-xs-12 col-sm-6 col-md-2 item"><div class="element" style="height:150px;"><!--?php include('apps/meteo.php'); ?><div class="glass"></div></div></div-->		
 		</div>
 	</div>

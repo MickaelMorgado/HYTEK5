@@ -30,6 +30,6 @@
 			</script>
 		<?php
 	}else{
-		echo "Can't be empty";
+		echo "Empty url can't be added in your bookmarks!";
 	}
 ?>
