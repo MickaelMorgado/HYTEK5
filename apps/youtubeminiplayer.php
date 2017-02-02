@@ -28,14 +28,15 @@
 								    </div>
 									<input id="youtubeRangeSlider-input" type="range" min="0" max="100">
 								  </div>
-								<span id="player-prev" 		title="previous [shift+b]"><i class="fa fa-fast-backward"></i></span>
-								<span id="player-pause" 	title="pause [shift+p]"><i class="fa fa-pause"></i></span>
-								<span id="player-play" 		title="play [shift+p]"><i class="fa fa-play"></i></span>
-								<span id="player-next" 		title="next [shift+n]"><i class="fa fa-fast-forward"></i></span>
-								<span id="player-vol" 		title="mute/unmute [shift+m]"><i class="fa fa-volume-up"></i><i class="fa fa-volume-off"></i></span>
+								<span id="player-prev" 		title="previous"><i class="fa fa-fast-backward"></i></span>
+								<span id="player-pause" 	title="pause"><i class="fa fa-pause"></i></span>
+								<span id="player-play" 		title="play"><i class="fa fa-play"></i></span>
+								<span id="player-next" 		title="next"><i class="fa fa-fast-forward"></i></span>
+								<span id="player-vol" 		title="mute/unmute"><i class="fa fa-volume-up"></i><i class="fa fa-volume-off"></i></span>
 								<span id="player-playAt" 	title="go to first"><i class="fa fa-reply"></i></span>
 								<!--span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span-->
-								<span id="player-repeat" 	title="repeat video [shift+r]"><i class="fa fa-repeat" aria-hidden="true"></i></span>
+								<span id="player-repeat" 	title="repeat video"><i class="fa fa-repeat" aria-hidden="true"></i></span>
+								<span id="player-shuffle" 	title="shuffle video"><i class="fa fa-random" aria-hidden="true"></i></span>
 							</div>
 			    		</div>
 			    	</div>
@@ -53,13 +54,14 @@ $(window).load(function(){
 });
   var 	player,
   		dataOrder = 0,
-  		lastOrder = $('.playlistlink').last().data("order");
+  		lastOrder = $('.playlistlink').last().data("order"),
+  		shuffleVideo = false;
 	function onYouTubeIframeAPIReady() {
 	    player = new YT.Player('boby', {
-	      	height: '250',
+	      	height: '300',
 	      	width: '100%',
 	     	<?php if (isset($_SESSION['id_session'])): ?>
-			videoId: $('#YTlist').find("a")[0].text,
+			videoId: $('#YTlist').find("a").first().data('src'),
 			<?php else: ?>
 			videoId: "g7TAqv-dx2Y",
 			<?php endif ?>
@@ -85,7 +87,8 @@ $(window).load(function(){
 			$("#player-repeat").addClass("repeat-active");
 		};
 	}
-	function onPlayerStateChange(event) { // when video ends
+	// when video ends
+	function onPlayerStateChange(event) { 
 		if (event.data === 0 ){nextVideo();}
 		else{
         	$("#youtubeRangeSlider").attr("aria-valuemax",player.getDuration());
@@ -103,6 +106,7 @@ $(window).load(function(){
 	        	}, 500);
         	}
         	getCurrentTimeYT();
+        	highlightCurrent(dataOrder);
 		}
         if (event.data == YT.PlayerState.PLAYING && !done) { /* CODE HERE like open links to target blank // check player.getPlayerState() */
         	$("#player-play").css({"display":"none"});
@@ -119,23 +123,51 @@ $(window).load(function(){
         	$(".player").removeClass("active");
         }
 	}
+	function highlightCurrent(dO) {
+		$('.playlistlink').removeClass('active');
+		$('.playlistlink[data-order='+dO+']').addClass('active');
+	}
+	function randomIntFromInterval(min,max){
+	    return Math.floor(Math.random()*(max-min+1)+min);
+	}
+	function randomVideo() {
+		dataOrder = randomIntFromInterval(0,lastOrder);
+		player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').data('src'));
+	}
+	function shuffle() {
+		if (shuffleVideo) { 
+			shuffleVideo = false; 
+			dataOrder = dataOrder;
+			$("#player-shuffle").removeClass("shuffle-active");
+		}else{ 
+			shuffleVideo = true; 
+			$("#player-shuffle").addClass("shuffle-active");
+			randomVideo();
+		};
+	}
 	function nextVideo(){
+		if (shuffleVideo && repeatVideoVar) { 	dataOrder = dataOrder; 	 	}
+		else if (repeatVideoVar) { 				dataOrder = dataOrder; 	 	}
+		else if (shuffleVideo) { 				randomVideo(); 				}
+		else { 									dataOrder = dataOrder+1; 	}
 		if (dataOrder >= lastOrder) { /* repeat all playlist again on reach last video */
 			dataOrder = -1;
 			nextVideo();
 		}else{
-			if (repeatVideoVar == true) { 	dataOrder = dataOrder; 		}
-			else{							dataOrder = dataOrder+1; 	};
-			player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
+			player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').data('src'));
 		}
 	}
 	function prevVideo(){
-		if (repeatVideoVar == true) {
-			dataOrder = dataOrder;
+		if (shuffleVideo && repeatVideoVar) { 	dataOrder = dataOrder; 	 	}
+		else if (repeatVideoVar) { 				dataOrder = dataOrder; 	 	}
+		else if (shuffleVideo) { 				randomVideo(); 				}
+		else { 									dataOrder = dataOrder-1; 	}
+		if (dataOrder >= lastOrder) { /* repeat all playlist again on reach last video */
+			dataOrder = -1;
+			nextVideo();
 		}else{
-			dataOrder = dataOrder-1; 
-		};
-		player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').text());
+			player.loadVideoById(""+$('#YTlist').find('[data-order='+dataOrder.toString()+']').data('src'));
+		}
 	}
 	function showUnmuteIcon() {
 		$("#player-vol .fa-volume-off").css({"display":"none"});	
@@ -175,19 +207,22 @@ $(window).load(function(){
 	$("#player-next").click(function(){			nextVideo();	});
 	$("#player-vol").click(function(){			muteUnmute(); 	});
 	$("#player-repeat").click(function(){		repeatVideo();	});
+	$("#player-shuffle").click(function(){		shuffle();		});
 
 
 	/*============================================================
 	    keypress plugin (https://dmauro.github.io/Keypress/)
 	============================================================*/
 		
+		/* 
 		var listener = new window.keypress.Listener();
 
-		/* PLAY YOUTUBE */
+		PLAY YOUTUBE 
 			listener.simple_combo("shift p", function() { PlayOrPauseVideo(player); });
 			listener.simple_combo("shift n", function() { nextVideo(); });
 			listener.simple_combo("shift b", function() { prevVideo(); });
 			listener.simple_combo("shift m", function() { muteUnmute(); });
 			listener.simple_combo("shift r", function() { repeatVideo(); });
+		*/
 
 </script>

@@ -8,27 +8,24 @@
 
 	if ($result->num_rows > 0) {
 		while ($row = mysqli_fetch_assoc($result)) {
-			?>
-			<form action="apps/youtube/rm-link.php" method="POST" class="pull-right">
-				<input type="hidden" name="rm-id" value="<?php echo $row['id_playlist'];?>">
-				<input type="submit" title="Remove music" value="x" class="youtube-list-rm-button">
-			</form>
-			<!-- !!! NAO separar a linha abaixo por que ta a ir buscar o texto via js examplo id = "aaaaaa" se separar pode ficar id ="      aaaaaaa     " e perde-se o id -->
-			<a 
+			?><a 
 				class='playlistlink' 
 				title='dataOrder=<?php echo $i; ?>' 
 				onclick='player.loadVideoById("<?php echo $row['youtubeplaylistlink']; ?>");dataOrder=<?php echo $i; ?>' 
-				data-order="<?php echo $i; ?>"><img class="youtube-list-thumbnail lazy" data-original="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg"><?php echo $row['youtubeplaylistlink']; ?></a>
-			
-			<button 
-				type="button" 
-				class="pull-right yt-cp2clpbrd" 
-				data-toggle="modal"
-				title="Download music"
-				data-target=".copiedtoclipboard" 
-				onclick="modalsetyoutubeid('<?php echo $row[youtubeplaylistlink]; ?>')">D</button>
-			<br/>
-			<?php
+				data-order="<?php echo $i; ?>" 
+				data-src="<?php echo $row['youtubeplaylistlink']; ?>"><img class="youtube-list-thumbnail lazy" data-original="http://i1.ytimg.com/vi/<?php echo $row['youtubeplaylistlink']; ?>/default.jpg">
+				<form action="apps/youtube/rm-link.php" method="POST">
+					<input type="hidden" name="rm-id" value="<?php echo $row['id_playlist'];?>">
+					<input type="submit" title="Remove music" value="x" class="youtube-list-rm-button">
+				</form>
+				<button 
+					type="button" 
+					class="yt-cp2clpbrd" 
+					data-toggle="modal"
+					title="Download music"
+					data-target=".copiedtoclipboard" 
+					onclick="modalsetyoutubeid('<?php echo $row[youtubeplaylistlink]; ?>')">D</button>
+				</a><?php
 			if ($i>=1) {
 				$separate = ",";
 			}else{
