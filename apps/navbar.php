@@ -16,7 +16,7 @@
 							class="search fuzzy-search" 
 							id="searchinput" 
 							autocomplete="off"
-							data-intro='This field enables you to go to your favorite bookmarks or simply search on Google or YouTube'
+							data-intro='This "search bar" enables you to go to your favorite bookmarks or simply search with ...'
 							data-step="2"
 						>
 					</div>
@@ -36,7 +36,10 @@
 									value 	= 	"google" 
 									class 	= 	"dock-icon sprite s1"
 									id  	= 	"google-search"
-									onclick = 	"$(location).attr('href', 'https://www.google.com/search?q='+$('#searchinput').val())" >
+									onclick = 	"$(location).attr('href', 'https://www.google.com/search?q='+$('#searchinput').val())" 
+									data-intro='... Google or ...'
+									data-step="3"
+									>
 								</input>
 							</li><li>
 								<input 
@@ -45,7 +48,10 @@
 									value 	= 	"youtube" 
 									class 	= 	"dock-icon sprite s3"
 									id  	= 	"youtube-search"
-									onclick = 	"$(location).attr('href', 'https://www.youtube.com/results?search_query='+$('#searchinput').val())" >
+									onclick = 	"$(location).attr('href', 'https://www.youtube.com/results?search_query='+$('#searchinput').val())" 
+									data-intro='... YouTube'
+									data-step="4"
+									>
 								</input>
 							</li><li>
 								<input 
@@ -53,7 +59,9 @@
 									title 	= 	"add this link" 
 									value 	= 	"add" 
 									class 	= 	"dock-icon sprite s6"
-									onclick = 	"$('#dynamic-method').val('add');" >
+									onclick = 	"$('#dynamic-method').val('add');" 
+									data-intro='This button allow you add a link to your "bookmarks panel", just add a url in "search bar" and press this "add button"'
+									data-step="5">
 								</input>
 							</li>
 						</ul>
@@ -86,7 +94,13 @@
 			</div>
 		</form>
 		<div class="ajax-response"></div>
-		<ul class="list-unstyled scrollable list" id="enableRefresh">
+		<ul 
+			class="list-unstyled scrollable list" 
+			id="enableRefresh"
+			data-intro='This is the "bookmarks panel" where you have all your favorites links'
+			data-step="6"
+			data-position="right"
+			>
 			<?php include('links/link-list.php'); ?>
 		</ul>
 	</div>
