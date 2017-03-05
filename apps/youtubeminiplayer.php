@@ -37,6 +37,8 @@
 								<!--span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span-->
 								<span id="player-repeat" 	title="repeat video"><i class="fa fa-repeat" aria-hidden="true"></i></span>
 								<span id="player-shuffle" 	title="shuffle video"><i class="fa fa-random" aria-hidden="true"></i></span>
+								<span id="player-loopAB" 	title="loop from A to B"><i class="fa fa-repeat" aria-hidden="true"></i></span>
+								<span class="seconds-display"></span>
 							</div>
 			    		</div>
 			    	</div>
@@ -196,6 +198,27 @@ $(window).load(function(){
 	}
 	function PlayOrPauseVideo(player) { 		toggle(player);	}
 	function expand() {							$("#player").parent().parent().toggleClass("expand");	}
+	var isActivate = false;
+	function loopAB() {
+		if (isActivate == true) {
+			isActivate = false;
+			$('#player-loopAB i').css({"opacity":"1"});
+		}else{
+			isActivate = true;
+			$('#player-loopAB i').css({"opacity":"0.5"});
+			var A = prompt("Start time in Seconds: ", player.getCurrentTime());
+			var B = prompt("End time in Seconds: ", "107");
+			player.seekTo(A);
+			checkTime();
+		    function checkTime(){
+		        setTimeout(function(){
+		        	$('.seconds-display').text(player.getCurrentTime().toFixed(0)+" sec");
+		            if ( (player.getCurrentTime()>=B) || (player.getCurrentTime()>= (player.getDuration()-1)) ) { player.seekTo(A); }
+		            if (isActivate) { checkTime(); }
+		        },100);
+		    }
+		}
+	}
 	showUnmuteIcon();
 	$("#player-expand").click(function(){		expand();				});
 
@@ -208,6 +231,7 @@ $(window).load(function(){
 	$("#player-vol").click(function(){			muteUnmute(); 	});
 	$("#player-repeat").click(function(){		repeatVideo();	});
 	$("#player-shuffle").click(function(){		shuffle();		});
+	$("#player-loopAB").click(function(){		loopAB();		});
 
 
 	/*============================================================
