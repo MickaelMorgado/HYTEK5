@@ -37,7 +37,9 @@
 								<!--span id="player-expand" title="toggle view"><i class="fa fa-expand"></i></span-->
 								<span id="player-repeat" 	title="repeat video"><i class="fa fa-repeat" aria-hidden="true"></i></span>
 								<span id="player-shuffle" 	title="shuffle video"><i class="fa fa-random" aria-hidden="true"></i></span>
-								<span id="player-loopAB" 	title="loop from A to B"><i class="fa fa-repeat" aria-hidden="true"></i></span>
+								<span id="player-loopAB" 	title="loop from A to B" style="position: relative"><i class="fa fa-repeat" aria-hidden="true"></i><div style='font-size: 14px;right: -3px;top: 8px;position: absolute;color: #333;text-shadow: 0 0 3px white;font-weight: bold;'>AB</div></span>
+								<span id="pointA">A</span>
+								<span id="pointB">B</span>
 								<span class="seconds-display"></span>
 							</div>
 			    		</div>
@@ -198,26 +200,90 @@ $(window).load(function(){
 	}
 	function PlayOrPauseVideo(player) { 		toggle(player);	}
 	function expand() {							$("#player").parent().parent().toggleClass("expand");	}
+
 	var isActivate = false;
-	function loopAB() {
-		if (isActivate == true) {
-			isActivate = false;
+	var ABarray = []; 
+	$("#pointA").hide();
+	$("#pointB").hide();
+
+	$("#pointA").click(function(){
+		ABarray = []; // clear array
+		ABarray.push(player.getCurrentTime()); // push first time
+		DefineHandle("B");
+	});
+
+	$("#pointB").click(function(){
+		ABarray.push(player.getCurrentTime()); // push second time
+		$("#pointB").hide();
+		$("#player-loopAB").fadeIn();
+		loopA_B(ABarray[0],ABarray[1]);
+	});
+
+	function SetHandle(point,time,atime) {
+		if (point == "A") {
+			var timeA = time;
+		}else if (point == "B") {
+			var timeB = atime + time;
+		}
+		if (point == "B" && time != "") {
+			loopA_B(timeA,timeB);
+		}
+	}
+	function DefineHandle(point) {
+		if (point == "A") {
+			$("#player-loopAB").hide();
+			$("#pointA").fadeIn();
+		}else if(point == "B"){
+			$("#pointA").hide();
+			$("#pointB").fadeIn();
+		}
+	}
+	function loopA_B(A,B) {
+		player.seekTo(A);
+		checkTime();
+	    function checkTime(){
+	        setTimeout(function(){
+	        	$('.seconds-display').text(player.getCurrentTime().toFixed(0)+" sec");
+	            if ( (player.getCurrentTime()>=B) || (player.getCurrentTime()>= (player.getDuration()-1)) ) { player.seekTo(A); }
+	            if (isActivate) { 
+	            	checkTime(); 
+	            }
+	        },100);
+	    }
+	}
+	function toggleLoopAB() {
+		// gate
+		if (isActivate) { 
+			isActivate = false; 
 			$('#player-loopAB i').css({"opacity":"1"});
 		}else{
+			DefineHandle("A");
 			isActivate = true;
 			$('#player-loopAB i').css({"opacity":"0.5"});
-			var A = prompt("Start time in Seconds: ", player.getCurrentTime());
-			var B = prompt("End time in Seconds: ", "107");
-			player.seekTo(A);
-			checkTime();
-		    function checkTime(){
-		        setTimeout(function(){
-		        	$('.seconds-display').text(player.getCurrentTime().toFixed(0)+" sec");
-		            if ( (player.getCurrentTime()>=B) || (player.getCurrentTime()>= (player.getDuration()-1)) ) { player.seekTo(A); }
-		            if (isActivate) { checkTime(); }
-		        },100);
-		    }
 		}
+			/*
+		if (param) {
+			if (isActivate == true) {
+				isActivate = false;
+				$('#player-loopAB i').css({"opacity":"1"});
+			}else{
+				isActivate = true;
+				$('#player-loopAB i').css({"opacity":"0.5"});
+				var A = prompt("Start time in Seconds: ", player.getCurrentTime());
+				var B = prompt("End time in Seconds: ", "107");
+				player.seekTo(A);
+				checkTime();
+			    function checkTime(){
+			        setTimeout(function(){
+			        	$('.seconds-display').text(player.getCurrentTime().toFixed(0)+" sec");
+			            if ( (player.getCurrentTime()>=B) || (player.getCurrentTime()>= (player.getDuration()-1)) ) { player.seekTo(A); }
+			            if (isActivate) { checkTime(); }
+			        },100);
+			    }
+			}
+		}else{
+		}
+			*/
 	}
 	showUnmuteIcon();
 	$("#player-expand").click(function(){		expand();				});
@@ -231,7 +297,7 @@ $(window).load(function(){
 	$("#player-vol").click(function(){			muteUnmute(); 	});
 	$("#player-repeat").click(function(){		repeatVideo();	});
 	$("#player-shuffle").click(function(){		shuffle();		});
-	$("#player-loopAB").click(function(){		loopAB();		});
+	$("#player-loopAB").click(function(){		toggleLoopAB();		});
 
 
 	/*============================================================
