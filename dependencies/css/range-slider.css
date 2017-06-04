@@ -1,0 +1,175 @@
+
+.price-box {
+	margin: 0 auto;
+	background: #E9E9E9;
+	border-radius: 10px;
+	padding: 40px 15px;
+	width: 500px;
+}
+
+.ui-widget-content {
+
+	position: relative;
+
+	border: 4px solid #bdc3c7;
+	background: #e1e1e1;
+	color: #222222;
+	margin-top: 8px;
+}
+
+.ui-slider .ui-slider-handle {
+	position: absolute !important;
+	z-index: 2 !important;
+	width: 20px !important;
+	height: 20px !important;
+	cursor: default !important;
+	margin: 0 -20px auto !important;
+	text-align: center !important;	
+	line-height: 30px !important;
+	color: #FFFFFF !important;
+	font-size: 15px !important;
+	border-radius: 100% !important;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+	background: #393a40 !important;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+	margin-left: -0.5em !important;
+	top: -10px;
+}
+
+.ui-slider .ui-slider-handle {
+	cursor: pointer;
+}
+
+.ui-slider a,
+.ui-slider a:focus {
+	cursor: pointer;
+	outline: none;
+}
+
+.price, .lead p {
+	font-weight: 600;
+	font-size: 32px;
+	display: inline-block;
+	line-height: 60px;
+}
+
+h4.great {
+	background: #00ac98;
+	margin: 0 0 55px -60px;
+	padding: 7px 15px;
+	color: #ffffff;
+	font-size: 18px;
+	font-weight: 600;
+	border-radius: 5px;
+	display: inline-block;
+	-moz-box-shadow:    2px 4px 5px 0 #ccc;
+  	-webkit-box-shadow: 2px 4px 5px 0 #ccc;
+  	box-shadow:         2px 4px 5px 0 #ccc;
+}
+
+.price-slider {
+	margin-bottom: 70px;
+}
+
+.form-pricing {
+	background: #ffffff;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+.price-form {
+	background: #ffffff;
+	margin-bottom: 10px;
+	padding: 20px;
+	border: 1px solid #eeeeee;
+	border-radius: 4px;
+}
+
+.form-group {
+	margin-bottom: 0;
+}
+
+.form-group span.price {
+	font-weight: 200;
+	display: inline-block;
+	color: #7f8c8d;
+	font-size: 14px;
+}
+
+.help-text {
+	display: block;
+	margin-top: 32px;
+	margin-bottom: 10px;
+	color: #737373;
+	position: absolute;
+	font-weight: 200;
+	text-align: right;
+	width: 188px;
+}
+
+.price-form label {
+	font-weight: 200;
+	font-size: 21px;
+}
+
+.ui-slider-range-min {
+	background: #2980b9;
+}
+
+.ui-slider-label-inner {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #393a40;
+    display: block;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
+    top: 100%;
+    z-index: 99;
+}
+
+
+.slider-price-result {
+	border: 0; 
+	width: auto; 
+	display: inline-block; 
+	width: 60px; 
+	background: transparent; 
+	color: #5cb85c; 
+	font-weight: bold;
+	float: right;
+}
+.cat-label {
+	text-overflow: ellipsis;
+	display: inline-block;
+	max-width: 180px;
+	overflow: hidden;
+}
+.cat-slider {
+	border-radius: 4px;
+}
+.cat-slider .ui-slider-handle {
+	background: #5cb85c;
+	box-shadow: -2px 2px 9px -3px black;
+}
+
+// REMOVE OUTLINES
+			
+a,
+*:focus, /* chrome */
+a:hover,
+a:active,
+a:focus,
+.btn:focus,
+.btn.focus,
+.btn:active:focus,
+.btn.focus:active,
+.btn.active:focus,
+.btn.active.focus,
+.ui-slider *,
+.slick-divs:focus{ outline: none !important; }

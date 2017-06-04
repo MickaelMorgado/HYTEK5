@@ -34,7 +34,7 @@ if(!isset($_SESSION['id_session'])){
 			</div>
 		</div>
 	</div>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="row masonry-container">
 			<div class="col-xs-12 col-sm-6 col-md-2 item">
 				<div class="element"><?php include('apps/clock.php'); ?><div class="glass"></div></div>
