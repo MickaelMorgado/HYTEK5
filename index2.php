@@ -301,8 +301,9 @@
 		                                <tbody>
 
 		                            	<?php 
+											$incr_total = 0;
 
-											$sql = "SELECT * FROM despesa_listagem ORDER BY ID DESC";
+											$sql = "SELECT * FROM despesa_listagem";
 
 											$result = mysqli_query($link,$sql);
 											if ($result->num_rows > 0) {
@@ -318,6 +319,17 @@
 														    	<input type="checkbox" name="checkbox-name" id="checkbox-id" class="rmchk" />
 														    </td>
 														</tr>
+														<?php 
+															$incr_total = $incr_total + $row['Valor'];
+														?>
+														<?php if ($row['Categoria']=="Ponto de situação"): ?>
+															<tr>
+																<td><?php echo $row['Data']; ?></td>
+																<td>Ponto de situação</td>
+																<td>Total gasto</td>
+																<td class="slider-price-result"><?php echo $incr_total ?></td>
+															</tr>
+														<?php endif ?>
 													<?php
 												} 	
 											}else{
@@ -422,8 +434,9 @@
 					<div class="row">
 						<div class="col-sm-10">
 							<div class="form-group">
-								<label for="">Categoria (se necessario) :</label>
+								<label for="">Categoria:</label>
 								<select name="add-categoria" class="form-control" id="sel1">
+								    <option value="Salario">Salario</option>
 								    <option selected>--</option>
 								    <option value="Steam">Steam</option>
 								    <option value="Compras Online">Compras Online</option>
@@ -483,10 +496,19 @@
 						<div class="col-sm-3">
 							<div class="form-group">
 								<label for=""> <br> </label>
-								<input type="submit" class="form-control">
+								<input type="submit" class="form-control btn btn-success">
 							</div>
 						</div>
 					</div>
+				</form>
+				<form action="apps/money/add-registo.php" method="POST">
+					<hr>
+					<input type="hidden" name="Data" value="--">
+					<input type="hidden" name="Titulo" value="Salario">
+					<input type="hidden" name="Valor" value="653,16">
+					<input type="hidden" name="Categoria" value="Ponto de situação">
+					<label for="">Clica aqui se recebeu salario : </label>
+					<input type="submit" value="Salario" class="btn btn-success">
 				</form>
 			</div>
 		</div>
@@ -563,7 +585,7 @@
 			vsChange();
 
 			// STYLIZE CURRENT MONTH OF HISTORIC LIST :
-
+				/*
 				var currentDate = new Date();
 				var currentMonth = currentDate.getMonth() + 1;
 				var comprasEfectuadas = 0;
@@ -582,7 +604,7 @@
 				});
 
 				$('.panel-yellow .huge').text(comprasEfectuadas);
-
+				*/
 
 			// SHORTCUT TO REVEAL ADD POPUP :
 
