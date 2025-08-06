@@ -162,6 +162,32 @@ If malicious code is proposed, honest nodes can **refuse to upgrade** and **fork
 
 ---
 
+## 🛡️ Bitcoin & Privacy
+
+### How Privacy is Compromised
+
+* **KYC exchanges and services** (e.g., Coinbase, MoonPay, Ramp) record your ID and the wallet address used.
+* Any BTC withdrawn from KYC platforms is **traceable on-chain**.
+* Moving BTC to a hardware wallet (e.g., Trezor) does **not break this traceability**.
+* Blockchain analysis firms can cluster addresses and trace funds easily.
+
+### Best Practices for Privacy
+
+| Step                       | Purpose                                | Tools/Examples                |
+| -------------------------- | -------------------------------------- | ----------------------------- |
+| Use non-KYC sources        | Avoid identity linking                 | Bisq, HodlHodl, Azteco, Peach |
+| New hardware wallet + seed | Create fresh, unlinkable wallet        | Trezor, Ledger, Coldcard      |
+| Avoid address reuse        | Prevent clustering                     | Use fresh receive addresses   |
+| Use CoinJoin               | Break transaction history traceability | Samourai Whirlpool, Wasabi    |
+| Use Tor or VPN             | Hide IP when broadcasting transactions | Orbot, ProtonVPN              |
+
+### Key Insight
+
+> Self-custody is not the same as privacy.
+> If your coins came from a KYC source, they are already linked to your identity.
+
+---
+
 ## 🕵️️ Satoshi Nakamoto
 
 * Published Bitcoin whitepaper in 2008.
