@@ -188,6 +188,36 @@ If malicious code is proposed, honest nodes can **refuse to upgrade** and **fork
 
 ---
 
+## 📈 Investing: DCA, Brokers & Entry Price
+
+### Entry Price vs Blockchain Delay
+
+* When buying via brokers integrated in wallets (e.g., Exodus with MoonPay or Ramp):
+
+  * Your **entry price is locked the moment you press Buy**.
+  * Blockchain confirmation (10–15 min for BTC) only delays **delivery**, not the price.
+  * Even if BTC price moves during confirmation, your cost basis stays fixed.
+
+### Typical Delays
+
+* **Ramp**: 2–10 minutes, sometimes up to 30–60 min depending on network congestion and payment checks.
+* **MoonPay**: 5–15 minutes, occasionally longer if Bitcoin network is busy.
+* BTC block time (\~10 min) is the main bottleneck.
+
+### XRP vs BTC Settlement Speed
+
+| Coin | Confirmation Speed | Reason                                      |
+| ---- | ------------------ | ------------------------------------------- |
+| BTC  | \~10 minutes       | Proof-of-Work mining, block-based finality  |
+| ETH  | \~15–60 seconds    | PoS validators, faster block times          |
+| XRP  | 3–5 seconds        | Consensus ledger, streamlined validator set |
+| SOL  | \~2–4 seconds      | High-throughput PoS network                 |
+
+* **XRP** feels much faster because it uses a **consensus protocol**, not mining.
+* This makes it ideal for brokers to settle transactions quickly after payment clears.
+
+---
+
 ## 🕵️️ Satoshi Nakamoto
 
 * Published Bitcoin whitepaper in 2008.
