@@ -158,7 +158,7 @@ If malicious code is proposed, honest nodes can **refuse to upgrade** and **fork
 
 * **Blockchain**: Immutable history of all blocks/transactions.
 * **UTXO Set**: Current spendable outputs — updated by each block.
-* Full nodes store everything; pruned nodes store recent data only.
+* Full nodes store everything, which requires over 500 GB of disk space as of 2024. Pruned nodes store recent data only, significantly reducing storage requirements.
 
 ---
 
@@ -173,6 +173,67 @@ If malicious code is proposed, honest nodes can **refuse to upgrade** and **fork
 * [Bitcoin Whitepaper](https://bitcoin.org/bitcoin.pdf)
 * [Satoshi's Emails & Posts](https://satoshi.nakamotoinstitute.org/)
 * [First Forum Post](https://bitcointalk.org/index.php?topic=5.msg5#msg5)
+
+---
+
+## 🔗 Blockchain Layers (L0 to L3)
+
+Blockchains are often discussed in terms of "layers," which describe their architecture and how they scale. This layered model helps explain how different protocols and applications interact.
+
+*   **Layer 0 (L0): The Foundation**
+    *   This is the underlying infrastructure that allows different blockchains to communicate. It consists of the internet, hardware, and protocols that enable interoperability.
+    *   **Examples**: Protocols like Polkadot and Cosmos are often considered Layer 0 because they provide a framework for building and connecting independent Layer 1 blockchains.
+
+*   **Layer 1 (L1): The Core Blockchain**
+    *   This is the base blockchain network, like Bitcoin or Ethereum. It is responsible for its own security and the final settlement of all its transactions.
+    *   **Challenge**: L1s often face a "scalability trilemma," struggling to balance decentralization, security, and speed.
+
+*   **Layer 2 (L2): The Scaling Solution**
+    *   L2s are protocols built *on top of* a Layer 1 blockchain. They handle transactions off the main L1 chain, allowing them to be processed much faster and at a lower cost.
+    *   They periodically bundle transactions and submit a compressed summary back to the Layer 1 chain, inheriting its robust security.
+
+*   **Layer 3 (L3): The Application Layer**
+    *   This is where user-facing decentralized applications (dApps) and protocols are built. These applications run on top of Layer 1 or Layer 2 networks to provide specific services.
+    *   **Examples**: Decentralized exchanges like Uniswap, lending protocols like Aave, or blockchain games.
+
+### Main Chains & Layers Overview
+
+| Chain / Protocol     | Layer | Consensus             | Live Nodes (Approx.) | Description                                                 |
+| :------------------- | :---: | :-------------------- | :------------------: | :---------------------------------------------------------- |
+| **Polkadot**         |  L0   | Nominated PoS (NPoS)  |       ~1,000+        | An interoperability protocol for connecting different blockchains. |
+| **Bitcoin**          |  L1   | Proof-of-Work (PoW)   |      ~17,000+        | The original decentralized cryptocurrency and settlement layer. |
+| ⚡️ Lightning Network |  L2   | - (Off-chain network) |      ~15,000+        | A payment protocol on Bitcoin for fast, cheap transactions. |
+| **Ethereum**         |  L1   | Proof-of-Stake (PoS)  |       ~9,000+        | A decentralized platform for smart contracts and dApps.     |
+| **Arbitrum One**     |  L2   | - (Optimistic Rollup) |       ~1,500+        | An L2 solution that scales Ethereum by bundling transactions. |
+| **Uniswap**          |  L3   | - (dApp on Ethereum)  |          -           | A decentralized exchange (dApp) running on Ethereum and L2s. |
+| **Solana**           |  L1   | Proof-of-History (PoH)|       ~1,600+        | A high-performance blockchain focused on speed and low cost.  |
+
+---
+
+## 📈 Staking vs. Lending
+
+### What is Staking?
+
+Staking is the process of actively participating in transaction validation on a proof-of-stake (PoS) blockchain. On these blockchains, anyone with a minimum-required balance of a specific cryptocurrency can validate transactions and earn staking rewards.
+
+*   **Validators**: When you stake your coins, you become a **validator**. Validators are responsible for the same thing as miners in a proof-of-work chain: ordering transactions and creating new blocks so that all participants on the network can agree on the state of the blockchain. Validators are chosen at random to create blocks and are rewarded for doing so. If they act maliciously (e.g., validate fraudulent transactions), they can lose a portion of their staked coins in an event called **slashing**.
+*   **Purpose**: Staking serves to secure the network. The staked crypto acts as a guarantee of the validator's legitimacy.
+
+### What is Lending?
+
+Crypto lending involves lending your cryptocurrencies to borrowers in return for interest payments. The loans are often facilitated by centralized platforms or decentralized finance (DeFi) protocols. Unlike staking, lending does not directly contribute to the security of a blockchain network.
+
+### What does APY mean?
+
+**APY** stands for **Annual Percentage Yield**. It is the real rate of return earned on an investment, taking into account the effect of compounding interest. In the context of crypto exchanges and DeFi platforms, APY is the projected rate of annual return on a particular staking or lending product.
+
+| Feature          | Staking                                      | Lending                                       |
+| ---------------- | -------------------------------------------- | --------------------------------------------- |
+| **Purpose**      | Secure the network, validate transactions    | Earn interest by lending assets to borrowers  |
+| **Mechanism**    | Locking up coins to become a validator (PoS) | Depositing crypto into a lending pool/platform|
+| **Rewards**      | Block rewards and transaction fees           | Interest paid by borrowers                    |
+| **Risk**         | Slashing penalties, network volatility       | Smart contract bugs, platform risk, defaults  |
+| **Who you trust**| The blockchain protocol itself               | The lending platform or DeFi protocol         |
 
 ---
 
