@@ -18,6 +18,26 @@
 
 ---
 
+## Wallet Balance vs. Blockchain Explorer
+
+- **Wallet apps (Exodus, Trezor, etc.)**  
+  Show your *total balance* across all addresses generated from your seed phrase. They handle change addresses and UTXOs behind the scenes.
+
+- **Blockchain explorers (Blockchain.com, Blockstream, etc.)**  
+  Show the balance of **one specific address**. If you paste just a single address, you'll only see what remains there (e.g., 0.0003 BTC) — not the whole wallet (e.g., 0.006 BTC).
+
+### Why the difference?
+- Bitcoin uses the **UTXO model**. Every spend consumes inputs and creates new outputs.  
+- Wallets often generate **new addresses** for change and privacy.  
+- Explorers aren't aware of your whole wallet — they only know the address you paste.
+
+### Key takeaways
+- Always trust your **wallet app** for your true portfolio value.  
+- Use explorers only to **verify individual transactions** via their txid.  
+- To see the *entire wallet* in an explorer, you need to export your **xpub** (extended public key) and import it into a compatible tracker.
+
+---
+
 ## 🧱 Bitcoin Transactions
 
 ### UTXO (Unspent Transaction Output) Model
