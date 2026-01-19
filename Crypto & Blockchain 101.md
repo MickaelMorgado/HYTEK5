@@ -257,6 +257,152 @@ Crypto lending involves lending your cryptocurrencies to borrowers in return for
 
 ---
 
+## 🧩 Fiat On-Ramps & Off-Ramps
+
+### What is a Fiat On-Ramp?
+
+A **fiat on-ramp** is any service that converts traditional money (EUR, USD, etc.) into crypto like BTC.  
+Examples: centralized exchanges (Coinbase, Kraken), embedded buy widgets in wallets (MoonPay, Transak), and some Bitcoin ATMs.
+
+Key idea: They are the **bridge** between the banking system (SEPA, cards) and the crypto world, so they usually handle KYC/AML checks and charge higher fees than pure crypto↔crypto trading.
+
+### What is a Fiat Off-Ramp?
+
+A **fiat off-ramp** lets you convert crypto back to traditional money (sell BTC → receive EUR or USD to your bank/card).  
+These services are the main point where regulators monitor flows (tax reporting, AML, etc.) because they touch the banking system.
+
+---
+
+## 🕵️ Minimal-KYC / P2P Approaches
+
+In many regions (especially EU under MiCA/DAC8), fully anonymous fiat↔crypto services are disappearing, but there are still **lower‑KYC** approaches with trade‑offs.
+
+### P2P Non-Custodial Platforms
+
+Platforms like **Bisq**, **HodlHodl**, or similar P2P markets let users trade directly with each other instead of with a central exchange order book.  
+
+- Typically no platform-level KYC, and many run over Tor or similar privacy tooling.  
+- However, users often still pay via bank transfer or other traceable methods to the counterparty, so privacy is better but not perfect.
+
+### Cash and In-Person Trades
+
+Some users arrange **in‑person cash-for-BTC trades** via local meetups or P2P platforms.  
+
+- Stronger privacy (no bank rails), but higher counterparty and physical safety risk.  
+- Must respect local law regarding cash transactions and tax reporting.
+
+### Bitcoin ATMs
+
+Bitcoin ATMs allow buying (and sometimes selling) BTC with cash or card.  
+
+- Some locations allow small purchases with limited KYC; others require full identity verification.  
+- Fees are usually significantly higher than online exchanges, so they are a convenience / privacy tool, not an efficiency tool.
+
+---
+
+## 🏦 Example: Cost-Efficient Flow on Coinbase
+
+This section documents a **low-fee “CEX → self-custody” pattern** using Coinbase as an example. Exact fee levels may change, but the structure stays similar.
+
+### Avoiding “Instant Buy” Fees
+
+The standard “simple buy” with cards can include:  
+
+- A visible fee (often around a few percent depending on method and region).  
+- A hidden **spread** between market price and the quote, which increases effective cost.
+
+For recurring purchases or larger tickets, this is usually **more expensive** than spot trading.
+
+### EUR vs USDC as Base Asset
+
+For a simple bank → BTC flow in the Eurozone:
+
+- Keeping funds in **EUR** and trading BTC/EUR avoids FX exposure and extra conversions.  
+- Converting to **USDC** first makes sense if you plan to move stablecoins on‑chain or trade USD‑based markets, but the apparent “extra buying power” is just the EUR/USD exchange rate, not free yield.
+
+---
+
+## 📱 Step‑by‑Step: Buying BTC on Coinbase (Low‑Fee Flow)
+
+This walkthrough uses the Coinbase app in the Eurozone, focusing on **SEPA + spot/Advanced trading** instead of expensive instant card buys.
+
+### 1. Prepare Your Self‑Custody Wallet
+
+1. Install / open **Exodus** or **Trezor Suite** and create or unlock your wallet.  
+2. Go to the **Bitcoin (BTC)** account and copy a **receive address** on the Bitcoin network (not a testnet or other chain).
+
+### 2. Deposit EUR into Coinbase (SEPA)
+
+1. Open the **Coinbase** app and go to your **EUR balance** or main portfolio.  
+2. Tap **“Deposit” / “Deposit cash”**.  
+3. Choose **Bank transfer (SEPA)**.  
+4. Coinbase shows you **bank details** (IBAN, name, reference).  
+5. From your banking app, create a SEPA transfer to that IBAN using the exact reference.  
+6. Wait for the EUR to arrive (typically 0–2 business days).
+
+### 3. Buy BTC Using Advanced / Spot
+
+1. In Coinbase, switch to **Advanced Trade** (or the spot trading interface).  
+2. Select the trading pair **BTC/EUR**.  
+3. Choose **Limit order** type.  
+4. Optionally enable **“Post only”** if you want to ensure your order is a **maker** (lower fee) and not a taker.  
+5. Set:  
+   - **Price**: the EUR price per BTC you are willing to pay.  
+   - **Size**: how much BTC you want to buy (or the EUR amount).  
+6. Submit the order and wait for it to fill on the order book.
+
+Once filled, you now own **spot BTC** in your Coinbase account (not a derivative, not a perpetual).
+
+### 4. Withdraw BTC to Exodus / Trezor
+
+1. In Coinbase, go to **Assets → Bitcoin (BTC)**.  
+2. Tap **Send / Withdraw**.  
+3. Select **Bitcoin network (BTC)** as the network.  
+4. Paste the **BTC receive address** from your Exodus or Trezor wallet.  
+5. Double‑check:  
+   - First and last characters of the address match what you see in Exodus/Trezor.  
+   - Network is **Bitcoin (BTC)**, not an alternative like “BTC on Ethereum” or similar.  
+6. Enter the amount of BTC to send and review the **network fee + any fixed Coinbase withdrawal fee**.  
+7. Confirm the transaction and wait for on‑chain confirmations; the BTC should appear in Exodus/Trezor after a few blocks.
+
+### 5. Optional: Repeated Stacking Flow
+
+For recurring DCA with lower fees:
+
+1. Repeat **SEPA deposit → BTC/EUR limit order on Advanced → withdraw to self‑custody**.  
+2. Optionally script reminders (calendar/TODO) around paydays and treat this as your standard “fiat → BTC → wallet” pipeline.
+
+---
+
+## 📊 Thinking About Value: Beyond EUR/USD
+
+BTC is usually quoted in **fiat** (EUR, USD), but both are inflating units. Some investors prefer to think in terms that better reflect **purchasing power** or **store of value**.
+
+### Fiat as a Moving Yardstick
+
+- EUR and USD lose purchasing power over time due to inflation and monetary policy.  
+- BTC charts in fiat partly reflect **fiat debasement**, not just BTC strength, so nominal all‑time highs can be misleading.
+
+### BTC vs Gold
+
+- Many observers compare BTC to **gold** as a store‑of‑value asset and track the **BTC/gold ratio** (how many ounces of gold one BTC buys).  
+- The ratio fluctuates significantly; in some periods BTC massively outperforms gold, in others gold leads (for example, during strong safe‑haven flows into gold).
+
+### BTC vs Cost of Living (“Months of Runway”)
+
+A practical way to think about value is **personal purchasing power** instead of generic currency:
+
+- Define a “basket” that approximates your **monthly living costs** (rent, food, utilities, transport, etc.).  
+- Track: “How many **months of my life** does one BTC pay for?” or “How many months of runway does my BTC stack represent?”  
+  - If that number rises over time, BTC is increasing your real independence and optionality, regardless of what EUR or USD do.
+
+### BTC vs Opportunity Cost
+
+- Another lens: compare BTC to realistic alternatives (global equity index, real estate index, 60/40 portfolio).  
+- The question becomes: “Did including BTC improve my portfolio’s return vs risk relative to what I would have held anyway?” instead of “Did BTC beat the euro?”
+
+---
+
 ## 📖 Learn More
 
 * [Mempool.space (block explorer)](https://mempool.space/)
