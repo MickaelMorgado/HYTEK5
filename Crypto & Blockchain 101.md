@@ -403,6 +403,75 @@ A practical way to think about value is **personal purchasing power** instead of
 
 ---
 
+## 🐋 Whales & Power in Bitcoin
+
+In Bitcoin, **whales** are entities that hold a very large amount of BTC, but having lots of coins does *not* give them extra protocol control.
+
+### What whales *do* get
+
+- Huge **purchasing power**: they can buy businesses, real estate, political access, or fund projects and teams using BTC.  
+- Better **market access**: OTC deals, deep liquidity, credit lines and structured products using BTC as collateral.  
+- Strong **intergenerational wealth** potential: a big BTC stack can act as a long‑term family treasury that is hard to dilute or confiscate.  
+
+### What whales *cannot* do
+
+- They cannot change core rules like the 21M cap or consensus just by owning coins; protocol rules are enforced by miners + full nodes, not by coin voting.  
+- They cannot exit their entire position at the displayed market price without moving the market against themselves; very concentrated holders are powerful but also fragile when selling.  
+
+### Why someone wants to be a whale
+
+- A strategic bet that BTC becomes a major global asset (digital gold / reserve asset), so a large share now becomes huge real‑world purchasing power later.  
+- Fixed supply means their percentage of the total cannot be diluted by new issuance, only by their own spending or bad decisions; owning even a small percentage of the total supply is structurally powerful.
+
+---
+
+## ⏳ Bitcoin After the Last Halving / After 2140
+
+### What changes when all 21M BTC are mined?
+
+- No new BTC will ever be created; the full 21 million supply is in circulation.  
+- Bitcoin still runs as normal: blocks are produced, transactions are confirmed, and coins keep moving between users, companies, and institutions.  
+- The block subsidy (new BTC per block) goes to zero, so miners are paid only with transaction fees.
+
+### Miner incentives & network security
+
+- Today, miners earn: **block subsidy + transaction fees**. After 2140, it’s **fees only**.  
+- For the network to stay secure, total fees per block must be high enough to keep miners profitable so they keep providing hash power.  
+- If fees are too low, some miners may shut down (hash rate falls, security weakens). If fees are high, the network is secure but transactions become more expensive.  
+- Long‑term security depends on: adoption, demand for block space, and scaling solutions (e.g., Lightning, sidechains) that can still feed fees into the base layer.
+
+### What **doesn’t** change for regular users
+
+- You can still:  
+  - Receive and send BTC.  
+  - Hold BTC in self‑custody wallets (Trezor, Exodus, etc.).  
+  - Trade BTC on exchanges and peer‑to‑peer.  
+- The 21M cap is already enforced by protocol rules; hitting the cap just means we reach the end of the emission schedule that was known from the start.  
+- There is no automatic redistribution event or “final snapshot” where wealth gets reshuffled.
+
+### Whales, retail, and market behavior
+
+- Large holders (whales) will still exist, but:  
+  - They do **not** get protocol votes or the ability to unilaterally change rules like the 21M cap.  
+  - If they try to dump too much at once, they move the price against themselves, so their power is limited by market depth.  
+- Retail traders and small holders will still be able to buy, sell, DCA, and trade ranges.  
+- With a mature, fully issued asset, BTC is likely to behave more like a macro asset:  
+  - Still volatile, but gradually less extreme.  
+  - Clear cycles, ranges, and long consolidations, similar to other scarce assets (gold, equities) but with its own dynamics.
+
+### How to think about it as a retail participant
+
+- The main “edge” remains:  
+  - Longer time horizon than most traders.  
+  - Disciplined position sizing and low use of leverage.  
+  - Treating BTC as a long‑term store of value or portfolio component rather than a short‑term lottery ticket.  
+- The 21M cap being fully reached is not a point in time to fear; it’s the logical end of the schedule that Bitcoin has followed since genesis. The important questions will be:  
+  - Is there enough demand for block space to pay miners with fees?  
+  - How widely adopted is BTC as money / collateral / savings?  
+  - How healthy is the ecosystem of wallets, L2s, and services built on top?
+
+---
+
 ## 📖 Learn More
 
 * [Mempool.space (block explorer)](https://mempool.space/)
