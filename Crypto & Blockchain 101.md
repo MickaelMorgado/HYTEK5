@@ -399,7 +399,26 @@ A practical way to think about value is **personal purchasing power** instead of
 ### BTC vs Opportunity Cost
 
 - Another lens: compare BTC to realistic alternatives (global equity index, real estate index, 60/40 portfolio).  
-- The question becomes: “Did including BTC improve my portfolio’s return vs risk relative to what I would have held anyway?” instead of “Did BTC beat the euro?”
+- The question becomes: "Did including BTC improve my portfolio's return vs risk relative to what I would have held anyway?" instead of "Did BTC beat the euro?"
+
+---
+
+## 📈 Analyzing Crypto Markets: A Holistic Approach
+
+We began by examining how Bitcoin's value fluctuates relative to traditional currencies like the dollar and the euro. While BTC may appreciate against the dollar, this doesn't necessarily mean it gains value in euros, since exchange rates between currencies also shift. Next, we discussed the idea that many traders treat Bitcoin like digital gold, holding it long-term as a hedge against inflation or fiat devaluation. However, we emphasized that Bitcoin's price is still heavily influenced by currency exchange rates.
+
+After that, we looked at how economists analyze crypto markets more holistically. They typically combine:
+
+- **Fundamental factors** — supply caps, demand drivers, and user adoption
+- **Macroeconomic indicators** — broader financial trends or policy changes
+- **Network metrics** — number of active users or transaction volumes
+
+Finally, we considered composite indicators, such as:
+
+- **Stock-to-Flow (S2F)** — measures scarcity by comparing existing supply to new issuance
+- **NVT Ratio** (Network Value to Transactions) — compares market cap to transaction volume, sometimes called "Bitcoin's PE ratio"
+
+We stressed that no single indicator is flawless — economists rely on a mix of these tools to assess risk and potential, rather than predicting exact prices.
 
 ---
 
